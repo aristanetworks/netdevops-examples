@@ -1,5 +1,17 @@
-
 # DC1_FABRIC
+
+## Table of Contents
+
+- [DC1_FABRIC](#dc1fabric )
+  - [Fabric Switches and Management IP](#fabric-switches-and-management-ip)
+  - [Fabric Topology](#fabric-topology)
+  - [Fabric IP Allocation](#fabric-ip-allocation)
+    - [Fabric Point-To-Point Links](#fabric-point-to-point-links)
+    - [Point-To-Point Links Node Allocation](#point-to-point-links-node-allocation)
+    - [Overlay Loopback Interfaces (BGP EVPN Peering)](#overlay-loopback-interfaces-bgp-evpn-peering)
+    - [Loopback0 Interfaces Node Allocation](#loopback0-interfaces-node-allocation)
+    - [VTEP Loopback VXLAN Tunnel Source Interfaces (Leafs Only)](#vtep-loopback-vxlan-tunnel-source-interfaces-leafs-only)
+    - [VTEP Loopback Node allocation](#vtep-loopback-node-allocation)
 
 ## Fabric Switches and Management IP
 
@@ -19,6 +31,35 @@
 | DC1-L2LEAF5B | 192.168.2.114/24 | vEOS-LAB |
 | DC1-L2LEAF6A | 192.168.2.115/24 | vEOS-LAB |
 | DC1-L2LEAF6B | 192.168.2.116/24 | vEOS-LAB |
+
+## Fabric Topology
+
+| Type | Leaf Node | Leaf Interface | Leaf Port-Channel | Peer Node | Peer Interface | Peer Port-Channel |
+| ---- | --------- | -------------- | ----------------- |---------- | -------------- | ----------------- |
+| L3 Leaf | DC1-BL1A | Ethernet1 | N/A | DC1-SPINE1 | Ethernet6 | N/A |
+| L3 Leaf | DC1-BL1A | Ethernet2 | N/A | DC1-SPINE2 | Ethernet6 | N/A |
+| L3 Leaf | DC1-BL1B | Ethernet1 | N/A | DC1-SPINE1 | Ethernet7 | N/A |
+| L3 Leaf | DC1-BL1B | Ethernet2 | N/A | DC1-SPINE2 | Ethernet7 | N/A |
+| L3 Leaf | DC1-LEAF1A | Ethernet1 | N/A | DC1-SPINE1 | Ethernet1 | N/A |
+| L3 Leaf | DC1-LEAF1A | Ethernet2 | N/A | DC1-SPINE2 | Ethernet1 | N/A |
+| L3 Leaf | DC1-LEAF2A | Ethernet1 | N/A | DC1-SPINE1 | Ethernet2 | N/A |
+| L3 Leaf | DC1-LEAF2A | Ethernet2 | N/A | DC1-SPINE2 | Ethernet2 | N/A |
+| L3 Leaf | DC1-LEAF2B | Ethernet1 | N/A | DC1-SPINE1 | Ethernet3 | N/A |
+| L3 Leaf | DC1-LEAF2B | Ethernet2 | N/A | DC1-SPINE2 | Ethernet3 | N/A |
+| L3 Leaf | DC1-SVC3A | Ethernet1 | N/A | DC1-SPINE1 | Ethernet4 | N/A |
+| L3 Leaf | DC1-SVC3A | Ethernet2 | N/A | DC1-SPINE2 | Ethernet4 | N/A |
+| L3 Leaf | DC1-SVC3B | Ethernet1 | N/A | DC1-SPINE1 | Ethernet5 | N/A |
+| L3 Leaf | DC1-SVC3B | Ethernet2 | N/A | DC1-SPINE2 | Ethernet5 | N/A |
+| L2 Leaf | DC1-L2LEAF4A | Ethernet11 | Po11 | DC1-LEAF2A | Ethernet6 | Po6 |
+| L2 Leaf | DC1-L2LEAF4A | Ethernet12 | Po11 | DC1-LEAF2B | Ethernet6 | Po6 |
+| L2 Leaf | DC1-L2LEAF5A | Ethernet1 | Po1 | DC1-SVC3A | Ethernet5 | Po5 |
+| L2 Leaf | DC1-L2LEAF5A | Ethernet2 | Po1 | DC1-SVC3B | Ethernet5 | Po5 |
+| L2 Leaf | DC1-L2LEAF5B | Ethernet1 | Po1 | DC1-SVC3A | Ethernet6 | Po6 |
+| L2 Leaf | DC1-L2LEAF5B | Ethernet2 | Po1 | DC1-SVC3B | Ethernet6 | Po6 |
+| L2 Leaf | DC1-L2LEAF6A | Ethernet1 | Po1 | DC1-LEAF2A | Ethernet7 | Po7 |
+| L2 Leaf | DC1-L2LEAF6A | Ethernet2 | Po1 | DC1-LEAF2B | Ethernet7 | Po7 |
+| L2 Leaf | DC1-L2LEAF6B | Ethernet1 | Po1 | DC1-LEAF2A | Ethernet8 | Po8 |
+| L2 Leaf | DC1-L2LEAF6B | Ethernet2 | Po1 | DC1-LEAF2B | Ethernet8 | Po8 |
 
 ## Fabric IP Allocation
 
