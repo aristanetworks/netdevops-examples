@@ -34,32 +34,32 @@
 
 ## Fabric Topology
 
-| Type | Leaf Node | Leaf Interface | Leaf Port-Channel | Peer Node | Peer Interface | Peer Port-Channel |
-| ---- | --------- | -------------- | ----------------- |---------- | -------------- | ----------------- |
-| L3 Leaf | DC1-BL1A | Ethernet1 | N/A | DC1-SPINE1 | Ethernet6 | N/A |
-| L3 Leaf | DC1-BL1A | Ethernet2 | N/A | DC1-SPINE2 | Ethernet6 | N/A |
-| L3 Leaf | DC1-BL1B | Ethernet1 | N/A | DC1-SPINE1 | Ethernet7 | N/A |
-| L3 Leaf | DC1-BL1B | Ethernet2 | N/A | DC1-SPINE2 | Ethernet7 | N/A |
-| L3 Leaf | DC1-LEAF1A | Ethernet1 | N/A | DC1-SPINE1 | Ethernet1 | N/A |
-| L3 Leaf | DC1-LEAF1A | Ethernet2 | N/A | DC1-SPINE2 | Ethernet1 | N/A |
-| L3 Leaf | DC1-LEAF2A | Ethernet1 | N/A | DC1-SPINE1 | Ethernet2 | N/A |
-| L3 Leaf | DC1-LEAF2A | Ethernet2 | N/A | DC1-SPINE2 | Ethernet2 | N/A |
-| L3 Leaf | DC1-LEAF2B | Ethernet1 | N/A | DC1-SPINE1 | Ethernet3 | N/A |
-| L3 Leaf | DC1-LEAF2B | Ethernet2 | N/A | DC1-SPINE2 | Ethernet3 | N/A |
-| L3 Leaf | DC1-SVC3A | Ethernet1 | N/A | DC1-SPINE1 | Ethernet4 | N/A |
-| L3 Leaf | DC1-SVC3A | Ethernet2 | N/A | DC1-SPINE2 | Ethernet4 | N/A |
-| L3 Leaf | DC1-SVC3B | Ethernet1 | N/A | DC1-SPINE1 | Ethernet5 | N/A |
-| L3 Leaf | DC1-SVC3B | Ethernet2 | N/A | DC1-SPINE2 | Ethernet5 | N/A |
-| L2 Leaf | DC1-L2LEAF4A | Ethernet11 | Po11 | DC1-LEAF2A | Ethernet6 | Po6 |
-| L2 Leaf | DC1-L2LEAF4A | Ethernet12 | Po11 | DC1-LEAF2B | Ethernet6 | Po6 |
-| L2 Leaf | DC1-L2LEAF5A | Ethernet1 | Po1 | DC1-SVC3A | Ethernet5 | Po5 |
-| L2 Leaf | DC1-L2LEAF5A | Ethernet2 | Po1 | DC1-SVC3B | Ethernet5 | Po5 |
-| L2 Leaf | DC1-L2LEAF5B | Ethernet1 | Po1 | DC1-SVC3A | Ethernet6 | Po6 |
-| L2 Leaf | DC1-L2LEAF5B | Ethernet2 | Po1 | DC1-SVC3B | Ethernet6 | Po6 |
-| L2 Leaf | DC1-L2LEAF6A | Ethernet1 | Po1 | DC1-LEAF2A | Ethernet7 | Po7 |
-| L2 Leaf | DC1-L2LEAF6A | Ethernet2 | Po1 | DC1-LEAF2B | Ethernet7 | Po7 |
-| L2 Leaf | DC1-L2LEAF6B | Ethernet1 | Po1 | DC1-LEAF2A | Ethernet8 | Po8 |
-| L2 Leaf | DC1-L2LEAF6B | Ethernet2 | Po1 | DC1-LEAF2B | Ethernet8 | Po8 |
+| Type | Leaf Node | Leaf Interface | Peer Node | Peer Interface |
+| ---- | --------- | -------------- | --------- | -------------- |
+| L3 Leaf | DC1-BL1A | Ethernet1 | DC1-SPINE1 | Ethernet6 |
+| L3 Leaf | DC1-BL1A | Ethernet2 | DC1-SPINE2 | Ethernet6 |
+| L3 Leaf | DC1-BL1B | Ethernet1 | DC1-SPINE1 | Ethernet7 |
+| L3 Leaf | DC1-BL1B | Ethernet2 | DC1-SPINE2 | Ethernet7 |
+| L3 Leaf | DC1-LEAF1A | Ethernet1 | DC1-SPINE1 | Ethernet1 |
+| L3 Leaf | DC1-LEAF1A | Ethernet2 | DC1-SPINE2 | Ethernet1 |
+| L3 Leaf | DC1-LEAF2A | Ethernet1 | DC1-SPINE1 | Ethernet2 |
+| L3 Leaf | DC1-LEAF2A | Ethernet2 | DC1-SPINE2 | Ethernet2 |
+| L3 Leaf | DC1-LEAF2B | Ethernet1 | DC1-SPINE1 | Ethernet3 |
+| L3 Leaf | DC1-LEAF2B | Ethernet2 | DC1-SPINE2 | Ethernet3 |
+| L3 Leaf | DC1-SVC3A | Ethernet1 | DC1-SPINE1 | Ethernet4 |
+| L3 Leaf | DC1-SVC3A | Ethernet2 | DC1-SPINE2 | Ethernet4 |
+| L3 Leaf | DC1-SVC3B | Ethernet1 | DC1-SPINE1 | Ethernet5 |
+| L3 Leaf | DC1-SVC3B | Ethernet2 | DC1-SPINE2 | Ethernet5 |
+| L2 Leaf | DC1-L2LEAF4A | Ethernet11 | DC1-LEAF2A | Ethernet6 |
+| L2 Leaf | DC1-L2LEAF4A | Ethernet12 | DC1-LEAF2B | Ethernet6 |
+| L2 Leaf | DC1-L2LEAF5A | Ethernet1 | DC1-SVC3A | Ethernet5 |
+| L2 Leaf | DC1-L2LEAF5A | Ethernet2 | DC1-SVC3B | Ethernet5 |
+| L2 Leaf | DC1-L2LEAF5B | Ethernet1 | DC1-SVC3A | Ethernet6 |
+| L2 Leaf | DC1-L2LEAF5B | Ethernet2 | DC1-SVC3B | Ethernet6 |
+| L2 Leaf | DC1-L2LEAF6A | Ethernet1 | DC1-LEAF2A | Ethernet7 |
+| L2 Leaf | DC1-L2LEAF6A | Ethernet2 | DC1-LEAF2B | Ethernet7 |
+| L2 Leaf | DC1-L2LEAF6B | Ethernet1 | DC1-LEAF2A | Ethernet8 |
+| L2 Leaf | DC1-L2LEAF6B | Ethernet2 | DC1-LEAF2B | Ethernet8 |
 
 ## Fabric IP Allocation
 
