@@ -62,6 +62,7 @@ l3leaf:
     spines: [ DC1-SPINE1, DC1-SPINE2 ]
     uplink_to_spine_interfaces: [ Ethernet1, Ethernet2 ]
     mlag_interfaces: [ Ethernet3, Ethernet4 ]
+    spanning_tree_mode: mstp
     spanning_tree_priority: 4096
     virtual_router_mac_address: 00:1c:73:00:dc:01
   node_groups:
@@ -126,6 +127,7 @@ l2leaf:
     parent_l3leafs: [ DC1-LEAF2A, DC1-LEAF2B]
     uplink_interfaces: [ Ethernet1, Ethernet2 ]
     mlag_interfaces: [ Ethernet3, Ethernet4 ]
+    spanning_tree_mode: mstp
     spanning_tree_priority: 16384
   node_groups:
     DC1_L2LEAF4:

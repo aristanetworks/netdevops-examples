@@ -96,7 +96,9 @@ ntp server vrf MGMT 1.north-america.pool.ntp.org
 
 ### Spanning Tree Summary
 
-Mode: MSTP
+Mode: mstp
+
+**MSTP Instance and Priority**:
 
 | Instance | Priority |
 | -------- | -------- |
@@ -106,6 +108,7 @@ Mode: MSTP
 
 ```eos
 spanning-tree mode mstp
+no spanning-tree vlan-id 4094
 spanning-tree mst 0 priority 16384
 !
 ```

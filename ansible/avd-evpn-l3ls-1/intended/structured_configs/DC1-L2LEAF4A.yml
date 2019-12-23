@@ -71,6 +71,7 @@ spanning_tree:
   mode: mstp
   priority: 16384
 
+
 ### AAA authorization ###
 aaa_authorization:
 

@@ -61,6 +61,7 @@ redundancy:
 spanning_tree:
   mode: none
 
+
 ### AAA authorization ###
 aaa_authorization:
 

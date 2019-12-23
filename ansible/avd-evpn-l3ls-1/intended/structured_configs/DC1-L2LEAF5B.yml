@@ -76,6 +76,8 @@ redundancy:
 spanning_tree:
   mode: mstp
   priority: 16384
+  no_spanning_tree_vlan: 4094
+
 
 ### AAA authorization ###
 aaa_authorization:

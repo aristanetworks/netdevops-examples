@@ -96,17 +96,13 @@ ntp server vrf MGMT 1.north-america.pool.ntp.org
 
 ### Spanning Tree Summary
 
-Mode: MSTP
+Mode: none
 
-| Instance | Priority |
-| -------- | -------- |
-| 0 | 4096 |
 
 ### Spanning Tree Device Configuration
 
 ```eos
-spanning-tree mode mstp
-spanning-tree mst 0 priority 4096
+spanning-tree mode none
 !
 ```
 

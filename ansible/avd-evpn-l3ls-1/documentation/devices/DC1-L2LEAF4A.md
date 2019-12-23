@@ -96,7 +96,9 @@ ntp server vrf MGMT 1.north-america.pool.ntp.org
 
 ### Spanning Tree Summary
 
-Mode: MSTP
+Mode: mstp
+
+**MSTP Instance and Priority**:
 
 | Instance | Priority |
 | -------- | -------- |
