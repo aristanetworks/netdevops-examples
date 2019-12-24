@@ -158,6 +158,7 @@ ethernet_interfaces:
   Ethernet1:
     peer: DC1-LEAF2A
     peer_interface: Ethernet8
+    peer_type: l3leaf
     description: DC1-LEAF2A_Ethernet8
     channel_group:
       id: 1
@@ -166,6 +167,7 @@ ethernet_interfaces:
   Ethernet2:
     peer: DC1-LEAF2B
     peer_interface: Ethernet8
+    peer_type: l3leaf
     description: DC1-LEAF2B_Ethernet8
     channel_group:
       id: 1
@@ -174,6 +176,7 @@ ethernet_interfaces:
   Ethernet3:
     peer: DC1-L2LEAF6A
     peer_interface: Ethernet3
+    peer_type: mlag_peer
     description: MLAG_PEER_DC1-L2LEAF6A_Ethernet3
     channel_group:
       id: 3
@@ -181,6 +184,7 @@ ethernet_interfaces:
   Ethernet4:
     peer: DC1-L2LEAF6A
     peer_interface: Ethernet4
+    peer_type: mlag_peer
     description: MLAG_PEER_DC1-L2LEAF6A_Ethernet4
     channel_group:
       id: 3

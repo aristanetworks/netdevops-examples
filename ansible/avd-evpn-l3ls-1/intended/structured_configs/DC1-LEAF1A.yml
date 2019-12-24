@@ -146,6 +146,7 @@ ethernet_interfaces:
   Ethernet1:
     peer: DC1-SPINE1
     peer_interface: Ethernet1
+    peer_type: spine
     description: P2P_LINK_TO_DC1-SPINE1_Ethernet1
     mtu: 1500
     type: routed
@@ -153,6 +154,7 @@ ethernet_interfaces:
   Ethernet2:
     peer: DC1-SPINE2
     peer_interface: Ethernet1
+    peer_type: spine
     description: P2P_LINK_TO_DC1-SPINE2_Ethernet1
     mtu: 1500
     type: routed
@@ -160,6 +162,7 @@ ethernet_interfaces:
   Ethernet5:
     peer: server01
     peer_interface: Eth1
+    peer_type: server
     description: server01_Eth1
     mode: access
     vlans: 110
@@ -167,6 +170,7 @@ ethernet_interfaces:
   Ethernet6:
     peer: server02
     peer_interface: Eth1
+    peer_type: server
     description: server02_Eth1
     mode: access
     vlans: 110

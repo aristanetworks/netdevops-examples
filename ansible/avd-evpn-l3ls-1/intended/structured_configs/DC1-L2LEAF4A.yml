@@ -130,6 +130,7 @@ ethernet_interfaces:
   Ethernet11:
     peer: DC1-LEAF2A
     peer_interface: Ethernet6
+    peer_type: l3leaf
     description: DC1-LEAF2A_Ethernet6
     channel_group:
       id: 11
@@ -138,6 +139,7 @@ ethernet_interfaces:
   Ethernet12:
     peer: DC1-LEAF2B
     peer_interface: Ethernet6
+    peer_type: l3leaf
     description: DC1-LEAF2B_Ethernet6
     channel_group:
       id: 11
