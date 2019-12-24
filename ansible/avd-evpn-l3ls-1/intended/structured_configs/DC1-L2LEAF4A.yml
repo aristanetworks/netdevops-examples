@@ -126,12 +126,18 @@ port_channel_interfaces:
 
 ### Ethernet Interfaces ###
 ethernet_interfaces:
+## L3 LEAF link ##
   Ethernet11:
+    peer: DC1-LEAF2A
+    peer_interface: Ethernet6
     description: DC1-LEAF2A_Ethernet6
     channel_group:
       id: 11
       mode: active
+## L3 LEAF link ##
   Ethernet12:
+    peer: DC1-LEAF2B
+    peer_interface: Ethernet6
     description: DC1-LEAF2B_Ethernet6
     channel_group:
       id: 11

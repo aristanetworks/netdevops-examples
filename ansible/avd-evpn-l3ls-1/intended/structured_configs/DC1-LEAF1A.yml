@@ -144,23 +144,29 @@ port_channel_interfaces:
 ### Ethernet Interfaces ###
 ethernet_interfaces:
   Ethernet1:
+    peer: DC1-SPINE1
+    peer_interface: Ethernet1
     description: P2P_LINK_TO_DC1-SPINE1_Ethernet1
     mtu: 1500
     type: routed
     ip_address: 172.31.255.1/31
   Ethernet2:
+    peer: DC1-SPINE2
+    peer_interface: Ethernet1
     description: P2P_LINK_TO_DC1-SPINE2_Ethernet1
     mtu: 1500
     type: routed
     ip_address: 172.31.255.3/31
   Ethernet5:
-    host: server01
+    peer: server01
+    peer_interface: Eth1
     description: server01_Eth1
     mode: access
     vlans: 110
     profile: TENANT_A
   Ethernet6:
-    host: server02
+    peer: server02
+    peer_interface: Eth1
     description: server02_Eth1
     mode: access
     vlans: 110

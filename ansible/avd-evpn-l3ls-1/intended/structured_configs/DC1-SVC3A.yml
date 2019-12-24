@@ -188,40 +188,53 @@ port_channel_interfaces:
 ### Ethernet Interfaces ###
 ethernet_interfaces:
   Ethernet1:
+    peer: DC1-SPINE1
+    peer_interface: Ethernet4
     description: P2P_LINK_TO_DC1-SPINE1_Ethernet4
     mtu: 1500
     type: routed
     ip_address: 172.31.255.13/31
   Ethernet2:
+    peer: DC1-SPINE2
+    peer_interface: Ethernet4
     description: P2P_LINK_TO_DC1-SPINE2_Ethernet4
     mtu: 1500
     type: routed
     ip_address: 172.31.255.15/31
 ## mlag interfaces ##
   Ethernet3:
+    peer: DC1-SVC3B
+    peer_interface: Ethernet3
     description: MLAG_PEER_DC1-SVC3B_Ethernet3
     channel_group:
       id: 3
       mode: active
   Ethernet4:
+    peer: DC1-SVC3B
+    peer_interface: Ethernet4
     description: MLAG_PEER_DC1-SVC3B_Ethernet4
     channel_group:
       id: 3
       mode: active
-## L2 LEAF Uplink DC1_L2LEAF5 ##
+## L2 LEAF link DC1_L2LEAF5 ##
   Ethernet5:
+    peer: DC1-L2LEAF5A
+    peer_interface: Ethernet1
     description: DC1-L2LEAF5A_Ethernet1
     channel_group:
       id: 5
       mode: active
-## L2 LEAF Uplink DC1_L2LEAF5 ##
+## L2 LEAF link DC1_L2LEAF5 ##
   Ethernet6:
+    peer: DC1-L2LEAF5B
+    peer_interface: Ethernet1
     description: DC1-L2LEAF5B_Ethernet1
     channel_group:
       id: 5
       mode: active
   Ethernet10:
-    host: server03
+    peer: server03
+    peer_interface: Eth1
     description: server03_Eth1
     mode: trunk
     vlans: 110-111,210-211
@@ -230,7 +243,8 @@ ethernet_interfaces:
       mode: "active"
     profile: TENANT_A_B
   Ethernet11:
-    host: server04
+    peer: server04
+    peer_interface: Eth1
     description: server04_Eth1
     mode: trunk
     vlans: 110-111,210-211
