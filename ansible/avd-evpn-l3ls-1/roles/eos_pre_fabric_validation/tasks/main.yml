@@ -1,0 +1,23 @@
+---
+
+- name: Setup connection to Batfish service
+  bf_session:
+    host: localhost
+    name: local_batfish
+    parameters:
+      session_type: bf
+
+- name: Create the Layer1 topology
+  shell: python ./pre_validation_batfish/create_layer1_topology.py
+
+- name: Initialize the target network
+  bf_init_snapshot:
+    network: "{{network}}"
+    snapshot: "{{snapshot}}"
+    snapshot_data: ./intended
+    overwrite: true
+    extra_args:
+      debugflags: aristabgp
+
+- name: Evaluate policies
+  shell: python -m pytest -s ./pre_validation_batfish/policies --snapshot "{{snapshot}}" --network "{{network}}" --html ./pre_validation_batfish/results/pre_validation.html

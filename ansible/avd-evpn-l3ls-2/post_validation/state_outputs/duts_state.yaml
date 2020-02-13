@@ -1,0 +1,1479 @@
+duts:
+  DC1-BL1A:
+    "show version":
+      architecture: i686
+      bootupTimestamp: 1581211687.0
+      hardwareRevision: ''
+      internalBuildId: 413991dd-4451-4406-a16c-f1c6ac19d1f3
+      internalVersion: 4.22.3M-14418192.4223M
+      isIntlVersion: false
+      memFree: 2944308
+      memTotal: 4008816
+      mfgName: ''
+      modelName: vEOS
+      serialNumber: ''
+      systemMacAddress: 50:00:00:1b:5e:8d
+      uptime: 395064.45
+      version: 4.22.3M
+    "show ip bgp summary":
+      vrfs:
+        default:
+          asn: '65104'
+          peers:
+            10.255.251.11:
+              asn: '65104'
+              inMsgQueue: 0
+              msgReceived: 7748
+              msgSent: 7744
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 27
+              prefixReceived: 27
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+            172.31.255.20:
+              asn: '65001'
+              inMsgQueue: 0
+              msgReceived: 7739
+              msgSent: 7743
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 23
+              prefixReceived: 23
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+            172.31.255.22:
+              asn: '65001'
+              inMsgQueue: 0
+              msgReceived: 7727
+              msgSent: 7736
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 23
+              prefixReceived: 23
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+          routerId: 192.168.255.8
+          vrf: default
+    "show bgp evpn summary":
+      vrfs:
+        default:
+          asn: '65104'
+          peers:
+            192.168.255.1:
+              asn: '65001'
+              inMsgQueue: 0
+              msgReceived: 7926
+              msgSent: 7839
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 162
+              prefixReceived: 162
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+            192.168.255.2:
+              asn: '65001'
+              inMsgQueue: 0
+              msgReceived: 7920
+              msgSent: 7866
+              outMsgQueue: 0
+              peerState: Connect
+              prefixAccepted: 0
+              prefixReceived: 0
+              underMaintenance: false
+              upDownTime: 1581606656.0
+              version: 4
+          routerId: 192.168.255.8
+          vrf: default
+    "show lldp neighbors":
+      lldpNeighbors:
+      - neighborDevice: DC1-SPINE1
+        neighborPort: Ethernet6
+        port: Ethernet1
+        ttl: 120
+      - neighborDevice: DC1-SPINE2
+        neighborPort: Ethernet6
+        port: Ethernet2
+        ttl: 120
+      - neighborDevice: DC1-BL1B
+        neighborPort: Ethernet3
+        port: Ethernet3
+        ttl: 120
+      - neighborDevice: DC1-BL1B
+        neighborPort: Ethernet4
+        port: Ethernet4
+        ttl: 120
+      tablesAgeOuts: 0
+      tablesDeletes: 1
+      tablesDrops: 0
+      tablesInserts: 5
+      tablesLastChangeTime: 1581211919.5153308
+  DC1-BL1B:
+    "show version":
+      architecture: i686
+      bootupTimestamp: 1581211679.0
+      hardwareRevision: ''
+      internalBuildId: 413991dd-4451-4406-a16c-f1c6ac19d1f3
+      internalVersion: 4.22.3M-14418192.4223M
+      isIntlVersion: false
+      memFree: 2940064
+      memTotal: 4008816
+      mfgName: ''
+      modelName: vEOS
+      serialNumber: ''
+      systemMacAddress: 50:00:00:6b:2e:70
+      uptime: 395072.51
+      version: 4.22.3M
+    "show ip bgp summary":
+      vrfs:
+        default:
+          asn: '65104'
+          peers:
+            10.255.251.10:
+              asn: '65104'
+              inMsgQueue: 0
+              msgReceived: 7744
+              msgSent: 7748
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 27
+              prefixReceived: 27
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+            172.31.255.24:
+              asn: '65001'
+              inMsgQueue: 0
+              msgReceived: 7734
+              msgSent: 7742
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 23
+              prefixReceived: 23
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+            172.31.255.26:
+              asn: '65001'
+              inMsgQueue: 0
+              msgReceived: 7733
+              msgSent: 7735
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 23
+              prefixReceived: 23
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+          routerId: 192.168.255.9
+          vrf: default
+    "show bgp evpn summary":
+      vrfs:
+        default:
+          asn: '65104'
+          peers:
+            192.168.255.1:
+              asn: '65001'
+              inMsgQueue: 0
+              msgReceived: 7906
+              msgSent: 7853
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 162
+              prefixReceived: 162
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+            192.168.255.2:
+              asn: '65001'
+              inMsgQueue: 0
+              msgReceived: 7917
+              msgSent: 7834
+              outMsgQueue: 0
+              peerState: Connect
+              prefixAccepted: 0
+              prefixReceived: 0
+              underMaintenance: false
+              upDownTime: 1581606656.0
+              version: 4
+          routerId: 192.168.255.9
+          vrf: default
+    "show lldp neighbors":
+      lldpNeighbors:
+      - neighborDevice: DC1-SPINE1
+        neighborPort: Ethernet7
+        port: Ethernet1
+        ttl: 120
+      - neighborDevice: DC1-BL1A
+        neighborPort: Ethernet3
+        port: Ethernet3
+        ttl: 120
+      - neighborDevice: DC1-BL1A
+        neighborPort: Ethernet4
+        port: Ethernet4
+        ttl: 120
+      tablesAgeOuts: 1
+      tablesDeletes: 1
+      tablesDrops: 0
+      tablesInserts: 4
+      tablesLastChangeTime: 1581606737.5645378
+  DC1-L2LEAF4A:
+    "show version":
+      architecture: i686
+      bootupTimestamp: 1581211715.0
+      hardwareRevision: ''
+      internalBuildId: 413991dd-4451-4406-a16c-f1c6ac19d1f3
+      internalVersion: 4.22.3M-14418192.4223M
+      isIntlVersion: false
+      memFree: 3034356
+      memTotal: 4008816
+      mfgName: ''
+      modelName: vEOS
+      serialNumber: ''
+      systemMacAddress: 50:00:00:ba:c6:f8
+      uptime: 395036.13
+      version: 4.22.3M
+    "show ip bgp summary":
+      vrfs: {}
+    "show bgp evpn summary":
+      vrfs: {}
+    "show lldp neighbors":
+      lldpNeighbors:
+      - neighborDevice: DC1-LEAF2A
+        neighborPort: Ethernet6
+        port: Ethernet11
+        ttl: 120
+      - neighborDevice: DC1-LEAF2B
+        neighborPort: Ethernet6
+        port: Ethernet12
+        ttl: 120
+      tablesAgeOuts: 0
+      tablesDeletes: 0
+      tablesDrops: 0
+      tablesInserts: 2
+      tablesLastChangeTime: 1581211906.1049924
+  DC1-L2LEAF5A:
+    "show version":
+      architecture: i686
+      bootupTimestamp: 1581283415.0
+      hardwareRevision: ''
+      internalBuildId: 413991dd-4451-4406-a16c-f1c6ac19d1f3
+      internalVersion: 4.22.3M-14418192.4223M
+      isIntlVersion: false
+      memFree: 3004356
+      memTotal: 4008700
+      mfgName: ''
+      modelName: vEOS
+      serialNumber: ''
+      systemMacAddress: 50:00:00:d8:ac:19
+      uptime: 323336.56
+      version: 4.22.3M
+    "show ip bgp summary":
+      vrfs: {}
+    "show bgp evpn summary":
+      vrfs: {}
+    "show lldp neighbors":
+      lldpNeighbors:
+      - neighborDevice: DC1-SVC3A
+        neighborPort: Ethernet5
+        port: Ethernet1
+        ttl: 120
+      - neighborDevice: DC1-SVC3B
+        neighborPort: Ethernet5
+        port: Ethernet2
+        ttl: 120
+      - neighborDevice: DC1-L2LEAF5B
+        neighborPort: Ethernet3
+        port: Ethernet3
+        ttl: 120
+      - neighborDevice: DC1-L2LEAF5B
+        neighborPort: Ethernet4
+        port: Ethernet4
+        ttl: 120
+      tablesAgeOuts: 0
+      tablesDeletes: 0
+      tablesDrops: 0
+      tablesInserts: 4
+      tablesLastChangeTime: 1581283546.8610888
+  DC1-L2LEAF5B:
+    "show version":
+      architecture: i686
+      bootupTimestamp: 1581283412.0
+      hardwareRevision: ''
+      internalBuildId: 413991dd-4451-4406-a16c-f1c6ac19d1f3
+      internalVersion: 4.22.3M-14418192.4223M
+      isIntlVersion: false
+      memFree: 3007212
+      memTotal: 4008700
+      mfgName: ''
+      modelName: vEOS
+      serialNumber: ''
+      systemMacAddress: 50:00:00:43:40:cf
+      uptime: 323338.81
+      version: 4.22.3M
+    "show ip bgp summary":
+      vrfs: {}
+    "show bgp evpn summary":
+      vrfs: {}
+    "show lldp neighbors":
+      lldpNeighbors:
+      - neighborDevice: DC1-SVC3A
+        neighborPort: Ethernet6
+        port: Ethernet1
+        ttl: 120
+      - neighborDevice: DC1-SVC3B
+        neighborPort: Ethernet6
+        port: Ethernet2
+        ttl: 120
+      - neighborDevice: DC1-L2LEAF5A
+        neighborPort: Ethernet3
+        port: Ethernet3
+        ttl: 120
+      - neighborDevice: DC1-L2LEAF5A
+        neighborPort: Ethernet4
+        port: Ethernet4
+        ttl: 120
+      tablesAgeOuts: 0
+      tablesDeletes: 0
+      tablesDrops: 0
+      tablesInserts: 4
+      tablesLastChangeTime: 1581283546.849675
+  DC1-L2LEAF6A:
+    "show version":
+      architecture: i686
+      bootupTimestamp: 1581211674.0
+      hardwareRevision: ''
+      internalBuildId: 413991dd-4451-4406-a16c-f1c6ac19d1f3
+      internalVersion: 4.22.3M-14418192.4223M
+      isIntlVersion: false
+      memFree: 3018936
+      memTotal: 4008816
+      mfgName: ''
+      modelName: vEOS
+      serialNumber: ''
+      systemMacAddress: 50:00:00:09:ef:21
+      uptime: 395076.36
+      version: 4.22.3M
+    "show ip bgp summary":
+      vrfs: {}
+    "show bgp evpn summary":
+      vrfs: {}
+    "show lldp neighbors":
+      lldpNeighbors:
+      - neighborDevice: DC1-LEAF2A
+        neighborPort: Ethernet7
+        port: Ethernet1
+        ttl: 120
+      - neighborDevice: DC1-LEAF2B
+        neighborPort: Ethernet7
+        port: Ethernet2
+        ttl: 120
+      - neighborDevice: DC1-L2LEAF6B
+        neighborPort: Ethernet3
+        port: Ethernet3
+        ttl: 120
+      - neighborDevice: DC1-L2LEAF6B
+        neighborPort: Ethernet4
+        port: Ethernet4
+        ttl: 120
+      tablesAgeOuts: 0
+      tablesDeletes: 0
+      tablesDrops: 0
+      tablesInserts: 4
+      tablesLastChangeTime: 1581211906.0913095
+  DC1-L2LEAF6B:
+    "show version":
+      architecture: i686
+      bootupTimestamp: 1581211667.0
+      hardwareRevision: ''
+      internalBuildId: 413991dd-4451-4406-a16c-f1c6ac19d1f3
+      internalVersion: 4.22.3M-14418192.4223M
+      isIntlVersion: false
+      memFree: 3017156
+      memTotal: 4008816
+      mfgName: ''
+      modelName: vEOS
+      serialNumber: ''
+      systemMacAddress: 50:00:00:d5:e2:ad
+      uptime: 395085.04
+      version: 4.22.3M
+    "show ip bgp summary":
+      vrfs: {}
+    "show bgp evpn summary":
+      vrfs: {}
+    "show lldp neighbors":
+      lldpNeighbors:
+      - neighborDevice: DC1-LEAF2A
+        neighborPort: Ethernet8
+        port: Ethernet1
+        ttl: 120
+      - neighborDevice: DC1-LEAF2B
+        neighborPort: Ethernet8
+        port: Ethernet2
+        ttl: 120
+      - neighborDevice: DC1-L2LEAF6A
+        neighborPort: Ethernet3
+        port: Ethernet3
+        ttl: 120
+      - neighborDevice: DC1-L2LEAF6A
+        neighborPort: Ethernet4
+        port: Ethernet4
+        ttl: 120
+      tablesAgeOuts: 0
+      tablesDeletes: 0
+      tablesDrops: 0
+      tablesInserts: 4
+      tablesLastChangeTime: 1581211905.7938442
+  DC1-LEAF1A:
+    "show version":
+      architecture: i686
+      bootupTimestamp: 1581211679.0
+      hardwareRevision: ''
+      internalBuildId: 413991dd-4451-4406-a16c-f1c6ac19d1f3
+      internalVersion: 4.22.3M-14418192.4223M
+      isIntlVersion: false
+      memFree: 2972744
+      memTotal: 4008816
+      mfgName: ''
+      modelName: vEOS
+      serialNumber: ''
+      systemMacAddress: 50:00:00:d5:5d:c0
+      uptime: 395072.23
+      version: 4.22.3M
+    "show ip bgp summary":
+      vrfs:
+        default:
+          asn: '65101'
+          peers:
+            172.31.255.0:
+              asn: '65001'
+              inMsgQueue: 0
+              msgReceived: 7748
+              msgSent: 7735
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 26
+              prefixReceived: 26
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+            172.31.255.2:
+              asn: '65001'
+              inMsgQueue: 0
+              msgReceived: 7758
+              msgSent: 7723
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 26
+              prefixReceived: 26
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+          routerId: 192.168.255.3
+          vrf: default
+    "show bgp evpn summary":
+      vrfs:
+        default:
+          asn: '65101'
+          peers:
+            192.168.255.1:
+              asn: '65001'
+              inMsgQueue: 0
+              msgReceived: 7906
+              msgSent: 7833
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 172
+              prefixReceived: 172
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+            192.168.255.2:
+              asn: '65001'
+              inMsgQueue: 0
+              msgReceived: 7871
+              msgSent: 7875
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 154
+              prefixReceived: 154
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+          routerId: 192.168.255.3
+          vrf: default
+    "show lldp neighbors":
+      lldpNeighbors:
+      - neighborDevice: DC1-SPINE1
+        neighborPort: Ethernet1
+        port: Ethernet1
+        ttl: 120
+      - neighborDevice: DC1-SPINE2
+        neighborPort: Ethernet1
+        port: Ethernet2
+        ttl: 120
+      tablesAgeOuts: 2
+      tablesDeletes: 2
+      tablesDrops: 0
+      tablesInserts: 4
+      tablesLastChangeTime: 1581606412.938088
+  DC1-LEAF2A:
+    "show version":
+      architecture: i686
+      bootupTimestamp: 1581211679.0
+      hardwareRevision: ''
+      internalBuildId: 413991dd-4451-4406-a16c-f1c6ac19d1f3
+      internalVersion: 4.22.3M-14418192.4223M
+      isIntlVersion: false
+      memFree: 2893364
+      memTotal: 4008816
+      mfgName: ''
+      modelName: vEOS
+      serialNumber: ''
+      systemMacAddress: 50:00:00:03:37:66
+      uptime: 395072.17
+      version: 4.22.3M
+    "show ip bgp summary":
+      vrfs:
+        default:
+          asn: '65102'
+          peers:
+            10.255.251.3:
+              asn: '65102'
+              inMsgQueue: 0
+              msgReceived: 7733
+              msgSent: 7753
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 27
+              prefixReceived: 27
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+            172.31.255.4:
+              asn: '65001'
+              inMsgQueue: 0
+              msgReceived: 7736
+              msgSent: 7729
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 23
+              prefixReceived: 23
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+            172.31.255.6:
+              asn: '65001'
+              inMsgQueue: 0
+              msgReceived: 7732
+              msgSent: 7730
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 23
+              prefixReceived: 23
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+          routerId: 192.168.255.4
+          vrf: default
+    "show bgp evpn summary":
+      vrfs:
+        default:
+          asn: '65102'
+          peers:
+            192.168.255.1:
+              asn: '65001'
+              inMsgQueue: 0
+              msgReceived: 7890
+              msgSent: 7851
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 112
+              prefixReceived: 112
+              underMaintenance: false
+              upDownTime: 1581605376.0
+              version: 4
+            192.168.255.2:
+              asn: '65001'
+              inMsgQueue: 0
+              msgReceived: 7871
+              msgSent: 7875
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 94
+              prefixReceived: 94
+              underMaintenance: false
+              upDownTime: 1581605376.0
+              version: 4
+          routerId: 192.168.255.4
+          vrf: default
+    "show lldp neighbors":
+      lldpNeighbors:
+      - neighborDevice: DC1-SPINE1
+        neighborPort: Ethernet2
+        port: Ethernet1
+        ttl: 120
+      - neighborDevice: DC1-SPINE2
+        neighborPort: Ethernet2
+        port: Ethernet2
+        ttl: 120
+      - neighborDevice: DC1-LEAF2B
+        neighborPort: Ethernet3
+        port: Ethernet3
+        ttl: 120
+      - neighborDevice: DC1-LEAF2B
+        neighborPort: Ethernet4
+        port: Ethernet4
+        ttl: 120
+      - neighborDevice: DC1-L2LEAF4A
+        neighborPort: Ethernet11
+        port: Ethernet6
+        ttl: 120
+      - neighborDevice: DC1-L2LEAF6A
+        neighborPort: Ethernet1
+        port: Ethernet7
+        ttl: 120
+      - neighborDevice: DC1-L2LEAF6B
+        neighborPort: Ethernet1
+        port: Ethernet8
+        ttl: 120
+      tablesAgeOuts: 0
+      tablesDeletes: 0
+      tablesDrops: 0
+      tablesInserts: 7
+      tablesLastChangeTime: 1581211907.5126615
+  DC1-LEAF2B:
+    "show version":
+      architecture: i686
+      bootupTimestamp: 1581211666.0
+      hardwareRevision: ''
+      internalBuildId: 413991dd-4451-4406-a16c-f1c6ac19d1f3
+      internalVersion: 4.22.3M-14418192.4223M
+      isIntlVersion: false
+      memFree: 2915052
+      memTotal: 4008816
+      mfgName: ''
+      modelName: vEOS
+      serialNumber: ''
+      systemMacAddress: 50:00:00:15:f4:e8
+      uptime: 395085.28
+      version: 4.22.3M
+    "show ip bgp summary":
+      vrfs:
+        default:
+          asn: '65102'
+          peers:
+            10.255.251.2:
+              asn: '65102'
+              inMsgQueue: 0
+              msgReceived: 7751
+              msgSent: 7734
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 27
+              prefixReceived: 27
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+            172.31.255.10:
+              asn: '65001'
+              inMsgQueue: 0
+              msgReceived: 7721
+              msgSent: 7733
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 23
+              prefixReceived: 23
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+            172.31.255.8:
+              asn: '65001'
+              inMsgQueue: 0
+              msgReceived: 7715
+              msgSent: 7741
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 23
+              prefixReceived: 23
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+          routerId: 192.168.255.5
+          vrf: default
+    "show bgp evpn summary":
+      vrfs:
+        default:
+          asn: '65102'
+          peers:
+            192.168.255.1:
+              asn: '65001'
+              inMsgQueue: 0
+              msgReceived: 7909
+              msgSent: 7836
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 112
+              prefixReceived: 112
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+            192.168.255.2:
+              asn: '65001'
+              inMsgQueue: 0
+              msgReceived: 7885
+              msgSent: 7855
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 94
+              prefixReceived: 94
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+          routerId: 192.168.255.5
+          vrf: default
+    "show lldp neighbors":
+      lldpNeighbors:
+      - neighborDevice: DC1-SPINE1
+        neighborPort: Ethernet3
+        port: Ethernet1
+        ttl: 120
+      - neighborDevice: DC1-SPINE2
+        neighborPort: Ethernet3
+        port: Ethernet2
+        ttl: 120
+      - neighborDevice: DC1-LEAF2A
+        neighborPort: Ethernet3
+        port: Ethernet3
+        ttl: 120
+      - neighborDevice: DC1-LEAF2A
+        neighborPort: Ethernet4
+        port: Ethernet4
+        ttl: 120
+      - neighborDevice: DC1-L2LEAF4A
+        neighborPort: Ethernet12
+        port: Ethernet6
+        ttl: 120
+      - neighborDevice: DC1-L2LEAF6A
+        neighborPort: Ethernet2
+        port: Ethernet7
+        ttl: 120
+      - neighborDevice: DC1-L2LEAF6B
+        neighborPort: Ethernet2
+        port: Ethernet8
+        ttl: 120
+      tablesAgeOuts: 0
+      tablesDeletes: 0
+      tablesDrops: 0
+      tablesInserts: 7
+      tablesLastChangeTime: 1581211906.1717904
+  DC1-SPINE1:
+    "show version":
+      architecture: i686
+      bootupTimestamp: 1581211705.0
+      hardwareRevision: ''
+      internalBuildId: 413991dd-4451-4406-a16c-f1c6ac19d1f3
+      internalVersion: 4.22.3M-14418192.4223M
+      isIntlVersion: false
+      memFree: 3032600
+      memTotal: 4008816
+      mfgName: ''
+      modelName: vEOS
+      serialNumber: ''
+      systemMacAddress: 50:00:00:d7:ee:0b
+      uptime: 395045.64
+      version: 4.22.3M
+    "show ip bgp summary":
+      vrfs:
+        default:
+          asn: '65001'
+          peers:
+            172.31.255.1:
+              asn: '65101'
+              inMsgQueue: 0
+              msgReceived: 7735
+              msgSent: 7748
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 4
+              prefixReceived: 4
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+            172.31.255.13:
+              asn: '65103'
+              inMsgQueue: 0
+              msgReceived: 7743
+              msgSent: 7733
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 8
+              prefixReceived: 8
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+            172.31.255.17:
+              asn: '65103'
+              inMsgQueue: 0
+              msgReceived: 7748
+              msgSent: 7738
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 8
+              prefixReceived: 8
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+            172.31.255.21:
+              asn: '65104'
+              inMsgQueue: 0
+              msgReceived: 7743
+              msgSent: 7739
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 8
+              prefixReceived: 8
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+            172.31.255.25:
+              asn: '65104'
+              inMsgQueue: 0
+              msgReceived: 7742
+              msgSent: 7734
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 8
+              prefixReceived: 8
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+            172.31.255.5:
+              asn: '65102'
+              inMsgQueue: 0
+              msgReceived: 7729
+              msgSent: 7736
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 8
+              prefixReceived: 8
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+            172.31.255.9:
+              asn: '65102'
+              inMsgQueue: 0
+              msgReceived: 7741
+              msgSent: 7715
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 8
+              prefixReceived: 8
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+          routerId: 192.168.255.1
+          vrf: default
+    "show bgp evpn summary":
+      vrfs:
+        default:
+          asn: '65001'
+          peers:
+            192.168.255.3:
+              asn: '65101'
+              inMsgQueue: 0
+              msgReceived: 7833
+              msgSent: 7906
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 8
+              prefixReceived: 8
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+            192.168.255.4:
+              asn: '65102'
+              inMsgQueue: 0
+              msgReceived: 7848
+              msgSent: 7914
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 34
+              prefixReceived: 34
+              underMaintenance: false
+              upDownTime: 1581605376.0
+              version: 4
+            192.168.255.5:
+              asn: '65102'
+              inMsgQueue: 0
+              msgReceived: 7836
+              msgSent: 7909
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 34
+              prefixReceived: 34
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+            192.168.255.6:
+              asn: '65103'
+              inMsgQueue: 0
+              msgReceived: 7830
+              msgSent: 7887
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 43
+              prefixReceived: 43
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+            192.168.255.7:
+              asn: '65103'
+              inMsgQueue: 0
+              msgReceived: 7867
+              msgSent: 7934
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 43
+              prefixReceived: 43
+              underMaintenance: false
+              upDownTime: 1581605376.0
+              version: 4
+            192.168.255.8:
+              asn: '65104'
+              inMsgQueue: 0
+              msgReceived: 7839
+              msgSent: 7926
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 9
+              prefixReceived: 9
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+            192.168.255.9:
+              asn: '65104'
+              inMsgQueue: 0
+              msgReceived: 7853
+              msgSent: 7906
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 9
+              prefixReceived: 9
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+          routerId: 192.168.255.1
+          vrf: default
+    "show lldp neighbors":
+      lldpNeighbors:
+      - neighborDevice: DC1-LEAF1A
+        neighborPort: Ethernet1
+        port: Ethernet1
+        ttl: 120
+      - neighborDevice: DC1-LEAF2A
+        neighborPort: Ethernet1
+        port: Ethernet2
+        ttl: 120
+      - neighborDevice: DC1-LEAF2B
+        neighborPort: Ethernet1
+        port: Ethernet3
+        ttl: 120
+      - neighborDevice: DC1-SVC3A
+        neighborPort: Ethernet1
+        port: Ethernet4
+        ttl: 120
+      - neighborDevice: DC1-SVC3B
+        neighborPort: Ethernet1
+        port: Ethernet5
+        ttl: 120
+      - neighborDevice: DC1-BL1A
+        neighborPort: Ethernet1
+        port: Ethernet6
+        ttl: 120
+      - neighborDevice: DC1-BL1B
+        neighborPort: Ethernet1
+        port: Ethernet7
+        ttl: 120
+      tablesAgeOuts: 1
+      tablesDeletes: 1
+      tablesDrops: 0
+      tablesInserts: 8
+      tablesLastChangeTime: 1581606387.9088247
+  DC1-SPINE2:
+    "show version":
+      architecture: i686
+      bootupTimestamp: 1581211682.0
+      hardwareRevision: ''
+      internalBuildId: 413991dd-4451-4406-a16c-f1c6ac19d1f3
+      internalVersion: 4.22.3M-14418192.4223M
+      isIntlVersion: false
+      memFree: 3026100
+      memTotal: 4008816
+      mfgName: ''
+      modelName: vEOS
+      serialNumber: ''
+      systemMacAddress: 50:00:00:cb:38:c2
+      uptime: 395068.27
+      version: 4.22.3M
+    "show ip bgp summary":
+      vrfs:
+        default:
+          asn: '65001'
+          peers:
+            172.31.255.11:
+              asn: '65102'
+              inMsgQueue: 0
+              msgReceived: 7733
+              msgSent: 7721
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 8
+              prefixReceived: 8
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+            172.31.255.15:
+              asn: '65103'
+              inMsgQueue: 0
+              msgReceived: 7739
+              msgSent: 7739
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 8
+              prefixReceived: 8
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+            172.31.255.19:
+              asn: '65103'
+              inMsgQueue: 0
+              msgReceived: 7736
+              msgSent: 7726
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 8
+              prefixReceived: 8
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+            172.31.255.23:
+              asn: '65104'
+              inMsgQueue: 0
+              msgReceived: 7736
+              msgSent: 7727
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 8
+              prefixReceived: 8
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+            172.31.255.27:
+              asn: '65104'
+              inMsgQueue: 0
+              msgReceived: 7733
+              msgSent: 7736
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 8
+              prefixReceived: 8
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+            172.31.255.3:
+              asn: '65101'
+              inMsgQueue: 0
+              msgReceived: 7722
+              msgSent: 7758
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 4
+              prefixReceived: 4
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+            172.31.255.7:
+              asn: '65102'
+              inMsgQueue: 0
+              msgReceived: 7730
+              msgSent: 7732
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 8
+              prefixReceived: 8
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+          routerId: 192.168.255.2
+          vrf: default
+    "show bgp evpn summary":
+      vrfs:
+        default:
+          asn: '65001'
+          peers:
+            192.168.255.3:
+              asn: '65101'
+              inMsgQueue: 0
+              msgReceived: 7875
+              msgSent: 7871
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 8
+              prefixReceived: 8
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+            192.168.255.4:
+              asn: '65102'
+              inMsgQueue: 0
+              msgReceived: 7874
+              msgSent: 7882
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 34
+              prefixReceived: 34
+              underMaintenance: false
+              upDownTime: 1581605376.0
+              version: 4
+            192.168.255.5:
+              asn: '65102'
+              inMsgQueue: 0
+              msgReceived: 7855
+              msgSent: 7885
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 34
+              prefixReceived: 34
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+            192.168.255.6:
+              asn: '65103'
+              inMsgQueue: 0
+              msgReceived: 7861
+              msgSent: 7928
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 43
+              prefixReceived: 43
+              underMaintenance: false
+              upDownTime: 1581605376.0
+              version: 4
+            192.168.255.7:
+              asn: '65103'
+              inMsgQueue: 0
+              msgReceived: 7859
+              msgSent: 7857
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 43
+              prefixReceived: 43
+              underMaintenance: false
+              upDownTime: 1581212032.0
+              version: 4
+            192.168.255.8:
+              asn: '65104'
+              inMsgQueue: 0
+              msgReceived: 7865
+              msgSent: 7922
+              outMsgQueue: 0
+              peerState: Connect
+              prefixAccepted: 0
+              prefixReceived: 0
+              underMaintenance: false
+              upDownTime: 1581606656.0
+              version: 4
+            192.168.255.9:
+              asn: '65104'
+              inMsgQueue: 0
+              msgReceived: 7833
+              msgSent: 7918
+              outMsgQueue: 0
+              peerState: Connect
+              prefixAccepted: 0
+              prefixReceived: 0
+              underMaintenance: false
+              upDownTime: 1581606656.0
+              version: 4
+          routerId: 192.168.255.2
+          vrf: default
+    "show lldp neighbors":
+      lldpNeighbors:
+      - neighborDevice: DC1-LEAF1A
+        neighborPort: Ethernet2
+        port: Ethernet1
+        ttl: 120
+      - neighborDevice: DC1-LEAF2A
+        neighborPort: Ethernet2
+        port: Ethernet2
+        ttl: 120
+      - neighborDevice: DC1-LEAF2B
+        neighborPort: Ethernet2
+        port: Ethernet3
+        ttl: 120
+      - neighborDevice: DC1-SVC3A
+        neighborPort: Ethernet2
+        port: Ethernet4
+        ttl: 120
+      - neighborDevice: DC1-SVC3B
+        neighborPort: Ethernet2
+        port: Ethernet5
+        ttl: 120
+      - neighborDevice: DC1-BL1A
+        neighborPort: Ethernet2
+        port: Ethernet6
+        ttl: 120
+      tablesAgeOuts: 2
+      tablesDeletes: 2
+      tablesDrops: 0
+      tablesInserts: 8
+      tablesLastChangeTime: 1581606740.8624694
+  DC1-SVC3A:
+    "show version":
+      architecture: i686
+      bootupTimestamp: 1581211713.0
+      hardwareRevision: ''
+      internalBuildId: 413991dd-4451-4406-a16c-f1c6ac19d1f3
+      internalVersion: 4.22.3M-14418192.4223M
+      isIntlVersion: false
+      memFree: 2903512
+      memTotal: 4008816
+      mfgName: ''
+      modelName: vEOS
+      serialNumber: ''
+      systemMacAddress: 50:00:00:72:8b:31
+      uptime: 395038.75
+      version: 4.22.3M
+    "show ip bgp summary":
+      vrfs:
+        default:
+          asn: '65103'
+          peers:
+            10.255.251.7:
+              asn: '65103'
+              inMsgQueue: 0
+              msgReceived: 7727
+              msgSent: 7738
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 27
+              prefixReceived: 27
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+            172.31.255.12:
+              asn: '65001'
+              inMsgQueue: 0
+              msgReceived: 7733
+              msgSent: 7743
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 23
+              prefixReceived: 23
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+            172.31.255.14:
+              asn: '65001'
+              inMsgQueue: 0
+              msgReceived: 7739
+              msgSent: 7739
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 23
+              prefixReceived: 23
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+          routerId: 192.168.255.6
+          vrf: default
+    "show bgp evpn summary":
+      vrfs:
+        default:
+          asn: '65103'
+          peers:
+            192.168.255.1:
+              asn: '65001'
+              inMsgQueue: 0
+              msgReceived: 7887
+              msgSent: 7830
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 94
+              prefixReceived: 94
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+            192.168.255.2:
+              asn: '65001'
+              inMsgQueue: 0
+              msgReceived: 7906
+              msgSent: 7901
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 76
+              prefixReceived: 76
+              underMaintenance: false
+              upDownTime: 1581605376.0
+              version: 4
+          routerId: 192.168.255.6
+          vrf: default
+    "show lldp neighbors":
+      lldpNeighbors:
+      - neighborDevice: DC1-SPINE1
+        neighborPort: Ethernet4
+        port: Ethernet1
+        ttl: 120
+      - neighborDevice: DC1-SPINE2
+        neighborPort: Ethernet4
+        port: Ethernet2
+        ttl: 120
+      - neighborDevice: DC1-SVC3B
+        neighborPort: Ethernet3
+        port: Ethernet3
+        ttl: 120
+      - neighborDevice: DC1-SVC3B
+        neighborPort: Ethernet4
+        port: Ethernet4
+        ttl: 120
+      - neighborDevice: DC1-L2LEAF5A
+        neighborPort: Ethernet1
+        port: Ethernet5
+        ttl: 120
+      - neighborDevice: DC1-L2LEAF5B
+        neighborPort: Ethernet1
+        port: Ethernet6
+        ttl: 120
+      tablesAgeOuts: 2
+      tablesDeletes: 3
+      tablesDrops: 0
+      tablesInserts: 9
+      tablesLastChangeTime: 1581283546.789772
+  DC1-SVC3B:
+    "show version":
+      architecture: i686
+      bootupTimestamp: 1581211672.0
+      hardwareRevision: ''
+      internalBuildId: 413991dd-4451-4406-a16c-f1c6ac19d1f3
+      internalVersion: 4.22.3M-14418192.4223M
+      isIntlVersion: false
+      memFree: 2898596
+      memTotal: 4008816
+      mfgName: ''
+      modelName: vEOS
+      serialNumber: ''
+      systemMacAddress: 50:00:00:f6:ad:37
+      uptime: 395079.51
+      version: 4.22.3M
+    "show ip bgp summary":
+      vrfs:
+        default:
+          asn: '65103'
+          peers:
+            10.255.251.6:
+              asn: '65103'
+              inMsgQueue: 0
+              msgReceived: 7738
+              msgSent: 7727
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 27
+              prefixReceived: 27
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+            172.31.255.16:
+              asn: '65001'
+              inMsgQueue: 0
+              msgReceived: 7738
+              msgSent: 7748
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 23
+              prefixReceived: 23
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+            172.31.255.18:
+              asn: '65001'
+              inMsgQueue: 0
+              msgReceived: 7726
+              msgSent: 7736
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 23
+              prefixReceived: 23
+              underMaintenance: false
+              upDownTime: 1581211904.0
+              version: 4
+          routerId: 192.168.255.7
+          vrf: default
+    "show bgp evpn summary":
+      vrfs:
+        default:
+          asn: '65103'
+          peers:
+            192.168.255.1:
+              asn: '65001'
+              inMsgQueue: 0
+              msgReceived: 7889
+              msgSent: 7905
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 94
+              prefixReceived: 94
+              underMaintenance: false
+              upDownTime: 1581605376.0
+              version: 4
+            192.168.255.2:
+              asn: '65001'
+              inMsgQueue: 0
+              msgReceived: 7857
+              msgSent: 7859
+              outMsgQueue: 0
+              peerState: Established
+              prefixAccepted: 76
+              prefixReceived: 76
+              underMaintenance: false
+              upDownTime: 1581212032.0
+              version: 4
+          routerId: 192.168.255.7
+          vrf: default
+    "show lldp neighbors":
+      lldpNeighbors:
+      - neighborDevice: DC1-SPINE1
+        neighborPort: Ethernet5
+        port: Ethernet1
+        ttl: 120
+      - neighborDevice: DC1-SPINE2
+        neighborPort: Ethernet5
+        port: Ethernet2
+        ttl: 120
+      - neighborDevice: DC1-SVC3A
+        neighborPort: Ethernet3
+        port: Ethernet3
+        ttl: 120
+      - neighborDevice: DC1-SVC3A
+        neighborPort: Ethernet4
+        port: Ethernet4
+        ttl: 120
+      - neighborDevice: DC1-L2LEAF5A
+        neighborPort: Ethernet2
+        port: Ethernet5
+        ttl: 120
+      - neighborDevice: DC1-L2LEAF5B
+        neighborPort: Ethernet2
+        port: Ethernet6
+        ttl: 120
+      tablesAgeOuts: 2
+      tablesDeletes: 2
+      tablesDrops: 0
+      tablesInserts: 8
+      tablesLastChangeTime: 1581283546.8224864
+
+topology_csv_file: ./documentation/DC1_FABRIC/DC1_FABRIC-topology.csv

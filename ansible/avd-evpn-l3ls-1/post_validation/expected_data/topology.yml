@@ -1,0 +1,296 @@
+DC1-BL1A:
+  Ethernet1:
+    neighbor_hostname: DC1-SPINE1
+    neighbor_port_name: Ethernet6
+  Ethernet2:
+    neighbor_hostname: DC1-SPINE2
+    neighbor_port_name: Ethernet6
+  Ethernet3:
+    neighbor_hostname: DC1-SPINE3
+    neighbor_port_name: Ethernet6
+  Ethernet4:
+    neighbor_hostname: DC1-SPINE4
+    neighbor_port_name: Ethernet6
+  Ethernet5:
+    neighbor_hostname: DC1-BL1B
+    neighbor_port_name: Ethernet5
+  Ethernet6:
+    neighbor_hostname: DC1-BL1B
+    neighbor_port_name: Ethernet6
+DC1-BL1B:
+  Ethernet1:
+    neighbor_hostname: DC1-SPINE1
+    neighbor_port_name: Ethernet7
+  Ethernet2:
+    neighbor_hostname: DC1-SPINE2
+    neighbor_port_name: Ethernet7
+  Ethernet3:
+    neighbor_hostname: DC1-SPINE3
+    neighbor_port_name: Ethernet7
+  Ethernet4:
+    neighbor_hostname: DC1-SPINE4
+    neighbor_port_name: Ethernet7
+  Ethernet5:
+    neighbor_hostname: DC1-BL1A
+    neighbor_port_name: Ethernet5
+  Ethernet6:
+    neighbor_hostname: DC1-BL1A
+    neighbor_port_name: Ethernet6
+DC1-L2LEAF1A:
+  Ethernet1:
+    neighbor_hostname: DC1-LEAF2A
+    neighbor_port_name: Ethernet7
+  Ethernet2:
+    neighbor_hostname: DC1-LEAF2B
+    neighbor_port_name: Ethernet7
+DC1-L2LEAF2A:
+  Ethernet1:
+    neighbor_hostname: DC1-SVC3A
+    neighbor_port_name: Ethernet7
+  Ethernet2:
+    neighbor_hostname: DC1-SVC3B
+    neighbor_port_name: Ethernet7
+  Ethernet3:
+    neighbor_hostname: DC1-L2LEAF2B
+    neighbor_port_name: Ethernet3
+  Ethernet4:
+    neighbor_hostname: DC1-L2LEAF2B
+    neighbor_port_name: Ethernet4
+DC1-L2LEAF2B:
+  Ethernet1:
+    neighbor_hostname: DC1-SVC3A
+    neighbor_port_name: Ethernet8
+  Ethernet2:
+    neighbor_hostname: DC1-SVC3B
+    neighbor_port_name: Ethernet8
+  Ethernet3:
+    neighbor_hostname: DC1-L2LEAF2A
+    neighbor_port_name: Ethernet3
+  Ethernet4:
+    neighbor_hostname: DC1-L2LEAF2A
+    neighbor_port_name: Ethernet4
+DC1-LEAF1A:
+  Ethernet1:
+    neighbor_hostname: DC1-SPINE1
+    neighbor_port_name: Ethernet1
+  Ethernet2:
+    neighbor_hostname: DC1-SPINE2
+    neighbor_port_name: Ethernet1
+  Ethernet3:
+    neighbor_hostname: DC1-SPINE3
+    neighbor_port_name: Ethernet1
+  Ethernet4:
+    neighbor_hostname: DC1-SPINE4
+    neighbor_port_name: Ethernet1
+  Ethernet5:
+    neighbor_hostname: server01
+    neighbor_port_name: Eth1
+  Ethernet6:
+    neighbor_hostname: server02
+    neighbor_port_name: Eth1
+DC1-LEAF2A:
+  Ethernet1:
+    neighbor_hostname: DC1-SPINE1
+    neighbor_port_name: Ethernet2
+  Ethernet10:
+    neighbor_hostname: server01
+    neighbor_port_name: Eth2
+  Ethernet11:
+    neighbor_hostname: server02
+    neighbor_port_name: Eth2
+  Ethernet2:
+    neighbor_hostname: DC1-SPINE2
+    neighbor_port_name: Ethernet2
+  Ethernet3:
+    neighbor_hostname: DC1-SPINE3
+    neighbor_port_name: Ethernet2
+  Ethernet4:
+    neighbor_hostname: DC1-SPINE4
+    neighbor_port_name: Ethernet2
+  Ethernet5:
+    neighbor_hostname: DC1-LEAF2B
+    neighbor_port_name: Ethernet5
+  Ethernet6:
+    neighbor_hostname: DC1-LEAF2B
+    neighbor_port_name: Ethernet6
+  Ethernet7:
+    neighbor_hostname: DC1-L2LEAF1A
+    neighbor_port_name: Ethernet1
+DC1-LEAF2B:
+  Ethernet1:
+    neighbor_hostname: DC1-SPINE1
+    neighbor_port_name: Ethernet3
+  Ethernet10:
+    neighbor_hostname: server01
+    neighbor_port_name: Eth3
+  Ethernet11:
+    neighbor_hostname: server02
+    neighbor_port_name: Eth3
+  Ethernet2:
+    neighbor_hostname: DC1-SPINE2
+    neighbor_port_name: Ethernet3
+  Ethernet3:
+    neighbor_hostname: DC1-SPINE3
+    neighbor_port_name: Ethernet3
+  Ethernet4:
+    neighbor_hostname: DC1-SPINE4
+    neighbor_port_name: Ethernet3
+  Ethernet5:
+    neighbor_hostname: DC1-LEAF2A
+    neighbor_port_name: Ethernet5
+  Ethernet6:
+    neighbor_hostname: DC1-LEAF2A
+    neighbor_port_name: Ethernet6
+  Ethernet7:
+    neighbor_hostname: DC1-L2LEAF1A
+    neighbor_port_name: Ethernet2
+DC1-SPINE1:
+  Ethernet1:
+    neighbor_hostname: DC1-LEAF1A
+    neighbor_port_name: Ethernet1
+  Ethernet2:
+    neighbor_hostname: DC1-LEAF2A
+    neighbor_port_name: Ethernet1
+  Ethernet3:
+    neighbor_hostname: DC1-LEAF2B
+    neighbor_port_name: Ethernet1
+  Ethernet4:
+    neighbor_hostname: DC1-SVC3A
+    neighbor_port_name: Ethernet1
+  Ethernet5:
+    neighbor_hostname: DC1-SVC3B
+    neighbor_port_name: Ethernet1
+  Ethernet6:
+    neighbor_hostname: DC1-BL1A
+    neighbor_port_name: Ethernet1
+  Ethernet7:
+    neighbor_hostname: DC1-BL1B
+    neighbor_port_name: Ethernet1
+DC1-SPINE2:
+  Ethernet1:
+    neighbor_hostname: DC1-LEAF1A
+    neighbor_port_name: Ethernet2
+  Ethernet2:
+    neighbor_hostname: DC1-LEAF2A
+    neighbor_port_name: Ethernet2
+  Ethernet3:
+    neighbor_hostname: DC1-LEAF2B
+    neighbor_port_name: Ethernet2
+  Ethernet4:
+    neighbor_hostname: DC1-SVC3A
+    neighbor_port_name: Ethernet2
+  Ethernet5:
+    neighbor_hostname: DC1-SVC3B
+    neighbor_port_name: Ethernet2
+  Ethernet6:
+    neighbor_hostname: DC1-BL1A
+    neighbor_port_name: Ethernet2
+  Ethernet7:
+    neighbor_hostname: DC1-BL1B
+    neighbor_port_name: Ethernet2
+DC1-SPINE3:
+  Ethernet1:
+    neighbor_hostname: DC1-LEAF1A
+    neighbor_port_name: Ethernet3
+  Ethernet2:
+    neighbor_hostname: DC1-LEAF2A
+    neighbor_port_name: Ethernet3
+  Ethernet3:
+    neighbor_hostname: DC1-LEAF2B
+    neighbor_port_name: Ethernet3
+  Ethernet4:
+    neighbor_hostname: DC1-SVC3A
+    neighbor_port_name: Ethernet3
+  Ethernet5:
+    neighbor_hostname: DC1-SVC3B
+    neighbor_port_name: Ethernet3
+  Ethernet6:
+    neighbor_hostname: DC1-BL1A
+    neighbor_port_name: Ethernet3
+  Ethernet7:
+    neighbor_hostname: DC1-BL1B
+    neighbor_port_name: Ethernet3
+DC1-SPINE4:
+  Ethernet1:
+    neighbor_hostname: DC1-LEAF1A
+    neighbor_port_name: Ethernet4
+  Ethernet2:
+    neighbor_hostname: DC1-LEAF2A
+    neighbor_port_name: Ethernet4
+  Ethernet3:
+    neighbor_hostname: DC1-LEAF2B
+    neighbor_port_name: Ethernet4
+  Ethernet4:
+    neighbor_hostname: DC1-SVC3A
+    neighbor_port_name: Ethernet4
+  Ethernet5:
+    neighbor_hostname: DC1-SVC3B
+    neighbor_port_name: Ethernet4
+  Ethernet6:
+    neighbor_hostname: DC1-BL1A
+    neighbor_port_name: Ethernet4
+  Ethernet7:
+    neighbor_hostname: DC1-BL1B
+    neighbor_port_name: Ethernet4
+DC1-SVC3A:
+  Ethernet1:
+    neighbor_hostname: DC1-SPINE1
+    neighbor_port_name: Ethernet4
+  Ethernet10:
+    neighbor_hostname: server03
+    neighbor_port_name: Eth1
+  Ethernet11:
+    neighbor_hostname: server04
+    neighbor_port_name: Eth1
+  Ethernet2:
+    neighbor_hostname: DC1-SPINE2
+    neighbor_port_name: Ethernet4
+  Ethernet3:
+    neighbor_hostname: DC1-SPINE3
+    neighbor_port_name: Ethernet4
+  Ethernet4:
+    neighbor_hostname: DC1-SPINE4
+    neighbor_port_name: Ethernet4
+  Ethernet5:
+    neighbor_hostname: DC1-SVC3B
+    neighbor_port_name: Ethernet5
+  Ethernet6:
+    neighbor_hostname: DC1-SVC3B
+    neighbor_port_name: Ethernet6
+  Ethernet7:
+    neighbor_hostname: DC1-L2LEAF2A
+    neighbor_port_name: Ethernet1
+  Ethernet8:
+    neighbor_hostname: DC1-L2LEAF2B
+    neighbor_port_name: Ethernet1
+DC1-SVC3B:
+  Ethernet1:
+    neighbor_hostname: DC1-SPINE1
+    neighbor_port_name: Ethernet5
+  Ethernet10:
+    neighbor_hostname: server03
+    neighbor_port_name: Eth2
+  Ethernet11:
+    neighbor_hostname: server04
+    neighbor_port_name: Eth2
+  Ethernet2:
+    neighbor_hostname: DC1-SPINE2
+    neighbor_port_name: Ethernet5
+  Ethernet3:
+    neighbor_hostname: DC1-SPINE3
+    neighbor_port_name: Ethernet5
+  Ethernet4:
+    neighbor_hostname: DC1-SPINE4
+    neighbor_port_name: Ethernet5
+  Ethernet5:
+    neighbor_hostname: DC1-SVC3A
+    neighbor_port_name: Ethernet5
+  Ethernet6:
+    neighbor_hostname: DC1-SVC3A
+    neighbor_port_name: Ethernet6
+  Ethernet7:
+    neighbor_hostname: DC1-L2LEAF2A
+    neighbor_port_name: Ethernet2
+  Ethernet8:
+    neighbor_hostname: DC1-L2LEAF2B
+    neighbor_port_name: Ethernet2

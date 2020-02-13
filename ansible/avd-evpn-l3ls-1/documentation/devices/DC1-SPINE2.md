@@ -6,7 +6,7 @@
 
 | Management Interface | description | VRF | IP Address | Gateway |
 | -------------------- | ----------- | --- | ---------- | ------- |
-| Management1 | oob_management| MGMT | 192.168.2.102/24 | 192.168.2.1 |
+| Management1 | oob_management | MGMT | 192.168.200.102/24 | 192.168.200.5 |
 
 ### Management Interfaces Device Configuration
 
@@ -14,7 +14,7 @@
 interface Management1
    description oob_management
    vrf MGMT
-   ip address 192.168.2.102/24
+   ip address 192.168.200.102/24
 !
 ```
 
@@ -28,13 +28,13 @@ No Hardware Counters defined
 
 | CV Compression | Ingest gRPC URL | Ingest Authentication Key | Smash Excludes | Ingest Exclude | Ingest VRF |  NTP VRF |
 | -------------- | --------------- | ------------------------- | -------------- | -------------- | ---------- | -------- |
-| gzip | 192.168.2.201:9910 | telarista | ale,flexCounter,hardware,kni,pulse,strata | /Sysdb/cell/1/agent,/Sysdb/cell/2/agent | MGMT | MGMT |
+| gzip | 192.168.200.11:9910 | telarista | ale,flexCounter,hardware,kni,pulse,strata | /Sysdb/cell/1/agent,/Sysdb/cell/2/agent | MGMT | MGMT |
 
 ### TerminAttr Daemon Device Configuration
 
 ```eos
 daemon TerminAttr
-   exec /usr/bin/TerminAttr -ingestgrpcurl=192.168.2.201:9910 -cvcompression=gzip -ingestauth=key,telarista -smashexcludes=ale,flexCounter,hardware,kni,pulse,strata -ingestexclude=/Sysdb/cell/1/agent,/Sysdb/cell/2/agent -ingestvrf=MGMT -taillogs
+   exec /usr/bin/TerminAttr -ingestgrpcurl=192.168.200.11:9910 -cvcompression=gzip -ingestauth=key,telarista -smashexcludes=ale,flexCounter,hardware,kni,pulse,strata -ingestexclude=/Sysdb/cell/1/agent,/Sysdb/cell/2/agent -ingestvrf=MGMT -taillogs
    no shutdown
 !
 ```
@@ -60,13 +60,13 @@ vlan internal order ascending range 1006 1199
 
 | Name Server | Source VRF |
 | ----------- | ---------- |
-| 192.168.2.1 | MGMT |
+| 192.168.200.5 | MGMT |
 | 8.8.8.8 | MGMT |
 
 ### Name Servers Device Configuration
 
 ```eos
-ip name-server vrf MGMT 192.168.2.1
+ip name-server vrf MGMT 192.168.200.5
 ip name-server vrf MGMT 8.8.8.8
 !
 ```
@@ -80,15 +80,13 @@ VRF: MGMT
 
 | Node | Primary |
 | ---- | ------- |
-| 0.north-america.pool.ntp.org | True |
-| 1.north-america.pool.ntp.org | - |
+| 192.168.200.5 | True |
 
 ### NTP Device Configuration
 
 ```eos
 ntp local-interface vrf MGMT Management1
-ntp server vrf MGMT 0.north-america.pool.ntp.org prefer
-ntp server vrf MGMT 1.north-america.pool.ntp.org
+ntp server vrf MGMT 192.168.200.5 prefer
 !
 ```
 
@@ -172,12 +170,12 @@ No Port-Channels defined
 | Interface | Description | MTU | Type | Mode | Allowed VLANs (Trunk) | Trunk Group | VRF | IP Address | Channel-Group ID | Channel-Group Type |
 | --------- | ----------- | --- | ---- | ---- | --------------------- | ----------- | --- | ---------- | ---------------- | ------------------ |
 | Ethernet1 | P2P_LINK_TO_DC1-LEAF1A_Ethernet2 | 1500 | routed | access | - | - | - | 172.31.255.2/31 | - | - |
-| Ethernet2 | P2P_LINK_TO_DC1-LEAF2A_Ethernet2 | 1500 | routed | access | - | - | - | 172.31.255.6/31 | - | - |
-| Ethernet3 | P2P_LINK_TO_DC1-LEAF2B_Ethernet2 | 1500 | routed | access | - | - | - | 172.31.255.10/31 | - | - |
-| Ethernet4 | P2P_LINK_TO_DC1-SVC3A_Ethernet2 | 1500 | routed | access | - | - | - | 172.31.255.14/31 | - | - |
-| Ethernet5 | P2P_LINK_TO_DC1-SVC3B_Ethernet2 | 1500 | routed | access | - | - | - | 172.31.255.18/31 | - | - |
-| Ethernet6 | P2P_LINK_TO_DC1-BL1A_Ethernet2 | 1500 | routed | access | - | - | - | 172.31.255.22/31 | - | - |
-| Ethernet7 | P2P_LINK_TO_DC1-BL1B_Ethernet2 | 1500 | routed | access | - | - | - | 172.31.255.26/31 | - | - |
+| Ethernet2 | P2P_LINK_TO_DC1-LEAF2A_Ethernet2 | 1500 | routed | access | - | - | - | 172.31.255.10/31 | - | - |
+| Ethernet3 | P2P_LINK_TO_DC1-LEAF2B_Ethernet2 | 1500 | routed | access | - | - | - | 172.31.255.18/31 | - | - |
+| Ethernet4 | P2P_LINK_TO_DC1-SVC3A_Ethernet2 | 1500 | routed | access | - | - | - | 172.31.255.26/31 | - | - |
+| Ethernet5 | P2P_LINK_TO_DC1-SVC3B_Ethernet2 | 1500 | routed | access | - | - | - | 172.31.255.34/31 | - | - |
+| Ethernet6 | P2P_LINK_TO_DC1-BL1A_Ethernet2 | 1500 | routed | access | - | - | - | 172.31.255.42/31 | - | - |
+| Ethernet7 | P2P_LINK_TO_DC1-BL1B_Ethernet2 | 1500 | routed | access | - | - | - | 172.31.255.50/31 | - | - |
 
 *Inherited from Port-Channel Interface
 
@@ -192,32 +190,32 @@ interface Ethernet1
 interface Ethernet2
    description P2P_LINK_TO_DC1-LEAF2A_Ethernet2
    no switchport
-   ip address 172.31.255.6/31
+   ip address 172.31.255.10/31
 !
 interface Ethernet3
    description P2P_LINK_TO_DC1-LEAF2B_Ethernet2
    no switchport
-   ip address 172.31.255.10/31
+   ip address 172.31.255.18/31
 !
 interface Ethernet4
    description P2P_LINK_TO_DC1-SVC3A_Ethernet2
    no switchport
-   ip address 172.31.255.14/31
+   ip address 172.31.255.26/31
 !
 interface Ethernet5
    description P2P_LINK_TO_DC1-SVC3B_Ethernet2
    no switchport
-   ip address 172.31.255.18/31
+   ip address 172.31.255.34/31
 !
 interface Ethernet6
    description P2P_LINK_TO_DC1-BL1A_Ethernet2
    no switchport
-   ip address 172.31.255.22/31
+   ip address 172.31.255.42/31
 !
 interface Ethernet7
    description P2P_LINK_TO_DC1-BL1B_Ethernet2
    no switchport
-   ip address 172.31.255.26/31
+   ip address 172.31.255.50/31
 !
 ```
 
@@ -255,12 +253,12 @@ No VXLAN interface defined
 
 | VRF | Destination Prefix | Fowarding Address / Interface |
 | --- | ------------------ | ----------------------------- |
-| MGMT | 0.0.0.0/0 | 192.168.2.1 |
+| MGMT | 0.0.0.0/0 | 192.168.200.5 |
 
 ### Static Routes Device Configuration
 
 ```eos
-ip route vrf MGMT 0.0.0.0/0 192.168.2.1
+ip route vrf MGMT 0.0.0.0/0 192.168.200.5
 !
 ```
 
@@ -363,9 +361,7 @@ peer-filter LEAF-AS-RANGE
 | ---------- |
 | no bgp default ipv4-unicast |
 | distance bgp 20 200 200 |
-| graceful-restart restart-time 300 |
-| graceful-restart |
-| maximum-paths 2 ecmp 2 |
+| maximum-paths 4 ecmp 4 |
 
 ### Router BGP Peer Groups
 
@@ -384,13 +380,13 @@ peer-filter LEAF-AS-RANGE
 
 | Neighbor | Remote AS |
 | -------- | ---------
-| 192.168.255.3 | 65101  |
-| 192.168.255.4 | 65102  |
-| 192.168.255.5 | 65102  |
-| 192.168.255.6 | 65103  |
-| 192.168.255.7 | 65103  |
-| 192.168.255.8 | 65104  |
-| 192.168.255.9 | 65104  |
+| 192.168.255.5 | 65101  |
+| 192.168.255.6 | 65102  |
+| 192.168.255.7 | 65102  |
+| 192.168.255.8 | 65103  |
+| 192.168.255.9 | 65103  |
+| 192.168.255.10 | 65104  |
+| 192.168.255.11 | 65104  |
 
 *Inherited from peer group
 
@@ -405,12 +401,12 @@ peer-filter LEAF-AS-RANGE
 | Neighbor | Remote AS |
 | -------- | ---------
 | 172.31.255.3 | 65101  |
-| 172.31.255.7 | 65102  |
 | 172.31.255.11 | 65102  |
-| 172.31.255.15 | 65103  |
-| 172.31.255.19 | 65103  |
-| 172.31.255.23 | 65104  |
-| 172.31.255.27 | 65104  |
+| 172.31.255.19 | 65102  |
+| 172.31.255.27 | 65103  |
+| 172.31.255.35 | 65103  |
+| 172.31.255.43 | 65104  |
+| 172.31.255.51 | 65104  |
 
 *Inherited from peer group
 
@@ -429,9 +425,7 @@ router bgp 65001
    router-id 192.168.255.2
    no bgp default ipv4-unicast
    distance bgp 20 200 200
-   graceful-restart restart-time 300
-   graceful-restart
-   maximum-paths 2 ecmp 2
+   maximum-paths 4 ecmp 4
    neighbor EVPN-OVERLAY-PEERS peer group
    neighbor EVPN-OVERLAY-PEERS next-hop-unchanged
    neighbor EVPN-OVERLAY-PEERS update-source Loopback0
@@ -445,32 +439,32 @@ router bgp 65001
    neighbor IPv4-UNDERLAY-PEERS maximum-routes 12000
    neighbor 172.31.255.3 peer group IPv4-UNDERLAY-PEERS
    neighbor 172.31.255.3 remote-as 65101
-   neighbor 172.31.255.7 peer group IPv4-UNDERLAY-PEERS
-   neighbor 172.31.255.7 remote-as 65102
    neighbor 172.31.255.11 peer group IPv4-UNDERLAY-PEERS
    neighbor 172.31.255.11 remote-as 65102
-   neighbor 172.31.255.15 peer group IPv4-UNDERLAY-PEERS
-   neighbor 172.31.255.15 remote-as 65103
    neighbor 172.31.255.19 peer group IPv4-UNDERLAY-PEERS
-   neighbor 172.31.255.19 remote-as 65103
-   neighbor 172.31.255.23 peer group IPv4-UNDERLAY-PEERS
-   neighbor 172.31.255.23 remote-as 65104
+   neighbor 172.31.255.19 remote-as 65102
    neighbor 172.31.255.27 peer group IPv4-UNDERLAY-PEERS
-   neighbor 172.31.255.27 remote-as 65104
-   neighbor 192.168.255.3 peer group EVPN-OVERLAY-PEERS
-   neighbor 192.168.255.3 remote-as 65101
-   neighbor 192.168.255.4 peer group EVPN-OVERLAY-PEERS
-   neighbor 192.168.255.4 remote-as 65102
+   neighbor 172.31.255.27 remote-as 65103
+   neighbor 172.31.255.35 peer group IPv4-UNDERLAY-PEERS
+   neighbor 172.31.255.35 remote-as 65103
+   neighbor 172.31.255.43 peer group IPv4-UNDERLAY-PEERS
+   neighbor 172.31.255.43 remote-as 65104
+   neighbor 172.31.255.51 peer group IPv4-UNDERLAY-PEERS
+   neighbor 172.31.255.51 remote-as 65104
    neighbor 192.168.255.5 peer group EVPN-OVERLAY-PEERS
-   neighbor 192.168.255.5 remote-as 65102
+   neighbor 192.168.255.5 remote-as 65101
    neighbor 192.168.255.6 peer group EVPN-OVERLAY-PEERS
-   neighbor 192.168.255.6 remote-as 65103
+   neighbor 192.168.255.6 remote-as 65102
    neighbor 192.168.255.7 peer group EVPN-OVERLAY-PEERS
-   neighbor 192.168.255.7 remote-as 65103
+   neighbor 192.168.255.7 remote-as 65102
    neighbor 192.168.255.8 peer group EVPN-OVERLAY-PEERS
-   neighbor 192.168.255.8 remote-as 65104
+   neighbor 192.168.255.8 remote-as 65103
    neighbor 192.168.255.9 peer group EVPN-OVERLAY-PEERS
-   neighbor 192.168.255.9 remote-as 65104
+   neighbor 192.168.255.9 remote-as 65103
+   neighbor 192.168.255.10 peer group EVPN-OVERLAY-PEERS
+   neighbor 192.168.255.10 remote-as 65104
+   neighbor 192.168.255.11 peer group EVPN-OVERLAY-PEERS
+   neighbor 192.168.255.11 remote-as 65104
    redistribute connected route-map RM-CONN-2-BGP
    !
    address-family evpn

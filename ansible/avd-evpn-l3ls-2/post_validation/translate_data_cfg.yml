@@ -1,0 +1,33 @@
+translate_data_config:
+
+  translate_cases:
+
+    - expected_src_prefix: ../documentation/DC1_FABRIC/
+      expected_dst_prefix: ./expected_data
+      test_src_prefix: ../post_validation/state_outputs/
+      test_dst_prefix: ./test_input_data
+
+
+    - mode: translate/ansible_avd/topology/expected/csv_to_yaml/default
+      src: DC1_FABRIC-topology.csv
+      dst: topology.yml
+
+    - mode: translate/ansible_avd/topology/test/yaml_to_yaml/dut_lldp
+      src: duts_state.yaml
+      dst: topology.yml
+
+    - mode: translate/ansible_avd/topology/expected/csv_to_yaml/no_server
+      src: DC1_FABRIC-topology.csv
+      dst: topology_no_server.yml
+
+    - mode: translate/ansible_avd/topology/test/yaml_to_yaml/dut_lldp_no_localhost
+      src: duts_state.yaml
+      dst: topology_no_server.yml
+
+    - mode: translate/ansible_avd/bgp/expected/yaml_to_yaml/default
+      src: ../intended/structured_configs
+      dst: bgp_peering.yml
+
+    - mode: translate/ansible_avd/bgp/test/yaml_to_yaml/default
+      src: duts_state.yaml
+      dst: bgp_peering.yml
