@@ -241,7 +241,7 @@ function filter_table(elem) {
 }
 </script>
     <h1>pre_validation.html</h1>
-    <p>Report generated on 13-Feb-2020 at 09:15:30 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v2.0.1</p>
+    <p>Report generated on 13-Feb-2020 at 18:00:44 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v2.0.1</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
@@ -249,15 +249,15 @@ function filter_table(elem) {
         <td>{&apos;pytest&apos;: &apos;5.3.4&apos;, &apos;py&apos;: &apos;1.8.1&apos;, &apos;pluggy&apos;: &apos;0.13.1&apos;}</td></tr>
       <tr>
         <td>Platform</td>
-        <td>Linux-3.10.0-1062.12.1.el7.x86_64-x86_64-with-centos-7.7.1908-Core</td></tr>
+        <td>Darwin-19.3.0-x86_64-i386-64bit</td></tr>
       <tr>
         <td>Plugins</td>
-        <td>{&apos;metadata&apos;: &apos;1.8.0&apos;, &apos;html&apos;: &apos;2.0.1&apos;}</td></tr>
+        <td>{&apos;html&apos;: &apos;2.0.1&apos;, &apos;metadata&apos;: &apos;1.8.0&apos;}</td></tr>
       <tr>
         <td>Python</td>
-        <td>3.6.8</td></tr></table>
+        <td>3.7.6</td></tr></table>
     <h2>Summary</h2>
-    <p>9 tests ran in 7.37 seconds. </p>
+    <p>9 tests ran in 15.08 seconds. </p>
     <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="passed">8 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xfailed">1 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
@@ -277,12 +277,12 @@ function filter_table(elem) {
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log">bf = &lt;pybatfish.client.session.Session object at 0x7fb1f1cb71d0&gt;<br/>assertion = False, pass_message = &#x27;No L2 VNIs with empty flood list\n&#x27;<br/>fail_message = &#x27;Found L2 VNIs with an empty flood list\n          Node      VRF    VNI\n2   dc1-leaf2b  default  50160\n3   dc1-leaf2...svc3a   default  50160\n42  dc1-leaf2a  default  10161\n44  dc1-leaf2b  default  10161\n57  dc1-svc3b   default  10161&#x27;<br/><br/>    def record_results(bf, assertion, pass_message, fail_message):<br/>    <br/>        session_type = os.environ.get(&#x27;SESSION_TYPE&#x27;)<br/>    <br/>        try:<br/>&gt;           assert(assertion)<br/><span class="error">E           AssertionError: assert False</span><br/><br/>pre_validation_batfish/policies/test_utils.py:19: AssertionError<br/><br/>During handling of the above exception, another exception occurred:<br/><br/>bf = &lt;pybatfish.client.session.Session object at 0x7fb1f1cb71d0&gt;<br/>l2_vnis =           Node                VRF    VNI   Local_VTEP_IP Multicast_Group VLAN                     VTEP_Flood_List VXLA...c1-svc3b   Tenant_A_APP_Zone  10130  192.168.254.8   None            130  [&#x27;192.168.254.5&#x27;, &#x27;192.168.254.6&#x27;]  4789     <br/><br/>    @pytest.mark.xfail(strict=True)<br/>    def test_no_l2_vnis_empty_flood_list(bf, l2_vnis):<br/>        &quot;&quot;&quot;Check in any VNIs have empty flood lists.&quot;&quot;&quot;<br/>        bf.asserts.current_assertion = &#x27;Assert no L2 VNIs have an empty flood list&#x27;<br/>    <br/>        empty_flood = l2_vnis[(l2_vnis[&#x27;VLAN&#x27;].notnull()) &amp; (<br/>            l2_vnis[&#x27;VTEP_Flood_List&#x27;].apply(lambda x: not x))]<br/>        df = empty_flood[[&#x27;Node&#x27;, &#x27;VRF&#x27;, &#x27;VNI&#x27;]]<br/>    <br/>        test = df.empty<br/>        pass_message = &#x27;No L2 VNIs with empty flood list\n&#x27;<br/>        fail_message = f&quot;Found L2 VNIs with an empty flood list\n{df}&quot;<br/>    <br/>&gt;       record_results(bf, test, pass_message, fail_message)<br/><br/>pre_validation_batfish/policies/test_evpn.py:88: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>bf = &lt;pybatfish.client.session.Session object at 0x7fb1f1cb71d0&gt;<br/>assertion = False, pass_message = &#x27;No L2 VNIs with empty flood list\n&#x27;<br/>fail_message = &#x27;Found L2 VNIs with an empty flood list\n          Node      VRF    VNI\n2   dc1-leaf2b  default  50160\n3   dc1-leaf2...svc3a   default  50160\n42  dc1-leaf2a  default  10161\n44  dc1-leaf2b  default  10161\n57  dc1-svc3b   default  10161&#x27;<br/><br/>    def record_results(bf, assertion, pass_message, fail_message):<br/>    <br/>        session_type = os.environ.get(&#x27;SESSION_TYPE&#x27;)<br/>    <br/>        try:<br/>            assert(assertion)<br/>            if session_type == &#x27;bfe&#x27;:<br/>                bf.asserts._record_result(True, status=STATUS_PASS,<br/>                                          message=pass_message)<br/>        except Exception as e:<br/>            if session_type == &#x27;bfe&#x27;:<br/>                bf.asserts._record_result(False, status=STATUS_FAIL,<br/>                                          message=fail_message)<br/>&gt;           raise AssertionError(fail_message)<br/><span class="error">E           AssertionError: Found L2 VNIs with an empty flood list</span><br/><span class="error">E                     Node      VRF    VNI</span><br/><span class="error">E           2   dc1-leaf2b  default  50160</span><br/><span class="error">E           3   dc1-leaf2a  default  50160</span><br/><span class="error">E           6   dc1-svc3a   default  10161</span><br/><span class="error">E           20  dc1-svc3b   default  50160</span><br/><span class="error">E           21  dc1-svc3a   default  50160</span><br/><span class="error">E           42  dc1-leaf2a  default  10161</span><br/><span class="error">E           44  dc1-leaf2b  default  10161</span><br/><span class="error">E           57  dc1-svc3b   default  10161</span><br/><br/>pre_validation_batfish/policies/test_utils.py:27: AssertionError<br/></div></td></tr></tbody>
+            <div class="log">bf = &lt;pybatfish.client.session.Session object at 0x11ddd9410&gt;, assertion = False<br/>pass_message = &#x27;No L2 VNIs with empty flood list\n&#x27;<br/>fail_message = &#x27;Found L2 VNIs with an empty flood list\n          Node      VRF    VNI\n2   dc1-leaf2b  default  50160\n3   dc1-leaf2...svc3a   default  50160\n42  dc1-leaf2a  default  10161\n44  dc1-leaf2b  default  10161\n57  dc1-svc3b   default  10161&#x27;<br/><br/>    def record_results(bf, assertion, pass_message, fail_message):<br/>    <br/>        session_type = os.environ.get(&#x27;SESSION_TYPE&#x27;)<br/>    <br/>        try:<br/>&gt;           assert(assertion)<br/><span class="error">E           AssertionError: assert False</span><br/><br/>pre_validation_batfish/policies/test_utils.py:19: AssertionError<br/><br/>During handling of the above exception, another exception occurred:<br/><br/>bf = &lt;pybatfish.client.session.Session object at 0x11ddd9410&gt;<br/>l2_vnis =           Node                VRF    VNI   Local_VTEP_IP Multicast_Group VLAN                     VTEP_Flood_List VXLA...c1-svc3b   Tenant_A_APP_Zone  10130  192.168.254.8   None            130  [&#x27;192.168.254.5&#x27;, &#x27;192.168.254.6&#x27;]  4789     <br/><br/>    @pytest.mark.xfail(strict=True)<br/>    def test_no_l2_vnis_empty_flood_list(bf, l2_vnis):<br/>        &quot;&quot;&quot;Check in any VNIs have empty flood lists.&quot;&quot;&quot;<br/>        bf.asserts.current_assertion = &#x27;Assert no L2 VNIs have an empty flood list&#x27;<br/>    <br/>        empty_flood = l2_vnis[(l2_vnis[&#x27;VLAN&#x27;].notnull()) &amp; (<br/>            l2_vnis[&#x27;VTEP_Flood_List&#x27;].apply(lambda x: not x))]<br/>        df = empty_flood[[&#x27;Node&#x27;, &#x27;VRF&#x27;, &#x27;VNI&#x27;]]<br/>    <br/>        test = df.empty<br/>        pass_message = &#x27;No L2 VNIs with empty flood list\n&#x27;<br/>        fail_message = f&quot;Found L2 VNIs with an empty flood list\n{df}&quot;<br/>    <br/>&gt;       record_results(bf, test, pass_message, fail_message)<br/><br/>pre_validation_batfish/policies/test_evpn.py:88: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>bf = &lt;pybatfish.client.session.Session object at 0x11ddd9410&gt;, assertion = False<br/>pass_message = &#x27;No L2 VNIs with empty flood list\n&#x27;<br/>fail_message = &#x27;Found L2 VNIs with an empty flood list\n          Node      VRF    VNI\n2   dc1-leaf2b  default  50160\n3   dc1-leaf2...svc3a   default  50160\n42  dc1-leaf2a  default  10161\n44  dc1-leaf2b  default  10161\n57  dc1-svc3b   default  10161&#x27;<br/><br/>    def record_results(bf, assertion, pass_message, fail_message):<br/>    <br/>        session_type = os.environ.get(&#x27;SESSION_TYPE&#x27;)<br/>    <br/>        try:<br/>            assert(assertion)<br/>            if session_type == &#x27;bfe&#x27;:<br/>                bf.asserts._record_result(True, status=STATUS_PASS,<br/>                                          message=pass_message)<br/>        except Exception as e:<br/>            if session_type == &#x27;bfe&#x27;:<br/>                bf.asserts._record_result(False, status=STATUS_FAIL,<br/>                                          message=fail_message)<br/>&gt;           raise AssertionError(fail_message)<br/><span class="error">E           AssertionError: Found L2 VNIs with an empty flood list</span><br/><span class="error">E                     Node      VRF    VNI</span><br/><span class="error">E           2   dc1-leaf2b  default  50160</span><br/><span class="error">E           3   dc1-leaf2a  default  50160</span><br/><span class="error">E           6   dc1-svc3a   default  10161</span><br/><span class="error">E           20  dc1-svc3b   default  50160</span><br/><span class="error">E           21  dc1-svc3a   default  50160</span><br/><span class="error">E           42  dc1-leaf2a  default  10161</span><br/><span class="error">E           44  dc1-leaf2b  default  10161</span><br/><span class="error">E           57  dc1-svc3b   default  10161</span><br/><br/>pre_validation_batfish/policies/test_utils.py:27: AssertionError<br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">test_evpn.py::test_dns_servers</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -300,7 +300,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">test_evpn.py::test_bgp_sessions_up</td>
-          <td class="col-duration">1.44</td>
+          <td class="col-duration">5.44</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -318,7 +318,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">test_evpn.py::test_vrf_for_l3_vni_defined</td>
-          <td class="col-duration">0.06</td>
+          <td class="col-duration">0.03</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -336,7 +336,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">test_evpn.py::test_l3_vni_rds</td>
-          <td class="col-duration">0.19</td>
+          <td class="col-duration">0.50</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -345,7 +345,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">test_evpn.py::test_vtep_reachability</td>
-          <td class="col-duration">4.41</td>
+          <td class="col-duration">7.09</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
