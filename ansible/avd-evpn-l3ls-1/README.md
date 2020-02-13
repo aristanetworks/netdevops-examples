@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Arista-EOS%20Automation-blue) ![GitHub](https://img.shields.io/github/license/aristanetworks/ansible-avd)  ![GitHub last commit](https://img.shields.io/github/last-commit/aristanetworks/ansible-avd) ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/aristanetworks/ansible-avd)
 
-__WARNING:__ Early Field Trial - Ansible Validated Design demo. Work in Progress.
+__WARNING:__ Ansible Validated Design demo. Work in Progress.
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
@@ -35,6 +35,10 @@ $ source .venv/bin/activate
 # Install Python requirements
 $ pip install -r requirements.txt
 
+# Install arista collections
+$ ansible-galaxy collection install arista.avd
+$ ansible-galaxy collection install arista.cvp
+
 # Install batfish role from galaxy
 $ ansible-galaxy install batfish.base
 
@@ -58,6 +62,8 @@ $ ansible-playbook dc1-fabric-config.yml --tags "build"
 
 - Python: `3.x`
 - [Ansible](https://www.ansible.com/): `2.9`
+- [Arista Validated Design Collection](https://galaxy.ansible.com/arista/avd): `v1.0.0`
+- [Arista CloudVision Collection](https://galaxy.ansible.com/arista/cvp): `v1.0.4`
 - [Batfish](https://github.com/batfish/batfish) & [PyBatfish](https://github.com/batfish/pybatfish): `0.36.0` 
 - [Pytest](https://docs.pytest.org/en/latest/): `5.3.4`
 - [Ward](https://wardpy.com/): `0.34.0b0`
@@ -79,21 +85,21 @@ PLAY [Build Switch configuration]
 [...]
 
 PLAY RECAP 
-AVD-CVP-1                  : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-DC1-BL1A                   : ok=5    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-DC1-BL1B                   : ok=5    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-DC1-L2LEAF1A               : ok=5    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-DC1-L2LEAF2A               : ok=5    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-DC1-L2LEAF2B               : ok=5    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-DC1-LEAF1A                 : ok=5    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-DC1-LEAF2A                 : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-DC1-LEAF2B                 : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-DC1-SPINE1                 : ok=8    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-DC1-SPINE2                 : ok=5    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-DC1-SPINE3                 : ok=5    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-DC1-SPINE4                 : ok=5    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-DC1-SVC3A                  : ok=5    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-DC1-SVC3B                  : ok=5    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+AVD-CVP-1                  : ok=3    changed=1    unreachable=0    failed=0
+DC1-BL1A                   : ok=5    changed=0    unreachable=0    failed=0
+DC1-BL1B                   : ok=5    changed=0    unreachable=0    failed=0
+DC1-L2LEAF1A               : ok=5    changed=0    unreachable=0    failed=0
+DC1-L2LEAF2A               : ok=5    changed=0    unreachable=0    failed=0
+DC1-L2LEAF2B               : ok=5    changed=0    unreachable=0    failed=0
+DC1-LEAF1A                 : ok=5    changed=0    unreachable=0    failed=0
+DC1-LEAF2A                 : ok=5    changed=1    unreachable=0    failed=0
+DC1-LEAF2B                 : ok=5    changed=1    unreachable=0    failed=0
+DC1-SPINE1                 : ok=8    changed=0    unreachable=0    failed=0
+DC1-SPINE2                 : ok=5    changed=0    unreachable=0    failed=0
+DC1-SPINE3                 : ok=5    changed=0    unreachable=0    failed=0
+DC1-SPINE4                 : ok=5    changed=0    unreachable=0    failed=0
+DC1-SVC3A                  : ok=5    changed=0    unreachable=0    failed=0
+DC1-SVC3B                  : ok=5    changed=0    unreachable=0    failed=0
 
 Thursday 13 February 2020  17:54:21 +0100 (0:00:00.945)       0:00:22.158 ***** 
 =============================================================================== 
@@ -111,13 +117,13 @@ __2. Run Pre-deploy validation using Batfish__
 This section runs Batfish test prior to any devices's deployment. It helps to validate generated configuration follows network and security guidelines defined in the company.
 
 ```shell
-$ ansible-playbook dc-fabric-pre-validate.yml                                                            
+$ ansible-playbook dc-fabric-pre-validate.yml
 
 PLAY [Validate DC Fabric configuration with Batfish]
 [...]
 
 PLAY RECAP 
-localhost                  : ok=4    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+localhost                  : ok=4    changed=4    unreachable=0    failed=0
 
 Thursday 13 February 2020  18:00:45 +0100 (0:00:16.662)       0:00:30.671 ***** 
 =============================================================================== 
