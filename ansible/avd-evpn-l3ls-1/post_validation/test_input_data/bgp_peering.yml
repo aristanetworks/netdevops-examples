@@ -1,0 +1,278 @@
+DC1-BL1A:
+  evpn:
+    192.168.255.1:
+      state: Established
+    192.168.255.2:
+      state: Established
+    192.168.255.3:
+      state: Established
+    192.168.255.4:
+      state: Established
+  underlay:
+    10.255.251.11:
+      state: Established
+    172.31.255.40:
+      state: Established
+    172.31.255.42:
+      state: Established
+    172.31.255.44:
+      state: Established
+    172.31.255.46:
+      state: Established
+DC1-BL1B:
+  evpn:
+    192.168.255.1:
+      state: Established
+    192.168.255.2:
+      state: Established
+    192.168.255.3:
+      state: Established
+    192.168.255.4:
+      state: Established
+  underlay:
+    10.255.251.10:
+      state: Established
+    172.31.255.48:
+      state: Established
+    172.31.255.50:
+      state: Established
+    172.31.255.52:
+      state: Established
+    172.31.255.54:
+      state: Established
+DC1-L2LEAF1A:
+  evpn: {}
+  underlay: {}
+DC1-L2LEAF2A:
+  evpn: {}
+  underlay: {}
+DC1-L2LEAF2B:
+  evpn: {}
+  underlay: {}
+DC1-LEAF1A:
+  evpn:
+    192.168.255.1:
+      state: Established
+    192.168.255.2:
+      state: Established
+    192.168.255.3:
+      state: Established
+    192.168.255.4:
+      state: Established
+  underlay:
+    172.31.255.0:
+      state: Established
+    172.31.255.2:
+      state: Established
+    172.31.255.4:
+      state: Established
+    172.31.255.6:
+      state: Established
+DC1-LEAF2A:
+  evpn:
+    192.168.255.1:
+      state: Established
+    192.168.255.2:
+      state: Established
+    192.168.255.3:
+      state: Established
+    192.168.255.4:
+      state: Established
+  underlay:
+    10.255.251.3:
+      state: Established
+    172.31.255.10:
+      state: Established
+    172.31.255.12:
+      state: Established
+    172.31.255.14:
+      state: Established
+    172.31.255.8:
+      state: Established
+DC1-LEAF2B:
+  evpn:
+    192.168.255.1:
+      state: Established
+    192.168.255.2:
+      state: Established
+    192.168.255.3:
+      state: Established
+    192.168.255.4:
+      state: Established
+  underlay:
+    10.255.251.2:
+      state: Established
+    172.31.255.16:
+      state: Established
+    172.31.255.18:
+      state: Established
+    172.31.255.20:
+      state: Established
+    172.31.255.22:
+      state: Established
+DC1-SPINE1:
+  evpn:
+    192.168.255.10:
+      state: Established
+    192.168.255.11:
+      state: Established
+    192.168.255.5:
+      state: Established
+    192.168.255.6:
+      state: Established
+    192.168.255.7:
+      state: Established
+    192.168.255.8:
+      state: Established
+    192.168.255.9:
+      state: Established
+  underlay:
+    172.31.255.1:
+      state: Established
+    172.31.255.17:
+      state: Established
+    172.31.255.25:
+      state: Established
+    172.31.255.33:
+      state: Established
+    172.31.255.41:
+      state: Established
+    172.31.255.49:
+      state: Established
+    172.31.255.9:
+      state: Established
+DC1-SPINE2:
+  evpn:
+    192.168.255.10:
+      state: Established
+    192.168.255.11:
+      state: Established
+    192.168.255.5:
+      state: Established
+    192.168.255.6:
+      state: Established
+    192.168.255.7:
+      state: Established
+    192.168.255.8:
+      state: Established
+    192.168.255.9:
+      state: Established
+  underlay:
+    172.31.255.11:
+      state: Established
+    172.31.255.19:
+      state: Established
+    172.31.255.27:
+      state: Established
+    172.31.255.3:
+      state: Established
+    172.31.255.35:
+      state: Established
+    172.31.255.43:
+      state: Established
+    172.31.255.51:
+      state: Established
+DC1-SPINE3:
+  evpn:
+    192.168.255.10:
+      state: Established
+    192.168.255.11:
+      state: Established
+    192.168.255.5:
+      state: Established
+    192.168.255.6:
+      state: Established
+    192.168.255.7:
+      state: Established
+    192.168.255.8:
+      state: Established
+    192.168.255.9:
+      state: Established
+  underlay:
+    172.31.255.13:
+      state: Established
+    172.31.255.21:
+      state: Established
+    172.31.255.29:
+      state: Established
+    172.31.255.37:
+      state: Established
+    172.31.255.45:
+      state: Established
+    172.31.255.5:
+      state: Established
+    172.31.255.53:
+      state: Established
+DC1-SPINE4:
+  evpn:
+    192.168.255.10:
+      state: Established
+    192.168.255.11:
+      state: Established
+    192.168.255.5:
+      state: Established
+    192.168.255.6:
+      state: Established
+    192.168.255.7:
+      state: Established
+    192.168.255.8:
+      state: Established
+    192.168.255.9:
+      state: Established
+  underlay:
+    172.31.255.15:
+      state: Established
+    172.31.255.23:
+      state: Established
+    172.31.255.31:
+      state: Established
+    172.31.255.39:
+      state: Established
+    172.31.255.47:
+      state: Established
+    172.31.255.55:
+      state: Established
+    172.31.255.7:
+      state: Established
+DC1-SVC3A:
+  evpn:
+    192.168.255.1:
+      state: Established
+    192.168.255.2:
+      state: Established
+    192.168.255.3:
+      state: Established
+    192.168.255.4:
+      state: Established
+  underlay:
+    10.255.251.7:
+      state: Established
+    172.31.255.24:
+      state: Established
+    172.31.255.26:
+      state: Established
+    172.31.255.28:
+      state: Established
+    172.31.255.30:
+      state: Established
+DC1-SVC3B:
+  evpn:
+    192.168.255.1:
+      state: Established
+    192.168.255.2:
+      state: Established
+    192.168.255.3:
+      state: Established
+    192.168.255.4:
+      state: Established
+  underlay:
+    10.255.251.6:
+      state: Established
+    172.31.255.32:
+      state: Established
+    172.31.255.34:
+      state: Established
+    172.31.255.36:
+      state: Established
+    172.31.255.38:
+      state: Established

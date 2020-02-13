@@ -1,0 +1,17 @@
+---
+- name: Validate DC Fabric configuration with Batfish
+  hosts: localhost
+  connection: local
+  roles:
+    - batfish.base
+
+  vars:
+    snapshot: dc1-target
+    network: DC1
+  tasks:
+
+    - name: Pre Deployment fabric validation
+      import_role:
+         name: eos_pre_fabric_validation
+
+

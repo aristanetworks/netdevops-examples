@@ -1,0 +1,33 @@
+---
+
+- name: Gather device state information
+  eos_command:
+    commands: "{{ fabric_validation_commands }}"
+  register: device_state
+  tags:
+    - fabric_validation
+    - config
+
+- name: Generate yaml output to use for PyTest
+  template:
+    src: fabric_yaml_output.j2
+    dest: ./post_validation/state_outputs/duts_state.yaml
+  delegate_to: localhost
+  run_once: true
+  tags:
+    - fabric_validation
+    - config
+
+- name: translate data models
+  shell:
+    cmd: "./translate_data.py"
+    chdir: "post_validation/"
+  delegate_to: localhost
+  run_once: True
+
+- name: Validate EVPN
+  shell:
+    cmd: "pytest -vv test_network_with_pytest.py --html ./results/post_validation.html"
+    chdir: "post_validation/"
+  delegate_to: localhost
+  run_once: True

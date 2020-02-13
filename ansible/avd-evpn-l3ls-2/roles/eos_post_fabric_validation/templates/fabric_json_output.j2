@@ -1,0 +1,22 @@
+{
+    "duts": {
+{% for node in groups[fabric_name] | arista.avd.natural_sort %}
+        "{{ node }}": {
+{%     for fabric_validation_command in fabric_validation_commands %}
+            "{{ fabric_validation_command.command | replace("show ","") | replace(" ","_") }}":
+                {{ hostvars[node].device_state.stdout[loop.index0] | to_nice_json | indent(12) }}
+{%-        if not loop.last %}
+,
+{%         else %}
+
+        }
+{%-        endif %}
+{%-    endfor %}
+{%-    if not loop.last %}
+,
+{%     else %}
+
+    }
+{%     endif %}
+{% endfor %}
+}

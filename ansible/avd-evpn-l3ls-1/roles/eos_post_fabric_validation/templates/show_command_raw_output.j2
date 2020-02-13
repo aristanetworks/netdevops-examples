@@ -1,0 +1,17 @@
+
+# {{ inventory_hostname }} Raw Commands Output
+
+## Table of Contents
+
+{% for fabric_validation_command in fabric_validation_commands %}
+- [{{ fabric_validation_command.command }}](#{{ fabric_validation_command.command | replace(" ","-") }})
+{% endfor %}
+
+{% for fabric_validation_command in fabric_validation_commands %}
+## {{ fabric_validation_command.command }}
+
+```eos
+"{{ device_state.stdout[loop.index0] | to_nice_json }}"
+```
+
+{% endfor %}

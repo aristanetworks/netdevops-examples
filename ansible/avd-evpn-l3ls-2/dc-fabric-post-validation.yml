@@ -1,0 +1,9 @@
+---
+
+- hosts: DC1_FABRIC
+
+  tasks:
+
+    - name: Generate Device Diagnostics Report
+      import_role:
+         name: eos_post_fabric_validation

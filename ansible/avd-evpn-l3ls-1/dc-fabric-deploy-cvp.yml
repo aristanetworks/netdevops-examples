@@ -1,0 +1,48 @@
+---
+- name: Build Switch configuration
+  hosts: DC1_FABRIC
+  connection: local
+  gather_facts: no
+
+  tasks:
+
+    - name: generate intented variables
+      tags: [build]
+      import_role:
+         name: arista.avd.eos_l3ls_evpn
+
+    - name: generate device intended config and documention
+      tags: [build]
+      import_role:
+         name: arista.avd.eos_cli_config_gen
+
+- name: Validate DC Fabric configuration with Batfish
+  hosts: localhost
+  connection: local
+  roles:
+    - batfish.base
+
+  vars:
+    snapshot: dc1-target
+    network: DC1
+  tasks:
+
+    - name: Pre Deployment fabric validation
+      import_role:
+         name: eos_pre_fabric_validation
+
+- name: Configuration deployment with CVP
+  hosts: AVD-CVP-1
+  connection: local
+  gather_facts: no
+
+  tasks:
+
+    - name: run CVP provisioning
+      import_role:
+         name: arista.avd.eos_config_deploy_cvp
+      vars:
+        container_root: 'DC1_FABRIC'
+        configlets_prefix: 'DC1-AVD'
+        device_filter: 'DC1'
+        state: present
