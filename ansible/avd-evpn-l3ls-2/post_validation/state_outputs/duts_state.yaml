@@ -7,13 +7,13 @@ duts:
       internalBuildId: 413991dd-4451-4406-a16c-f1c6ac19d1f3
       internalVersion: 4.22.3M-14418192.4223M
       isIntlVersion: false
-      memFree: 2944308
+      memFree: 2939028
       memTotal: 4008816
       mfgName: ''
       modelName: vEOS
       serialNumber: ''
       systemMacAddress: 50:00:00:1b:5e:8d
-      uptime: 395064.45
+      uptime: 397374.92
       version: 4.22.3M
     "show ip bgp summary":
       vrfs:
@@ -23,20 +23,20 @@ duts:
             10.255.251.11:
               asn: '65104'
               inMsgQueue: 0
-              msgReceived: 7748
-              msgSent: 7744
+              msgReceived: 7794
+              msgSent: 7789
               outMsgQueue: 0
               peerState: Established
-              prefixAccepted: 27
-              prefixReceived: 27
+              prefixAccepted: 21
+              prefixReceived: 21
               underMaintenance: false
               upDownTime: 1581211904.0
               version: 4
             172.31.255.20:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 7739
-              msgSent: 7743
+              msgReceived: 7784
+              msgSent: 7789
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 23
@@ -47,8 +47,8 @@ duts:
             172.31.255.22:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 7727
-              msgSent: 7736
+              msgReceived: 7774
+              msgSent: 7780
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 23
@@ -66,8 +66,8 @@ duts:
             192.168.255.1:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 7926
-              msgSent: 7839
+              msgReceived: 7990
+              msgSent: 7896
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 162
@@ -78,14 +78,14 @@ duts:
             192.168.255.2:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 7920
-              msgSent: 7866
+              msgReceived: 8051
+              msgSent: 7990
               outMsgQueue: 0
-              peerState: Connect
-              prefixAccepted: 0
-              prefixReceived: 0
+              peerState: Established
+              prefixAccepted: 162
+              prefixReceived: 162
               underMaintenance: false
-              upDownTime: 1581606656.0
+              upDownTime: 1581606784.0
               version: 4
           routerId: 192.168.255.8
           vrf: default
@@ -111,7 +111,7 @@ duts:
       tablesDeletes: 1
       tablesDrops: 0
       tablesInserts: 5
-      tablesLastChangeTime: 1581211919.5153308
+      tablesLastChangeTime: 1581211919.5153258
   DC1-BL1B:
     "show version":
       architecture: i686
@@ -120,13 +120,13 @@ duts:
       internalBuildId: 413991dd-4451-4406-a16c-f1c6ac19d1f3
       internalVersion: 4.22.3M-14418192.4223M
       isIntlVersion: false
-      memFree: 2940064
+      memFree: 2934040
       memTotal: 4008816
       mfgName: ''
       modelName: vEOS
       serialNumber: ''
       systemMacAddress: 50:00:00:6b:2e:70
-      uptime: 395072.51
+      uptime: 397382.99
       version: 4.22.3M
     "show ip bgp summary":
       vrfs:
@@ -136,8 +136,8 @@ duts:
             10.255.251.10:
               asn: '65104'
               inMsgQueue: 0
-              msgReceived: 7744
-              msgSent: 7748
+              msgReceived: 7789
+              msgSent: 7794
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 27
@@ -148,8 +148,8 @@ duts:
             172.31.255.24:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 7734
-              msgSent: 7742
+              msgReceived: 7779
+              msgSent: 7790
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 23
@@ -160,14 +160,14 @@ duts:
             172.31.255.26:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 7733
-              msgSent: 7735
+              msgReceived: 7745
+              msgSent: 7755
               outMsgQueue: 0
-              peerState: Established
-              prefixAccepted: 23
-              prefixReceived: 23
+              peerState: Connect
+              prefixAccepted: 0
+              prefixReceived: 0
               underMaintenance: false
-              upDownTime: 1581211904.0
+              upDownTime: 1581608576.0
               version: 4
           routerId: 192.168.255.9
           vrf: default
@@ -179,8 +179,8 @@ duts:
             192.168.255.1:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 7906
-              msgSent: 7853
+              msgReceived: 7971
+              msgSent: 7911
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 162
@@ -191,14 +191,14 @@ duts:
             192.168.255.2:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 7917
-              msgSent: 7834
+              msgReceived: 8111
+              msgSent: 8031
               outMsgQueue: 0
-              peerState: Connect
-              prefixAccepted: 0
-              prefixReceived: 0
+              peerState: Established
+              prefixAccepted: 162
+              prefixReceived: 162
               underMaintenance: false
-              upDownTime: 1581606656.0
+              upDownTime: 1581608576.0
               version: 4
           routerId: 192.168.255.9
           vrf: default
@@ -216,11 +216,11 @@ duts:
         neighborPort: Ethernet4
         port: Ethernet4
         ttl: 120
-      tablesAgeOuts: 1
-      tablesDeletes: 1
+      tablesAgeOuts: 2
+      tablesDeletes: 2
       tablesDrops: 0
-      tablesInserts: 4
-      tablesLastChangeTime: 1581606737.5645378
+      tablesInserts: 5
+      tablesLastChangeTime: 1581608479.5844748
   DC1-L2LEAF4A:
     "show version":
       architecture: i686
@@ -229,13 +229,13 @@ duts:
       internalBuildId: 413991dd-4451-4406-a16c-f1c6ac19d1f3
       internalVersion: 4.22.3M-14418192.4223M
       isIntlVersion: false
-      memFree: 3034356
+      memFree: 3035768
       memTotal: 4008816
       mfgName: ''
       modelName: vEOS
       serialNumber: ''
       systemMacAddress: 50:00:00:ba:c6:f8
-      uptime: 395036.13
+      uptime: 397346.94
       version: 4.22.3M
     "show ip bgp summary":
       vrfs: {}
@@ -255,7 +255,7 @@ duts:
       tablesDeletes: 0
       tablesDrops: 0
       tablesInserts: 2
-      tablesLastChangeTime: 1581211906.1049924
+      tablesLastChangeTime: 1581211906.1049914
   DC1-L2LEAF5A:
     "show version":
       architecture: i686
@@ -264,13 +264,13 @@ duts:
       internalBuildId: 413991dd-4451-4406-a16c-f1c6ac19d1f3
       internalVersion: 4.22.3M-14418192.4223M
       isIntlVersion: false
-      memFree: 3004356
+      memFree: 3005148
       memTotal: 4008700
       mfgName: ''
       modelName: vEOS
       serialNumber: ''
       systemMacAddress: 50:00:00:d8:ac:19
-      uptime: 323336.56
+      uptime: 325647.54
       version: 4.22.3M
     "show ip bgp summary":
       vrfs: {}
@@ -298,7 +298,7 @@ duts:
       tablesDeletes: 0
       tablesDrops: 0
       tablesInserts: 4
-      tablesLastChangeTime: 1581283546.8610888
+      tablesLastChangeTime: 1581283546.8610897
   DC1-L2LEAF5B:
     "show version":
       architecture: i686
@@ -307,13 +307,13 @@ duts:
       internalBuildId: 413991dd-4451-4406-a16c-f1c6ac19d1f3
       internalVersion: 4.22.3M-14418192.4223M
       isIntlVersion: false
-      memFree: 3007212
+      memFree: 3006820
       memTotal: 4008700
       mfgName: ''
       modelName: vEOS
       serialNumber: ''
       systemMacAddress: 50:00:00:43:40:cf
-      uptime: 323338.81
+      uptime: 325649.85
       version: 4.22.3M
     "show ip bgp summary":
       vrfs: {}
@@ -341,7 +341,7 @@ duts:
       tablesDeletes: 0
       tablesDrops: 0
       tablesInserts: 4
-      tablesLastChangeTime: 1581283546.849675
+      tablesLastChangeTime: 1581283546.8496776
   DC1-L2LEAF6A:
     "show version":
       architecture: i686
@@ -350,13 +350,13 @@ duts:
       internalBuildId: 413991dd-4451-4406-a16c-f1c6ac19d1f3
       internalVersion: 4.22.3M-14418192.4223M
       isIntlVersion: false
-      memFree: 3018936
+      memFree: 3013916
       memTotal: 4008816
       mfgName: ''
       modelName: vEOS
       serialNumber: ''
       systemMacAddress: 50:00:00:09:ef:21
-      uptime: 395076.36
+      uptime: 397387.31
       version: 4.22.3M
     "show ip bgp summary":
       vrfs: {}
@@ -384,7 +384,7 @@ duts:
       tablesDeletes: 0
       tablesDrops: 0
       tablesInserts: 4
-      tablesLastChangeTime: 1581211906.0913095
+      tablesLastChangeTime: 1581211906.0912926
   DC1-L2LEAF6B:
     "show version":
       architecture: i686
@@ -393,13 +393,13 @@ duts:
       internalBuildId: 413991dd-4451-4406-a16c-f1c6ac19d1f3
       internalVersion: 4.22.3M-14418192.4223M
       isIntlVersion: false
-      memFree: 3017156
+      memFree: 3015196
       memTotal: 4008816
       mfgName: ''
       modelName: vEOS
       serialNumber: ''
       systemMacAddress: 50:00:00:d5:e2:ad
-      uptime: 395085.04
+      uptime: 397395.36
       version: 4.22.3M
     "show ip bgp summary":
       vrfs: {}
@@ -427,7 +427,7 @@ duts:
       tablesDeletes: 0
       tablesDrops: 0
       tablesInserts: 4
-      tablesLastChangeTime: 1581211905.7938442
+      tablesLastChangeTime: 1581211905.793827
   DC1-LEAF1A:
     "show version":
       architecture: i686
@@ -436,13 +436,13 @@ duts:
       internalBuildId: 413991dd-4451-4406-a16c-f1c6ac19d1f3
       internalVersion: 4.22.3M-14418192.4223M
       isIntlVersion: false
-      memFree: 2972744
+      memFree: 2958768
       memTotal: 4008816
       mfgName: ''
       modelName: vEOS
       serialNumber: ''
       systemMacAddress: 50:00:00:d5:5d:c0
-      uptime: 395072.23
+      uptime: 397382.25
       version: 4.22.3M
     "show ip bgp summary":
       vrfs:
@@ -452,8 +452,8 @@ duts:
             172.31.255.0:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 7748
-              msgSent: 7735
+              msgReceived: 7794
+              msgSent: 7779
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 26
@@ -464,8 +464,8 @@ duts:
             172.31.255.2:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 7758
-              msgSent: 7723
+              msgReceived: 7804
+              msgSent: 7766
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 26
@@ -483,8 +483,8 @@ duts:
             192.168.255.1:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 7906
-              msgSent: 7833
+              msgReceived: 7966
+              msgSent: 7889
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 172
@@ -495,12 +495,12 @@ duts:
             192.168.255.2:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 7871
-              msgSent: 7875
+              msgReceived: 7949
+              msgSent: 7935
               outMsgQueue: 0
               peerState: Established
-              prefixAccepted: 154
-              prefixReceived: 154
+              prefixAccepted: 172
+              prefixReceived: 172
               underMaintenance: false
               upDownTime: 1581211904.0
               version: 4
@@ -520,7 +520,7 @@ duts:
       tablesDeletes: 2
       tablesDrops: 0
       tablesInserts: 4
-      tablesLastChangeTime: 1581606412.938088
+      tablesLastChangeTime: 1581606412.9380875
   DC1-LEAF2A:
     "show version":
       architecture: i686
@@ -529,13 +529,13 @@ duts:
       internalBuildId: 413991dd-4451-4406-a16c-f1c6ac19d1f3
       internalVersion: 4.22.3M-14418192.4223M
       isIntlVersion: false
-      memFree: 2893364
+      memFree: 2872652
       memTotal: 4008816
       mfgName: ''
       modelName: vEOS
       serialNumber: ''
       systemMacAddress: 50:00:00:03:37:66
-      uptime: 395072.17
+      uptime: 397382.36
       version: 4.22.3M
     "show ip bgp summary":
       vrfs:
@@ -545,8 +545,8 @@ duts:
             10.255.251.3:
               asn: '65102'
               inMsgQueue: 0
-              msgReceived: 7733
-              msgSent: 7753
+              msgReceived: 7778
+              msgSent: 7798
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 27
@@ -557,8 +557,8 @@ duts:
             172.31.255.4:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 7736
-              msgSent: 7729
+              msgReceived: 7782
+              msgSent: 7774
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 23
@@ -569,8 +569,8 @@ duts:
             172.31.255.6:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 7732
-              msgSent: 7730
+              msgReceived: 7777
+              msgSent: 7776
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 23
@@ -588,8 +588,8 @@ duts:
             192.168.255.1:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 7890
-              msgSent: 7851
+              msgReceived: 7948
+              msgSent: 7908
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 112
@@ -600,12 +600,12 @@ duts:
             192.168.255.2:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 7871
-              msgSent: 7875
+              msgReceived: 7945
+              msgSent: 7930
               outMsgQueue: 0
               peerState: Established
-              prefixAccepted: 94
-              prefixReceived: 94
+              prefixAccepted: 112
+              prefixReceived: 112
               underMaintenance: false
               upDownTime: 1581605376.0
               version: 4
@@ -645,7 +645,7 @@ duts:
       tablesDeletes: 0
       tablesDrops: 0
       tablesInserts: 7
-      tablesLastChangeTime: 1581211907.5126615
+      tablesLastChangeTime: 1581211907.5126595
   DC1-LEAF2B:
     "show version":
       architecture: i686
@@ -654,13 +654,13 @@ duts:
       internalBuildId: 413991dd-4451-4406-a16c-f1c6ac19d1f3
       internalVersion: 4.22.3M-14418192.4223M
       isIntlVersion: false
-      memFree: 2915052
+      memFree: 2901648
       memTotal: 4008816
       mfgName: ''
       modelName: vEOS
       serialNumber: ''
       systemMacAddress: 50:00:00:15:f4:e8
-      uptime: 395085.28
+      uptime: 397395.91
       version: 4.22.3M
     "show ip bgp summary":
       vrfs:
@@ -670,8 +670,8 @@ duts:
             10.255.251.2:
               asn: '65102'
               inMsgQueue: 0
-              msgReceived: 7751
-              msgSent: 7734
+              msgReceived: 7796
+              msgSent: 7779
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 27
@@ -682,8 +682,8 @@ duts:
             172.31.255.10:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 7721
-              msgSent: 7733
+              msgReceived: 7767
+              msgSent: 7779
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 23
@@ -694,8 +694,8 @@ duts:
             172.31.255.8:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 7715
-              msgSent: 7741
+              msgReceived: 7760
+              msgSent: 7786
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 23
@@ -713,8 +713,8 @@ duts:
             192.168.255.1:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 7909
-              msgSent: 7836
+              msgReceived: 7964
+              msgSent: 7893
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 112
@@ -725,12 +725,12 @@ duts:
             192.168.255.2:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 7885
-              msgSent: 7855
+              msgReceived: 7959
+              msgSent: 7909
               outMsgQueue: 0
               peerState: Established
-              prefixAccepted: 94
-              prefixReceived: 94
+              prefixAccepted: 112
+              prefixReceived: 112
               underMaintenance: false
               upDownTime: 1581211904.0
               version: 4
@@ -770,7 +770,7 @@ duts:
       tablesDeletes: 0
       tablesDrops: 0
       tablesInserts: 7
-      tablesLastChangeTime: 1581211906.1717904
+      tablesLastChangeTime: 1581211906.1717868
   DC1-SPINE1:
     "show version":
       architecture: i686
@@ -779,13 +779,13 @@ duts:
       internalBuildId: 413991dd-4451-4406-a16c-f1c6ac19d1f3
       internalVersion: 4.22.3M-14418192.4223M
       isIntlVersion: false
-      memFree: 3032600
+      memFree: 3032776
       memTotal: 4008816
       mfgName: ''
       modelName: vEOS
       serialNumber: ''
       systemMacAddress: 50:00:00:d7:ee:0b
-      uptime: 395045.64
+      uptime: 397355.95
       version: 4.22.3M
     "show ip bgp summary":
       vrfs:
@@ -795,8 +795,8 @@ duts:
             172.31.255.1:
               asn: '65101'
               inMsgQueue: 0
-              msgReceived: 7735
-              msgSent: 7748
+              msgReceived: 7779
+              msgSent: 7794
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 4
@@ -807,8 +807,8 @@ duts:
             172.31.255.13:
               asn: '65103'
               inMsgQueue: 0
-              msgReceived: 7743
-              msgSent: 7733
+              msgReceived: 7788
+              msgSent: 7777
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 8
@@ -819,8 +819,8 @@ duts:
             172.31.255.17:
               asn: '65103'
               inMsgQueue: 0
-              msgReceived: 7748
-              msgSent: 7738
+              msgReceived: 7793
+              msgSent: 7783
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 8
@@ -831,8 +831,8 @@ duts:
             172.31.255.21:
               asn: '65104'
               inMsgQueue: 0
-              msgReceived: 7743
-              msgSent: 7739
+              msgReceived: 7789
+              msgSent: 7784
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 8
@@ -843,8 +843,8 @@ duts:
             172.31.255.25:
               asn: '65104'
               inMsgQueue: 0
-              msgReceived: 7742
-              msgSent: 7734
+              msgReceived: 7790
+              msgSent: 7779
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 8
@@ -855,8 +855,8 @@ duts:
             172.31.255.5:
               asn: '65102'
               inMsgQueue: 0
-              msgReceived: 7729
-              msgSent: 7736
+              msgReceived: 7774
+              msgSent: 7782
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 8
@@ -867,8 +867,8 @@ duts:
             172.31.255.9:
               asn: '65102'
               inMsgQueue: 0
-              msgReceived: 7741
-              msgSent: 7715
+              msgReceived: 7786
+              msgSent: 7760
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 8
@@ -886,8 +886,8 @@ duts:
             192.168.255.3:
               asn: '65101'
               inMsgQueue: 0
-              msgReceived: 7833
-              msgSent: 7906
+              msgReceived: 7889
+              msgSent: 7966
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 8
@@ -898,8 +898,8 @@ duts:
             192.168.255.4:
               asn: '65102'
               inMsgQueue: 0
-              msgReceived: 7848
-              msgSent: 7914
+              msgReceived: 7905
+              msgSent: 7972
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 34
@@ -910,8 +910,8 @@ duts:
             192.168.255.5:
               asn: '65102'
               inMsgQueue: 0
-              msgReceived: 7836
-              msgSent: 7909
+              msgReceived: 7893
+              msgSent: 7964
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 34
@@ -922,8 +922,8 @@ duts:
             192.168.255.6:
               asn: '65103'
               inMsgQueue: 0
-              msgReceived: 7830
-              msgSent: 7887
+              msgReceived: 7887
+              msgSent: 7952
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 43
@@ -934,8 +934,8 @@ duts:
             192.168.255.7:
               asn: '65103'
               inMsgQueue: 0
-              msgReceived: 7867
-              msgSent: 7934
+              msgReceived: 7926
+              msgSent: 8000
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 43
@@ -946,8 +946,8 @@ duts:
             192.168.255.8:
               asn: '65104'
               inMsgQueue: 0
-              msgReceived: 7839
-              msgSent: 7926
+              msgReceived: 7896
+              msgSent: 7990
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 9
@@ -958,8 +958,8 @@ duts:
             192.168.255.9:
               asn: '65104'
               inMsgQueue: 0
-              msgReceived: 7853
-              msgSent: 7906
+              msgReceived: 7911
+              msgSent: 7971
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 9
@@ -1003,7 +1003,7 @@ duts:
       tablesDeletes: 1
       tablesDrops: 0
       tablesInserts: 8
-      tablesLastChangeTime: 1581606387.9088247
+      tablesLastChangeTime: 1581606387.908825
   DC1-SPINE2:
     "show version":
       architecture: i686
@@ -1012,13 +1012,13 @@ duts:
       internalBuildId: 413991dd-4451-4406-a16c-f1c6ac19d1f3
       internalVersion: 4.22.3M-14418192.4223M
       isIntlVersion: false
-      memFree: 3026100
+      memFree: 3025404
       memTotal: 4008816
       mfgName: ''
       modelName: vEOS
       serialNumber: ''
       systemMacAddress: 50:00:00:cb:38:c2
-      uptime: 395068.27
+      uptime: 397378.78
       version: 4.22.3M
     "show ip bgp summary":
       vrfs:
@@ -1028,8 +1028,8 @@ duts:
             172.31.255.11:
               asn: '65102'
               inMsgQueue: 0
-              msgReceived: 7733
-              msgSent: 7721
+              msgReceived: 7779
+              msgSent: 7767
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 8
@@ -1040,8 +1040,8 @@ duts:
             172.31.255.15:
               asn: '65103'
               inMsgQueue: 0
-              msgReceived: 7739
-              msgSent: 7739
+              msgReceived: 7783
+              msgSent: 7785
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 8
@@ -1052,8 +1052,8 @@ duts:
             172.31.255.19:
               asn: '65103'
               inMsgQueue: 0
-              msgReceived: 7736
-              msgSent: 7726
+              msgReceived: 7781
+              msgSent: 7772
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 8
@@ -1064,8 +1064,8 @@ duts:
             172.31.255.23:
               asn: '65104'
               inMsgQueue: 0
-              msgReceived: 7736
-              msgSent: 7727
+              msgReceived: 7780
+              msgSent: 7774
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 8
@@ -1076,20 +1076,20 @@ duts:
             172.31.255.27:
               asn: '65104'
               inMsgQueue: 0
-              msgReceived: 7733
-              msgSent: 7736
+              msgReceived: 7747
+              msgSent: 7754
               outMsgQueue: 0
-              peerState: Established
-              prefixAccepted: 8
-              prefixReceived: 8
+              peerState: Connect
+              prefixAccepted: 0
+              prefixReceived: 0
               underMaintenance: false
-              upDownTime: 1581211904.0
+              upDownTime: 1581608576.0
               version: 4
             172.31.255.3:
               asn: '65101'
               inMsgQueue: 0
-              msgReceived: 7722
-              msgSent: 7758
+              msgReceived: 7766
+              msgSent: 7804
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 4
@@ -1100,8 +1100,8 @@ duts:
             172.31.255.7:
               asn: '65102'
               inMsgQueue: 0
-              msgReceived: 7730
-              msgSent: 7732
+              msgReceived: 7776
+              msgSent: 7777
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 8
@@ -1119,8 +1119,8 @@ duts:
             192.168.255.3:
               asn: '65101'
               inMsgQueue: 0
-              msgReceived: 7875
-              msgSent: 7871
+              msgReceived: 7934
+              msgSent: 7949
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 8
@@ -1131,8 +1131,8 @@ duts:
             192.168.255.4:
               asn: '65102'
               inMsgQueue: 0
-              msgReceived: 7874
-              msgSent: 7882
+              msgReceived: 7929
+              msgSent: 7956
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 34
@@ -1143,8 +1143,8 @@ duts:
             192.168.255.5:
               asn: '65102'
               inMsgQueue: 0
-              msgReceived: 7855
-              msgSent: 7885
+              msgReceived: 7909
+              msgSent: 7959
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 34
@@ -1155,8 +1155,8 @@ duts:
             192.168.255.6:
               asn: '65103'
               inMsgQueue: 0
-              msgReceived: 7861
-              msgSent: 7928
+              msgReceived: 7921
+              msgSent: 8011
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 43
@@ -1167,8 +1167,8 @@ duts:
             192.168.255.7:
               asn: '65103'
               inMsgQueue: 0
-              msgReceived: 7859
-              msgSent: 7857
+              msgReceived: 7919
+              msgSent: 7940
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 43
@@ -1179,26 +1179,26 @@ duts:
             192.168.255.8:
               asn: '65104'
               inMsgQueue: 0
-              msgReceived: 7865
-              msgSent: 7922
+              msgReceived: 7989
+              msgSent: 8053
               outMsgQueue: 0
-              peerState: Connect
-              prefixAccepted: 0
-              prefixReceived: 0
+              peerState: Established
+              prefixAccepted: 9
+              prefixReceived: 9
               underMaintenance: false
-              upDownTime: 1581606656.0
+              upDownTime: 1581606784.0
               version: 4
             192.168.255.9:
               asn: '65104'
               inMsgQueue: 0
-              msgReceived: 7833
-              msgSent: 7918
+              msgReceived: 8029
+              msgSent: 8113
               outMsgQueue: 0
-              peerState: Connect
-              prefixAccepted: 0
-              prefixReceived: 0
+              peerState: Established
+              prefixAccepted: 9
+              prefixReceived: 9
               underMaintenance: false
-              upDownTime: 1581606656.0
+              upDownTime: 1581608576.0
               version: 4
           routerId: 192.168.255.2
           vrf: default
@@ -1228,11 +1228,11 @@ duts:
         neighborPort: Ethernet2
         port: Ethernet6
         ttl: 120
-      tablesAgeOuts: 2
-      tablesDeletes: 2
+      tablesAgeOuts: 3
+      tablesDeletes: 3
       tablesDrops: 0
-      tablesInserts: 8
-      tablesLastChangeTime: 1581606740.8624694
+      tablesInserts: 9
+      tablesLastChangeTime: 1581608477.5874217
   DC1-SVC3A:
     "show version":
       architecture: i686
@@ -1241,13 +1241,13 @@ duts:
       internalBuildId: 413991dd-4451-4406-a16c-f1c6ac19d1f3
       internalVersion: 4.22.3M-14418192.4223M
       isIntlVersion: false
-      memFree: 2903512
+      memFree: 2901660
       memTotal: 4008816
       mfgName: ''
       modelName: vEOS
       serialNumber: ''
       systemMacAddress: 50:00:00:72:8b:31
-      uptime: 395038.75
+      uptime: 397349.29
       version: 4.22.3M
     "show ip bgp summary":
       vrfs:
@@ -1257,8 +1257,8 @@ duts:
             10.255.251.7:
               asn: '65103'
               inMsgQueue: 0
-              msgReceived: 7727
-              msgSent: 7738
+              msgReceived: 7772
+              msgSent: 7784
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 27
@@ -1269,8 +1269,8 @@ duts:
             172.31.255.12:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 7733
-              msgSent: 7743
+              msgReceived: 7777
+              msgSent: 7788
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 23
@@ -1281,8 +1281,8 @@ duts:
             172.31.255.14:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 7739
-              msgSent: 7739
+              msgReceived: 7785
+              msgSent: 7783
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 23
@@ -1300,8 +1300,8 @@ duts:
             192.168.255.1:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 7887
-              msgSent: 7830
+              msgReceived: 7952
+              msgSent: 7887
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 94
@@ -1312,12 +1312,12 @@ duts:
             192.168.255.2:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 7906
-              msgSent: 7901
+              msgReceived: 7989
+              msgSent: 7961
               outMsgQueue: 0
               peerState: Established
-              prefixAccepted: 76
-              prefixReceived: 76
+              prefixAccepted: 94
+              prefixReceived: 94
               underMaintenance: false
               upDownTime: 1581605376.0
               version: 4
@@ -1353,7 +1353,7 @@ duts:
       tablesDeletes: 3
       tablesDrops: 0
       tablesInserts: 9
-      tablesLastChangeTime: 1581283546.789772
+      tablesLastChangeTime: 1581283546.7897747
   DC1-SVC3B:
     "show version":
       architecture: i686
@@ -1362,13 +1362,13 @@ duts:
       internalBuildId: 413991dd-4451-4406-a16c-f1c6ac19d1f3
       internalVersion: 4.22.3M-14418192.4223M
       isIntlVersion: false
-      memFree: 2898596
+      memFree: 2893332
       memTotal: 4008816
       mfgName: ''
       modelName: vEOS
       serialNumber: ''
       systemMacAddress: 50:00:00:f6:ad:37
-      uptime: 395079.51
+      uptime: 397389.56
       version: 4.22.3M
     "show ip bgp summary":
       vrfs:
@@ -1378,8 +1378,8 @@ duts:
             10.255.251.6:
               asn: '65103'
               inMsgQueue: 0
-              msgReceived: 7738
-              msgSent: 7727
+              msgReceived: 7784
+              msgSent: 7772
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 27
@@ -1390,8 +1390,8 @@ duts:
             172.31.255.16:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 7738
-              msgSent: 7748
+              msgReceived: 7783
+              msgSent: 7793
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 23
@@ -1402,8 +1402,8 @@ duts:
             172.31.255.18:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 7726
-              msgSent: 7736
+              msgReceived: 7772
+              msgSent: 7781
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 23
@@ -1421,8 +1421,8 @@ duts:
             192.168.255.1:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 7889
-              msgSent: 7905
+              msgReceived: 7955
+              msgSent: 7964
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 94
@@ -1433,12 +1433,12 @@ duts:
             192.168.255.2:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 7857
-              msgSent: 7859
+              msgReceived: 7939
+              msgSent: 7919
               outMsgQueue: 0
               peerState: Established
-              prefixAccepted: 76
-              prefixReceived: 76
+              prefixAccepted: 94
+              prefixReceived: 94
               underMaintenance: false
               upDownTime: 1581212032.0
               version: 4
@@ -1474,6 +1474,6 @@ duts:
       tablesDeletes: 2
       tablesDrops: 0
       tablesInserts: 8
-      tablesLastChangeTime: 1581283546.8224864
+      tablesLastChangeTime: 1581283546.8224878
 
 topology_csv_file: ./documentation/DC1_FABRIC/DC1_FABRIC-topology.csv

@@ -133,6 +133,9 @@ tenants:
             tags: [ wan ]
             enabled: true
             ip_subnet: 10.3.50.0/24
+
+# Ansible Demo Tenant
+
   # ansible_demo:
   #   mac_vrf_vni_base: 40000
   #   vrfs:

@@ -12,36 +12,6 @@ CVP_DEVICES:
     configlets:
         - DC1-AVD_DC1-SPINE2
     imageBundle: []
-  DC1-L2LEAF4A:
-    name: DC1-L2LEAF4A
-    parentContainerName: DC1_L2LEAF4
-    configlets:
-        - DC1-AVD_DC1-L2LEAF4A
-    imageBundle: []
-  DC1-L2LEAF5A:
-    name: DC1-L2LEAF5A
-    parentContainerName: DC1_L2LEAF5
-    configlets:
-        - DC1-AVD_DC1-L2LEAF5A
-    imageBundle: []
-  DC1-L2LEAF5B:
-    name: DC1-L2LEAF5B
-    parentContainerName: DC1_L2LEAF5
-    configlets:
-        - DC1-AVD_DC1-L2LEAF5B
-    imageBundle: []
-  DC1-L2LEAF6A:
-    name: DC1-L2LEAF6A
-    parentContainerName: DC1_L2LEAF6
-    configlets:
-        - DC1-AVD_DC1-L2LEAF6A
-    imageBundle: []
-  DC1-L2LEAF6B:
-    name: DC1-L2LEAF6B
-    parentContainerName: DC1_L2LEAF6
-    configlets:
-        - DC1-AVD_DC1-L2LEAF6B
-    imageBundle: []
   DC1-LEAF1A:
     name: DC1-LEAF1A
     parentContainerName: DC1_LEAF1
@@ -83,6 +53,36 @@ CVP_DEVICES:
     parentContainerName: DC1_BL1
     configlets:
         - DC1-AVD_DC1-BL1B
+    imageBundle: []
+  DC1-L2LEAF4A:
+    name: DC1-L2LEAF4A
+    parentContainerName: DC1_L2LEAF4
+    configlets:
+        - DC1-AVD_DC1-L2LEAF4A
+    imageBundle: []
+  DC1-L2LEAF5A:
+    name: DC1-L2LEAF5A
+    parentContainerName: DC1_L2LEAF5
+    configlets:
+        - DC1-AVD_DC1-L2LEAF5A
+    imageBundle: []
+  DC1-L2LEAF5B:
+    name: DC1-L2LEAF5B
+    parentContainerName: DC1_L2LEAF5
+    configlets:
+        - DC1-AVD_DC1-L2LEAF5B
+    imageBundle: []
+  DC1-L2LEAF6A:
+    name: DC1-L2LEAF6A
+    parentContainerName: DC1_L2LEAF6
+    configlets:
+        - DC1-AVD_DC1-L2LEAF6A
+    imageBundle: []
+  DC1-L2LEAF6B:
+    name: DC1-L2LEAF6B
+    parentContainerName: DC1_L2LEAF6
+    configlets:
+        - DC1-AVD_DC1-L2LEAF6B
     imageBundle: []
 CVP_CONTAINERS:
   DC1_FABRIC:

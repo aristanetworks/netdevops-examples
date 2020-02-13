@@ -3,7 +3,7 @@ DC1-BL1A:
     192.168.255.1:
       state: Established
     192.168.255.2:
-      state: Connect
+      state: Established
   underlay:
     10.255.251.11:
       state: Established
@@ -16,14 +16,14 @@ DC1-BL1B:
     192.168.255.1:
       state: Established
     192.168.255.2:
-      state: Connect
+      state: Established
   underlay:
     10.255.251.10:
       state: Established
     172.31.255.24:
       state: Established
     172.31.255.26:
-      state: Established
+      state: Connect
 DC1-L2LEAF4A:
   evpn: {}
   underlay: {}
@@ -120,9 +120,9 @@ DC1-SPINE2:
     192.168.255.7:
       state: Established
     192.168.255.8:
-      state: Connect
+      state: Established
     192.168.255.9:
-      state: Connect
+      state: Established
   underlay:
     172.31.255.11:
       state: Established
@@ -133,7 +133,7 @@ DC1-SPINE2:
     172.31.255.23:
       state: Established
     172.31.255.27:
-      state: Established
+      state: Connect
     172.31.255.3:
       state: Established
     172.31.255.7:
