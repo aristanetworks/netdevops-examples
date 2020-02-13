@@ -6,7 +6,7 @@
 
 This repository is a central place where Arista demos and examples around netdevops methodology.
 
-![Arista Automation](media/figure-1-arista-automation.png)
+<img src="media/figure-1-arista-automation.png" width="600" class="center"/>
 
 ## Available content
 
