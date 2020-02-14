@@ -1,0 +1,14 @@
+---
+- name: 'Collect facts'
+  arista.cvp.cv_facts:
+  register: cvp_facts
+
+- name: 'Create configlets on CVP {{inventory_hostname}}.'
+  arista.cvp.cv_configlet:
+    cvp_facts: "{{cvp_facts.ansible_facts}}"
+    configlets: "{{configlet_list}}"
+    configlet_filter: ["ACL_Configlet"]
+    #state: present
+  register: cvp_configlet
+
+# Push task

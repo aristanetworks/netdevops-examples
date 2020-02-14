@@ -1,0 +1,13 @@
+---
+- hosts: leafs
+  gather_facts: no
+  roles:
+  - batfish.base
+  - { role: arista/demo}
+- hosts: cvp
+  gather_facts: no
+  collections:
+    - arista.cvp
+  roles:
+  - { role: arista/cv}
+

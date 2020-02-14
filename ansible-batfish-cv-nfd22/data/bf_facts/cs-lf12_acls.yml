@@ -1,0 +1,44 @@
+nodes:
+  cs-lf12_acls:
+    AS_Path_Access_Lists: []
+    Authentication_Key_Chains: []
+    Community_Lists: []
+    Configuration_Format: CISCO_IOS
+    DNS:
+      DNS_Servers: []
+      DNS_Source_Interface: null
+    Default_Cross_Zone_Action: PERMIT
+    Default_Inbound_Action: PERMIT
+    Device_Type: SWITCH
+    Domain_Name: null
+    Hostname: cs-lf12_acls
+    IP6_Access_Lists: []
+    IP_Access_Lists:
+    - demo
+    IPsec:
+      IKE_Phase1_Keys: []
+      IKE_Phase1_Policies: []
+      IKE_Phase1_Proposals: []
+      IPsec_Peer_Configs: []
+      IPsec_Phase2_Policies: []
+      IPsec_Phase2_Proposals: []
+    NTP:
+      NTP_Servers: []
+      NTP_Source_Interface: null
+    PBR_Policies: []
+    Route6_Filter_Lists: []
+    Route_Filter_Lists: []
+    Routing_Policies: []
+    SNMP:
+      SNMP_Source_Interface: null
+      SNMP_Trap_Servers: []
+    Syslog:
+      Logging_Servers: []
+      Logging_Source_Interface: null
+    TACACS:
+      TACACS_Servers: []
+      TACACS_Source_Interface: null
+    VRFs:
+    - default
+    Zones: []
+version: batfish_v0

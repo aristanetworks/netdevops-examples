@@ -1,0 +1,12 @@
+---
+- name: Extract network device facts using Batfish and Ansible
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  roles:
+    - batfish.base
+  tasks:
+  - name: Setup connection to Batfish service
+    bf_session:
+      host: localhost
+      name: local_batfish
