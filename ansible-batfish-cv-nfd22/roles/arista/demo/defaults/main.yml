@@ -1,0 +1,5 @@
+---
+ansible_connection: httpapi
+ansible_network_os: eos
+ansible_become: yes
+ansible_become_method: enable
