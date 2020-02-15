@@ -2,7 +2,7 @@
 - name: Creating config files
   template:
     src: acl.j2
-    dest: /home/fredlhsu/ansible-acl/tmp/candidate/configs/{{inventory_hostname}}_acls.conf
+    dest: '{{playbook_dir}}/tmp/candidate/configs/{{inventory_hostname}}_acls.conf'
 
 - name: Setup connection to Batfish service
   bf_session:
@@ -22,7 +22,7 @@
 
 - name: Retrieve Batfish Facts
   bf_extract_facts:
-    output_directory: data/bf_facts
+    output_directory: '{{playbook_dir}}/data/bf_facts'
   register: bf_facts
   delegate_to: localhost
   run_once: true

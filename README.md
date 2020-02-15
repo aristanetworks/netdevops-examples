@@ -13,7 +13,7 @@ This repository is a central place where Arista demos and examples around netdev
 ## Available content
 
 - [__Arista Validated Design__](ansible/avd-evpn-l3ls-1/): Generate EOS EVPN/VXLAN Fabric deployed using CloudVision and with pre/post deployment tests.
-
+- [__Network Filed Days 22__](demo/ansible-batfish-cv-nfd22/): Ansible & Batfish ([NFD22 webpage](https://techfieldday.com/appearance/arista-networks-presents-at-networking-field-day-22/))
 
 ## License
 
