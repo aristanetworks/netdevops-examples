@@ -7,6 +7,7 @@ __WARNING:__ Ansible Validated Design demo. Work in Progress.
 <!-- code_chunk_output -->
 
 - [Ansible Arista Validated Design](#ansible-arista-validated-design)
+  - [Lab Topology](#lab-topology)
   - [Quick Start](#quick-start)
   - [Requirements](#requirements)
   - [Step by Step demo](#step-by-step-demo)
@@ -24,6 +25,12 @@ Repository provides modules and roles to build an EVPN/VXLAN fabric using Ansibl
 Devices configuration are based on [Arista EVPN Design Guide](https://www.arista.com/en/solutions/design-guides) and cover a generic Unified Cloud Network environment.
 
 ![arista-bgp-evpn-fabric](media/figure-1-example-playbook-evpn-deploy-cvp.gif)
+
+## Lab Topology
+
+The Lab topology consists of four spines, seven L3 leafs and and three L2 Leafs, deployed on vEOS-LAB.
+
+![Lab Topology](media/figure-2-lab-topology.gif)
 
 ## Quick Start
 
@@ -64,7 +71,7 @@ $ ansible-playbook dc1-fabric-config.yml --tags "build"
 - [Ansible](https://www.ansible.com/): `2.9`
 - [Arista Validated Design Collection](https://galaxy.ansible.com/arista/avd): `v1.0.0`
 - [Arista CloudVision Collection](https://galaxy.ansible.com/arista/cvp): `v1.0.4`
-- [Batfish](https://github.com/batfish/batfish) & [PyBatfish](https://github.com/batfish/pybatfish): `0.36.0` 
+- [Batfish](https://github.com/batfish/batfish) & [PyBatfish](https://github.com/batfish/pybatfish): `0.36.0`
 - [Pytest](https://docs.pytest.org/en/latest/): `5.3.4`
 - [Ward](https://wardpy.com/): `0.34.0b0`
 - Docker to run Batfish server
@@ -84,7 +91,7 @@ $ ansible-playbook dc-fabric-deploy-cvp.yml --tags build
 PLAY [Build Switch configuration]
 [...]
 
-PLAY RECAP 
+PLAY RECAP
 AVD-CVP-1                  : ok=3    changed=1    unreachable=0    failed=0
 DC1-BL1A                   : ok=5    changed=0    unreachable=0    failed=0
 DC1-BL1B                   : ok=5    changed=0    unreachable=0    failed=0
@@ -101,14 +108,14 @@ DC1-SPINE4                 : ok=5    changed=0    unreachable=0    failed=0
 DC1-SVC3A                  : ok=5    changed=0    unreachable=0    failed=0
 DC1-SVC3B                  : ok=5    changed=0    unreachable=0    failed=0
 
-Thursday 13 February 2020  17:54:21 +0100 (0:00:00.945)       0:00:22.158 ***** 
-=============================================================================== 
+Thursday 13 February 2020  17:54:21 +0100 (0:00:00.945)       0:00:22.158 *****
+===============================================================================
 eos_cli_config_gen ------------------------------------------------------ 9.35s
 eos_l3ls_evpn ----------------------------------------------------------- 9.28s
 eos_config_deploy_cvp --------------------------------------------------- 3.48s
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 total ------------------------------------------------------------------ 22.12s
-Thursday 13 February 2020  17:54:21 +0100 (0:00:00.945)       0:00:22.157 ***** 
+Thursday 13 February 2020  17:54:21 +0100 (0:00:00.945)       0:00:22.157 *****
 ===============================================================================
 ```
 
@@ -122,16 +129,16 @@ $ ansible-playbook dc-fabric-pre-validate.yml
 PLAY [Validate DC Fabric configuration with Batfish]
 [...]
 
-PLAY RECAP 
+PLAY RECAP
 localhost                  : ok=4    changed=4    unreachable=0    failed=0
 
-Thursday 13 February 2020  18:00:45 +0100 (0:00:16.662)       0:00:30.671 ***** 
-=============================================================================== 
+Thursday 13 February 2020  18:00:45 +0100 (0:00:16.662)       0:00:30.671 *****
+===============================================================================
 eos_pre_fabric_validation ---------------------------------------------- 30.65s
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 total ------------------------------------------------------------------ 30.65s
-Thursday 13 February 2020  18:00:45 +0100 (0:00:16.662)       0:00:30.671 ***** 
-=============================================================================== 
+Thursday 13 February 2020  18:00:45 +0100 (0:00:16.662)       0:00:30.671 *****
+===============================================================================
 ```
 
 __3. Provision changes on CloudVision server.__
