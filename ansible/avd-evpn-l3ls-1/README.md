@@ -61,8 +61,8 @@ $ vim inventory.yml
 $ vim group_vars/DC1_FABRIC.yml
 
 # Run ansible playbooks
-$ cd examples/evpn-design-guide/
-$ ansible-playbook dc1-fabric-config.yml --tags "build"
+$ cd ansible/avd-evpn-l3ls-1/
+$ ansible-playbook dc-fabric-config.yml --tags "build"
 ```
 
 ## Requirements
@@ -153,7 +153,7 @@ __4. Apply changes to your devices.__
 
 To apply changes, it is recommended to configure a change control on your CloudVision server.
 
-![Change Control](media/figure-2-cloudvision-change-control.png)
+![Change Control](media/figure-3-cloudvision-change-control.png)
 
 
 __5. Run Post-deployment check__
