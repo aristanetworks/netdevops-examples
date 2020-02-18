@@ -1,5 +1,5 @@
-![](https://img.shields.io/badge/Arista-CVP%20Automation-blue) ![](https://img.shields.io/badge/Arista-EOS%20Automation-blue) ![Code Quality](https://github.com/titom73/ansible-avd-cloudvision-demo/workflows/Code%20Quality/badge.svg) ![GitHub](https://img.shields.io/github/license/titom73/ansible-avd-cloudvision-demo)
-# Arista Validated Design with CloudVision deployment
+![](https://img.shields.io/badge/Arista-CVP%20Automation-blue) ![](https://img.shields.io/badge/Arista-EOS%20Automation-blue)
+# Arista Validated Design with CloudVision deployment & Zero Touch Provisioning.
 
 ## About
 
@@ -53,4 +53,4 @@ $ ansible-playbook dc1-fabric-deploy-cvp.yml
 
 ## License
 
-Project is published under [3-Clause BSD License](LICENSE).
+Project is published under [Apache](../../LICENSE).
