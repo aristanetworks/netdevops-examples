@@ -1,0 +1,43 @@
+---
+- name: Configure ZTP service on CloudVision
+  hosts: cv_ztp
+  gather_facts: false
+  vars:
+    ztp:
+      general:
+        network: 10.255.0.0
+        netmask: 255.255.255.0
+        gateway: 10.255.0.1
+        nameserver: '1.1.1.1, 8.8.8.8'
+        start: 10.255.0.200
+        end: 10.255.0.250
+        registration: 'http://10.255.0.1/ztp/bootstrap'
+      clients:
+        - name: DC1-SPINE1
+          mac: 0c:1d:c0:1d:62:01
+          ip4: 10.255.0.11
+        - name: DC1-SPINE2
+          mac: 0c:1d:c0:1d:62:02
+          ip4: 10.255.0.12
+        - name: DC1-LEAF1A
+          mac: 0c:1d:c0:1d:62:11
+          ip4: 10.255.0.13
+        - name: DC1-LEAF1B
+          mac: 0c:1d:c0:1d:62:12
+          ip4: 10.255.0.14
+        - name: DC1-LEAF2A
+          mac: 0c:1d:c0:1d:62:21
+          ip4: 10.255.0.15
+        - name: DC1-LEAF2B
+          mac: 0c:1d:c0:1d:62:22
+          ip4: 10.255.0.16
+        - name: DC1-L2LEAF1A
+          mac: 0c:1d:c0:1d:62:13
+          ip4: 10.255.0.17
+        - name: DC1-L2LEAF2A
+          mac: 0c:1d:c0:1d:62:23
+          ip4: 10.255.0.18
+  tasks:
+    - name: 'Execute ZTP configuration role'
+      import_role:
+        name: ztp-setup
