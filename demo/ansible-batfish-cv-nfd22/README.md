@@ -1,5 +1,5 @@
 # Ansible and Batfish with Arista CloudVision
-This is a working example of using Ansible and Batfish to validate network configurations, then send the changes to CloudVision once they are validated.  This was demoed at Network Field Day 22.  The demo flow is as follows:
+This is a working example of using Ansible and Batfish to validate network configurations, then send the changes to CloudVision once they are validated.  This was demoed at [Network Field Day 22](https://techfieldday.com/video/arista-devops-day-in-the-life-config-management-and-validation/).  The demo flow is as follows:
 
 ## Installation
 
