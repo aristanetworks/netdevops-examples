@@ -28,7 +28,7 @@ $ docker run --name batfish -v batfish-data:/data \
 ```
 
 2. Show that this IP should be allowed based on assertion in the task:
-
+```
 	- name: Assert server can be reached
 	  bf_assert:
 	    assertions:
@@ -40,7 +40,7 @@ $ docker run --name batfish -v batfish-data:/data \
 		    dstIps: '158.174.122.199'
 	  delegate_to: localhost
 	  run_once: true
-
+```
 3. Run the playbook (you can use `rundemo.sh`)
 
 4. It should error out and not push the configlet to CV because the host was blocked and shouldn't be
