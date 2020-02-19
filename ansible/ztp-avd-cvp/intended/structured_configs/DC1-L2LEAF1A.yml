@@ -1,0 +1,195 @@
+## Ansible Generated ##
+
+### DC1-L2LEAF1A ###
+
+
+### Leaf Info ###
+l2leaf_node_group: DC1_L2LEAF1
+switch_platform: vEOS-LAB
+leaf_id: 5
+switch_mgmt_ip: 10.255.0.17/24
+leaf_filter_tenants: ['Tenant_A']
+leaf_filter_tags: ['opzone', 'web', 'app']
+leaf_allowed_vrfs: ['Tenant_A_APP_Zone', 'Tenant_A_OP_Zone', 'Tenant_A_WEB_Zone']
+leaf_allowed_svis: [130, 131, 110, 111, 112, 120, 121]
+leaf_allowed_vlans: [130, 131, 110, 111, 112, 120, 121]
+leaf_mlag: False
+
+### Hardware Counter
+hardware_counters:
+
+### Daemon TerminAttr
+daemon_terminattr:
+  ingestgrpcurl:
+    ips:
+      - 10.255.0.1
+    port: 9910
+  ingestauth_key: 
+  ingestvrf: MGMT
+  smashexcludes: "ale,flexCounter,hardware,kni,pulse,strata"
+  ingestexclude: "/Sysdb/cell/1/agent,/Sysdb/cell/2/agent"
+
+vlan_internal_order:
+  allocation: ascending
+  range:
+    beginning: 1006
+    ending: 1199
+
+### Event Monitor ###
+event_monitor:
+
+### Load Interval ###
+load_interval:
+
+### Queue Monitor Lenght ###
+queue_monitor_length:
+
+### Logging ###
+logging:
+
+### Name Servers ###
+name_server:
+  source:
+    vrf: MGMT
+  nodes:
+    - 192.168.2.1
+    - 8.8.8.8
+
+### NTP Servers ###
+ntp_server:
+  local_interface:
+    vrf: MGMT
+    interface: Management1
+  nodes:
+    - 0.fr.pool.ntp.org
+    - 1.fr.pool.ntp.org
+
+### Redundancy ###
+redundancy:
+
+### Spanning-tree ###
+spanning_tree:
+  mode: mstp
+  priority: 16384
+
+
+### AAA authorization ###
+aaa_authorization:
+
+### local users ###
+local_users:
+  admin:
+    privilege: 15
+    role: network-admin
+    sha512_password: $6$Df86J4/SFMDE3/1K$Hef4KstdoxNDaami37cBquTWOTplC.miMPjXVgQxMe92.e5wxlnXOLlebgPj8Fz1KO0za/RCO7ZIs4Q6Eiq1g1
+  ansible:
+    privilege: 15
+    role: network-admin
+    sha512_password: $6$Dzu11L7yp9j3nCM9$FSptxMPyIL555OMO.ldnjDXgwZmrfMYwHSr0uznE5Qoqvd9a6UdjiFcJUhGLtvXVZR1r.A/iF5aAt50hf/EK4/
+  cvpadmin:
+    privilege: 15
+    role: network-admin
+    sha512_password: $6$rZKcbIZ7iWGAWTUM$TCgDn1KcavS0s.OV8lacMTUkxTByfzcGlFlYUWroxYuU7M/9bIodhRO7nXGzMweUxvbk8mJmQl8Bh44cRktUj.
+
+### Clock Timezone ###
+clock:
+
+### VLANs ###
+vlans:
+
+## Tenant_A ##
+  130:
+    tenant: Tenant_A
+    name: Tenant_A_APP_Zone_1
+  131:
+    tenant: Tenant_A
+    name: Tenant_A_APP_Zone_2
+  110:
+    tenant: Tenant_A
+    name: Tenant_A_OP_Zone_1
+  111:
+    tenant: Tenant_A
+    name: Tenant_A_OP_Zone_2
+  112:
+    tenant: Tenant_A
+    name: Tenant_A_OP_Zone_3
+  120:
+    tenant: Tenant_A
+    name: Tenant_A_WEB_Zone_1
+  121:
+    tenant: Tenant_A
+    name: Tenant_A_WEBZone_2
+
+### VRFs ###
+vrfs:
+  MGMT:
+    ip_routing: False
+### Port-Channel Interfaces ###
+port_channel_interfaces:
+  Port-Channel1:
+    description: DC1-LEAF1A_Po5
+    vlans: 110-112,120-121,130-131
+    mode: trunk
+    mlag: 1
+
+### Ethernet Interfaces ###
+ethernet_interfaces:
+## L3 LEAF link ##
+  Ethernet1:
+    peer: DC1-LEAF1A
+    peer_interface: Ethernet5
+    peer_type: l3leaf
+    description: DC1-LEAF1A_Ethernet5
+    channel_group:
+      id: 1
+      mode: active
+## L3 LEAF link ##
+  Ethernet2:
+    peer: DC1-LEAF1B
+    peer_interface: Ethernet5
+    peer_type: l3leaf
+    description: DC1-LEAF1B_Ethernet5
+    channel_group:
+      id: 1
+      mode: active
+  Ethernet5:
+    peer: server01
+    peer_interface: Eth0
+    peer_type: server
+    description: server01_Eth0
+    mode: access
+    vlans: 110
+    profile: TENANT_A
+
+### Management Interfaces ###
+management_interfaces:
+  Management1:
+    description: oob_management
+    vrf: MGMT
+    ip_address: 10.255.0.17/24
+    gateway: 10.255.0.1
+
+### VLAN Interfaces ###
+vlan_interfaces:
+
+### TCAM Profiles ###
+tcam_profile:
+
+### MAC address table ###
+mac_address_table:
+
+### static routes ###
+static_routes:
+  - vrf: MGMT
+    destination_address_prefix: 0.0.0.0/0
+    gateway: 10.255.0.1
+
+
+### Queue Monitor Streaming ###
+queue_monitor_streaming:
+
+### Management API http ###
+management_api_http:
+  enable_https: True
+  enable_vrfs:
+    MGMT:

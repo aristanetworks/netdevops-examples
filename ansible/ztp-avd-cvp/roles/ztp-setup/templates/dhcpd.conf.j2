@@ -1,0 +1,18 @@
+# Subnet of ZTP interface
+subnet {{ztp.general.network}} netmask {{ztp.general.netmask}} {
+    range {{ztp.general.start}} {{ztp.general.end}};
+    option routers {{ztp.general.gateway}};
+    option domain-name-servers 10.83.28.52, 10.83.29.222;
+    option bootfile-name "{{ztp.general.registration}}";
+}
+
+# Per host definition
+{% for client in ztp.clients %}
+host {{client.name}} {
+    option host-name "{{client.name}}";
+    hardware ethernet {{client.mac}};
+    fixed-address {{client.ip4}};
+    option bootfile-name "{{ztp.general.registration}}";
+}
+
+{% endfor %}
