@@ -19,6 +19,10 @@ $ docker run --name batfish -v batfish-data:/data \
   -p 8888:8888 -p 9997:9997 -p 9996:9996 batfish/allinone
 ```
 
+## Configuration
+1. Modify `roles/arista/cv/defaults/main.yml` with the IP address of your CV, and the appropraite credentials.
+2. Create entries in your Ansible inventory file, and match those with the entries in `demo.yml`.  
+
 ## Demo Workflow
 
 1. Create configlet to push ACLs with one entry that blocks access to an IP address that should be allowed by uncommenting the following line in `roles/arista/demo/vars/main.yml`:
