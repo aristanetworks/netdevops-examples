@@ -3,6 +3,7 @@ This is a working example of using Ansible and Batfish to validate network confi
 
 ## Installation
 
+### Install batfish
 ```shell
 # Configure Python virtual environment
 $ virtualenv -p $(which python) .venv
@@ -19,6 +20,10 @@ $ docker run --name batfish -v batfish-data:/data \
   -p 8888:8888 -p 9997:9997 -p 9996:9996 batfish/allinone
 ```
 
+### Install CVP Ansible module
+```shell
+$ ansible-galaxy collection install arista.cvp
+```
 ## Configuration
 1. Modify `roles/arista/cv/defaults/main.yml` with the IP address of your CV, and the appropraite credentials.
 2. Create entries in your Ansible inventory file, and match those with the entries in `demo.yml`.  
