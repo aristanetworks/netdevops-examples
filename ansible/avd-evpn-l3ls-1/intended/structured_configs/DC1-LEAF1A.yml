@@ -129,6 +129,10 @@ bfd_multihop:
 
 ### Port-Channel Interfaces ###
 port_channel_interfaces:
+  Port-Channel7:
+    description: server01_PortChanne1
+    vlans: 110
+    mode: trunk
 
 ### Ethernet Interfaces ###
 ethernet_interfaces:
@@ -171,6 +175,28 @@ ethernet_interfaces:
     description: server01_Eth1
     mode: trunk
     vlans: 110
+    profile: TENANT_A
+  Ethernet7:
+    peer: server01
+    peer_interface: Eth4
+    peer_type: server
+    description: server01_Eth4
+    mode: trunk
+    vlans: 110
+    channel_group:
+      id: 7
+      mode: "active"
+    profile: TENANT_A
+  Ethernet8:
+    peer: server01
+    peer_interface: Eth5
+    peer_type: server
+    description: server01_Eth5
+    mode: trunk
+    vlans: 110
+    channel_group:
+      id: 7
+      mode: "active"
     profile: TENANT_A
   Ethernet6:
     peer: server02

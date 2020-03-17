@@ -45,6 +45,8 @@ l3leaf,DC1-LEAF1A,Ethernet3,spine,DC1-SPINE3,Ethernet1
 l3leaf,DC1-LEAF1A,Ethernet4,spine,DC1-SPINE4,Ethernet1
 l3leaf,DC1-LEAF1A,Ethernet5,server,server01,Eth1
 l3leaf,DC1-LEAF1A,Ethernet6,server,server02,Eth1
+l3leaf,DC1-LEAF1A,Ethernet7,server,server01,Eth4
+l3leaf,DC1-LEAF1A,Ethernet8,server,server01,Eth5
 l3leaf,DC1-LEAF2A,Ethernet1,spine,DC1-SPINE1,Ethernet2
 l3leaf,DC1-LEAF2A,Ethernet2,spine,DC1-SPINE2,Ethernet2
 l3leaf,DC1-LEAF2A,Ethernet3,spine,DC1-SPINE3,Ethernet2
