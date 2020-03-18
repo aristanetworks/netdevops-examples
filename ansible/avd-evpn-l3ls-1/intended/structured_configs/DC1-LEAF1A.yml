@@ -224,7 +224,7 @@ management_interfaces:
     description: oob_management
     vrf: MGMT
     ip_address: 192.168.200.105/24
-    gateway: 192.168.200.5
+    gateway: 192.168.200.1
 
 ### VLAN Interfaces ###
 vlan_interfaces:
@@ -234,29 +234,25 @@ vlan_interfaces:
     tags: ['app', 'erp1']
     description: Tenant_A_APP_Zone_1
     vrf: Tenant_A_APP_Zone
-    ip_address: 10.1.30.1/24
-    virtual: true
+    ip_address_virtual: 10.1.30.1/24
   Vlan131:
     tenant: Tenant_A
     tags: ['app']
     description: Tenant_A_APP_Zone_2
     vrf: Tenant_A_APP_Zone
-    ip_address: 10.1.31.1/24
-    virtual: true
+    ip_address_virtual: 10.1.31.1/24
   Vlan120:
     tenant: Tenant_A
     tags: ['web', 'erp1']
     description: Tenant_A_WEB_Zone_1
     vrf: Tenant_A_WEB_Zone
-    ip_address: 10.1.20.1/24
-    virtual: true
+    ip_address_virtual: 10.1.20.1/24
   Vlan121:
     tenant: Tenant_A
     tags: ['web']
     description: Tenant_A_WEBZone_2
     vrf: Tenant_A_WEB_Zone
-    ip_address: 10.1.21.1/24
-    virtual: true
+    ip_address_virtual: 10.1.21.1/24
 ## Tenant_B ##
 ## Tenant_C ##
 
@@ -302,7 +298,7 @@ virtual_source_nat_vrfs:
 static_routes:
   - vrf: MGMT
     destination_address_prefix: 0.0.0.0/0
-    gateway: 192.168.200.5
+    gateway: 192.168.200.1
 
 ### prefix-lists ###
 prefix_lists:

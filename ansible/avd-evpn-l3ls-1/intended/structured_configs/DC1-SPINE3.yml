@@ -163,7 +163,7 @@ management_interfaces:
     description: oob_management
     vrf: MGMT
     ip_address: 192.168.200.103/24
-    gateway: 192.168.200.5
+    gateway: 192.168.200.1
 
 ### TCAM Profiles ###
 tcam_profile:
@@ -175,7 +175,7 @@ mac_address_table:
 static_routes:
   - vrf: MGMT
     destination_address_prefix: 0.0.0.0/0
-    gateway: 192.168.200.5
+    gateway: 192.168.200.1
 
 ### prefix-lists ###
 prefix_lists:

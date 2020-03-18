@@ -350,7 +350,7 @@ management_interfaces:
     description: oob_management
     vrf: MGMT
     ip_address: 192.168.200.107/24
-    gateway: 192.168.200.5
+    gateway: 192.168.200.1
 
 ### VLAN Interfaces ###
 vlan_interfaces:
@@ -368,15 +368,13 @@ vlan_interfaces:
     tags: ['app', 'erp1']
     description: Tenant_A_APP_Zone_1
     vrf: Tenant_A_APP_Zone
-    ip_address: 10.1.30.1/24
-    virtual: true
+    ip_address_virtual: 10.1.30.1/24
   Vlan131:
     tenant: Tenant_A
     tags: ['app']
     description: Tenant_A_APP_Zone_2
     vrf: Tenant_A_APP_Zone
-    ip_address: 10.1.31.1/24
-    virtual: true
+    ip_address_virtual: 10.1.31.1/24
   Vlan3011:
     tenant: Tenant_A
     type: underlay_peering
@@ -388,15 +386,13 @@ vlan_interfaces:
     tags: ['db', 'erp1']
     description: Tenant_A_DB_BZone_1
     vrf: Tenant_A_DB_Zone
-    ip_address: 10.1.40.1/24
-    virtual: true
+    ip_address_virtual: 10.1.40.1/24
   Vlan141:
     tenant: Tenant_A
     tags: ['db']
     description: Tenant_A_DB_Zone_2
     vrf: Tenant_A_DB_Zone
-    ip_address: 10.1.41.1/24
-    virtual: true
+    ip_address_virtual: 10.1.41.1/24
   Vlan3012:
     tenant: Tenant_A
     type: underlay_peering
@@ -408,15 +404,13 @@ vlan_interfaces:
     tags: ['opzone']
     description: Tenant_A_OP_Zone_1
     vrf: Tenant_A_OP_Zone
-    ip_address: 10.1.10.1/24
-    virtual: true
+    ip_address_virtual: 10.1.10.1/24
   Vlan111:
     tenant: Tenant_A
     tags: ['opzone']
     description: Tenant_A_OP_Zone_2
     vrf: Tenant_A_OP_Zone
-    ip_address: 10.1.11.1/24
-    virtual: true
+    ip_address_virtual: 10.1.11.1/24
   Vlan3009:
     tenant: Tenant_A
     type: underlay_peering
@@ -428,15 +422,13 @@ vlan_interfaces:
     tags: ['web', 'erp1']
     description: Tenant_A_WEB_Zone_1
     vrf: Tenant_A_WEB_Zone
-    ip_address: 10.1.20.1/24
-    virtual: true
+    ip_address_virtual: 10.1.20.1/24
   Vlan121:
     tenant: Tenant_A
     tags: ['web']
     description: Tenant_A_WEBZone_2
     vrf: Tenant_A_WEB_Zone
-    ip_address: 10.1.21.1/24
-    virtual: true
+    ip_address_virtual: 10.1.21.1/24
   Vlan3010:
     tenant: Tenant_A
     type: underlay_peering
@@ -449,15 +441,13 @@ vlan_interfaces:
     tags: ['opzone']
     description: Tenant_B_OP_Zone_1
     vrf: Tenant_B_OP_Zone
-    ip_address: 10.2.10.1/24
-    virtual: true
+    ip_address_virtual: 10.2.10.1/24
   Vlan211:
     tenant: Tenant_B
     tags: ['opzone']
     description: Tenant_B_OP_Zone_2
     vrf: Tenant_B_OP_Zone
-    ip_address: 10.2.11.1/24
-    virtual: true
+    ip_address_virtual: 10.2.11.1/24
   Vlan3019:
     tenant: Tenant_B
     type: underlay_peering
@@ -470,15 +460,13 @@ vlan_interfaces:
     tags: ['opzone']
     description: Tenant_C_OP_Zone_1
     vrf: Tenant_C_OP_Zone
-    ip_address: 10.3.10.1/24
-    virtual: true
+    ip_address_virtual: 10.3.10.1/24
   Vlan311:
     tenant: Tenant_C
     tags: ['opzone']
     description: Tenant_C_OP_Zone_2
     vrf: Tenant_C_OP_Zone
-    ip_address: 10.3.11.1/24
-    virtual: true
+    ip_address_virtual: 10.3.11.1/24
   Vlan3029:
     tenant: Tenant_C
     type: underlay_peering
@@ -560,7 +548,7 @@ virtual_source_nat_vrfs:
 static_routes:
   - vrf: MGMT
     destination_address_prefix: 0.0.0.0/0
-    gateway: 192.168.200.5
+    gateway: 192.168.200.1
 
 ### prefix-lists ###
 prefix_lists:

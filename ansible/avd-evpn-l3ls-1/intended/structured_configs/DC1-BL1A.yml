@@ -242,7 +242,7 @@ management_interfaces:
     description: oob_management
     vrf: MGMT
     ip_address: 192.168.200.110/24
-    gateway: 192.168.200.5
+    gateway: 192.168.200.1
 
 ### VLAN Interfaces ###
 vlan_interfaces:
@@ -260,8 +260,7 @@ vlan_interfaces:
     tags: ['wan']
     description: Tenant_A_WAN_Zone_1
     vrf: Tenant_A_WAN_Zone
-    ip_address: 10.1.40.1/24
-    virtual: true
+    ip_address_virtual: 10.1.40.1/24
   Vlan3013:
     tenant: Tenant_A
     type: underlay_peering
@@ -274,8 +273,7 @@ vlan_interfaces:
     tags: ['wan']
     description: Tenant_B_WAN_Zone_1
     vrf: Tenant_B_WAN_Zone
-    ip_address: 10.2.50.1/24
-    virtual: true
+    ip_address_virtual: 10.2.50.1/24
   Vlan3020:
     tenant: Tenant_B
     type: underlay_peering
@@ -288,8 +286,7 @@ vlan_interfaces:
     tags: ['wan']
     description: Tenant_C_WAN_Zone_1
     vrf: Tenant_C_WAN_Zone
-    ip_address: 10.3.50.1/24
-    virtual: true
+    ip_address_virtual: 10.3.50.1/24
   Vlan3030:
     tenant: Tenant_C
     type: underlay_peering
@@ -341,7 +338,7 @@ virtual_source_nat_vrfs:
 static_routes:
   - vrf: MGMT
     destination_address_prefix: 0.0.0.0/0
-    gateway: 192.168.200.5
+    gateway: 192.168.200.1
 
 ### prefix-lists ###
 prefix_lists:
