@@ -19,7 +19,7 @@ cvp_instance_ips:
 cvp_ingestauth_key: telarista
 
 # OOB Management network default gateway.
-mgmt_gateway: 192.168.200.5
+mgmt_gateway: 192.168.200.1
 
 # dns servers.
 name_servers:
