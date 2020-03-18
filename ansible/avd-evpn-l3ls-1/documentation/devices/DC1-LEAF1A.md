@@ -6,7 +6,7 @@
 
 | Management Interface | description | VRF | IP Address | Gateway |
 | -------------------- | ----------- | --- | ---------- | ------- |
-| Management1 | oob_management | MGMT | 192.168.200.105/24 | 192.168.200.5 |
+| Management1 | oob_management | MGMT | 192.168.200.105/24 | 192.168.200.1 |
 
 ### Management Interfaces Device Configuration
 
@@ -299,12 +299,12 @@ interface Loopback1
 
 ### VLAN Interfaces Summary
 
-| Interface | Description | VRF | IP Address | Virtual | IP Address Secondary | Virtual |
-| --------- | ----------- | --- | ---------- | ------- | -------------------- | ------- |
-| Vlan120 | Tenant_A_WEB_Zone_1 | Tenant_A_WEB_Zone  | 10.1.20.1/24 | True | - | - |
-| Vlan121 | Tenant_A_WEBZone_2 | Tenant_A_WEB_Zone  | 10.1.21.1/24 | True | - | - |
-| Vlan130 | Tenant_A_APP_Zone_1 | Tenant_A_APP_Zone  | 10.1.30.1/24 | True | - | - |
-| Vlan131 | Tenant_A_APP_Zone_2 | Tenant_A_APP_Zone  | 10.1.31.1/24 | True | - | - |
+| Interface | Description | VRF | IP Address | IP Address Virtual | IP Router Virtual Address (vARP) |
+| --------- | ----------- | --- | ---------- | ------------------ | -------------------------------- |
+| Vlan120 | Tenant_A_WEB_Zone_1 | Tenant_A_WEB_Zone | - | 10.1.20.1/24 | - |
+| Vlan121 | Tenant_A_WEBZone_2 | Tenant_A_WEB_Zone | - | 10.1.21.1/24 | - |
+| Vlan130 | Tenant_A_APP_Zone_1 | Tenant_A_APP_Zone | - | 10.1.30.1/24 | - |
+| Vlan131 | Tenant_A_APP_Zone_2 | Tenant_A_APP_Zone | - | 10.1.31.1/24 | - |
 
 ### VLAN Interfaces Device Configuration
 
@@ -388,12 +388,12 @@ ip virtual-router mac-address 00:dc:00:00:00:0a
 
 | VRF | Destination Prefix | Fowarding Address / Interface |
 | --- | ------------------ | ----------------------------- |
-| MGMT | 0.0.0.0/0 | 192.168.200.5 |
+| MGMT | 0.0.0.0/0 | 192.168.200.1 |
 
 ### Static Routes Device Configuration
 
 ```eos
-ip route vrf MGMT 0.0.0.0/0 192.168.200.5
+ip route vrf MGMT 0.0.0.0/0 192.168.200.1
 !
 ```
 

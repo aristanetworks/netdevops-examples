@@ -6,7 +6,7 @@
 
 | Management Interface | description | VRF | IP Address | Gateway |
 | -------------------- | ----------- | --- | ---------- | ------- |
-| Management1 | oob_management | MGMT | 192.168.200.110/24 | 192.168.200.5 |
+| Management1 | oob_management | MGMT | 192.168.200.110/24 | 192.168.200.1 |
 
 ### Management Interfaces Device Configuration
 
@@ -314,16 +314,16 @@ interface Loopback1
 
 ### VLAN Interfaces Summary
 
-| Interface | Description | VRF | IP Address | Virtual | IP Address Secondary | Virtual |
-| --------- | ----------- | --- | ---------- | ------- | -------------------- | ------- |
-| Vlan150 | Tenant_A_WAN_Zone_1 | Tenant_A_WAN_Zone  | 10.1.40.1/24 | True | - | - |
-| Vlan250 | Tenant_B_WAN_Zone_1 | Tenant_B_WAN_Zone  | 10.2.50.1/24 | True | - | - |
-| Vlan350 | Tenant_C_WAN_Zone_1 | Tenant_C_WAN_Zone  | 10.3.50.1/24 | True | - | - |
-| Vlan3013 | MLAG_PEER_L3_iBGP: vrf Tenant_A_WAN_Zone | Tenant_A_WAN_Zone  | 10.255.251.10/31 | - | - | - |
-| Vlan3020 | MLAG_PEER_L3_iBGP: vrf Tenant_B_WAN_Zone | Tenant_B_WAN_Zone  | 10.255.251.10/31 | - | - | - |
-| Vlan3030 | MLAG_PEER_L3_iBGP: vrf Tenant_C_WAN_Zone | Tenant_C_WAN_Zone  | 10.255.251.10/31 | - | - | - |
-| Vlan4093 | MLAG_PEER_L3_PEERING | Global Routing Table  | 10.255.251.10/31 | - | - | - |
-| Vlan4094 | MLAG_PEER | Global Routing Table  | 10.255.252.10/31 | - | - | - |
+| Interface | Description | VRF | IP Address | IP Address Virtual | IP Router Virtual Address (vARP) |
+| --------- | ----------- | --- | ---------- | ------------------ | -------------------------------- |
+| Vlan150 | Tenant_A_WAN_Zone_1 | Tenant_A_WAN_Zone | - | 10.1.40.1/24 | - |
+| Vlan250 | Tenant_B_WAN_Zone_1 | Tenant_B_WAN_Zone | - | 10.2.50.1/24 | - |
+| Vlan350 | Tenant_C_WAN_Zone_1 | Tenant_C_WAN_Zone | - | 10.3.50.1/24 | - |
+| Vlan3013 | MLAG_PEER_L3_iBGP: vrf Tenant_A_WAN_Zone | Tenant_A_WAN_Zone | 10.255.251.10/31 | - | - |
+| Vlan3020 | MLAG_PEER_L3_iBGP: vrf Tenant_B_WAN_Zone | Tenant_B_WAN_Zone | 10.255.251.10/31 | - | - |
+| Vlan3030 | MLAG_PEER_L3_iBGP: vrf Tenant_C_WAN_Zone | Tenant_C_WAN_Zone | 10.255.251.10/31 | - | - |
+| Vlan4093 | MLAG_PEER_L3_PEERING | Global Routing Table | 10.255.251.10/31 | - | - |
+| Vlan4094 | MLAG_PEER | Global Routing Table | 10.255.252.10/31 | - | - |
 
 ### VLAN Interfaces Device Configuration
 
@@ -427,12 +427,12 @@ ip virtual-router mac-address 00:dc:00:00:00:0a
 
 | VRF | Destination Prefix | Fowarding Address / Interface |
 | --- | ------------------ | ----------------------------- |
-| MGMT | 0.0.0.0/0 | 192.168.200.5 |
+| MGMT | 0.0.0.0/0 | 192.168.200.1 |
 
 ### Static Routes Device Configuration
 
 ```eos
-ip route vrf MGMT 0.0.0.0/0 192.168.200.5
+ip route vrf MGMT 0.0.0.0/0 192.168.200.1
 !
 ```
 

@@ -6,7 +6,7 @@
 
 | Management Interface | description | VRF | IP Address | Gateway |
 | -------------------- | ----------- | --- | ---------- | ------- |
-| Management1 | oob_management | MGMT | 192.168.200.108/24 | 192.168.200.5 |
+| Management1 | oob_management | MGMT | 192.168.200.108/24 | 192.168.200.1 |
 
 ### Management Interfaces Device Configuration
 
@@ -465,34 +465,34 @@ interface Loopback100
 
 ### VLAN Interfaces Summary
 
-| Interface | Description | VRF | IP Address | Virtual | IP Address Secondary | Virtual |
-| --------- | ----------- | --- | ---------- | ------- | -------------------- | ------- |
-| Vlan110 | Tenant_A_OP_Zone_1 | Tenant_A_OP_Zone  | 10.1.10.1/24 | True | - | - |
-| Vlan111 | Tenant_A_OP_Zone_2 | Tenant_A_OP_Zone  | 10.1.11.1/24 | True | - | - |
-| Vlan120 | Tenant_A_WEB_Zone_1 | Tenant_A_WEB_Zone  | 10.1.20.1/24 | True | - | - |
-| Vlan121 | Tenant_A_WEBZone_2 | Tenant_A_WEB_Zone  | 10.1.21.1/24 | True | - | - |
-| Vlan130 | Tenant_A_APP_Zone_1 | Tenant_A_APP_Zone  | 10.1.30.1/24 | True | - | - |
-| Vlan131 | Tenant_A_APP_Zone_2 | Tenant_A_APP_Zone  | 10.1.31.1/24 | True | - | - |
-| Vlan140 | Tenant_A_DB_BZone_1 | Tenant_A_DB_Zone  | 10.1.40.1/24 | True | - | - |
-| Vlan141 | Tenant_A_DB_Zone_2 | Tenant_A_DB_Zone  | 10.1.41.1/24 | True | - | - |
-| Vlan150 | Tenant_A_WAN_Zone_1 | Tenant_A_WAN_Zone  | 10.1.40.1/24 | True | - | - |
-| Vlan210 | Tenant_B_OP_Zone_1 | Tenant_B_OP_Zone  | 10.2.10.1/24 | True | - | - |
-| Vlan211 | Tenant_B_OP_Zone_2 | Tenant_B_OP_Zone  | 10.2.11.1/24 | True | - | - |
-| Vlan250 | Tenant_B_WAN_Zone_1 | Tenant_B_WAN_Zone  | 10.2.50.1/24 | True | - | - |
-| Vlan310 | Tenant_C_OP_Zone_1 | Tenant_C_OP_Zone  | 10.3.10.1/24 | True | - | - |
-| Vlan311 | Tenant_C_OP_Zone_2 | Tenant_C_OP_Zone  | 10.3.11.1/24 | True | - | - |
-| Vlan350 | Tenant_C_WAN_Zone_1 | Tenant_C_WAN_Zone  | 10.3.50.1/24 | True | - | - |
-| Vlan3009 | MLAG_PEER_L3_iBGP: vrf Tenant_A_OP_Zone | Tenant_A_OP_Zone  | 10.255.251.6/31 | - | - | - |
-| Vlan3010 | MLAG_PEER_L3_iBGP: vrf Tenant_A_WEB_Zone | Tenant_A_WEB_Zone  | 10.255.251.6/31 | - | - | - |
-| Vlan3011 | MLAG_PEER_L3_iBGP: vrf Tenant_A_APP_Zone | Tenant_A_APP_Zone  | 10.255.251.6/31 | - | - | - |
-| Vlan3012 | MLAG_PEER_L3_iBGP: vrf Tenant_A_DB_Zone | Tenant_A_DB_Zone  | 10.255.251.6/31 | - | - | - |
-| Vlan3013 | MLAG_PEER_L3_iBGP: vrf Tenant_A_WAN_Zone | Tenant_A_WAN_Zone  | 10.255.251.6/31 | - | - | - |
-| Vlan3019 | MLAG_PEER_L3_iBGP: vrf Tenant_B_OP_Zone | Tenant_B_OP_Zone  | 10.255.251.6/31 | - | - | - |
-| Vlan3020 | MLAG_PEER_L3_iBGP: vrf Tenant_B_WAN_Zone | Tenant_B_WAN_Zone  | 10.255.251.6/31 | - | - | - |
-| Vlan3029 | MLAG_PEER_L3_iBGP: vrf Tenant_C_OP_Zone | Tenant_C_OP_Zone  | 10.255.251.6/31 | - | - | - |
-| Vlan3030 | MLAG_PEER_L3_iBGP: vrf Tenant_C_WAN_Zone | Tenant_C_WAN_Zone  | 10.255.251.6/31 | - | - | - |
-| Vlan4093 | MLAG_PEER_L3_PEERING | Global Routing Table  | 10.255.251.6/31 | - | - | - |
-| Vlan4094 | MLAG_PEER | Global Routing Table  | 10.255.252.6/31 | - | - | - |
+| Interface | Description | VRF | IP Address | IP Address Virtual | IP Router Virtual Address (vARP) |
+| --------- | ----------- | --- | ---------- | ------------------ | -------------------------------- |
+| Vlan110 | Tenant_A_OP_Zone_1 | Tenant_A_OP_Zone | - | 10.1.10.1/24 | - |
+| Vlan111 | Tenant_A_OP_Zone_2 | Tenant_A_OP_Zone | - | 10.1.11.1/24 | - |
+| Vlan120 | Tenant_A_WEB_Zone_1 | Tenant_A_WEB_Zone | - | 10.1.20.1/24 | - |
+| Vlan121 | Tenant_A_WEBZone_2 | Tenant_A_WEB_Zone | - | 10.1.21.1/24 | - |
+| Vlan130 | Tenant_A_APP_Zone_1 | Tenant_A_APP_Zone | - | 10.1.30.1/24 | - |
+| Vlan131 | Tenant_A_APP_Zone_2 | Tenant_A_APP_Zone | - | 10.1.31.1/24 | - |
+| Vlan140 | Tenant_A_DB_BZone_1 | Tenant_A_DB_Zone | - | 10.1.40.1/24 | - |
+| Vlan141 | Tenant_A_DB_Zone_2 | Tenant_A_DB_Zone | - | 10.1.41.1/24 | - |
+| Vlan150 | Tenant_A_WAN_Zone_1 | Tenant_A_WAN_Zone | - | 10.1.40.1/24 | - |
+| Vlan210 | Tenant_B_OP_Zone_1 | Tenant_B_OP_Zone | - | 10.2.10.1/24 | - |
+| Vlan211 | Tenant_B_OP_Zone_2 | Tenant_B_OP_Zone | - | 10.2.11.1/24 | - |
+| Vlan250 | Tenant_B_WAN_Zone_1 | Tenant_B_WAN_Zone | - | 10.2.50.1/24 | - |
+| Vlan310 | Tenant_C_OP_Zone_1 | Tenant_C_OP_Zone | - | 10.3.10.1/24 | - |
+| Vlan311 | Tenant_C_OP_Zone_2 | Tenant_C_OP_Zone | - | 10.3.11.1/24 | - |
+| Vlan350 | Tenant_C_WAN_Zone_1 | Tenant_C_WAN_Zone | - | 10.3.50.1/24 | - |
+| Vlan3009 | MLAG_PEER_L3_iBGP: vrf Tenant_A_OP_Zone | Tenant_A_OP_Zone | 10.255.251.6/31 | - | - |
+| Vlan3010 | MLAG_PEER_L3_iBGP: vrf Tenant_A_WEB_Zone | Tenant_A_WEB_Zone | 10.255.251.6/31 | - | - |
+| Vlan3011 | MLAG_PEER_L3_iBGP: vrf Tenant_A_APP_Zone | Tenant_A_APP_Zone | 10.255.251.6/31 | - | - |
+| Vlan3012 | MLAG_PEER_L3_iBGP: vrf Tenant_A_DB_Zone | Tenant_A_DB_Zone | 10.255.251.6/31 | - | - |
+| Vlan3013 | MLAG_PEER_L3_iBGP: vrf Tenant_A_WAN_Zone | Tenant_A_WAN_Zone | 10.255.251.6/31 | - | - |
+| Vlan3019 | MLAG_PEER_L3_iBGP: vrf Tenant_B_OP_Zone | Tenant_B_OP_Zone | 10.255.251.6/31 | - | - |
+| Vlan3020 | MLAG_PEER_L3_iBGP: vrf Tenant_B_WAN_Zone | Tenant_B_WAN_Zone | 10.255.251.6/31 | - | - |
+| Vlan3029 | MLAG_PEER_L3_iBGP: vrf Tenant_C_OP_Zone | Tenant_C_OP_Zone | 10.255.251.6/31 | - | - |
+| Vlan3030 | MLAG_PEER_L3_iBGP: vrf Tenant_C_WAN_Zone | Tenant_C_WAN_Zone | 10.255.251.6/31 | - | - |
+| Vlan4093 | MLAG_PEER_L3_PEERING | Global Routing Table | 10.255.251.6/31 | - | - |
+| Vlan4094 | MLAG_PEER | Global Routing Table | 10.255.252.6/31 | - | - |
 
 ### VLAN Interfaces Device Configuration
 
@@ -732,12 +732,12 @@ ip address virtual source-nat vrf Tenant_A_OP_Zone address 10.255.1.8
 
 | VRF | Destination Prefix | Fowarding Address / Interface |
 | --- | ------------------ | ----------------------------- |
-| MGMT | 0.0.0.0/0 | 192.168.200.5 |
+| MGMT | 0.0.0.0/0 | 192.168.200.1 |
 
 ### Static Routes Device Configuration
 
 ```eos
-ip route vrf MGMT 0.0.0.0/0 192.168.200.5
+ip route vrf MGMT 0.0.0.0/0 192.168.200.1
 !
 ```
 

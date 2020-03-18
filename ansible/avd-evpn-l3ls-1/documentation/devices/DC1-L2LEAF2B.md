@@ -6,7 +6,7 @@
 
 | Management Interface | description | VRF | IP Address | Gateway |
 | -------------------- | ----------- | --- | ---------- | ------- |
-| Management1 | oob_management | MGMT | 192.168.200.114/24 | 192.168.200.5 |
+| Management1 | oob_management | MGMT | 192.168.200.114/24 | 192.168.200.1 |
 
 ### Management Interfaces Device Configuration
 
@@ -315,9 +315,9 @@ No Loopback interfaces defined
 
 ### VLAN Interfaces Summary
 
-| Interface | Description | VRF | IP Address | Virtual | IP Address Secondary | Virtual |
-| --------- | ----------- | --- | ---------- | ------- | -------------------- | ------- |
-| Vlan4094 | MLAG_PEER | Global Routing Table  | 10.255.252.17/31 | - | - | - |
+| Interface | Description | VRF | IP Address | IP Address Virtual | IP Router Virtual Address (vARP) |
+| --------- | ----------- | --- | ---------- | ------------------ | -------------------------------- |
+| Vlan4094 | MLAG_PEER | Global Routing Table | 10.255.252.17/31 | - | - |
 
 ### VLAN Interfaces Device Configuration
 
@@ -342,12 +342,12 @@ No VXLAN interface defined
 
 | VRF | Destination Prefix | Fowarding Address / Interface |
 | --- | ------------------ | ----------------------------- |
-| MGMT | 0.0.0.0/0 | 192.168.200.5 |
+| MGMT | 0.0.0.0/0 | 192.168.200.1 |
 
 ### Static Routes Device Configuration
 
 ```eos
-ip route vrf MGMT 0.0.0.0/0 192.168.200.5
+ip route vrf MGMT 0.0.0.0/0 192.168.200.1
 !
 ```
 
