@@ -28,4 +28,5 @@ name_servers:
 
 # NTP Servers IP or DNS name, first NTP server will be prefered, and sourced from Managment
 ntp_servers:
-  - 192.168.200.5
+  - 0.north-america.pool.ntp.org
+  - 1.north-america.pool.ntp.org

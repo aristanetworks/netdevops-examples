@@ -80,13 +80,15 @@ VRF: MGMT
 
 | Node | Primary |
 | ---- | ------- |
-| 192.168.200.5 | True |
+| 0.north-america.pool.ntp.org | True |
+| 1.north-america.pool.ntp.org | - |
 
 ### NTP Device Configuration
 
 ```eos
 ntp local-interface vrf MGMT Management1
-ntp server vrf MGMT 192.168.200.5 prefer
+ntp server vrf MGMT 0.north-america.pool.ntp.org prefer
+ntp server vrf MGMT 1.north-america.pool.ntp.org
 !
 ```
 

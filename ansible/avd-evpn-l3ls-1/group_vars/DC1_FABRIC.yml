@@ -95,7 +95,7 @@ l3leaf:
       bgp_as: 65103
       filter:
         tenants: [ Tenant_A, Tenant_B, Tenant_C ]
-        tags: [ opzone, web, app, db, vmotion, nfs, wan ]
+        tags: [ opzone, web, app, db, vmotion, nfs ]
       nodes:
         DC1-SVC3A:
           id: 4

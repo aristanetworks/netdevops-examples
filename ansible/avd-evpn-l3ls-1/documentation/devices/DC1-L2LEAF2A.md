@@ -80,13 +80,15 @@ VRF: MGMT
 
 | Node | Primary |
 | ---- | ------- |
-| 192.168.200.5 | True |
+| 0.north-america.pool.ntp.org | True |
+| 1.north-america.pool.ntp.org | - |
 
 ### NTP Device Configuration
 
 ```eos
 ntp local-interface vrf MGMT Management1
-ntp server vrf MGMT 192.168.200.5 prefer
+ntp server vrf MGMT 0.north-america.pool.ntp.org prefer
+ntp server vrf MGMT 1.north-america.pool.ntp.org
 !
 ```
 
@@ -146,15 +148,12 @@ username cvpadmin privilege 15 role network-admin secret sha512 $6$rZKcbIZ7iWGAW
 | 131 | Tenant_A_APP_Zone_2 | none  |
 | 140 | Tenant_A_DB_BZone_1 | none  |
 | 141 | Tenant_A_DB_Zone_2 | none  |
-| 150 | Tenant_A_WAN_Zone_1 | none  |
 | 160 | Tenant_A_VMOTION | none  |
 | 161 | Tenant_A_NFS | none  |
 | 210 | Tenant_B_OP_Zone_1 | none  |
 | 211 | Tenant_B_OP_Zone_2 | none  |
-| 250 | Tenant_B_WAN_Zone_1 | none  |
 | 310 | Tenant_C_OP_Zone_1 | none  |
 | 311 | Tenant_C_OP_Zone_2 | none  |
-| 350 | Tenant_C_WAN_Zone_1 | none  |
 | 4094 | MLAG_PEER | MLAG  |
 
 ### VLANs Device Configuration
@@ -184,9 +183,6 @@ vlan 140
 vlan 141
    name Tenant_A_DB_Zone_2
 !
-vlan 150
-   name Tenant_A_WAN_Zone_1
-!
 vlan 160
    name Tenant_A_VMOTION
 !
@@ -199,17 +195,11 @@ vlan 210
 vlan 211
    name Tenant_B_OP_Zone_2
 !
-vlan 250
-   name Tenant_B_WAN_Zone_1
-!
 vlan 310
    name Tenant_C_OP_Zone_1
 !
 vlan 311
    name Tenant_C_OP_Zone_2
-!
-vlan 350
-   name Tenant_C_WAN_Zone_1
 !
 vlan 4094
    name MLAG_PEER
@@ -253,7 +243,7 @@ bfd multihop interval 1200 min_rx 1200 multiplier 3
 
 | Interface | Description | MTU | Type | Mode | Allowed VLANs (trunk) | Trunk Group | MLAG ID | VRF | IP Address |
 | --------- | ----------- | --- | ---- | ---- | --------------------- | ----------- | ------- | --- | ---------- |
-| Port-Channel1 | DC1-SVC3A_Po7 | 1500 | switched | trunk | 110-111,120-121,130-131,140-141,150,160-161,210-211,250,310-311,350 | - | 1 | - | - |
+| Port-Channel1 | DC1-SVC3A_Po7 | 1500 | switched | trunk | 110-111,120-121,130-131,140-141,160-161,210-211,310-311 | - | 1 | - | - |
 | Port-Channel3 | MLAG_PEER_DC1-L2LEAF2B_Po3 | 1500 | switched | trunk | 2-4094 | MLAG | - | - | - |
 
 ### Port-Channel Interfaces Device Configuration
@@ -261,7 +251,7 @@ bfd multihop interval 1200 min_rx 1200 multiplier 3
 ```eos
 interface Port-Channel1
    description DC1-SVC3A_Po7
-   switchport trunk allowed vlan 110-111,120-121,130-131,140-141,150,160-161,210-211,250,310-311,350
+   switchport trunk allowed vlan 110-111,120-121,130-131,140-141,160-161,210-211,310-311
    switchport mode trunk
    mlag 1
 !
@@ -279,8 +269,8 @@ interface Port-Channel3
 
 | Interface | Description | MTU | Type | Mode | Allowed VLANs (Trunk) | Trunk Group | VRF | IP Address | Channel-Group ID | Channel-Group Type |
 | --------- | ----------- | --- | ---- | ---- | --------------------- | ----------- | --- | ---------- | ---------------- | ------------------ |
-| Ethernet1 | DC1-SVC3A_Ethernet7 | *1500 | *switched | *trunk | *110-111,120-121,130-131,140-141,150,160-161,210-211,250,310-311,350 | - | - | - | 1 | active |
-| Ethernet2 | DC1-SVC3B_Ethernet7 | *1500 | *switched | *trunk | *110-111,120-121,130-131,140-141,150,160-161,210-211,250,310-311,350 | - | - | - | 1 | active |
+| Ethernet1 | DC1-SVC3A_Ethernet7 | *1500 | *switched | *trunk | *110-111,120-121,130-131,140-141,160-161,210-211,310-311 | - | - | - | 1 | active |
+| Ethernet2 | DC1-SVC3B_Ethernet7 | *1500 | *switched | *trunk | *110-111,120-121,130-131,140-141,160-161,210-211,310-311 | - | - | - | 1 | active |
 | Ethernet3 | MLAG_PEER_DC1-L2LEAF2B_Ethernet3 | *1500 | *switched | *trunk | *2-4094 | *MLAG | - | - | 3 | active |
 | Ethernet4 | MLAG_PEER_DC1-L2LEAF2B_Ethernet4 | *1500 | *switched | *trunk | *2-4094 | *MLAG | - | - | 3 | active |
 

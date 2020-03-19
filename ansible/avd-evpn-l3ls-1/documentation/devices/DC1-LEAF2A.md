@@ -80,13 +80,15 @@ VRF: MGMT
 
 | Node | Primary |
 | ---- | ------- |
-| 192.168.200.5 | True |
+| 0.north-america.pool.ntp.org | True |
+| 1.north-america.pool.ntp.org | - |
 
 ### NTP Device Configuration
 
 ```eos
 ntp local-interface vrf MGMT Management1
-ntp server vrf MGMT 192.168.200.5 prefer
+ntp server vrf MGMT 0.north-america.pool.ntp.org prefer
+ntp server vrf MGMT 1.north-america.pool.ntp.org
 !
 ```
 
@@ -140,6 +142,7 @@ username cvpadmin privilege 15 role network-admin secret sha512 $6$rZKcbIZ7iWGAW
 | ------- | ---- | ------------ |
 | 110 | Tenant_A_OP_Zone_1 | none  |
 | 111 | Tenant_A_OP_Zone_2 | none  |
+| 112 | Tenant_A_OP_Zone_3 | none  |
 | 120 | Tenant_A_WEB_Zone_1 | none  |
 | 121 | Tenant_A_WEBZone_2 | none  |
 | 130 | Tenant_A_APP_Zone_1 | none  |
@@ -169,6 +172,9 @@ vlan 110
 !
 vlan 111
    name Tenant_A_OP_Zone_2
+!
+vlan 112
+   name Tenant_A_OP_Zone_3
 !
 vlan 120
    name Tenant_A_WEB_Zone_1
@@ -428,6 +434,7 @@ interface Loopback100
 | --------- | ----------- | --- | ---------- | ------------------ | -------------------------------- |
 | Vlan110 | Tenant_A_OP_Zone_1 | Tenant_A_OP_Zone | - | 10.1.10.1/24 | - |
 | Vlan111 | Tenant_A_OP_Zone_2 | Tenant_A_OP_Zone | - | 10.1.11.1/24 | - |
+| Vlan112 | Tenant_A_OP_Zone_3 | Tenant_A_OP_Zone | 10.1.12.2/24 | - | 10.1.12.1 |
 | Vlan120 | Tenant_A_WEB_Zone_1 | Tenant_A_WEB_Zone | - | 10.1.20.1/24 | - |
 | Vlan121 | Tenant_A_WEBZone_2 | Tenant_A_WEB_Zone | - | 10.1.21.1/24 | - |
 | Vlan130 | Tenant_A_APP_Zone_1 | Tenant_A_APP_Zone | - | 10.1.30.1/24 | - |
@@ -459,6 +466,12 @@ interface Vlan111
    description Tenant_A_OP_Zone_2
    vrf Tenant_A_OP_Zone
    ip address virtual 10.1.11.1/24
+!
+interface Vlan112
+   description Tenant_A_OP_Zone_3
+   vrf Tenant_A_OP_Zone
+   ip address 10.1.12.2/24
+   ip virtual-router address 10.1.12.1
 !
 interface Vlan120
    description Tenant_A_WEB_Zone_1
@@ -564,6 +577,7 @@ interface Vlan4094
 | ---- | --- |
 | 110 | 10110 |
 | 111 | 50111 |
+| 112 | 10112 |
 | 120 | 10120 |
 | 121 | 10121 |
 | 130 | 10130 |
@@ -597,6 +611,7 @@ interface Vxlan1
    vxlan udp-port 4789
    vxlan vlan 110 vni 10110
    vxlan vlan 111 vni 50111
+   vxlan vlan 112 vni 10112
    vxlan vlan 120 vni 10120
    vxlan vlan 121 vni 10121
    vxlan vlan 130 vni 10130
@@ -845,7 +860,7 @@ No Peer Filters defined
 | Tenant_A_APP_Zone | 192.168.255.6:12 | both 12:12 | learned | 130-131 |
 | Tenant_A_DB_Zone | 192.168.255.6:13 | both 13:13 | learned | 140-141 |
 | Tenant_A_NFS | 192.168.255.6:10161 | both 10161:10161 | learned | 161 |
-| Tenant_A_OP_Zone | 192.168.255.6:10 | both 10:10 | learned | 110-111 |
+| Tenant_A_OP_Zone | 192.168.255.6:10 | both 10:10 | learned | 110-112 |
 | Tenant_A_VMOTION | 192.168.255.6:50160 | both 50160:50160 | learned | 160 |
 | Tenant_A_WEB_Zone | 192.168.255.6:11 | both 11:11 | learned | 120-121 |
 | Tenant_B_OP_Zone | 192.168.255.6:20 | both 20:20 | learned | 210-211 |
@@ -922,7 +937,7 @@ router bgp 65102
       rd 192.168.255.6:10
       route-target both 10:10
       redistribute learned
-      vlan 110-111
+      vlan 110-112
    !
    vlan-aware-bundle Tenant_A_VMOTION
       rd 192.168.255.6:50160

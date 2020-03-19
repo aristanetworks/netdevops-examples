@@ -52,7 +52,8 @@ ntp_server:
     vrf: MGMT
     interface: Management1
   nodes:
-    - 192.168.200.5
+    - 0.north-america.pool.ntp.org
+    - 1.north-america.pool.ntp.org
 
 ### Redundancy ###
 redundancy:
