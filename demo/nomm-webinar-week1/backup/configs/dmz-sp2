@@ -1,0 +1,235 @@
+! Command: show running-config
+! device: DMZ-SP2 (DCS-7280SR-48C6, EOS-4.21.0F)
+!
+! boot system flash:/EOS-4.21.0F.swi
+!
+alias sig show running-config section ip igmp snooping
+alias srm show running-config section ip route multicast
+!
+daemon TerminAttr
+   exec /usr/bin/TerminAttr -ingestgrpcurl=10.90.224.175:9910 -cvcompression=gzip -ingestauth=key, -smashexcludes=ale,flexCounter,hardware,kni,pulse,strata -ingestexclude=/Sysdb/cell/1/agent,/Sysdb/cell/2/agent -ingestvrf=default -taillogs
+   no shutdown
+!
+daemon TerminAttrRW
+   exec /usr/bin/TerminAttrRW -grpcaddr=10.90.224.12:5910 -allowed_ips=10.90.224.191/32,10.90.224.169/32 -ingestgrpcurl=10.90.224.175:9910 -cvcompression=gzip -ingestauth=key, -smashexcludes=ale,flexCounter,hardware,kni,pulse,strata -ingestexclude=/Sysdb/cell/1/agent,/Sysdb/cell/2/agent -ingestvrf=default -taillogs
+   no shutdown
+!
+transceiver qsfp default-mode 4x10G
+!
+hostname DMZ-SP2
+ip name-server vrf default 172.22.22.40
+ip domain-name sjc.aristanetworks.com
+ip domain-list aristanetworks.com
+!
+ntp server 216.229.0.179
+!
+spanning-tree mode mstp
+!
+aaa root secret sha512 $6$z9GW/jDHdK0ZQiiw$DUSIPbm0nxCtyYd4sWZXndmk/BrxVjkEOQlJ09I5DrvZZfqZQZ95ZmPcFGvvhtUBEgIsilctiZ2z.7whitbbg0
+!
+username admin role network-admin secret sha512 $6$ZAE8.Ebsq5PoyFE7$YBBjbva10obQ1PlZKJYVx6yRRu/nTX6mUMknJNWFRGDznEP./TxE1tM3SO53GqLpElm7NICk7PXrsXuXv53BR.
+username cvpadmin secret sha512 $6$3dVfOUAYfvbehX8E$ta0iKvDJExcz1ukjPVCXmZGIyP1E6TKlx6kATQ88lvtlc381GVdN.3Cj2g5EMUxLQozM6jexzC.jnyWDQNx/o0
+username dshim secret sha512 $6$X4891toAjHJZJ4a.$eddrtc7Mz8B98qlSYrjisrRKXoYxSTeZMhjVAZqKnjpm9OEpqbeyvc.EFYbGPfas3BXsHT0OQq1X/KsS8cH7v/
+username fredlhsu secret sha512 $6$g14g4svtYUlXY48r$vV0u7vrxB6gBU53Uzk3HsFoZivDkI1EWLHrRpORh.qOLG6p7bTvVlTFeAgW6RP46kDPPjj35Ov0eW4jPjRGje1
+username fredlhsu sshkey ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDRz+Y3Aw0tpF2oChxqEwP4P9PnP0etzZ+QN5JRKrVvEZiauqecqBJdtPNj3Vwv5KOL/62ZxypPnisE2zDqKJnlh9Kbp2dGN5GFo0OuwjLZckv6LuIDXDuMm74d0lkNjhqNeO7S18R/wAd7pwJNOUSpJx9qmHXL8gJq9OBTwrDKkzjEbH7VokeZALfikPrKcdGZaTOPsG82Fgeujq6rwUO+086zdLwqc3MWRXjrfVMZsCLEmM204uS1JRVheco8ZK8eBk0J/BGxkHRzW5hiR+Z8xe4kurxoq5RyrdrEOIB/CVjDUEIKwHLIirWPFOGbJ98P0e8+s2BuQUtC78eGg5/n fredlhsu@fredlhsu
+!
+interface Ethernet1
+   no switchport
+   ip address 172.20.201.1/30
+!
+interface Ethernet2
+   no switchport
+   ip address 172.20.202.1/30
+!
+interface Ethernet3
+   no switchport
+   ip address 172.20.203.1/30
+!
+interface Ethernet4
+   no switchport
+   ip address 172.20.204.1/30
+!
+interface Ethernet5
+   no switchport
+   ip address 172.20.205.1/30
+!
+interface Ethernet6
+   no switchport
+   ip address 172.20.206.1/30
+!
+interface Ethernet7
+   no switchport
+   ip address 172.20.207.1/30
+!
+interface Ethernet8
+   no switchport
+   ip address 172.20.208.1/30
+!
+interface Ethernet9
+   no switchport
+   ip address 172.20.209.1/30
+!
+interface Ethernet10
+   no switchport
+   ip address 172.20.210.1/30
+!
+interface Ethernet11
+   no switchport
+   ip address 172.20.211.1/30
+!
+interface Ethernet12
+   no switchport
+   ip address 172.20.212.1/30
+!
+interface Ethernet13
+   no switchport
+   ip address 172.20.213.1/30
+!
+interface Ethernet14
+   no switchport
+   ip address 172.20.214.1/30
+!
+interface Ethernet15
+   no switchport
+   ip address 172.20.215.1/30
+!
+interface Ethernet16
+   no switchport
+   ip address 172.20.216.1/30
+!
+interface Ethernet17
+   no switchport
+   ip address 172.20.217.1/30
+!
+interface Ethernet18
+   no switchport
+   ip address 172.20.218.1/30
+!
+interface Ethernet19
+   no switchport
+   ip address 172.20.215.5/30
+!
+interface Ethernet20
+   description DMZ-LF16 MCS second connection
+   mtu 9000
+   speed forced 10000full
+   no switchport
+   ip address 172.20.216.5/30
+!
+interface Ethernet21
+   no switchport
+   ip address 172.20.217.5/30
+!
+interface Ethernet22
+   no switchport
+   ip address 172.20.218.5/30
+!
+interface Ethernet23
+   no switchport
+   ip address 172.20.223.1/30
+!
+interface Ethernet24
+   no switchport
+   ip address 172.20.224.1/30
+!
+interface Ethernet25
+   no switchport
+   ip address 172.20.225.1/30
+!
+interface Ethernet26
+   no switchport
+   ip address 172.20.226.1/30
+!
+interface Ethernet27
+   no switchport
+   ip address 172.20.227.1/30
+!
+interface Ethernet28
+   no switchport
+   ip address 172.20.228.1/30
+!
+interface Ethernet29
+   no switchport
+   ip address 172.20.229.1/30
+!
+interface Ethernet30
+!
+interface Ethernet31
+!
+interface Ethernet32
+!
+interface Ethernet33
+!
+interface Ethernet34
+!
+interface Ethernet35
+!
+interface Ethernet36
+!
+interface Ethernet37
+!
+interface Ethernet38
+!
+interface Ethernet39
+!
+interface Ethernet40
+!
+interface Ethernet41
+!
+interface Ethernet42
+!
+interface Ethernet43
+!
+interface Ethernet44
+!
+interface Ethernet45
+!
+interface Ethernet46
+!
+interface Ethernet47
+!
+interface Ethernet48
+!
+interface Ethernet49/1
+!
+interface Ethernet50/1
+!
+interface Ethernet51/1
+!
+interface Ethernet52/1
+!
+interface Ethernet53/1
+!
+interface Ethernet54/1
+!
+interface Loopback1
+   ip address 172.20.0.2/32
+!
+interface Management1
+   ip address 10.90.224.12/24
+!
+event-handler lnterminattr
+   trigger on-boot
+   action bash ln -s /usr/bin/TerminAttr /usr/bin/TerminAttrRW && chmod 777 /usr/bin/TerminAttrRW
+   delay 60
+   asynchronous
+!
+ip route 0.0.0.0/0 10.90.224.1
+!
+ip routing
+!
+peer-filter dmz-filter
+   10 match as-range 65000-65999 result accept
+!
+router bgp 65000
+   bgp listen range 172.20.0.0/16 peer-group dmz-group peer-filter dmz-filter
+   neighbor dmz-group peer-group
+   neighbor dmz-group maximum-routes 12000 
+   network 172.20.0.2/32
+   network 172.20.0.0/16
+!
+management api http-commands
+   protocol http
+   no shutdown
+!
+end

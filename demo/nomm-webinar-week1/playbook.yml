@@ -1,0 +1,11 @@
+- name: Backup device configs
+  gather_facts: false
+  # connection: network_cli
+  hosts: all
+  tasks:
+    - name: backup EOS configs
+      eos_config:
+        backup: yes
+        backup_options:
+          filename: "{{ inventory_hostname }}"
+          dir_path: "./backup/configs"
