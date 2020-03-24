@@ -1,0 +1,13 @@
+---
+- name: lab02 - cv_facts lab
+  hosts: CloudVision
+  connection: local
+  gather_facts: no
+  tasks:
+    - name: "Gather CVP facts {{inventory_hostname}}"
+      arista.cvp.cv_facts:
+      register: cv_facts
+    
+    - name: "Print out facts from {{inventory_hostname}}"
+      debug:
+        msg: "{{cv_facts}}"

@@ -1,0 +1,15 @@
+---
+- name: Build Switch configuration
+  hosts: DC1_FABRIC
+  connection: local
+  gather_facts: false
+  collections:
+    - arista.avd
+
+  tasks:
+    - name: generate intented variables
+      import_role:
+        name: eos_l3ls_evpn
+    - name: generate device intended config and documention
+      import_role:
+        name: eos_cli_config_gen
