@@ -27,8 +27,8 @@ DC1-L2LEAF1A:
       ports:
         Ethernet2:
           lacpMisconfig:
-            status: noAgg
-          lagMember: false
+            status: bundled
+          lagMember: true
           linkDown: false
           suspended: false
 DC1-L2LEAF2A:
@@ -38,8 +38,8 @@ DC1-L2LEAF2A:
       ports:
         Ethernet2:
           lacpMisconfig:
-            status: noAgg
-          lagMember: false
+            status: bundled
+          lagMember: true
           linkDown: false
           suspended: false
     Port-Channel3:
@@ -58,8 +58,8 @@ DC1-L2LEAF2B:
       ports:
         Ethernet2:
           lacpMisconfig:
-            status: noAgg
-          lagMember: false
+            status: bundled
+          lagMember: true
           linkDown: false
           suspended: false
     Port-Channel3:
@@ -69,6 +69,17 @@ DC1-L2LEAF2B:
           lacpMisconfig:
             status: bundled
           lagMember: true
+          linkDown: false
+          suspended: false
+DC1-LEAF1A:
+  portChannels:
+    Port-Channel7:
+      linkState: up
+      ports:
+        Ethernet8:
+          lacpMisconfig:
+            status: noAgg
+          lagMember: false
           linkDown: false
           suspended: false
 DC1-LEAF2A:
@@ -95,6 +106,15 @@ DC1-LEAF2A:
       linkState: up
       ports:
         Ethernet6:
+          lacpMisconfig:
+            status: bundled
+          lagMember: true
+          linkDown: false
+          suspended: false
+    Port-Channel7:
+      linkState: up
+      ports:
+        Ethernet7:
           lacpMisconfig:
             status: bundled
           lagMember: true
@@ -129,6 +149,15 @@ DC1-LEAF2B:
           lagMember: true
           linkDown: false
           suspended: false
+    Port-Channel7:
+      linkState: up
+      ports:
+        Ethernet7:
+          lacpMisconfig:
+            status: bundled
+          lagMember: true
+          linkDown: false
+          suspended: false
 DC1-SVC3A:
   portChannels:
     Port-Channel10:
@@ -158,6 +187,15 @@ DC1-SVC3A:
           lagMember: true
           linkDown: false
           suspended: false
+    Port-Channel7:
+      linkState: up
+      ports:
+        Ethernet8:
+          lacpMisconfig:
+            status: bundled
+          lagMember: true
+          linkDown: false
+          suspended: false
 DC1-SVC3B:
   portChannels:
     Port-Channel10:
@@ -182,6 +220,15 @@ DC1-SVC3B:
       linkState: up
       ports:
         Ethernet6:
+          lacpMisconfig:
+            status: bundled
+          lagMember: true
+          linkDown: false
+          suspended: false
+    Port-Channel7:
+      linkState: up
+      ports:
+        Ethernet8:
           lacpMisconfig:
             status: bundled
           lagMember: true

@@ -16,6 +16,24 @@ DC1-BL1B:
     peerLinkStatus: up
     portsErrdisabled: false
     state: active
+DC1-L2LEAF2A:
+  configSanity: consistent
+  detail:
+    mlagPorts:
+      Inactive: 0
+    negStatus: connected
+    peerLinkStatus: up
+    portsErrdisabled: false
+    state: active
+DC1-L2LEAF2B:
+  configSanity: consistent
+  detail:
+    mlagPorts:
+      Inactive: 0
+    negStatus: connected
+    peerLinkStatus: up
+    portsErrdisabled: false
+    state: active
 DC1-LEAF2A:
   configSanity: consistent
   detail:

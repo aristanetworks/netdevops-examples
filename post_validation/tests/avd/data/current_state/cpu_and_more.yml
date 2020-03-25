@@ -1,42 +1,42 @@
 DC1-BL1A:
   cpuInfo:
-    idle: 73.5
+    idle: 91.3
 DC1-BL1B:
   cpuInfo:
-    idle: 74.2
+    idle: 90.2
 DC1-L2LEAF1A:
   cpuInfo:
-    idle: 87.1
+    idle: 95.6
 DC1-L2LEAF2A:
   cpuInfo:
-    idle: 88.4
+    idle: 94.3
 DC1-L2LEAF2B:
   cpuInfo:
-    idle: 88.3
+    idle: 94.5
 DC1-LEAF1A:
   cpuInfo:
-    idle: 75.5
+    idle: 94.8
 DC1-LEAF2A:
   cpuInfo:
-    idle: 70.2
+    idle: 89.8
 DC1-LEAF2B:
   cpuInfo:
-    idle: 70.4
+    idle: 91.8
 DC1-SPINE1:
   cpuInfo:
-    idle: 78.1
+    idle: 93.2
 DC1-SPINE2:
   cpuInfo:
-    idle: 77.3
+    idle: 94.3
 DC1-SPINE3:
   cpuInfo:
-    idle: 75.8
+    idle: 94.3
 DC1-SPINE4:
   cpuInfo:
-    idle: 76.0
+    idle: 94.3
 DC1-SVC3A:
   cpuInfo:
-    idle: 72.9
+    idle: 89.5
 DC1-SVC3B:
   cpuInfo:
-    idle: 73.9
+    idle: 92.1
