@@ -88,6 +88,12 @@ DC1-LEAF1A:
   Ethernet6:
     neighbor_hostname: server02
     neighbor_port_name: Eth1
+  Ethernet7:
+    neighbor_hostname: server01
+    neighbor_port_name: Eth4
+  Ethernet8:
+    neighbor_hostname: server01
+    neighbor_port_name: Eth5
 DC1-LEAF2A:
   Ethernet1:
     neighbor_hostname: DC1-SPINE1

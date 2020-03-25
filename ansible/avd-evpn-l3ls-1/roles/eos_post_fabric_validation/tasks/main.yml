@@ -18,6 +18,15 @@
     - fabric_validation
     - config
 
+- name: Generate json output to use for PyTest
+  template:
+    src: fabric_json_output.j2
+    dest: ./post_validation/state_outputs/duts_state.json
+  run_once: true
+  tags:
+    - fabric_validation
+    - config
+
 - name: translate data models
   shell:
     cmd: "./translate_data.py"
