@@ -12,7 +12,7 @@ def cpu_from_csv_inventory(in_data):
                     'cpuInfo': {
                         'idle': {
                             '__comparison_mode': 'le',  # less or equal
-                            '__ref_value': 71  # for demo only, normally should be significantly lower
+                            '__ref_value': 90  # for demo only, normally should be significantly lower
                         }
                     }
                 }
