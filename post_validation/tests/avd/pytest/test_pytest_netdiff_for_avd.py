@@ -50,3 +50,8 @@ def test_if_topology_is_correct(filename):
 def test_if_bgp_peering_is_correct(filename):
     current_data_aka_left, intended_data_aka_right = netdiff.process.test_data.for_yaml_diff(filename)
     assert current_data_aka_left == intended_data_aka_right
+
+@pytest.mark.parametrize("filename", ['topology_no_server.yml'])
+def test_if_topology_is_correct_without_servers(filename_prefix):
+    current_data_aka_left, intended_data_aka_right = netdiff.process.test_data.for_yaml_diff(filename)
+    assert current_data_aka_left == intended_data_aka_right

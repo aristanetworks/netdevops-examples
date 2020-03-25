@@ -45,3 +45,8 @@ def test_can_assert_true():
 def test_if_topology_is_correct(filename='topology.yml'):
     current_data_aka_left, intended_data_aka_right = netdiff.process.test_data.for_yaml_diff(filename)
     assert current_data_aka_left == intended_data_aka_right
+
+@test("Verify if topology is correct, without servers")  # based on 'lldp neighbors'
+def test_if_topology_is_correct_without_servers(filename='topology_no_server.yml'):
+    current_data_aka_left, intended_data_aka_right = netdiff.process.test_data.for_yaml_diff(filename)
+    assert current_data_aka_left == intended_data_aka_right

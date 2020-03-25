@@ -30,7 +30,7 @@ echo "-------- 1. Building Intended Data -----------------"
 echo
 echo "1.1 Building intended topology."
 python3 ${AVD_PYMOD}/intended/topology.py -src=${TOPOLOGY_DOCUMENT} -dst=${INTENDED_DATA_DIR}/topology.yml -sfm csv -dfm yaml --case from_csv_doc
-
+python3 ${AVD_PYMOD}/intended/topology.py -src=${TOPOLOGY_DOCUMENT} -dst=${INTENDED_DATA_DIR}/topology_no_server.yml -sfm csv -dfm yaml --case from_csv_doc_without_servers
 
 ######### BUILD CURRENT NETWORK STATE DATA ############
 # build current topology data
@@ -38,6 +38,8 @@ echo "-------- 2. Building Current Data -----------------"
 echo
 echo "2.1 Building current topology."
 python3 ${AVD_PYMOD}/current/topology.py -src=${DUT_STATE_YAML} -dst=${CURRENT_DATA_DIR}/topology.yml --src_format yaml --dst_format yaml --case from_dut
+python3 ${AVD_PYMOD}/current/topology.py -src=${DUT_STATE_YAML} -dst=${CURRENT_DATA_DIR}/topology_no_server.yml --src_format yaml --dst_format yaml --case from_dut_no_localhost
+
 
 ######### RUN TESTS ############
 echo "-------- 3. Run Tests -----------------"
