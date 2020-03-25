@@ -65,3 +65,8 @@ def test_cpu_utilization(filename='cpu_and_more.yml'):
 def test_port_channel_status(filename='port_status.yml'):
     current_data_aka_left, intended_data_aka_right = netdiff.process.test_data.for_yaml_diff(filename)
     assert current_data_aka_left == intended_data_aka_right
+
+@test("MLAG status check")
+def test_mlag_status(filename='mlag.yml'):
+    current_data_aka_left, intended_data_aka_right = netdiff.process.test_data.for_yaml_diff(filename)
+    assert current_data_aka_left == intended_data_aka_right

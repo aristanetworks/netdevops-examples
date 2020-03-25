@@ -1,0 +1,54 @@
+DC1-BL1A:
+  configSanity: consistent
+  detail:
+    mlagPorts:
+      Inactive: 0
+    negStatus: connected
+    peerLinkStatus: up
+    portsErrdisabled: false
+    state: active
+DC1-BL1B:
+  configSanity: consistent
+  detail:
+    mlagPorts:
+      Inactive: 0
+    negStatus: connected
+    peerLinkStatus: up
+    portsErrdisabled: false
+    state: active
+DC1-LEAF2A:
+  configSanity: consistent
+  detail:
+    mlagPorts:
+      Inactive: 2
+    negStatus: connected
+    peerLinkStatus: up
+    portsErrdisabled: false
+    state: active
+DC1-LEAF2B:
+  configSanity: consistent
+  detail:
+    mlagPorts:
+      Inactive: 2
+    negStatus: connected
+    peerLinkStatus: up
+    portsErrdisabled: false
+    state: active
+DC1-SVC3A:
+  configSanity: consistent
+  detail:
+    mlagPorts:
+      Inactive: 2
+    negStatus: connected
+    peerLinkStatus: up
+    portsErrdisabled: false
+    state: active
+DC1-SVC3B:
+  configSanity: consistent
+  detail:
+    mlagPorts:
+      Inactive: 2
+    negStatus: connected
+    peerLinkStatus: up
+    portsErrdisabled: false
+    state: active

@@ -35,6 +35,8 @@ python3 ${AVD_PYMOD}/intended/topology.py -src=${TOPOLOGY_DOCUMENT} -dst=${INTEN
 python3 ${AVD_PYMOD}/intended/bgp.py -src=${STRUCTURED_CONFIGS_DIR} -dst=${INTENDED_DATA_DIR}/bgp_peering.yml -sfm string -dfm yaml --case from_struct_config
 python3 ${AVD_PYMOD}/intended/environment.py -src=${TOPOLOGY_DOCUMENT} -dst=${INTENDED_DATA_DIR}/cpu_and_more.yml -sfm csv -dfm yaml --case cpu_from_csv_inventory
 python3 ${AVD_PYMOD}/intended/port_status.py -src=${STRUCTURED_CONFIGS_DIR} -dst=${INTENDED_DATA_DIR}/port_status.yml -sfm string -dfm yaml --case port_channel_from_struct_cfg
+python3 ${AVD_PYMOD}/intended/mlag.py -src=${STRUCTURED_CONFIGS_DIR} -dst=${INTENDED_DATA_DIR}/mlag.yml -sfm string -dfm yaml --case from_struct_config
+
 
 ######### BUILD CURRENT NETWORK STATE DATA ############
 # build current topology data
@@ -46,6 +48,8 @@ python3 ${AVD_PYMOD}/current/topology.py -src=${DUT_STATE_JSON} -dst=${CURRENT_D
 python3 ${AVD_PYMOD}/current/bgp.py -src=${DUT_STATE_JSON} -dst=${CURRENT_DATA_DIR}/bgp_peering.yml --src_format json --dst_format yaml --case from_dut
 python3 ${AVD_PYMOD}/current/environment.py -src=${DUT_STATE_JSON} -dst=${CURRENT_DATA_DIR}/cpu_and_more.yml --src_format json --dst_format yaml --case from_dut
 python3 ${AVD_PYMOD}/current/port_status.py -src=${DUT_STATE_JSON} -dst=${CURRENT_DATA_DIR}/port_status.yml --src_format json --dst_format yaml --case port_channel_status_from_dut
+python3 ${AVD_PYMOD}/current/mlag.py -src=${DUT_STATE_JSON} -dst=${CURRENT_DATA_DIR}/mlag.yml --src_format json --dst_format yaml --case mlag_status_from_dut
+
 
 ######### RUN TESTS ############
 echo "-------- 3. Run Tests -----------------"
