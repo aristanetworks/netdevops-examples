@@ -33,7 +33,7 @@
 
 __author__ = 'Petr Ankudinov'
 
-from ward import test
+from ward import test, xfail
 import netdiff
 
 @test("Verify if Ward is working and can assert True")
@@ -56,6 +56,7 @@ def test_if_bgp_peering_is_correct(filename='bgp_peering.yml'):
     current_data_aka_left, intended_data_aka_right = netdiff.process.test_data.for_yaml_diff(filename)
     assert current_data_aka_left == intended_data_aka_right
 
+# @xfail("This is expected to fail as threshold is too high.")  # <<<---<<< can be enabled during the demo
 @test("Verify CPU Utilization")
 def test_cpu_utilization(filename='cpu_and_more.yml'):
     current_data_aka_left, intended_data_aka_right = netdiff.process.test_data.for_yaml_diff(filename)
