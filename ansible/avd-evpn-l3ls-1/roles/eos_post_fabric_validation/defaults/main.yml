@@ -8,12 +8,12 @@ fabric_validation_commands:
   #   output: json
   - command: "show version"
     output: json
-  # - command: "show processes top once"
-  #   output: json
+  - command: "show processes top once"
+    output: json
   # - command: "show processes top memory once"
   #   output: json
-  # - command: "show port-channel summary"
-  #   output: json
+  - command: "show port-channel summary"
+    output: json
   # - command: "show ip bgp"
   #   output: json
   - command: "show ip bgp summary"
@@ -22,8 +22,8 @@ fabric_validation_commands:
   #   output: json
   - command: "show bgp evpn summary"
     output: json
-  # - command: "show mlag detail"
-  #   output: json
+  - command: "show mlag detail"
+    output: json
   - command: "show lldp neighbors"
     output: json
 
