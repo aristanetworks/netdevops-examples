@@ -50,3 +50,13 @@ def test_if_topology_is_correct(filename='topology.yml'):
 def test_if_topology_is_correct_without_servers(filename='topology_no_server.yml'):
     current_data_aka_left, intended_data_aka_right = netdiff.process.test_data.for_yaml_diff(filename)
     assert current_data_aka_left == intended_data_aka_right
+
+@test("Verify if BGP peering is correct")
+def test_if_bgp_peering_is_correct(filename='bgp_peering.yml'):
+    current_data_aka_left, intended_data_aka_right = netdiff.process.test_data.for_yaml_diff(filename)
+    assert current_data_aka_left == intended_data_aka_right
+
+@test("Verify CPU Utilization")
+def test_cpu_utilization(filename='cpu_and_more.yml'):
+    current_data_aka_left, intended_data_aka_right = netdiff.process.test_data.for_yaml_diff(filename)
+    assert current_data_aka_left == intended_data_aka_right

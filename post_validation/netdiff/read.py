@@ -2,6 +2,7 @@ import csv
 import yaml
 import json
 import sys
+import os
 
 def csv_file(csv_filename):
     # this file reads CSV and returns list of dictionaries
@@ -30,6 +31,20 @@ def yaml_file(filename):
         return yaml_data
 
 
+def yamls_from_dir(src_dir):
+    # load data from every YAML file in a directory into a dictionary
+
+    all_data_from_dir = dict()
+    for filename in os.listdir(src_dir):
+        if ('.yml' in filename) or ('.yaml' in filename):
+            full_path = os.path.join(src_dir, filename)
+            d = yaml_file(full_path)
+            filename_without_extension = '.'.join(filename.split('.')[:-1])
+            all_data_from_dir.update({filename_without_extension: d})
+
+    return all_data_from_dir
+            
+
 def json_file(filename):
     with open(filename, mode='r') as f:
         json_data = json.load(f)
@@ -44,6 +59,8 @@ def _from(in_format_name, in_filename):
         in_data = yaml_file(in_filename)
     elif in_format_name == 'csv':
         in_data = csv_file(in_filename)
+    elif in_format_name == 'string':
+        in_data = str(in_filename)  # in this case it's not a filename, but data
     else:
         sys.exit(f'ERROR: {in_format_name} not yet supported')
 

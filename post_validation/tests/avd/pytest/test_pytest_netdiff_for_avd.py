@@ -45,13 +45,18 @@ def test_can_assert_true():
 def test_if_topology_is_correct(filename):
     current_data_aka_left, intended_data_aka_right = netdiff.process.test_data.for_yaml_diff(filename)
     assert current_data_aka_left == intended_data_aka_right
-    
+
+@pytest.mark.parametrize("filename", ['topology_no_server.yml'])
+def test_if_topology_is_correct_without_servers(filename):
+    current_data_aka_left, intended_data_aka_right = netdiff.process.test_data.for_yaml_diff(filename)
+    assert current_data_aka_left == intended_data_aka_right
+
 @pytest.mark.parametrize("filename", ['bgp_peering.yml'])
 def test_if_bgp_peering_is_correct(filename):
     current_data_aka_left, intended_data_aka_right = netdiff.process.test_data.for_yaml_diff(filename)
     assert current_data_aka_left == intended_data_aka_right
 
-@pytest.mark.parametrize("filename", ['topology_no_server.yml'])
-def test_if_topology_is_correct_without_servers(filename_prefix):
+@pytest.mark.parametrize("filename", ['cpu_and_more.yml'])
+def test_cpu_utilization(filename):
     current_data_aka_left, intended_data_aka_right = netdiff.process.test_data.for_yaml_diff(filename)
     assert current_data_aka_left == intended_data_aka_right

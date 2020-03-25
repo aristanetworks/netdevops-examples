@@ -19,6 +19,7 @@ PATH_TO_AVD=${NETDEVOPS_EXAMPLES_REPOSITORY_DIRECTORY}/ansible/avd-evpn-l3ls-1  
 DUT_STATE_YAML=${PATH_TO_AVD}/post_validation/state_outputs/duts_state.yaml
 DUT_STATE_JSON=${PATH_TO_AVD}/post_validation/state_outputs/duts_state.json
 TOPOLOGY_DOCUMENT=${PATH_TO_AVD}/documentation/DC1_FABRIC/DC1_FABRIC-topology.csv
+STRUCTURED_CONFIGS_DIR=${PATH_TO_AVD}/intended/structured_configs
 
 export PYTHONPATH=${POST_VALIDATION_REPOSITORY_DIRECTORY}  # for Python to find modules
 export INTENDED_DATA_DIR  # used by some python modules
@@ -31,6 +32,7 @@ echo
 echo "1.1 Building intended topology."
 python3 ${AVD_PYMOD}/intended/topology.py -src=${TOPOLOGY_DOCUMENT} -dst=${INTENDED_DATA_DIR}/topology.yml -sfm csv -dfm yaml --case from_csv_doc
 python3 ${AVD_PYMOD}/intended/topology.py -src=${TOPOLOGY_DOCUMENT} -dst=${INTENDED_DATA_DIR}/topology_no_server.yml -sfm csv -dfm yaml --case from_csv_doc_without_servers
+python3 ${AVD_PYMOD}/intended/bgp.py -src=${STRUCTURED_CONFIGS_DIR} -dst=${INTENDED_DATA_DIR}/bgp_peering.yml -sfm string -dfm yaml --case from_struct_config
 
 ######### BUILD CURRENT NETWORK STATE DATA ############
 # build current topology data
@@ -39,7 +41,7 @@ echo
 echo "2.1 Building current topology."
 python3 ${AVD_PYMOD}/current/topology.py -src=${DUT_STATE_YAML} -dst=${CURRENT_DATA_DIR}/topology.yml --src_format yaml --dst_format yaml --case from_dut
 python3 ${AVD_PYMOD}/current/topology.py -src=${DUT_STATE_YAML} -dst=${CURRENT_DATA_DIR}/topology_no_server.yml --src_format yaml --dst_format yaml --case from_dut_no_localhost
-
+python3 ${AVD_PYMOD}/current/bgp.py -src=${DUT_STATE_YAML} -dst=${CURRENT_DATA_DIR}/bgp_peering.yml --src_format yaml --dst_format yaml --case from_dut
 
 ######### RUN TESTS ############
 echo "-------- 3. Run Tests -----------------"
