@@ -1,0 +1,22 @@
+---
+- name: Build Switch configuration
+  hosts: cv_server
+  connection: local
+  gather_facts: false
+  collections:
+    - arista.cvp
+  tasks:
+    - name: 'collecting facts from CVP {{inventory_hostname}}.'
+      arista.cvp.cv_facts:
+      register: CVP_FACTS
+
+    - name: 'create configlets on CVP {{inventory_hostname}}.'
+      arista.cvp.cv_configlet:
+        cvp_facts: "{{CVP_FACTS.ansible_facts}}"
+        configlets: "{{cvp_raw_configlets}}"
+        configlet_filter: ["{{ configlets_cvp_raw_prefix }}"]
+      register: CONFIGLET_UPDATE
+
+    - name: 'display diff information sent by {{inventory_hostname}}'
+      debug:
+        msg: '{{CONFIGLET_UPDATE}}'
