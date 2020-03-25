@@ -60,3 +60,8 @@ def test_if_bgp_peering_is_correct(filename='bgp_peering.yml'):
 def test_cpu_utilization(filename='cpu_and_more.yml'):
     current_data_aka_left, intended_data_aka_right = netdiff.process.test_data.for_yaml_diff(filename)
     assert current_data_aka_left == intended_data_aka_right
+
+@test("Port-channel status check")
+def test_port_channel_status(filename='port_status.yml'):
+    current_data_aka_left, intended_data_aka_right = netdiff.process.test_data.for_yaml_diff(filename)
+    assert current_data_aka_left == intended_data_aka_right

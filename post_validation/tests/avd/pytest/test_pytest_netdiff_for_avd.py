@@ -60,3 +60,8 @@ def test_if_bgp_peering_is_correct(filename):
 def test_cpu_utilization(filename):
     current_data_aka_left, intended_data_aka_right = netdiff.process.test_data.for_yaml_diff(filename)
     assert current_data_aka_left == intended_data_aka_right
+
+@pytest.mark.parametrize("filename", ['port_status.yml'])
+def test_port_channel_status(filename):
+    current_data_aka_left, intended_data_aka_right = netdiff.process.test_data.for_yaml_diff(filename)
+    assert current_data_aka_left == intended_data_aka_right
