@@ -11,7 +11,7 @@ def cpu_from_csv_inventory(in_data):
                 row['Node']: {
                     'cpuInfo': {
                         'idle': {
-                            '__comparison_mode': 'le',  # less or equal
+                            '__comparison_mode': 'ge',  # less or equal
                             '__ref_value': 90  # for demo only, normally should be significantly lower
                         }
                     }

@@ -59,7 +59,7 @@ def run_comparison(test_json, expected_json):
             for key in val_key_list:
                 ref_value = ref_value[key]
                 dut_value = dut_value[key]
-            if comparison_mode == 'le':
+            if comparison_mode == 'ge':
                 if dut_value > ref_value['__ref_value']:  # exclude all elements not matching condition
                     exp = expected_json
                     tst = test_json
@@ -72,7 +72,7 @@ def run_comparison(test_json, expected_json):
                     exp = expected_json
                     for k in parent_obj_key_list[:-1]:
                         exp = exp[k]
-                    exp[parent_obj_key_list[-1]] = 'expected value <= {}'.format(ref_value['__ref_value'])
+                    exp[parent_obj_key_list[-1]] = 'expected value >= {}'.format(ref_value['__ref_value'])
 
     return test_json, expected_json
 
