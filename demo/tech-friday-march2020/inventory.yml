@@ -1,0 +1,7 @@
+all:
+  children:
+    AVD_LAB:
+      children:
+        CVP:
+          hosts:
+            AVD-CVP-1:

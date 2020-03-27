@@ -1,0 +1,11 @@
+---
+  # INPUTS for demo with hard way
+  configlets_cvp_raw_prefix: 'CVP_RAW_DEMO'
+  cvp_raw_configlets:
+    CVP_RAW_DEMO_ADMIN_USERS: "{{lookup('file', 'configlets/ADMIN_USERS.conf')}}"
+    CVP_RAW_DEMO_ALIASES: "{{lookup('file', 'configlets/ALIASES.conf')}}"
+
+  # INPUTS for demo with AVD builtin role
+  configlets_prefix_var: "CV_DEMO"
+  configlet_dir_var: "configlets/"
+  configlet_file_extension: 'conf'
