@@ -173,3 +173,8 @@ bfd_multihop:
   interval: 1200
   min_rx: 1200
   multiplier: 3
+
+cv_configlets:
+  containers:
+    DC1_FABRIC:
+      - DC1-CUSTOM_ALIASES
