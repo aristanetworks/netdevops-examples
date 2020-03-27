@@ -6,10 +6,10 @@ help: # Display help message (*: main entry points / []: part of an entry point)
 # Configlet Management
 ################################################################################
 
-.PHONY: configlet-upload-raw
+.PHONY: avd-configlet-upload
 avd-configlet-upload: ## Upload configlets using AVD role approach
 	ansible-playbook dc-configlet-avd-uploader.yml
 
-.PHONY: configlet-upload-avd
+.PHONY: raw-configlet-upload
 raw-configlet-upload: ## Upload configlets using manual approach
 	ansible-playbook dc-configlet-raw-upload.yml

@@ -1,6 +1,6 @@
 ---
 - name: Build Switch configuration
-  hosts: cv_server
+  hosts: AVD-CVP-1
   connection: local
   gather_facts: false
   collections:
