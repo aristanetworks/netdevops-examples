@@ -87,8 +87,6 @@ CVP_DEVICES:
 CVP_CONTAINERS:
   DC1_FABRIC:
     parent_container: Tenant
-    configlets:
-      - DC1-CUSTOM_ALIASES
   DC1_L2LEAFS:
     parent_container: DC1_FABRIC
   DC1_L2LEAF1:

@@ -143,6 +143,8 @@ username cvpadmin privilege 15 role network-admin secret sha512 $6$rZKcbIZ7iWGAW
 | 121 | Tenant_A_WEBZone_2 | none  |
 | 130 | Tenant_A_APP_Zone_1 | none  |
 | 131 | Tenant_A_APP_Zone_2 | none  |
+| 410 | tf_demo_app_1 | none  |
+| 411 | tf_demo_app_2 | none  |
 
 ### VLANs Device Configuration
 
@@ -159,6 +161,12 @@ vlan 130
 vlan 131
    name Tenant_A_APP_Zone_2
 !
+vlan 410
+   name tf_demo_app_1
+!
+vlan 411
+   name tf_demo_app_2
+!
 ```
 
 ## VRF Instances
@@ -170,6 +178,7 @@ vlan 131
 | MGMT |  disabled |
 | Tenant_A_APP_Zone |  enabled |
 | Tenant_A_WEB_Zone |  enabled |
+| tf_web_zone |  enabled |
 
 ### VRF Instances Device Configuration
 
@@ -179,6 +188,8 @@ vrf instance MGMT
 vrf instance Tenant_A_APP_Zone
 !
 vrf instance Tenant_A_WEB_Zone
+!
+vrf instance tf_web_zone
 !
 ```
 
@@ -307,6 +318,8 @@ interface Loopback1
 | Vlan121 | Tenant_A_WEBZone_2 | Tenant_A_WEB_Zone | - | 10.1.21.1/24 | - |
 | Vlan130 | Tenant_A_APP_Zone_1 | Tenant_A_APP_Zone | - | 10.1.30.1/24 | - |
 | Vlan131 | Tenant_A_APP_Zone_2 | Tenant_A_APP_Zone | - | 10.1.31.1/24 | - |
+| Vlan410 | tf_demo_app_1 | tf_web_zone | - | 10.4.10.1/24 | - |
+| Vlan411 | tf_demo_app_2 | tf_web_zone | - | 10.4.11.1/24 | - |
 
 ### VLAN Interfaces Device Configuration
 
@@ -331,6 +344,16 @@ interface Vlan131
    vrf Tenant_A_APP_Zone
    ip address virtual 10.1.31.1/24
 !
+interface Vlan410
+   description tf_demo_app_1
+   vrf tf_web_zone
+   ip address virtual 10.4.10.1/24
+!
+interface Vlan411
+   description tf_demo_app_2
+   vrf tf_web_zone
+   ip address virtual 10.4.11.1/24
+!
 ```
 
 ## VXLAN Interface
@@ -348,6 +371,8 @@ interface Vlan131
 | 121 | 10121 |
 | 130 | 10130 |
 | 131 | 10131 |
+| 410 | 40410 |
+| 411 | 40411 |
 
 **VRF to VNI Mappings:**
 
@@ -355,6 +380,7 @@ interface Vlan131
 | ---- | --- |
 | Tenant_A_APP_Zone | 12 |
 | Tenant_A_WEB_Zone | 11 |
+| tf_web_zone | 40 |
 
 ### VXLAN Interface Device Configuration
 
@@ -366,8 +392,11 @@ interface Vxlan1
    vxlan vlan 121 vni 10121
    vxlan vlan 130 vni 10130
    vxlan vlan 131 vni 10131
+   vxlan vlan 410 vni 40410
+   vxlan vlan 411 vni 40411
    vxlan vrf Tenant_A_APP_Zone vni 12
    vxlan vrf Tenant_A_WEB_Zone vni 11
+   vxlan vrf tf_web_zone vni 40
 !
 ```
 
@@ -408,6 +437,7 @@ ip route vrf MGMT 0.0.0.0/0 192.168.200.1
 | MGMT | False |
 | Tenant_A_APP_Zone | True |
 | Tenant_A_WEB_Zone | True |
+| tf_web_zone | True |
 
 ### IP Routing Device Configuration
 
@@ -416,6 +446,7 @@ ip routing
 no ip routing vrf MGMT
 ip routing vrf Tenant_A_APP_Zone
 ip routing vrf Tenant_A_WEB_Zone
+ip routing vrf tf_web_zone
 !
 ```
 
@@ -545,6 +576,7 @@ No Peer Filters defined
 | ----------------- | ------------------- | ------------ | ------------ | ----- |
 | Tenant_A_APP_Zone | 192.168.255.5:12 | both 12:12 | learned | 130-131 |
 | Tenant_A_WEB_Zone | 192.168.255.5:11 | both 11:11 | learned | 120-121 |
+| tf_web_zone | 192.168.255.5:40 | both 40:40 | learned | 410-411 |
 
 #### Router BGP EVPN VRFs
 
@@ -552,6 +584,7 @@ No Peer Filters defined
 | --- | ------------------- | ------------ | ------------ |
 | Tenant_A_APP_Zone | 192.168.255.5:12 | import 12:12<br> export 12:12 | connected |
 | Tenant_A_WEB_Zone | 192.168.255.5:11 | import 11:11<br> export 11:11 | connected |
+| tf_web_zone | 192.168.255.5:40 | import 40:40<br> export 40:40 | connected |
 
 ### Router BGP Device Configuration
 
@@ -596,6 +629,12 @@ router bgp 65101
       redistribute learned
       vlan 120-121
    !
+   vlan-aware-bundle tf_web_zone
+      rd 192.168.255.5:40
+      route-target both 40:40
+      redistribute learned
+      vlan 410-411
+   !
    address-family evpn
       neighbor EVPN-OVERLAY-PEERS activate
       no neighbor IPv4-UNDERLAY-PEERS activate
@@ -614,6 +653,12 @@ router bgp 65101
       rd 192.168.255.5:11
       route-target import evpn 11:11
       route-target export evpn 11:11
+      redistribute connected
+   !
+   vrf tf_web_zone
+      rd 192.168.255.5:40
+      route-target import evpn 40:40
+      route-target export evpn 40:40
       redistribute connected
 !
 ```

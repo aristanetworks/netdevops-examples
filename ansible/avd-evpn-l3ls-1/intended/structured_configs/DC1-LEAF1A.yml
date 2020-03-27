@@ -11,9 +11,9 @@ leaf_id: 1
 switch_mgmt_ip: 192.168.200.105/24
 leaf_filter_tenants: ['all']
 leaf_filter_tags: ['web', 'app']
-leaf_allowed_vrfs: ['Tenant_A_APP_Zone', 'Tenant_A_WEB_Zone']
-leaf_allowed_svis: [130, 131, 120, 121]
-leaf_allowed_vlans: [130, 131, 120, 121]
+leaf_allowed_vrfs: ['tf_web_zone', 'Tenant_A_APP_Zone', 'Tenant_A_WEB_Zone']
+leaf_allowed_svis: [410, 411, 130, 131, 120, 121]
+leaf_allowed_vlans: [410, 411, 130, 131, 120, 121]
 leaf_mlag: False
 
 ### Hardware Counters
@@ -94,6 +94,13 @@ clock:
 ### VLANs ###
 vlans:
 
+## tech_friday_demo ##
+  410:
+    tenant: tech_friday_demo
+    name: tf_demo_app_1
+  411:
+    tenant: tech_friday_demo
+    name: tf_demo_app_2
 ## Tenant_A ##
   130:
     tenant: Tenant_A
@@ -114,6 +121,10 @@ vlans:
 vrfs:
   MGMT:
     ip_routing: False
+## tech_friday_demo ##
+  tf_web_zone:
+    tenant: tech_friday_demo
+    ip_routing: true
 ## Tenant_A ##
   Tenant_A_APP_Zone:
     tenant: Tenant_A
@@ -229,6 +240,19 @@ management_interfaces:
 
 ### VLAN Interfaces ###
 vlan_interfaces:
+## tech_friday_demo ##
+  Vlan410:
+    tenant: tech_friday_demo
+    tags: ['app']
+    description: tf_demo_app_1
+    vrf: tf_web_zone
+    ip_address_virtual: 10.4.10.1/24
+  Vlan411:
+    tenant: tech_friday_demo
+    tags: ['app']
+    description: tf_demo_app_2
+    vrf: tf_web_zone
+    ip_address_virtual: 10.4.11.1/24
 ## Tenant_A ##
   Vlan130:
     tenant: Tenant_A
@@ -265,6 +289,11 @@ vxlan_tunnel_interface:
     vxlan_udp_port: 4789
     vxlan_vni_mappings:
       vlans:
+## tech_friday_demo ##
+        410:
+          vni: 40410
+        411:
+          vni: 40411
 ## Tenant_A ##
         130:
           vni: 10130
@@ -277,6 +306,9 @@ vxlan_tunnel_interface:
 ## Tenant_B ##
 ## Tenant_C ##
       vrfs:
+## tech_friday_demo ##
+        tf_web_zone:
+          vni: 40
 ## Tenant_A ##
         Tenant_A_APP_Zone:
           vni: 12
@@ -370,6 +402,15 @@ router_bgp:
     connected:
       route_map: RM-CONN-2-BGP
   vlan_aware_bundles:
+## tech_friday_demo ##
+    tf_web_zone:
+      rd: "192.168.255.5:40"
+      route_targets:
+        both:
+          asn: "40:40"
+      redistribute_routes:
+        - learned
+      vlan: 410-411
 ## Tenant_A ##
     Tenant_A_APP_Zone:
       rd: "192.168.255.5:12"
@@ -391,6 +432,18 @@ router_bgp:
 ## Tenant_C ##
   vlans:
   vrfs:
+## tech_friday_demo ##
+    tf_web_zone:
+      rd: "192.168.255.5:40"
+      route_targets:
+        import:
+          address_family: evpn
+          asn: "40:40"
+        export:
+          address_family: evpn
+          asn: "40:40"
+      redistribute_routes:
+        - connected
 ## Tenant_A ##
     Tenant_A_APP_Zone:
       rd: "192.168.255.5:12"

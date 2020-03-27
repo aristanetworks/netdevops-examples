@@ -106,6 +106,7 @@ vlans:
     trunk_groups:
       - MLAG
 
+## tech_friday_demo ##
 ## Tenant_A ##
   130:
     tenant: Tenant_A

@@ -112,6 +112,7 @@ vlans:
     trunk_groups:
       - MLAG
 
+## tech_friday_demo ##
 ## Tenant_A ##
   113:
     tenant: Tenant_A
@@ -271,6 +272,7 @@ vlan_interfaces:
     ip_address: 10.255.252.11/31
     no_autostate: true
     mtu: 1500
+## tech_friday_demo ##
 ## Tenant_A ##
   Vlan113:
     tenant: Tenant_A
@@ -333,6 +335,7 @@ vxlan_tunnel_interface:
     vxlan_udp_port: 4789
     vxlan_vni_mappings:
       vlans:
+## tech_friday_demo ##
 ## Tenant_A ##
         113:
           vni: 10113
@@ -345,6 +348,7 @@ vxlan_tunnel_interface:
         350:
           vni: 30350
       vrfs:
+## tech_friday_demo ##
 ## Tenant_A ##
         Tenant_A_OP_Zone:
           vni: 10
@@ -468,6 +472,7 @@ router_bgp:
     connected:
       route_map: RM-CONN-2-BGP
   vlan_aware_bundles:
+## tech_friday_demo ##
 ## Tenant_A ##
     Tenant_A_OP_Zone:
       rd: "192.168.255.11:10"
@@ -505,6 +510,7 @@ router_bgp:
       vlan: 350
   vlans:
   vrfs:
+## tech_friday_demo ##
 ## Tenant_A ##
     Tenant_A_OP_Zone:
       rd: "192.168.255.11:10"
