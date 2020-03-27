@@ -155,32 +155,32 @@ tenants:
             tags: [ wan ]
             enabled: true
             ip_address_virtual: 10.3.50.1/24
-  # ansible_demo:
+  # tech_friday_demo:
   #   mac_vrf_vni_base: 40000
   #   vrfs:
-  #     ansible_web_zone:
-  #       vrf_vni: 30
+  #     tf_web_zone:
+  #       vrf_vni: 40
   #       svis:
   #         410:
-  #           name: ansible_demo_app_1
+  #           name: tf_demo_app_1
   #           tags: [ app ]
   #           enabled: true
   #           ip_address_virtual: 10.4.10.1/24
   #         411:
-  #           name: ansible_demo_app_2
+  #           name: tf_demo_app_2
   #           tags: [ app ]
   #           enabled: true
   #           ip_address_virtual: 10.4.11.1/24
-  #     ansible_db_zone:
-  #       vrf_vni: 31
+  #     tf_db_zone:
+  #       vrf_vni: 41
   #       svis:
   #         420:
-  #           name: ansible_demo_db_1
+  #           name: tf_demo_db_1
   #           tags: [ db ]
   #           enabled: true
   #           ip_address_virtual: 10.4.20.1/24
   #         421:
-  #           name: ansible_demo_db_2
+  #           name: tf_demo_db_2
   #           tags: [ db ]
   #           enabled: true
   #           ip_address_virtual: 10.4.21.1/24
