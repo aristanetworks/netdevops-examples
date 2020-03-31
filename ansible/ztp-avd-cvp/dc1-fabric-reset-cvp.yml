@@ -9,7 +9,7 @@
   tasks:
     - name: run CVP provisioning
       import_role:
-        name: eos_config_deploy_cvp
+        name: arista.avd.eos_config_deploy_cvp
       vars:
         container_root: 'DC1_FABRIC'
         configlets_prefix: 'DC1-AVD'
