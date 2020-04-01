@@ -23,7 +23,7 @@ cvp_ingestauth_key: ''
 # cvp_ingestauth_key: telarista
 
 # OOB Management network default gateway.
-mgmt_gateway: 10.255.0.1
+mgmt_gateway: 10.255.0.3
 
 # dns servers.
 name_servers:

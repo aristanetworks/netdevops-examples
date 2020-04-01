@@ -49,20 +49,20 @@
 
 | P2P Summary | Available Addresses | Assigned addresses | Assigned Address % |
 | ----------- | ------------------- | ------------------ | ------------------ |
-| 172.31.255.0/24 | 256 | 16 | 6.25 % |
+| 172.31.254.0/24 | 256 | 16 | 6.25 % |
 
 ### Point-To-Point Links Node Allocation
 
 | Leaf Node | Leaf Interface | Leaf IP Address | Spine Node | Spine Interface | Spine IP Address |
 | --------- | -------------- | --------------- | ---------- | --------------- | ---------------- |
-| DC1-LEAF1A | Ethernet1 | 172.31.255.1/31 | DC1-SPINE1 | Ethernet1 | 172.31.255.0/31 |
-| DC1-LEAF1A | Ethernet2 | 172.31.255.3/31 | DC1-SPINE2 | Ethernet1 | 172.31.255.2/31 |
-| DC1-LEAF1B | Ethernet1 | 172.31.255.5/31 | DC1-SPINE1 | Ethernet2 | 172.31.255.4/31 |
-| DC1-LEAF1B | Ethernet2 | 172.31.255.7/31 | DC1-SPINE2 | Ethernet2 | 172.31.255.6/31 |
-| DC1-LEAF2A | Ethernet1 | 172.31.255.9/31 | DC1-SPINE1 | Ethernet3 | 172.31.255.8/31 |
-| DC1-LEAF2A | Ethernet2 | 172.31.255.11/31 | DC1-SPINE2 | Ethernet3 | 172.31.255.10/31 |
-| DC1-LEAF2B | Ethernet1 | 172.31.255.13/31 | DC1-SPINE1 | Ethernet4 | 172.31.255.12/31 |
-| DC1-LEAF2B | Ethernet2 | 172.31.255.15/31 | DC1-SPINE2 | Ethernet4 | 172.31.255.14/31 |
+| DC1-LEAF1A | Ethernet1 | 172.31.254.1/31 | DC1-SPINE1 | Ethernet1 | 172.31.254.0/31 |
+| DC1-LEAF1A | Ethernet2 | 172.31.254.3/31 | DC1-SPINE2 | Ethernet1 | 172.31.254.2/31 |
+| DC1-LEAF1B | Ethernet1 | 172.31.254.5/31 | DC1-SPINE1 | Ethernet2 | 172.31.254.4/31 |
+| DC1-LEAF1B | Ethernet2 | 172.31.254.7/31 | DC1-SPINE2 | Ethernet2 | 172.31.254.6/31 |
+| DC1-LEAF2A | Ethernet1 | 172.31.254.9/31 | DC1-SPINE1 | Ethernet3 | 172.31.254.8/31 |
+| DC1-LEAF2A | Ethernet2 | 172.31.254.11/31 | DC1-SPINE2 | Ethernet3 | 172.31.254.10/31 |
+| DC1-LEAF2B | Ethernet1 | 172.31.254.13/31 | DC1-SPINE1 | Ethernet4 | 172.31.254.12/31 |
+| DC1-LEAF2B | Ethernet2 | 172.31.254.15/31 | DC1-SPINE2 | Ethernet4 | 172.31.254.14/31 |
 
 ### Overlay Loopback Interfaces (BGP EVPN Peering)
 

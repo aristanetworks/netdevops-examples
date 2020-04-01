@@ -12,7 +12,7 @@ tenants:
           loopback: 100
           loopback_ip_range: 10.255.1.0/24
         svis:
-          110:
+          113:
             name: Tenant_A_OP_Zone_1
             tags: [opzone]
             enabled: true

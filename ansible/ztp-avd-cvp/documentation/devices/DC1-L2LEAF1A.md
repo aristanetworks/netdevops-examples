@@ -6,7 +6,7 @@
 
 | Management Interface | description | VRF | IP Address | Gateway |
 | -------------------- | ----------- | --- | ---------- | ------- |
-| Management1 | oob_management | MGMT | 10.255.0.17/24 | 10.255.0.1 |
+| Management1 | oob_management | MGMT | 10.255.0.17/24 | 10.255.0.3 |
 
 ### Management Interfaces Device Configuration
 
@@ -141,9 +141,9 @@ username cvpadmin privilege 15 role network-admin secret sha512 $6$rZKcbIZ7iWGAW
 
 | VLAN ID | Name | Trunk Groups |
 | ------- | ---- | ------------ |
-| 110 | Tenant_A_OP_Zone_1 | none  |
 | 111 | Tenant_A_OP_Zone_2 | none  |
 | 112 | Tenant_A_OP_Zone_3 | none  |
+| 113 | Tenant_A_OP_Zone_1 | none  |
 | 120 | Tenant_A_WEB_Zone_1 | none  |
 | 121 | Tenant_A_WEBZone_2 | none  |
 | 130 | Tenant_A_APP_Zone_1 | none  |
@@ -152,14 +152,14 @@ username cvpadmin privilege 15 role network-admin secret sha512 $6$rZKcbIZ7iWGAW
 ### VLANs Device Configuration
 
 ```eos
-vlan 110
-   name Tenant_A_OP_Zone_1
-!
 vlan 111
    name Tenant_A_OP_Zone_2
 !
 vlan 112
    name Tenant_A_OP_Zone_3
+!
+vlan 113
+   name Tenant_A_OP_Zone_1
 !
 vlan 120
    name Tenant_A_WEB_Zone_1
@@ -211,14 +211,14 @@ bfd multihop interval 1200 min_rx 1200 multiplier 3
 
 | Interface | Description | MTU | Type | Mode | Allowed VLANs (trunk) | Trunk Group | MLAG ID | VRF | IP Address |
 | --------- | ----------- | --- | ---- | ---- | --------------------- | ----------- | ------- | --- | ---------- |
-| Port-Channel1 | DC1-LEAF1A_Po5 | 1500 | switched | trunk | 110-112,120-121,130-131 | - | 1 | - | - |
+| Port-Channel1 | DC1-LEAF1A_Po5 | 1500 | switched | trunk | 111-113,120-121,130-131 | - | 1 | - | - |
 
 ### Port-Channel Interfaces Device Configuration
 
 ```eos
 interface Port-Channel1
    description DC1-LEAF1A_Po5
-   switchport trunk allowed vlan 110-112,120-121,130-131
+   switchport trunk allowed vlan 111-113,120-121,130-131
    switchport mode trunk
    mlag 1
 !
@@ -230,8 +230,8 @@ interface Port-Channel1
 
 | Interface | Description | MTU | Type | Mode | Allowed VLANs (Trunk) | Trunk Group | VRF | IP Address | Channel-Group ID | Channel-Group Type |
 | --------- | ----------- | --- | ---- | ---- | --------------------- | ----------- | --- | ---------- | ---------------- | ------------------ |
-| Ethernet1 | DC1-LEAF1A_Ethernet5 | *1500 | *switched | *trunk | *110-112,120-121,130-131 | - | - | - | 1 | active |
-| Ethernet2 | DC1-LEAF1B_Ethernet5 | *1500 | *switched | *trunk | *110-112,120-121,130-131 | - | - | - | 1 | active |
+| Ethernet1 | DC1-LEAF1A_Ethernet5 | *1500 | *switched | *trunk | *111-113,120-121,130-131 | - | - | - | 1 | active |
+| Ethernet2 | DC1-LEAF1B_Ethernet5 | *1500 | *switched | *trunk | *111-113,120-121,130-131 | - | - | - | 1 | active |
 | Ethernet5 | server01_Eth0 | 1500 | switched | access | 110 | - | - | - | - | - |
 
 *Inherited from Port-Channel Interface
@@ -274,12 +274,12 @@ No VXLAN interface defined
 
 | VRF | Destination Prefix | Fowarding Address / Interface |
 | --- | ------------------ | ----------------------------- |
-| MGMT | 0.0.0.0/0 | 10.255.0.1 |
+| MGMT | 0.0.0.0/0 | 10.255.0.3 |
 
 ### Static Routes Device Configuration
 
 ```eos
-ip route vrf MGMT 0.0.0.0/0 10.255.0.1
+ip route vrf MGMT 0.0.0.0/0 10.255.0.3
 !
 ```
 

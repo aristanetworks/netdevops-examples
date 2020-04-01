@@ -6,7 +6,7 @@
 
 | Management Interface | description | VRF | IP Address | Gateway |
 | -------------------- | ----------- | --- | ---------- | ------- |
-| Management1 | oob_management | MGMT | 10.255.0.16/24 | 10.255.0.1 |
+| Management1 | oob_management | MGMT | 10.255.0.16/24 | 10.255.0.3 |
 
 ### Management Interfaces Device Configuration
 
@@ -142,9 +142,9 @@ username cvpadmin privilege 15 role network-admin secret sha512 $6$rZKcbIZ7iWGAW
 
 | VLAN ID | Name | Trunk Groups |
 | ------- | ---- | ------------ |
-| 110 | Tenant_A_OP_Zone_1 | none  |
 | 111 | Tenant_A_OP_Zone_2 | none  |
 | 112 | Tenant_A_OP_Zone_3 | none  |
+| 113 | Tenant_A_OP_Zone_1 | none  |
 | 120 | Tenant_A_WEB_Zone_1 | none  |
 | 121 | Tenant_A_WEBZone_2 | none  |
 | 130 | Tenant_A_APP_Zone_1 | none  |
@@ -175,14 +175,14 @@ username cvpadmin privilege 15 role network-admin secret sha512 $6$rZKcbIZ7iWGAW
 ### VLANs Device Configuration
 
 ```eos
-vlan 110
-   name Tenant_A_OP_Zone_1
-!
 vlan 111
    name Tenant_A_OP_Zone_2
 !
 vlan 112
    name Tenant_A_OP_Zone_3
+!
+vlan 113
+   name Tenant_A_OP_Zone_1
 !
 vlan 120
    name Tenant_A_WEB_Zone_1
@@ -339,7 +339,7 @@ bfd multihop interval 1200 min_rx 1200 multiplier 3
 | Interface | Description | MTU | Type | Mode | Allowed VLANs (trunk) | Trunk Group | MLAG ID | VRF | IP Address |
 | --------- | ----------- | --- | ---- | ---- | --------------------- | ----------- | ------- | --- | ---------- |
 | Port-Channel3 | MLAG_PEER_DC1-LEAF2A_Po3 | 1500 | switched | trunk | 2-4094 | LEAF_PEER_L3<br> MLAG | - | - | - |
-| Port-Channel5 | DC1_L2LEAF2_Po1 | 1500 | switched | trunk | 110-112,120-121,130-131 | - | 5 | - | - |
+| Port-Channel5 | DC1_L2LEAF2_Po1 | 1500 | switched | trunk | 111-113,120-121,130-131 | - | 5 | - | - |
 
 ### Port-Channel Interfaces Device Configuration
 
@@ -353,7 +353,7 @@ interface Port-Channel3
 !
 interface Port-Channel5
    description DC1_L2LEAF2_Po1
-   switchport trunk allowed vlan 110-112,120-121,130-131
+   switchport trunk allowed vlan 111-113,120-121,130-131
    switchport mode trunk
    mlag 5
 !
@@ -365,11 +365,11 @@ interface Port-Channel5
 
 | Interface | Description | MTU | Type | Mode | Allowed VLANs (Trunk) | Trunk Group | VRF | IP Address | Channel-Group ID | Channel-Group Type |
 | --------- | ----------- | --- | ---- | ---- | --------------------- | ----------- | --- | ---------- | ---------------- | ------------------ |
-| Ethernet1 | P2P_LINK_TO_DC1-SPINE1_Ethernet4 | 1500 | routed | access | - | - | - | 172.31.255.13/31 | - | - |
-| Ethernet2 | P2P_LINK_TO_DC1-SPINE2_Ethernet4 | 1500 | routed | access | - | - | - | 172.31.255.15/31 | - | - |
+| Ethernet1 | P2P_LINK_TO_DC1-SPINE1_Ethernet4 | 1500 | routed | access | - | - | - | 172.31.254.13/31 | - | - |
+| Ethernet2 | P2P_LINK_TO_DC1-SPINE2_Ethernet4 | 1500 | routed | access | - | - | - | 172.31.254.15/31 | - | - |
 | Ethernet3 | MLAG_PEER_DC1-LEAF2A_Ethernet3 | *1500 | *switched | *trunk | *2-4094 | *LEAF_PEER_L3<br> *MLAG | - | - | 3 | active |
 | Ethernet4 | MLAG_PEER_DC1-LEAF2A_Ethernet4 | *1500 | *switched | *trunk | *2-4094 | *LEAF_PEER_L3<br> *MLAG | - | - | 3 | active |
-| Ethernet5 | DC1-L2LEAF2A_Ethernet2 | *1500 | *switched | *trunk | *110-112,120-121,130-131 | - | - | - | 5 | active |
+| Ethernet5 | DC1-L2LEAF2A_Ethernet2 | *1500 | *switched | *trunk | *111-113,120-121,130-131 | - | - | - | 5 | active |
 
 *Inherited from Port-Channel Interface
 
@@ -379,12 +379,12 @@ interface Port-Channel5
 interface Ethernet1
    description P2P_LINK_TO_DC1-SPINE1_Ethernet4
    no switchport
-   ip address 172.31.255.13/31
+   ip address 172.31.254.13/31
 !
 interface Ethernet2
    description P2P_LINK_TO_DC1-SPINE2_Ethernet4
    no switchport
-   ip address 172.31.255.15/31
+   ip address 172.31.254.15/31
 !
 interface Ethernet3
    description MLAG_PEER_DC1-LEAF2A_Ethernet3
@@ -434,9 +434,9 @@ interface Loopback100
 
 | Interface | Description | VRF | IP Address | Virtual | IP Address Secondary | Virtual |
 | --------- | ----------- | --- | ---------- | ------- | -------------------- | ------- |
-| Vlan110 | Tenant_A_OP_Zone_1 | Tenant_A_OP_Zone  | 10.1.10.1/24 | True | - | - |
 | Vlan111 | Tenant_A_OP_Zone_2 | Tenant_A_OP_Zone  | 10.1.11.1/24 | True | - | - |
 | Vlan112 | Tenant_A_OP_Zone_3 | Tenant_A_OP_Zone  | 10.1.12.1/24 | True | - | - |
+| Vlan113 | Tenant_A_OP_Zone_1 | Tenant_A_OP_Zone  | 10.1.10.1/24 | True | - | - |
 | Vlan120 | Tenant_A_WEB_Zone_1 | Tenant_A_WEB_Zone  | 10.1.20.1/24 | True | - | - |
 | Vlan121 | Tenant_A_WEBZone_2 | Tenant_A_WEB_Zone  | 10.1.21.1/24 | True | - | - |
 | Vlan130 | Tenant_A_APP_Zone_1 | Tenant_A_APP_Zone  | 10.1.30.1/24 | True | - | - |
@@ -465,11 +465,6 @@ interface Loopback100
 ### VLAN Interfaces Device Configuration
 
 ```eos
-interface Vlan110
-   description Tenant_A_OP_Zone_1
-   vrf Tenant_A_OP_Zone
-   ip address virtual 10.1.10.1/24
-!
 interface Vlan111
    description Tenant_A_OP_Zone_2
    vrf Tenant_A_OP_Zone
@@ -479,6 +474,11 @@ interface Vlan112
    description Tenant_A_OP_Zone_3
    vrf Tenant_A_OP_Zone
    ip address virtual 10.1.12.1/24
+!
+interface Vlan113
+   description Tenant_A_OP_Zone_1
+   vrf Tenant_A_OP_Zone
+   ip address virtual 10.1.10.1/24
 !
 interface Vlan120
    description Tenant_A_WEB_Zone_1
@@ -612,9 +612,9 @@ interface Vlan4094
 
 | VLAN | VNI |
 | ---- | --- |
-| 110 | 10110 |
 | 111 | 50111 |
 | 112 | 50112 |
+| 113 | 10113 |
 | 120 | 10120 |
 | 121 | 10121 |
 | 130 | 10130 |
@@ -652,9 +652,9 @@ interface Vxlan1
    vxlan source-interface Loopback1
    vxlan virtual-router encapsulation mac-address mlag-system-id
    vxlan udp-port 4789
-   vxlan vlan 110 vni 10110
    vxlan vlan 111 vni 50111
    vxlan vlan 112 vni 50112
+   vxlan vlan 113 vni 10113
    vxlan vlan 120 vni 10120
    vxlan vlan 121 vni 10121
    vxlan vlan 130 vni 10130
@@ -707,12 +707,12 @@ ip address virtual source-nat vrf Tenant_A_OP_Zone address 10.255.1.6
 
 | VRF | Destination Prefix | Fowarding Address / Interface |
 | --- | ------------------ | ----------------------------- |
-| MGMT | 0.0.0.0/0 | 10.255.0.1 |
+| MGMT | 0.0.0.0/0 | 10.255.0.3 |
 
 ### Static Routes Device Configuration
 
 ```eos
-ip route vrf MGMT 0.0.0.0/0 10.255.0.1
+ip route vrf MGMT 0.0.0.0/0 10.255.0.3
 !
 ```
 
@@ -765,7 +765,7 @@ ip routing vrf Tenant_C_WAN_Zone
 
 | Sequence | Action |
 | -------- | ------ |
-| 10 | permit 172.31.255.0/24 le 31 |
+| 10 | permit 172.31.254.0/24 le 31 |
 | 20 | permit 10.255.251.0/24 le 31 |
 
 ### Prefix Lists Device Configuration
@@ -776,7 +776,7 @@ ip prefix-list PL-LOOPBACKS-EVPN-OVERLAY
    seq 20 permit 192.168.254.0/24 eq 32
 !
 ip prefix-list PL-P2P-UNDERLAY
-   seq 10 permit 172.31.255.0/24 le 31
+   seq 10 permit 172.31.254.0/24 le 31
    seq 20 permit 10.255.251.0/24 le 31
 !
 ```
@@ -880,8 +880,8 @@ No Peer Filters defined
 
 | Neighbor | Remote AS |
 | -------- | ---------
-| 172.31.255.12 | *65001  |
-| 172.31.255.14 | *65001  |
+| 172.31.254.12 | *65001  |
+| 172.31.254.14 | *65001  |
 
 *Inherited from peer group
 
@@ -913,7 +913,7 @@ No Peer Filters defined
 | Tenant_A_APP_Zone | 192.168.255.6:12 | both 12:12 | learned | 130-131 |
 | Tenant_A_DB_Zone | 192.168.255.6:13 | both 13:13 | learned | 140-141 |
 | Tenant_A_NFS | 192.168.255.6:10161 | both 10161:10161 | learned | 161 |
-| Tenant_A_OP_Zone | 192.168.255.6:10 | both 10:10 | learned | 110-112 |
+| Tenant_A_OP_Zone | 192.168.255.6:10 | both 10:10 | learned | 111-113 |
 | Tenant_A_VMOTION | 192.168.255.6:55160 | both 55160:55160 | learned | 160 |
 | Tenant_A_WAN_Zone | 192.168.255.6:14 | both 14:14 | learned | 150 |
 | Tenant_A_WEB_Zone | 192.168.255.6:11 | both 11:11 | learned | 120-121 |
@@ -966,8 +966,8 @@ router bgp 65102
    neighbor MLAG-IPv4-UNDERLAY-PEER send-community
    neighbor MLAG-IPv4-UNDERLAY-PEER maximum-routes 12000
    neighbor 10.255.251.4 peer group MLAG-IPv4-UNDERLAY-PEER
-   neighbor 172.31.255.12 peer group IPv4-UNDERLAY-PEERS
-   neighbor 172.31.255.14 peer group IPv4-UNDERLAY-PEERS
+   neighbor 172.31.254.12 peer group IPv4-UNDERLAY-PEERS
+   neighbor 172.31.254.14 peer group IPv4-UNDERLAY-PEERS
    neighbor 192.168.255.1 peer group EVPN-OVERLAY-PEERS
    neighbor 192.168.255.2 peer group EVPN-OVERLAY-PEERS
    redistribute connected route-map RM-CONN-2-BGP
@@ -994,7 +994,7 @@ router bgp 65102
       rd 192.168.255.6:10
       route-target both 10:10
       redistribute learned
-      vlan 110-112
+      vlan 111-113
    !
    vlan-aware-bundle Tenant_A_VMOTION
       rd 192.168.255.6:55160

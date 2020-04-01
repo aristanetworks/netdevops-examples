@@ -12,8 +12,8 @@ switch_mgmt_ip: 10.255.0.13/24
 leaf_filter_tenants: ['all']
 leaf_filter_tags: ['all']
 leaf_allowed_vrfs: ['Tenant_A_APP_Zone', 'Tenant_A_DB_Zone', 'Tenant_A_OP_Zone', 'Tenant_A_WAN_Zone', 'Tenant_A_WEB_Zone', 'Tenant_B_OP_Zone', 'Tenant_B_WAN_Zone', 'Tenant_C_OP_Zone', 'Tenant_C_WAN_Zone']
-leaf_allowed_svis: [130, 131, 140, 141, 110, 111, 112, 150, 120, 121, 210, 211, 250, 310, 311, 350]
-leaf_allowed_vlans: [130, 131, 140, 141, 110, 111, 112, 150, 120, 121, 160, 161, 210, 211, 250, 310, 311, 350]
+leaf_allowed_svis: [130, 131, 140, 141, 111, 112, 113, 150, 120, 121, 210, 211, 250, 310, 311, 350]
+leaf_allowed_vlans: [130, 131, 140, 141, 111, 112, 113, 150, 120, 121, 160, 161, 210, 211, 250, 310, 311, 350]
 leaf_mlag: True
 leaf_mlag_group: DC1_LEAF1
 leaf_mlag_role: primary
@@ -139,15 +139,15 @@ vlans:
     name: MLAG_iBGP_Tenant_A_DB_Zone
     trunk_groups:
       - LEAF_PEER_L3
-  110:
-    tenant: Tenant_A
-    name: Tenant_A_OP_Zone_1
   111:
     tenant: Tenant_A
     name: Tenant_A_OP_Zone_2
   112:
     tenant: Tenant_A
     name: Tenant_A_OP_Zone_3
+  113:
+    tenant: Tenant_A
+    name: Tenant_A_OP_Zone_1
   3009:
     tenant: Tenant_A
     name: MLAG_iBGP_Tenant_A_OP_Zone
@@ -265,7 +265,7 @@ port_channel_interfaces:
 ## L2 LEAF Uplink DC1_L2LEAF1 ##
   Port-Channel5:
     description: DC1_L2LEAF1_Po1
-    vlans: 110-112,120-121,130-131
+    vlans: 111-113,120-121,130-131
     mode: trunk
     mlag: 5
 ## mlag peer-link ##
@@ -286,7 +286,7 @@ ethernet_interfaces:
     description: P2P_LINK_TO_DC1-SPINE1_Ethernet1
     mtu: 1500
     type: routed
-    ip_address: 172.31.255.1/31
+    ip_address: 172.31.254.1/31
   Ethernet2:
     peer: DC1-SPINE2
     peer_interface: Ethernet1
@@ -294,7 +294,7 @@ ethernet_interfaces:
     description: P2P_LINK_TO_DC1-SPINE2_Ethernet1
     mtu: 1500
     type: routed
-    ip_address: 172.31.255.3/31
+    ip_address: 172.31.254.3/31
 ## mlag interfaces ##
   Ethernet3:
     peer: DC1-LEAF1B
@@ -343,7 +343,7 @@ management_interfaces:
     description: oob_management
     vrf: MGMT
     ip_address: 10.255.0.13/24
-    gateway: 10.255.0.1
+    gateway: 10.255.0.3
 
 ### VLAN Interfaces ###
 vlan_interfaces:
@@ -396,13 +396,6 @@ vlan_interfaces:
     description: "MLAG_PEER_L3_iBGP: vrf Tenant_A_DB_Zone"
     vrf: Tenant_A_DB_Zone
     ip_address: 10.255.251.0/31
-  Vlan110:
-    tenant: Tenant_A
-    tags: ['opzone']
-    description: Tenant_A_OP_Zone_1
-    vrf: Tenant_A_OP_Zone
-    ip_address: 10.1.10.1/24
-    virtual: true
   Vlan111:
     tenant: Tenant_A
     tags: ['opzone']
@@ -416,6 +409,13 @@ vlan_interfaces:
     description: Tenant_A_OP_Zone_3
     vrf: Tenant_A_OP_Zone
     ip_address: 10.1.12.1/24
+    virtual: true
+  Vlan113:
+    tenant: Tenant_A
+    tags: ['opzone']
+    description: Tenant_A_OP_Zone_1
+    vrf: Tenant_A_OP_Zone
+    ip_address: 10.1.10.1/24
     virtual: true
   Vlan3009:
     tenant: Tenant_A
@@ -544,12 +544,12 @@ vxlan_tunnel_interface:
           vni: 10140
         141:
           vni: 10141
-        110:
-          vni: 10110
         111:
           vni: 50111
         112:
           vni: 50112
+        113:
+          vni: 10113
         150:
           vni: 10150
         120:
@@ -613,7 +613,7 @@ virtual_source_nat_vrfs:
 static_routes:
   - vrf: MGMT
     destination_address_prefix: 0.0.0.0/0
-    gateway: 10.255.0.1
+    gateway: 10.255.0.3
 
 ### prefix-lists ###
 prefix_lists:
@@ -626,7 +626,7 @@ prefix_lists:
   PL-P2P-UNDERLAY:
     sequence_numbers:
       10:
-        action: "permit 172.31.255.0/24 le 31"
+        action: "permit 172.31.254.0/24 le 31"
       20:
         action: "permit 10.255.251.0/24 le 31"
 
@@ -687,9 +687,9 @@ router_bgp:
       maximum_routes: 12000
       send_community: true
   neighbors:
-    172.31.255.0:
+    172.31.254.0:
       peer_group: IPv4-UNDERLAY-PEERS
-    172.31.255.2:
+    172.31.254.2:
       peer_group: IPv4-UNDERLAY-PEERS
     192.168.255.1:
       peer_group: EVPN-OVERLAY-PEERS
@@ -725,7 +725,7 @@ router_bgp:
           asn: "10:10"
       redistribute_routes:
         - learned
-      vlan: 110-112
+      vlan: 111-113
     Tenant_A_WAN_Zone:
       rd: "192.168.255.3:14"
       route_targets:
