@@ -7,10 +7,6 @@
     - arista.avd
     - arista.cvp
   tasks:
-    - name: 'reset local folders for output'
-      tags: [build, generate]
-      import_role:
-        name: arista.avd.build_output_folders
     - name: 'create cvp structure config folder: {{documentation_dir_name}}'
       tags: [build, generate]
       file:
@@ -18,6 +14,10 @@
         state: directory
         mode: 0755
       delegate_to: localhost
+    - name: 'reset local folders for output'
+      tags: [build, generate]
+      import_role:
+        name: arista.avd.build_output_folders
     - name: generate intended variables
       tags: [build, generate]
       import_role:

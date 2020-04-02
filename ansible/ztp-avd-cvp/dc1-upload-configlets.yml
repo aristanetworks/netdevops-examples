@@ -6,6 +6,9 @@
   collections:
     - arista.avd
     - arista.cvp
+  vars:
+    configlet_dir_var: 'configlets/'
+    configlets_prefix_var: 'ASE'
   tasks:
     - name: 'upload configlets to cloudvision {{inventory_hostname}}'
       import_role:
@@ -13,4 +16,3 @@
       vars:
         configlet_directory: '{{ configlet_dir_var }}'
         configlets_cvp_prefix: '{{ configlets_prefix_var }}'
-        file_extension: '{{configlet_file_extension}}'
