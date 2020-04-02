@@ -1,0 +1,34 @@
+---
+- name: lab05 - cv_device lab
+  hosts: CloudVision
+  connection: local
+  gather_facts: no
+
+  tasks:
+    # - name: "Gather CVP facts {{inventory_hostname}}"
+    #   arista.cvp.cv_facts:
+    #   register: CVP_FACTS
+
+    # - name: "Configure configlet on {{inventory_hostname}}"
+    #   arista.cvp.cv_configlet:
+    #     cvp_facts: "{{CVP_FACTS.ansible_facts}}"
+    #     configlets: "{{CVP_CONFIGLETS}}"
+    #     configlet_filter: ["TRAINING"]
+    #     state: present
+    #   register: CVP_CONFIGLET_RESULT
+
+    - name: "Gather CVP facts {{inventory_hostname}}"
+      arista.cvp.cv_facts:
+      register: CVP_FACTS
+
+    - name: "Configure devices on {{inventory_hostname}}"
+      arista.cvp.cv_device:
+        devices: "{{CVP_DEVICES}}"
+        cvp_facts: '{{CVP_FACTS.ansible_facts}}'
+        device_filter: ['leaf1']
+        state: present
+      register: CVP_DEVICES_RESULTS
+
+    # - name: 'Display debug'
+    #   debug:
+    #     msg: '{{CVP_DEVICES_RESULTS}}'

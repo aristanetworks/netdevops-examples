@@ -1,0 +1,12 @@
+alias sib show ip bgp
+alias sibs show ip bgp summary 
+alias siib show ip int brief
+alias sir show ip route
+alias senz show interface counter error | nz
+alias snz show interface counter | nz
+alias sps show port-channel summary
+alias spd show port-channel %1 detail all
+alias sqnz show interface counter queue | nz
+alias srnz show interface counter rate | nz
+alias smac show mac address-table dynamic
+alias sarp show ip arp
