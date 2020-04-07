@@ -21,7 +21,7 @@ This repository is a central place where Arista demos and examples around netdev
 ### Webinar & Presentation content
 
 - [__Network Field Days 22__](demo/ansible-batfish-cv-nfd22/): Ansible & Batfish ([NFD22 webpage](https://techfieldday.com/appearance/arista-networks-presents-at-networking-field-day-22/))
-- [__tech Friday March 2020__](demo/tech-friday-march2020/): Lab used during Tech Friday event.
+- [__Tech Friday March 2020__](demo/tech-friday-march2020/): Lab used during Tech Friday event.
 - [__Network Automation with Ansible & Cloudvision - EMEA Webinar April 2020__](demo/emea-2020-ansible-cvp-automation): Build an EVPN/VXLAN Fabric using Ansible & Cloudvision with pot deployment validation using WARD
 
 
