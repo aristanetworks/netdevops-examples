@@ -1,0 +1,24 @@
+DC1-L2LEAF1A:
+  cpuInfo:
+    idle: 75.5
+DC1-L2LEAF2A:
+  cpuInfo:
+    idle: 75.4
+DC1-LEAF1A:
+  cpuInfo:
+    idle: 72.4
+DC1-LEAF1B:
+  cpuInfo:
+    idle: 72.6
+DC1-LEAF2A:
+  cpuInfo:
+    idle: 72.6
+DC1-LEAF2B:
+  cpuInfo:
+    idle: 72.3
+DC1-SPINE1:
+  cpuInfo:
+    idle: 73.0
+DC1-SPINE2:
+  cpuInfo:
+    idle: 73.1

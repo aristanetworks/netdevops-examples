@@ -1,0 +1,10 @@
+duts:
+{% for node in groups[fabric_name] | arista.avd.natural_sort %}
+  {{ node }}:
+{%     for fabric_validation_command in fabric_validation_commands %}
+    "{{ fabric_validation_command.command }}":
+      {{ hostvars[node].device_state.stdout[loop.index0] | to_nice_yaml(indent=2) | trim | indent(6) }}
+{%     endfor %}
+{% endfor %}
+
+topology_csv_file: {{ topology_csv_file }}
