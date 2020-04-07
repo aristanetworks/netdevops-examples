@@ -1,0 +1,8 @@
+---
+- name: Configure ZTP/DHCP service on CloudVision
+  hosts: cv_ztp
+  gather_facts: false
+  tasks:
+  - name: 'Execute ZTP configuration role'
+    import_role:
+      name: arista.cvp.ztp_configuration

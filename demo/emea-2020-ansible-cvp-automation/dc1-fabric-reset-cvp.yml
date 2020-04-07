@@ -1,0 +1,17 @@
+---
+- name: Clenup CVP in default configuration
+  hosts: cv_server
+  connection: local
+  gather_facts: false
+  collections:
+    - arista.avd
+    - arista.cvp
+  tasks:
+    - name: run CVP provisioning
+      import_role:
+        name: arista.avd.eos_config_deploy_cvp
+      vars:
+        container_root: 'DC1_FABRIC'
+        configlets_prefix: 'DC1-AVD'
+        device_filter: 'DC1-'
+        state: absent

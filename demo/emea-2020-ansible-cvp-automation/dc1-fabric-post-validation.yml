@@ -1,0 +1,8 @@
+---
+
+- name: Post Validation
+  hosts: DC1_FABRIC
+  tasks:
+    - name: Collect required data to run post validation tests
+      import_role:
+        name: eos_post_fabric_validation
