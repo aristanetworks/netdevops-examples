@@ -1,0 +1,24 @@
+---
+- name: lab03 - cv_configlet lab
+  hosts: CloudVision
+  connection: local
+  gather_facts: no
+
+  tasks:
+    - name: "Gather CVP facts {{inventory_hostname}}"
+      arista.cvp.cv_facts:
+        facts:
+          configlets
+      register: CVP_FACTS
+
+    - name: "Configure configlet on {{inventory_hostname}}"
+      arista.cvp.cv_configlet:
+        cvp_facts: "{{CVP_FACTS.ansible_facts}}"
+        configlets: "{{CVP_CONFIGLETS}}"
+        configlet_filter: ["TRAINING"]
+        state: present
+      register: CVP_CONFIGLET_RESULT
+
+    # - name: 'Display cv_configlet result'
+    #   debug:
+    #     msg: '{{CVP_CONFIGLET_RESULT}}'

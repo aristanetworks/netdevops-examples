@@ -16,14 +16,14 @@ This repository is a central place where Arista demos and examples around netdev
 
 - [__Arista Validated Design__](ansible/avd-evpn-l3ls-1/): Generate EOS EVPN/VXLAN Fabric deployed using CloudVision and with pre/post deployment tests.
 - [__Zero Touch Provisioning to EVPN Fabric__](ansible/ztp-avd-cvp): Build a complete EVPN/VXLAN fabric using CloudVision and Zero Touch Provisioning process.
-
+- [__Ansible AVD & CVP Transfer of Information__](ansible/avd-cvp-toi): Content to build a Transfer of Information on Arista Validated Design and Cloudvision collection.
 
 ### Webinar & Presentation content
 
 - [__Network Field Days 22__](demo/ansible-batfish-cv-nfd22/): Ansible & Batfish ([NFD22 webpage](https://techfieldday.com/appearance/arista-networks-presents-at-networking-field-day-22/))
 - [__Tech Friday March 2020__](demo/tech-friday-march2020/): Lab used during Tech Friday event.
 - [__Network Automation with Ansible & Cloudvision - EMEA Webinar April 2020__](demo/emea-2020-ansible-cvp-automation): Build an EVPN/VXLAN Fabric using Ansible & Cloudvision with pot deployment validation using WARD
-
+- [__Network Field Days 22__](demo/ansible-batfish-cv-nfd22/): Ansible & Batfish ([NFD22 webpage](https://techfieldday.com/appearance/arista-networks-presents-at-networking-field-day-22/)).
 
 ## License
 

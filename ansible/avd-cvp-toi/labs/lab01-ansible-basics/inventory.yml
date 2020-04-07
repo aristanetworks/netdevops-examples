@@ -1,0 +1,21 @@
+---
+DC:
+  children:
+    DC_FABRIC:
+      children:
+        DC_SPINES:
+          hosts:
+            STUDENT_DEVICE:
+            DC-SPINE2:
+        DC_L3LEAFS:
+          children:
+            DC_LEAF1:
+              hosts:
+                DC-LEAF1A:
+                DC-LEAF1B:
+    DC_TENANTS_NETWORKS:
+      children:
+        DC_L3LEAFS:
+    DC_SERVERS:
+      children:
+        DC_L3LEAFS:
