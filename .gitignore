@@ -107,3 +107,6 @@ venv.bak/
 
 # Installation path for CVP example
 examples/evpn-l3ls-cvp-deployment/collections
+
+# exclude netdiff env folder from gitignore
+!**/post_validation/netdiff/env
