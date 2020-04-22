@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<lab name="EVPN_Type5_DCI" version="1" scripttimeout="300" countdown="0" lock="0" author="florian, mp">
+<lab name="L3LS_Unnumbered_DCI_Type5" version="1" scripttimeout="300" countdown="0" lock="0" author="florian, mp">
   <topology>
     <nodes>
       <node id="1" name="leaf1a_site1" type="qemu" template="veos" image="veos-lab-4.24.0F" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="10a1d228-425e-4c5d-8358-09fff8251db9" firstmac="50:09:00:01:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="0" icon="AristaSW.png" config="0" left="309" top="231">
