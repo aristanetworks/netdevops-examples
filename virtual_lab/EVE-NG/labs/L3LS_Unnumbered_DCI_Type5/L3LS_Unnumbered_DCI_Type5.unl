@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<lab name="L3LS_Unnumbered_DCI_Type5" version="1" scripttimeout="300" countdown="0" lock="0" author="florian, mp">
+  <topology>
+    <nodes>
+      <node id="1" name="leaf1a_site1" type="qemu" template="veos" image="veos-lab-4.24.0F" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="10a1d228-425e-4c5d-8358-09fff8251db9" firstmac="50:09:00:01:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="0" icon="AristaSW.png" config="0" left="309" top="231">
+        <interface id="1" name="Eth1" type="ethernet" network_id="9"/>
+        <interface id="2" name="Eth2" type="ethernet" network_id="13"/>
+        <interface id="5" name="Eth5" type="ethernet" network_id="29"/>
+        <interface id="7" name="Eth7" type="ethernet" network_id="25"/>
+        <interface id="8" name="Eth8" type="ethernet" network_id="26"/>
+      </node>
+      <node id="2" name="leaf1b_site1" type="qemu" template="veos" image="veos-lab-4.24.0F" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="5ab255a1-eb34-4de9-b87f-89c83a3de2c9" firstmac="50:09:00:02:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="0" icon="AristaSW.png" config="0" left="447" top="231">
+        <interface id="1" name="Eth1" type="ethernet" network_id="10"/>
+        <interface id="2" name="Eth2" type="ethernet" network_id="14"/>
+        <interface id="5" name="Eth5" type="ethernet" network_id="30"/>
+        <interface id="7" name="Eth7" type="ethernet" network_id="25"/>
+        <interface id="8" name="Eth8" type="ethernet" network_id="26"/>
+      </node>
+      <node id="3" name="spine1_site1" type="qemu" template="veos" image="veos-lab-4.24.0F" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="4a59902a-e941-4426-bdf2-75e0b447b84e" firstmac="50:09:00:03:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="0" icon="AristaSW.png" config="0" left="573" top="87">
+        <interface id="1" name="Eth1" type="ethernet" network_id="9"/>
+        <interface id="2" name="Eth2" type="ethernet" network_id="10"/>
+        <interface id="3" name="Eth3" type="ethernet" network_id="11"/>
+        <interface id="4" name="Eth4" type="ethernet" network_id="12"/>
+        <interface id="5" name="Eth5" type="ethernet" network_id="17"/>
+        <interface id="6" name="Eth6" type="ethernet" network_id="18"/>
+      </node>
+      <node id="4" name="spine2_site1" type="qemu" template="veos" image="veos-lab-4.24.0F" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="b0e3f297-2588-4419-baf4-3df39b274aec" firstmac="50:09:00:04:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="0" icon="AristaSW.png" config="0" left="705" top="87">
+        <interface id="1" name="Eth1" type="ethernet" network_id="13"/>
+        <interface id="2" name="Eth2" type="ethernet" network_id="14"/>
+        <interface id="3" name="Eth3" type="ethernet" network_id="15"/>
+        <interface id="4" name="Eth4" type="ethernet" network_id="16"/>
+        <interface id="5" name="Eth5" type="ethernet" network_id="19"/>
+        <interface id="6" name="Eth6" type="ethernet" network_id="20"/>
+      </node>
+      <node id="5" name="leaf2_site1" type="qemu" template="veos" image="veos-lab-4.24.0F" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="273398c7-ed06-4d39-9fee-3167bb5e6142" firstmac="50:09:00:05:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="0" icon="AristaSW.png" config="0" left="582" top="231">
+        <interface id="1" name="Eth1" type="ethernet" network_id="11"/>
+        <interface id="2" name="Eth2" type="ethernet" network_id="15"/>
+        <interface id="5" name="Eth5" type="ethernet" network_id="43"/>
+      </node>
+      <node id="6" name="leaf3_site1" type="qemu" template="veos" image="veos-lab-4.24.0F" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="8d84fba3-845f-4065-a672-645203cee7da" firstmac="50:09:00:06:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="0" icon="AristaSW.png" config="0" left="708" top="231">
+        <interface id="1" name="Eth1" type="ethernet" network_id="12"/>
+        <interface id="2" name="Eth2" type="ethernet" network_id="16"/>
+        <interface id="5" name="Eth5" type="ethernet" network_id="44"/>
+      </node>
+      <node id="7" name="border1_dci" type="qemu" template="veos" image="veos-lab-4.24.0F" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="20fa11b8-22fb-450b-a240-52655e83ca36" firstmac="50:09:00:07:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="0" icon="AristaSW.png" config="0" left="843" top="366">
+        <interface id="1" name="Eth1" type="ethernet" network_id="27"/>
+        <interface id="2" name="Eth2" type="ethernet" network_id="37"/>
+        <interface id="7" name="Eth7" type="ethernet" network_id="33"/>
+        <interface id="8" name="Eth8" type="ethernet" network_id="36"/>
+      </node>
+      <node id="8" name="border2_dci" type="qemu" template="veos" image="veos-lab-4.24.0F" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="df6f6b79-2f25-496b-adc4-3fad2ba4ac1d" firstmac="50:09:00:08:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="0" icon="AristaSW.png" config="0" left="963" top="366">
+        <interface id="1" name="Eth1" type="ethernet" network_id="28"/>
+        <interface id="2" name="Eth2" type="ethernet" network_id="38"/>
+        <interface id="7" name="Eth7" type="ethernet" network_id="34"/>
+        <interface id="8" name="Eth8" type="ethernet" network_id="36"/>
+      </node>
+      <node id="9" name="leaf3_site2" type="qemu" template="veos" image="veos-lab-4.24.0F" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="45ca5b87-6223-4c54-b9f0-b6fd1f336265" firstmac="50:09:00:09:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="0" icon="AristaSW.png" config="0" left="708" top="639">
+        <interface id="1" name="Eth1" type="ethernet" network_id="4"/>
+        <interface id="2" name="Eth2" type="ethernet" network_id="8"/>
+        <interface id="5" name="Eth5" type="ethernet" network_id="48"/>
+      </node>
+      <node id="10" name="leaf2_site2" type="qemu" template="veos" image="veos-lab-4.24.0F" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="dd15e126-f7ce-4bcc-afc6-fba2ccd0a9c8" firstmac="50:09:00:0a:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="0" icon="AristaSW.png" config="0" left="576" top="642">
+        <interface id="1" name="Eth1" type="ethernet" network_id="3"/>
+        <interface id="2" name="Eth2" type="ethernet" network_id="7"/>
+        <interface id="5" name="Eth5" type="ethernet" network_id="47"/>
+      </node>
+      <node id="11" name="leaf1b_site2" type="qemu" template="veos" image="veos-lab-4.24.0F" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="94bb1f20-d1ab-4a84-8364-1680bcdc44f9" firstmac="50:09:00:0b:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="0" icon="AristaSW.png" config="0" left="432" top="642">
+        <interface id="1" name="Eth1" type="ethernet" network_id="2"/>
+        <interface id="2" name="Eth2" type="ethernet" network_id="6"/>
+        <interface id="5" name="Eth5" type="ethernet" network_id="46"/>
+        <interface id="7" name="Eth7" type="ethernet" network_id="31"/>
+        <interface id="8" name="Eth8" type="ethernet" network_id="32"/>
+      </node>
+      <node id="12" name="leaf1a_site2" type="qemu" template="veos" image="veos-lab-4.24.0F" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="f7aaa67d-ef1a-4d0b-9e2b-ea12a4b96edc" firstmac="50:09:00:0c:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="0" icon="AristaSW.png" config="0" left="288" top="642">
+        <interface id="1" name="Eth1" type="ethernet" network_id="1"/>
+        <interface id="2" name="Eth2" type="ethernet" network_id="5"/>
+        <interface id="5" name="Eth5" type="ethernet" network_id="45"/>
+        <interface id="7" name="Eth7" type="ethernet" network_id="31"/>
+        <interface id="8" name="Eth8" type="ethernet" network_id="32"/>
+      </node>
+      <node id="13" name="spine1_site2" type="qemu" template="veos" image="veos-lab-4.24.0F" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="feb3018e-7d77-4849-bfe6-94aefb8b1c20" firstmac="50:09:00:0d:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="0" icon="AristaSW.png" config="0" left="573" top="798">
+        <interface id="1" name="Eth1" type="ethernet" network_id="1"/>
+        <interface id="2" name="Eth2" type="ethernet" network_id="2"/>
+        <interface id="3" name="Eth3" type="ethernet" network_id="3"/>
+        <interface id="4" name="Eth4" type="ethernet" network_id="4"/>
+        <interface id="5" name="Eth5" type="ethernet" network_id="21"/>
+        <interface id="6" name="Eth6" type="ethernet" network_id="23"/>
+      </node>
+      <node id="14" name="spine2_site2" type="qemu" template="veos" image="veos-lab-4.24.0F" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="fd31cbc6-fcec-4a37-9647-c7542fc13073" firstmac="50:09:00:0e:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="0" icon="AristaSW.png" config="0" left="693" top="798">
+        <interface id="1" name="Eth1" type="ethernet" network_id="5"/>
+        <interface id="2" name="Eth2" type="ethernet" network_id="6"/>
+        <interface id="3" name="Eth3" type="ethernet" network_id="7"/>
+        <interface id="4" name="Eth4" type="ethernet" network_id="8"/>
+        <interface id="5" name="Eth5" type="ethernet" network_id="22"/>
+        <interface id="6" name="Eth6" type="ethernet" network_id="24"/>
+      </node>
+      <node id="15" name="border3_dci" type="qemu" template="veos" image="veos-lab-4.24.0F" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="0b2ecc6f-d51d-4912-bf6d-b612228c2fca" firstmac="50:09:00:0f:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="0" icon="AristaSW.png" config="0" left="843" top="507">
+        <interface id="1" name="Eth1" type="ethernet" network_id="39"/>
+        <interface id="2" name="Eth2" type="ethernet" network_id="41"/>
+        <interface id="7" name="Eth7" type="ethernet" network_id="33"/>
+        <interface id="8" name="Eth8" type="ethernet" network_id="35"/>
+      </node>
+      <node id="16" name="border4_dci" type="qemu" template="veos" image="veos-lab-4.24.0F" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="9c0510c1-2411-49dc-8930-b853f52af233" firstmac="50:09:00:10:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="0" icon="AristaSW.png" config="0" left="960" top="510">
+        <interface id="1" name="Eth1" type="ethernet" network_id="40"/>
+        <interface id="2" name="Eth2" type="ethernet" network_id="42"/>
+        <interface id="7" name="Eth7" type="ethernet" network_id="34"/>
+        <interface id="8" name="Eth8" type="ethernet" network_id="35"/>
+      </node>
+      <node id="17" name="border1_site1" type="qemu" template="veos" image="veos-lab-4.24.0F" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="a1ea0ba3-72ba-471b-95c6-0b3102c63bf2" firstmac="50:09:00:11:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="0" icon="AristaSW.png" config="0" left="834" top="231">
+        <interface id="1" name="Eth1" type="ethernet" network_id="17"/>
+        <interface id="2" name="Eth2" type="ethernet" network_id="19"/>
+        <interface id="3" name="Eth3" type="ethernet" network_id="27"/>
+        <interface id="4" name="Eth4" type="ethernet" network_id="28"/>
+      </node>
+      <node id="18" name="border2_site1" type="qemu" template="veos" image="veos-lab-4.24.0F" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="6ea95d1e-62b6-4530-8805-8431138d57d8" firstmac="50:09:00:12:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="0" icon="AristaSW.png" config="0" left="957" top="231">
+        <interface id="1" name="Eth1" type="ethernet" network_id="18"/>
+        <interface id="2" name="Eth2" type="ethernet" network_id="20"/>
+        <interface id="3" name="Eth3" type="ethernet" network_id="37"/>
+        <interface id="4" name="Eth4" type="ethernet" network_id="38"/>
+      </node>
+      <node id="19" name="border1_site2" type="qemu" template="veos" image="veos-lab-4.24.0F" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="5c86565d-963e-4cd1-86ba-2e69859cdec0" firstmac="50:09:00:13:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="0" icon="AristaSW.png" config="0" left="831" top="642">
+        <interface id="1" name="Eth1" type="ethernet" network_id="21"/>
+        <interface id="2" name="Eth2" type="ethernet" network_id="22"/>
+        <interface id="3" name="Eth3" type="ethernet" network_id="39"/>
+        <interface id="4" name="Eth4" type="ethernet" network_id="40"/>
+      </node>
+      <node id="20" name="border2_site2" type="qemu" template="veos" image="veos-lab-4.24.0F" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="5d0ae527-2481-4679-95ef-23e8ce70fea5" firstmac="50:09:00:14:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="0" icon="AristaSW.png" config="0" left="951" top="642">
+        <interface id="1" name="Eth1" type="ethernet" network_id="23"/>
+        <interface id="2" name="Eth2" type="ethernet" network_id="24"/>
+        <interface id="3" name="Eth3" type="ethernet" network_id="41"/>
+        <interface id="4" name="Eth4" type="ethernet" network_id="42"/>
+      </node>
+      <node id="22" name="host2_site1" type="qemu" template="veos" image="veos-lab-4.24.0F" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="e95c2baf-9c4e-4795-8a7c-8c386d994aa2" firstmac="50:09:00:16:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="0" icon="Server.png" config="0" left="633" top="345">
+        <interface id="1" name="Eth1" type="ethernet" network_id="43"/>
+        <interface id="2" name="Eth2" type="ethernet" network_id="44"/>
+      </node>
+      <node id="21" name="host1_site1" type="qemu" template="veos" image="veos-lab-4.24.0F" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="ea172a5e-b29d-4b24-8015-e925b759f594" firstmac="50:09:00:15:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="0" icon="Server.png" config="0" left="375" top="342">
+        <interface id="1" name="Eth1" type="ethernet" network_id="29"/>
+        <interface id="2" name="Eth2" type="ethernet" network_id="30"/>
+      </node>
+      <node id="23" name="host1_site2" type="qemu" template="veos" image="veos-lab-4.24.0F" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="fb2cb758-cb67-42bd-b5fc-6d40abea3037" firstmac="50:09:00:17:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="0" icon="Server.png" config="0" left="381" top="507">
+        <interface id="1" name="Eth1" type="ethernet" network_id="45"/>
+        <interface id="2" name="Eth2" type="ethernet" network_id="46"/>
+      </node>
+      <node id="24" name="host2_site2" type="qemu" template="veos" image="veos-lab-4.24.0F" console="telnet" cpu="1" cpulimit="0" ram="2048" ethernet="9" uuid="111082bd-f42c-4d48-b6c3-c0dcd93126f1" firstmac="50:09:00:18:00:00" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -display none -no-user-config -rtc base=utc -boot order=d" qemu_version="4.1.0" qemu_arch="x86_64" delay="0" icon="Server.png" config="0" left="633" top="504">
+        <interface id="1" name="Eth1" type="ethernet" network_id="47"/>
+        <interface id="2" name="Eth2" type="ethernet" network_id="48"/>
+      </node>
+    </nodes>
+    <networks>
+      <network id="1" type="bridge" name="Net-spine1_site2iface_1" left="687" top="802" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="2" type="bridge" name="Net-spine1_site2iface_2" left="687" top="802" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="3" type="bridge" name="Net-spine1_site2iface_3" left="687" top="802" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="4" type="bridge" name="Net-spine1_site2iface_4" left="687" top="802" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="5" type="bridge" name="Net-spine2_site2iface_1" left="924" top="853" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="6" type="bridge" name="Net-spine2_site2iface_2" left="924" top="853" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="7" type="bridge" name="Net-spine2_site2iface_3" left="924" top="853" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="8" type="bridge" name="Net-spine2_site2iface_4" left="924" top="853" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="9" type="bridge" name="Net-spine1_site1iface_1" left="720" top="241" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="10" type="bridge" name="Net-spine1_site1iface_2" left="720" top="241" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="11" type="bridge" name="Net-spine1_site1iface_3" left="720" top="241" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="12" type="bridge" name="Net-spine1_site1iface_4" left="720" top="241" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="13" type="bridge" name="Net-spine2_site1iface_1" left="984" top="241" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="14" type="bridge" name="Net-spine2_site1iface_2" left="984" top="241" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="15" type="bridge" name="Net-spine2_site1iface_3" left="984" top="241" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="16" type="bridge" name="Net-spine2_site1iface_4" left="984" top="241" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="25" type="bridge" name="Net-leaf1a_site1iface_7" left="636" top="370" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="26" type="bridge" name="Net-leaf1a_site1iface_8" left="636" top="370" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="31" type="bridge" name="Net-leaf1b_site2iface_7" left="765" top="673" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="32" type="bridge" name="Net-leaf1b_site2iface_8" left="765" top="673" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="33" type="bridge" name="Net-leaf1_dciiface_7" left="906" top="406" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="34" type="bridge" name="Net-leaf2_dciiface_7" left="1014" top="406" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="35" type="bridge" name="Net-leaf3_dciiface_8" left="903" top="550" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="36" type="bridge" name="Net-leaf1_dciiface_8" left="906" top="406" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="17" type="bridge" name="Net-spine1_site1iface_5" left="462" top="115" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="18" type="bridge" name="Net-spine1_site1iface_6" left="462" top="115" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="19" type="bridge" name="Net-spine2_site1iface_5" left="594" top="115" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="20" type="bridge" name="Net-spine2_site1iface_6" left="594" top="115" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="27" type="bridge" name="Net-border1_site1iface_3" left="900" top="274" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="28" type="bridge" name="Net-border1_site1iface_4" left="900" top="274" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="37" type="bridge" name="Net-border2_site1iface_3" left="1023" top="274" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="38" type="bridge" name="Net-border2_site1iface_4" left="1023" top="274" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="21" type="bridge" name="Net-spine1_site2iface_5" left="516" top="856" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="22" type="bridge" name="Net-spine2_site2iface_5" left="636" top="856" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="23" type="bridge" name="Net-spine1_site2iface_6" left="516" top="856" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="24" type="bridge" name="Net-spine2_site2iface_6" left="636" top="856" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="39" type="bridge" name="Net-border1_site2iface_3" left="891" top="682" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="40" type="bridge" name="Net-border1_site2iface_4" left="891" top="682" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="41" type="bridge" name="Net-border2_site2iface_3" left="1011" top="682" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="42" type="bridge" name="Net-border2_site2iface_4" left="1011" top="682" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="43" type="bridge" name="Net-host2-site1iface_1" left="693" top="385" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="44" type="bridge" name="Net-host2-site1iface_2" left="693" top="385" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="29" type="bridge" name="Net-host1-site1iface_1" left="435" top="382" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="30" type="bridge" name="Net-host1-site1iface_2" left="435" top="382" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="45" type="bridge" name="Net-host1_site2iface_1" left="441" top="547" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="46" type="bridge" name="Net-host1_site2iface_2" left="441" top="547" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="47" type="bridge" name="Net-host2_site2iface_1" left="696" top="544" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+      <network id="48" type="bridge" name="Net-host2_site2iface_2" left="696" top="544" style="Solid" linkstyle="Straight" color="" label="" visibility="0"/>
+    </networks>
+  </topology>
+  <objects>
+    <textobjects>
+      <textobject id="1" name="Site 1" type="square">
+        <data>PGRpdiBpZD0iY3VzdG9tU2hhcGUxIiBjbGFzcz0iY3VzdG9tU2hhcGUgY29udGV4dC1tZW51IGp0ay1kcmFnZ2FibGUgdWktc2VsZWN0ZWUganRrLWRyYWctc2VsZWN0ZWQgZnJlZS1zZWxlY3RlZCB1aS1yZXNpemFibGUgZHJhZ3N0b3BwZWQiIGRhdGEtcGF0aD0iMSIgc3R5bGU9ImRpc3BsYXk6IGlubGluZTsgei1pbmRleDogOTk4OyBwb3NpdGlvbjogYWJzb2x1dGU7IGxlZnQ6IDI1OHB4OyB0b3A6IDI3cHg7IHdpZHRoOiBhdXRvOyBoZWlnaHQ6IGF1dG87IiBuYW1lPSJTaXRlIDEiPjxzdmcgd2lkdGg9IjgxNCIgaGVpZ2h0PSIyOTMiPjxyZWN0IHg9IjEiIHk9IjEiIHdpZHRoPSI4MTIiIGhlaWdodD0iMjkxIiBmaWxsPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjUiIHN0cm9rZT0iIzAwMDAwMCI+PC9yZWN0PlNvcnJ5LCB5b3VyIGJyb3dzZXIgZG9lcyBub3Qgc3VwcG9ydCBpbmxpbmUgU1ZHLjwvc3ZnPjxkaXYgY2xhc3M9InVpLXJlc2l6YWJsZS1oYW5kbGUgdWktcmVzaXphYmxlLWUiIHN0eWxlPSJ6LWluZGV4OiA5MDsgZGlzcGxheTogYmxvY2s7Ij48L2Rpdj48ZGl2IGNsYXNzPSJ1aS1yZXNpemFibGUtaGFuZGxlIHVpLXJlc2l6YWJsZS1zIiBzdHlsZT0iei1pbmRleDogOTA7IGRpc3BsYXk6IGJsb2NrOyI+PC9kaXY+PGRpdiBjbGFzcz0idWktcmVzaXphYmxlLWhhbmRsZSB1aS1yZXNpemFibGUtc2UgdWktaWNvbiB1aS1pY29uLWdyaXBzbWFsbC1kaWFnb25hbC1zZSIgc3R5bGU9InotaW5kZXg6IDkwOyBkaXNwbGF5OiBibG9jazsiPjwvZGl2PjwvZGl2Pg==</data>
+      </textobject>
+      <textobject id="2" name="square2" type="square">
+        <data>PGRpdiBpZD0iY3VzdG9tU2hhcGUyIiBjbGFzcz0iY3VzdG9tU2hhcGUgY29udGV4dC1tZW51IGp0ay1kcmFnZ2FibGUgdWktc2VsZWN0ZWUgdWktcmVzaXphYmxlIGRyYWdzdG9wcGVkIiBkYXRhLXBhdGg9IjIiIHN0eWxlPSJkaXNwbGF5OiBpbmxpbmU7IHotaW5kZXg6IDk5OTsgcG9zaXRpb246IGFic29sdXRlOyBsZWZ0OiA4MjJweDsgdG9wOiAzNDJweDsgd2lkdGg6IDI0MnB4OyBoZWlnaHQ6IDIzOXB4OyIgbmFtZT0ic3F1YXJlMiI+PHN2ZyB3aWR0aD0iMjQyIiBoZWlnaHQ9IjIzOSI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjI0MCIgaGVpZ2h0PSIyMzciIGZpbGw9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iNSIgc3Ryb2tlPSIjZmYwMDAwIj48L3JlY3Q+U29ycnksIHlvdXIgYnJvd3NlciBkb2VzIG5vdCBzdXBwb3J0IGlubGluZSBTVkcuPC9zdmc+PGRpdiBjbGFzcz0idWktcmVzaXphYmxlLWhhbmRsZSB1aS1yZXNpemFibGUtZSIgc3R5bGU9InotaW5kZXg6IDkwOyI+PC9kaXY+PGRpdiBjbGFzcz0idWktcmVzaXphYmxlLWhhbmRsZSB1aS1yZXNpemFibGUtcyIgc3R5bGU9InotaW5kZXg6IDkwOyI+PC9kaXY+PGRpdiBjbGFzcz0idWktcmVzaXphYmxlLWhhbmRsZSB1aS1yZXNpemFibGUtc2UgdWktaWNvbiB1aS1pY29uLWdyaXBzbWFsbC1kaWFnb25hbC1zZSIgc3R5bGU9InotaW5kZXg6IDkwOyI+PC9kaXY+PC9kaXY+</data>
+      </textobject>
+      <textobject id="3" name="square3" type="square">
+        <data>PGRpdiBpZD0iY3VzdG9tU2hhcGUzIiBjbGFzcz0iY3VzdG9tU2hhcGUgY29udGV4dC1tZW51IGp0ay1kcmFnZ2FibGUgdWktc2VsZWN0ZWUgdWktcmVzaXphYmxlIGRyYWdzdG9wcGVkIiBkYXRhLXBhdGg9IjMiIHN0eWxlPSJkaXNwbGF5OiBpbmxpbmU7IHotaW5kZXg6IDk5OTsgcG9zaXRpb246IGFic29sdXRlOyBsZWZ0OiAyNjFweDsgdG9wOiA2MDNweDsgd2lkdGg6IDc5OXB4OyBoZWlnaHQ6IDMxNHB4OyIgbmFtZT0ic3F1YXJlMyI+PHN2ZyB3aWR0aD0iNzk5IiBoZWlnaHQ9IjMxNCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9Ijc5NyIgaGVpZ2h0PSIzMTIiIGZpbGw9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iNSIgc3Ryb2tlPSIjMDAwMGZmIj48L3JlY3Q+U29ycnksIHlvdXIgYnJvd3NlciBkb2VzIG5vdCBzdXBwb3J0IGlubGluZSBTVkcuPC9zdmc+PGRpdiBjbGFzcz0idWktcmVzaXphYmxlLWhhbmRsZSB1aS1yZXNpemFibGUtZSIgc3R5bGU9InotaW5kZXg6IDkwOyI+PC9kaXY+PGRpdiBjbGFzcz0idWktcmVzaXphYmxlLWhhbmRsZSB1aS1yZXNpemFibGUtcyIgc3R5bGU9InotaW5kZXg6IDkwOyI+PC9kaXY+PGRpdiBjbGFzcz0idWktcmVzaXphYmxlLWhhbmRsZSB1aS1yZXNpemFibGUtc2UgdWktaWNvbiB1aS1pY29uLWdyaXBzbWFsbC1kaWFnb25hbC1zZSIgc3R5bGU9InotaW5kZXg6IDkwOyI+PC9kaXY+PC9kaXY+</data>
+      </textobject>
+      <textobject id="4" name="txt 4" type="text">
+        <data>PGRpdiBpZD0iY3VzdG9tVGV4dDQiIGNsYXNzPSJjdXN0b21TaGFwZSBjdXN0b21UZXh0IGNvbnRleHQtbWVudSBqdGstZHJhZ2dhYmxlIGVkaXRhYmxlIGp0ay1kcmFnLXNlbGVjdGVkIGRyYWdzdG9wcGVkIiBkYXRhLXBhdGg9IjQiIHN0eWxlPSJwb3NpdGlvbjogYWJzb2x1dGU7IGxlZnQ6IDY2MHB4OyB0b3A6IDQ4cHg7IHotaW5kZXg6IDEwMDE7IGN1cnNvcjogYXV0bzsgaGVpZ2h0OiBhdXRvOyB3aWR0aDogYXV0bzsiIGNvbnRlbnRlZGl0YWJsZT0idHJ1ZSI+PHA+PHN0cm9uZz5TaXRlIDE8L3N0cm9uZz48L3A+CjwvZGl2Pg==</data>
+      </textobject>
+      <textobject id="5" name="txt 5" type="text">
+        <data>PGRpdiBpZD0iY3VzdG9tVGV4dDUiIGNsYXNzPSJjdXN0b21TaGFwZSBjdXN0b21UZXh0IGNvbnRleHQtbWVudSBqdGstZHJhZ2dhYmxlIGVkaXRhYmxlIHVpLXNlbGVjdGVlIGRyYWdzdG9wcGVkIiBkYXRhLXBhdGg9IjUiIHN0eWxlPSJwb3NpdGlvbjogYWJzb2x1dGU7IGxlZnQ6IDkyN3B4OyB0b3A6IDQ0NHB4OyB6LWluZGV4OiAxMDAxOyBjdXJzb3I6IG1vdmU7IGhlaWdodDogYXV0bzsgd2lkdGg6IGF1dG87IiBjb250ZW50ZWRpdGFibGU9InRydWUiPjxwPjxzdHJvbmc+RENJPC9zdHJvbmc+PC9wPgo8L2Rpdj4=</data>
+      </textobject>
+      <textobject id="6" name="txt 6" type="text">
+        <data>PGRpdiBpZD0iY3VzdG9tVGV4dDYiIGNsYXNzPSJjdXN0b21TaGFwZSBjdXN0b21UZXh0IGNvbnRleHQtbWVudSBqdGstZHJhZ2dhYmxlIGVkaXRhYmxlIHVpLXNlbGVjdGVlIGp0ay1kcmFnLXNlbGVjdGVkIGRyYWdzdG9wcGVkIiBkYXRhLXBhdGg9IjYiIHN0eWxlPSJwb3NpdGlvbjogYWJzb2x1dGU7IGxlZnQ6IDY0OHB4OyB0b3A6IDg3NnB4OyB6LWluZGV4OiAxMDAxOyBjdXJzb3I6IG1vdmU7IGhlaWdodDogYXV0bzsgd2lkdGg6IGF1dG87IiBjb250ZW50ZWRpdGFibGU9InRydWUiPjxwPjxzdHJvbmc+U2l0ZSAyPC9zdHJvbmc+PC9wPgo8L2Rpdj4=</data>
+      </textobject>
+    </textobjects>
+  </objects>
+</lab>
