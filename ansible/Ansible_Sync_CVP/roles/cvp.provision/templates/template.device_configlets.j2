@@ -1,0 +1,53 @@
+---
+{%if "_1" in inventory_hostname %}
+CVP_DEVICES:
+{% for device in groups['leafs_1'] %}
+  '{{device}}':
+    name: {{device}}
+    configlets:
+      - '{{device}}_base-sw'
+      - '{{device}}_nw'
+      - '{{device}}_ep_INNOVATE'
+{% endfor %}
+
+CVP_CONFIGLET:
+{% for host in groups['leafs_1'] %}
+  {{host}}_ep_INNOVATE: "{{ lookup('file', 'generated_vars/devices/'+host+'.txt') | replace('\n', '\\n')}}"
+{% endfor %}
+{% else %}
+CVP_DEVICES:
+{% for device in groups['leafs_2'] %}
+  '{{device}}':
+    name: {{device}}
+    configlets:
+      - '{{device}}_base-sw'
+      - '{{device}}_nw'
+      - '{{device}}_ep_INNOVATE'
+{% endfor %}
+
+CVP_CONFIGLET:
+{% for host in groups['leafs_2'] %}
+  {{host}}_ep_INNOVATE: "{{ lookup('file', 'generated_vars/devices/'+host+'.txt') | replace('\n', '\\n')}}"
+{% endfor %}
+{% endif %}
+
+CVP_DEVICES_ROLLBACK:
+{% if "_1" in inventory_hostname %}
+{% for device in groups['leafs_1'] %}
+  '{{device}}':
+    name: {{device}}
+    configlets:
+      - '{{device}}_base-sw'
+      - '{{device}}_nw'
+      - '{{device}}_ep'
+{% endfor %}
+{% else %}
+{% for device in groups['leafs_2'] %}
+  '{{device}}':
+    name: {{device}}
+    configlets:
+      - '{{device}}_base-sw'
+      - '{{device}}_nw'
+      - '{{device}}_ep'
+{% endfor %}
+{% endif %}

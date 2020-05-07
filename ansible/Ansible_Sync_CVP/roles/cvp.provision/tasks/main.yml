@@ -1,0 +1,120 @@
+---
+# tasks file for cvp.provision
+- name: 'Build configlet Device Associations for CVP'
+  tags:
+    - provision
+  template:
+    src: "template.device_configlets.j2"
+    dest: './generated_vars/cvp_servers/{{inventory_hostname}}_devices.yml'
+  delegate_to: localhost
+  run_once: False
+
+- name: "Load Shared Configlet Data"
+  tags:
+    - provision
+  include_vars:
+     file: './generated_vars/common_configlets/master.yml'
+     name: 'shared_configlets'
+  delegate_to: localhost
+
+- name: 'Build Shared configlets for CVP'
+  tags:
+    - provision
+  template:
+    src: "template.shared_configlets.j2"
+    dest: './generated_vars/cvp_servers/{{inventory_hostname}}_shared.yml'
+  delegate_to: localhost
+  run_once: False
+
+- name: collect CVP Facts
+  tags:
+    - provision
+    - deploy
+  arista.cvp.cv_facts:
+  register: CVP_FACTS
+
+- name: "Load CVP device information"
+  tags:
+    - provision
+    - deploy
+    - cleanup
+  include_vars: './generated_vars/cvp_servers/{{inventory_hostname}}_devices.yml'
+  delegate_to: localhost
+
+- name: 'Create Device configlets on CVP Servers.'
+  tags:
+    - provision
+    - deploy
+  arista.cvp.cv_configlet:
+    cvp_facts: "{{CVP_FACTS.ansible_facts}}"
+    configlets: "{{CVP_CONFIGLET}}"
+    configlet_filter: ["INNOVATE"]
+
+- name: "Configure devices on CVP Servers."
+  tags:
+    - deploy
+  arista.cvp.cv_device:
+    devices: "{{CVP_DEVICES}}"
+    cvp_facts: '{{CVP_FACTS.ansible_facts}}'
+    device_filter: ['SLEAF']
+
+- name: "Load CVP shared Configlet information"
+  tags:
+    - provision
+    - deploy
+    - cleanup
+  include_vars: './generated_vars/cvp_servers/{{inventory_hostname}}_shared.yml'
+  delegate_to: localhost
+
+- name: 'Create Shared configlets on CVP Servers.'
+  tags:
+    - provision
+    - deploy
+  arista.cvp.cv_configlet:
+    cvp_facts: "{{CVP_FACTS.ansible_facts}}"
+    configlets: "{{CVP_CONFIGLET}}"
+    configlet_filter: ["shared"]
+
+- name: "Load CVP Container information"
+  tags:
+    - deploy
+    - cleanup
+  include_vars: './generated_vars/containers/{{inventory_hostname}}.yml'
+  delegate_to: localhost
+
+- name: 'Create Shared configlets in Containers.'
+  tags:
+    - deploy
+  arista.cvp.cv_container:
+    cvp_facts: "{{CVP_FACTS.ansible_facts}}"
+    topology: "{{TOPOLOGY}}"
+    save_topology: true
+    mode: 'merge'
+
+### Manage rollback section
+
+- name: collect CVP Facts
+  tags:
+    - never
+    - cleanup
+  arista.cvp.cv_facts:
+  register: CVP_FACTS
+
+- name: "Remove configlet from devices on on CVP Servers."
+  tags:
+    - never
+    - cleanup
+  arista.cvp.cv_device:
+    devices: "{{CVP_DEVICES_ROLLBACK}}"
+    cvp_facts: '{{CVP_FACTS.ansible_facts}}'
+    device_filter: ['SLEAF']
+
+- name: 'Remove Shared configlets from Containers.'
+  tags:
+    - never
+    - cleanup
+  arista.cvp.cv_container:
+    cvp_facts: "{{CVP_FACTS.ansible_facts}}"
+    topology: "{{TOPOLOGY_ROLLBACK}}"
+    save_topology: true
+    #mode: 'delete'

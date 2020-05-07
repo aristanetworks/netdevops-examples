@@ -1,0 +1,22 @@
+---
+- name: Check Shared Configlets across CVP clusters
+  hosts: cvp_servers
+  serial: true
+  gather_facts: no
+  tasks:
+    - name: Sync Shared Configlets
+      tags:
+        - check
+        - sync
+      import_role:
+         name: cvp.sync
+
+- name: Update Shared Configlets across CVP clusters
+  hosts: cvp_servers
+  gather_facts: no
+  tasks:
+    - name: Sync Shared Configlets
+      tags:
+        - sync
+      import_role:
+         name: cvp.refresh
