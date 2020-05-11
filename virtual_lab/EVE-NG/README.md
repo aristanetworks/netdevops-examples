@@ -9,3 +9,7 @@
 * [vEOS-LAB](image-import/veos-lab.md)
 * [vEOS-Router](image-import/veos-Router.md)
 * [Cloud Vision Portal (Linux)](image-import/cvp.md)
+
+## Available labs
+
+* [L3 Leaf-Spine w/ BGP Unnumbered & EVPN VXLAN](labs/L3LS_Unnumbered_DCI_Type5)
