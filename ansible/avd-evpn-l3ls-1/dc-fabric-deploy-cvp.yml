@@ -32,7 +32,7 @@
 #          name: eos_pre_fabric_validation
 
 - name: Configuration deployment with CVP
-  hosts: AVD-CVP-1
+  hosts: CVP-1
   connection: local
   gather_facts: no
 
