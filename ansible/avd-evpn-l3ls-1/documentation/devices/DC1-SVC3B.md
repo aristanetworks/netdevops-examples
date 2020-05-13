@@ -6,7 +6,7 @@
 
 | Management Interface | description | VRF | IP Address | Gateway |
 | -------------------- | ----------- | --- | ---------- | ------- |
-| Management1 | oob_management | MGMT | 192.168.200.109/24 | 192.168.200.5 |
+| Management1 | oob_management | MGMT | 192.168.200.109/24 | 192.168.200.1 |
 
 ### Management Interfaces Device Configuration
 
@@ -80,13 +80,15 @@ VRF: MGMT
 
 | Node | Primary |
 | ---- | ------- |
-| 192.168.200.5 | True |
+| 0.north-america.pool.ntp.org | True |
+| 1.north-america.pool.ntp.org | - |
 
 ### NTP Device Configuration
 
 ```eos
 ntp local-interface vrf MGMT Management1
-ntp server vrf MGMT 192.168.200.5 prefer
+ntp server vrf MGMT 0.north-america.pool.ntp.org prefer
+ntp server vrf MGMT 1.north-america.pool.ntp.org
 !
 ```
 
@@ -732,12 +734,12 @@ ip address virtual source-nat vrf Tenant_A_OP_Zone address 10.255.1.9
 
 | VRF | Destination Prefix | Fowarding Address / Interface |
 | --- | ------------------ | ----------------------------- |
-| MGMT | 0.0.0.0/0 | 192.168.200.5 |
+| MGMT | 0.0.0.0/0 | 192.168.200.1 |
 
 ### Static Routes Device Configuration
 
 ```eos
-ip route vrf MGMT 0.0.0.0/0 192.168.200.5
+ip route vrf MGMT 0.0.0.0/0 192.168.200.1
 !
 ```
 
@@ -838,16 +840,12 @@ mlag configuration
 | Sequence | Type | Match |
 | -------- | ---- | ----- |
 | 10 | permit | ip address prefix-list PL-LOOPBACKS-EVPN-OVERLAY |
-| 20 | permit | ip address prefix-list PL-P2P-UNDERLAY |
 
 ### Route Maps Device Configuration
 
 ```eos
 route-map RM-CONN-2-BGP permit 10
    match ip address prefix-list PL-LOOPBACKS-EVPN-OVERLAY
-!
-route-map RM-CONN-2-BGP permit 20
-   match ip address prefix-list PL-P2P-UNDERLAY
 !
 ```
 
@@ -1078,6 +1076,7 @@ router bgp 65103
       neighbor MLAG-IPv4-UNDERLAY-PEER activate
    !
    vrf Tenant_A_APP_Zone
+      router-id 192.168.255.9
       rd 192.168.255.9:12
       route-target import evpn 12:12
       route-target export evpn 12:12
@@ -1085,6 +1084,7 @@ router bgp 65103
       redistribute connected
    !
    vrf Tenant_A_DB_Zone
+      router-id 192.168.255.9
       rd 192.168.255.9:13
       route-target import evpn 13:13
       route-target export evpn 13:13
@@ -1092,6 +1092,7 @@ router bgp 65103
       redistribute connected
    !
    vrf Tenant_A_OP_Zone
+      router-id 192.168.255.9
       rd 192.168.255.9:10
       route-target import evpn 10:10
       route-target export evpn 10:10
@@ -1099,6 +1100,7 @@ router bgp 65103
       redistribute connected
    !
    vrf Tenant_A_WAN_Zone
+      router-id 192.168.255.9
       rd 192.168.255.9:14
       route-target import evpn 14:14
       route-target export evpn 14:14
@@ -1106,6 +1108,7 @@ router bgp 65103
       redistribute connected
    !
    vrf Tenant_A_WEB_Zone
+      router-id 192.168.255.9
       rd 192.168.255.9:11
       route-target import evpn 11:11
       route-target export evpn 11:11
@@ -1113,6 +1116,7 @@ router bgp 65103
       redistribute connected
    !
    vrf Tenant_B_OP_Zone
+      router-id 192.168.255.9
       rd 192.168.255.9:20
       route-target import evpn 20:20
       route-target export evpn 20:20
@@ -1120,6 +1124,7 @@ router bgp 65103
       redistribute connected
    !
    vrf Tenant_B_WAN_Zone
+      router-id 192.168.255.9
       rd 192.168.255.9:21
       route-target import evpn 21:21
       route-target export evpn 21:21
@@ -1127,6 +1132,7 @@ router bgp 65103
       redistribute connected
    !
    vrf Tenant_C_OP_Zone
+      router-id 192.168.255.9
       rd 192.168.255.9:30
       route-target import evpn 30:30
       route-target export evpn 30:30
@@ -1134,6 +1140,7 @@ router bgp 65103
       redistribute connected
    !
    vrf Tenant_C_WAN_Zone
+      router-id 192.168.255.9
       rd 192.168.255.9:31
       route-target import evpn 31:31
       route-target export evpn 31:31

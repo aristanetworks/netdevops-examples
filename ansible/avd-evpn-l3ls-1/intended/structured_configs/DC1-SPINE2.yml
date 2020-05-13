@@ -52,7 +52,8 @@ ntp_server:
     vrf: MGMT
     interface: Management1
   nodes:
-    - 192.168.200.5
+    - 0.north-america.pool.ntp.org
+    - 1.north-america.pool.ntp.org
 
 ### Redundancy ###
 redundancy:
@@ -163,7 +164,7 @@ management_interfaces:
     description: oob_management
     vrf: MGMT
     ip_address: 192.168.200.102/24
-    gateway: 192.168.200.5
+    gateway: 192.168.200.1
 
 ### TCAM Profiles ###
 tcam_profile:
@@ -175,7 +176,7 @@ mac_address_table:
 static_routes:
   - vrf: MGMT
     destination_address_prefix: 0.0.0.0/0
-    gateway: 192.168.200.5
+    gateway: 192.168.200.1
 
 ### prefix-lists ###
 prefix_lists:
@@ -183,10 +184,6 @@ prefix_lists:
     sequence_numbers:
       10:
         action: "permit 192.168.255.0/24 le 32"
-  PL-P2P-UNDERLAY:
-    sequence_numbers:
-      10:
-        action: "permit 172.31.255.0/24 le 31"
 
 ### route-maps ###
 route_maps:
@@ -195,9 +192,6 @@ route_maps:
       10:
         type: permit
         match: "ip address prefix-list PL-LOOPBACKS-EVPN-OVERLAY"
-      20:
-        type: permit
-        match: "ip address prefix-list PL-P2P-UNDERLAY"
 
 ### peer-filters ###
 peer_filters:

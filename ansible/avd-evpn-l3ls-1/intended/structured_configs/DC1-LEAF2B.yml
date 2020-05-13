@@ -68,7 +68,8 @@ ntp_server:
     vrf: MGMT
     interface: Management1
   nodes:
-    - 192.168.200.5
+    - 0.north-america.pool.ntp.org
+    - 1.north-america.pool.ntp.org
 
 ### Redundancy ###
 redundancy:
@@ -350,7 +351,7 @@ management_interfaces:
     description: oob_management
     vrf: MGMT
     ip_address: 192.168.200.107/24
-    gateway: 192.168.200.5
+    gateway: 192.168.200.1
 
 ### VLAN Interfaces ###
 vlan_interfaces:
@@ -560,7 +561,7 @@ virtual_source_nat_vrfs:
 static_routes:
   - vrf: MGMT
     destination_address_prefix: 0.0.0.0/0
-    gateway: 192.168.200.5
+    gateway: 192.168.200.1
 
 ### prefix-lists ###
 prefix_lists:
@@ -597,9 +598,6 @@ route_maps:
       10:
         type: permit
         match: "ip address prefix-list PL-LOOPBACKS-EVPN-OVERLAY"
-      20:
-        type: permit
-        match: "ip address prefix-list PL-P2P-UNDERLAY"
 ### Routing - BGP ###
 router_bgp:
   as: 65102
@@ -727,6 +725,7 @@ router_bgp:
   vrfs:
 ## Tenant_A ##
     Tenant_A_APP_Zone:
+      router_id: 192.168.255.7
       rd: "192.168.255.7:12"
       route_targets:
         import:
@@ -741,6 +740,7 @@ router_bgp:
       redistribute_routes:
         - connected
     Tenant_A_DB_Zone:
+      router_id: 192.168.255.7
       rd: "192.168.255.7:13"
       route_targets:
         import:
@@ -755,6 +755,7 @@ router_bgp:
       redistribute_routes:
         - connected
     Tenant_A_OP_Zone:
+      router_id: 192.168.255.7
       rd: "192.168.255.7:10"
       route_targets:
         import:
@@ -769,6 +770,7 @@ router_bgp:
       redistribute_routes:
         - connected
     Tenant_A_WEB_Zone:
+      router_id: 192.168.255.7
       rd: "192.168.255.7:11"
       route_targets:
         import:
@@ -784,6 +786,7 @@ router_bgp:
         - connected
 ## Tenant_B ##
     Tenant_B_OP_Zone:
+      router_id: 192.168.255.7
       rd: "192.168.255.7:20"
       route_targets:
         import:
@@ -799,6 +802,7 @@ router_bgp:
         - connected
 ## Tenant_C ##
     Tenant_C_OP_Zone:
+      router_id: 192.168.255.7
       rd: "192.168.255.7:30"
       route_targets:
         import:
