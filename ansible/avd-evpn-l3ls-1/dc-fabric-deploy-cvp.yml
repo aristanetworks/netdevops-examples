@@ -16,20 +16,20 @@
       import_role:
          name: arista.avd.eos_cli_config_gen
 
-- name: Validate DC Fabric configuration with Batfish
-  hosts: localhost
-  connection: local
-  roles:
-    - batfish.base
+# - name: Validate DC Fabric configuration with Batfish
+#   hosts: localhost
+#   connection: local
+#   roles:
+#     - batfish.base
 
-  vars:
-    snapshot: dc1-target
-    network: DC1
-  tasks:
+#   vars:
+#     snapshot: dc1-target
+#     network: DC1
+#   tasks:
 
-    - name: Pre Deployment fabric validation
-      import_role:
-         name: eos_pre_fabric_validation
+#     - name: Pre Deployment fabric validation
+#       import_role:
+#          name: eos_pre_fabric_validation
 
 - name: Configuration deployment with CVP
   hosts: AVD-CVP-1
