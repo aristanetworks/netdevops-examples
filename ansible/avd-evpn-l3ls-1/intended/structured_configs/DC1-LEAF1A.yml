@@ -39,6 +39,16 @@ vlan_internal_order:
 ### Event Monitor ###
 event_monitor:
 
+### Event Handler ###
+event_handlers:
+  evpn-blacklist-recovery:
+    action_type: bash
+    action: FastCli -p 15 -c “clear bgp evpn host-flap”
+    delay: 300
+    asynchronous: event_handlers[handler].asynchronous
+    trigger: on-logging
+    regex: EVPN-3-BLACKLISTED_DUPLICATE_MAC
+
 ### Load Interval ###
 load_interval:
 

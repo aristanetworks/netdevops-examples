@@ -25,9 +25,11 @@ vlan_internal_order:
   range:
     beginning: 1006
     ending: 1199
-
 ### Event Monitor ###
 event_monitor:
+
+### Event Handler ###
+event_handlers:
 
 ### Load Interval ###
 load_interval:

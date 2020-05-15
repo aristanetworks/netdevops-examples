@@ -438,6 +438,26 @@ ip route vrf MGMT 0.0.0.0/0 192.168.200.1
 !
 ```
 
+## Event Handler
+
+### Event Handler Summary
+
+| Handler | Action Type | Action | Trigger |
+| ------- | ----------- | ------ | ------- |
+| evpn-blacklist-recovery | bash | FastCli -p 15 -c “clear bgp evpn host-flap” | on-logging |
+
+### Event Handler Device Configuration
+
+```eos
+event-handler evpn-blacklist-recovery
+   action bash FastCli -p 15 -c “clear bgp evpn host-flap”
+   delay 300
+   !
+   trigger on-logging
+      regex EVPN-3-BLACKLISTED_DUPLICATE_MAC
+!
+```
+
 ## IP Routing
 
 ### IP Routing Summary
