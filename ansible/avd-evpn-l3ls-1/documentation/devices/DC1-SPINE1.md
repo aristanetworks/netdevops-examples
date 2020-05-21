@@ -264,6 +264,10 @@ ip route vrf MGMT 0.0.0.0/0 192.168.200.1
 !
 ```
 
+## Event Handler
+
+No Event Handler Defined
+
 ## IP Routing
 
 ### IP Routing Summary
@@ -290,20 +294,11 @@ no ip routing vrf MGMT
 | -------- | ------ |
 | 10 | permit 192.168.255.0/24 le 32 |
 
-**PL-P2P-UNDERLAY:**
-
-| Sequence | Action |
-| -------- | ------ |
-| 10 | permit 172.31.255.0/24 le 31 |
-
 ### Prefix Lists Device Configuration
 
 ```eos
 ip prefix-list PL-LOOPBACKS-EVPN-OVERLAY
    seq 10 permit 192.168.255.0/24 le 32
-!
-ip prefix-list PL-P2P-UNDERLAY
-   seq 10 permit 172.31.255.0/24 le 31
 !
 ```
 
@@ -320,16 +315,12 @@ MLAG not defined
 | Sequence | Type | Match |
 | -------- | ---- | ----- |
 | 10 | permit | ip address prefix-list PL-LOOPBACKS-EVPN-OVERLAY |
-| 20 | permit | ip address prefix-list PL-P2P-UNDERLAY |
 
 ### Route Maps Device Configuration
 
 ```eos
 route-map RM-CONN-2-BGP permit 10
    match ip address prefix-list PL-LOOPBACKS-EVPN-OVERLAY
-!
-route-map RM-CONN-2-BGP permit 20
-   match ip address prefix-list PL-P2P-UNDERLAY
 !
 ```
 

@@ -428,6 +428,10 @@ ip route vrf MGMT 0.0.0.0/0 192.168.200.1
 !
 ```
 
+## Event Handler
+
+No Event Handler Defined
+
 ## IP Routing
 
 ### IP Routing Summary
@@ -492,16 +496,12 @@ MLAG not defined
 | Sequence | Type | Match |
 | -------- | ---- | ----- |
 | 10 | permit | ip address prefix-list PL-LOOPBACKS-EVPN-OVERLAY |
-| 20 | permit | ip address prefix-list PL-P2P-UNDERLAY |
 
 ### Route Maps Device Configuration
 
 ```eos
 route-map RM-CONN-2-BGP permit 10
    match ip address prefix-list PL-LOOPBACKS-EVPN-OVERLAY
-!
-route-map RM-CONN-2-BGP permit 20
-   match ip address prefix-list PL-P2P-UNDERLAY
 !
 ```
 
@@ -644,18 +644,21 @@ router bgp 65101
       neighbor IPv4-UNDERLAY-PEERS activate
    !
    vrf Tenant_A_APP_Zone
+      router-id 192.168.255.5
       rd 192.168.255.5:12
       route-target import evpn 12:12
       route-target export evpn 12:12
       redistribute connected
    !
    vrf Tenant_A_WEB_Zone
+      router-id 192.168.255.5
       rd 192.168.255.5:11
       route-target import evpn 11:11
       route-target export evpn 11:11
       redistribute connected
    !
    vrf tf_web_zone
+      router-id 192.168.255.5
       rd 192.168.255.5:40
       route-target import evpn 40:40
       route-target export evpn 40:40

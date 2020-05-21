@@ -341,6 +341,10 @@ ip route vrf MGMT 0.0.0.0/0 192.168.200.1
 !
 ```
 
+## Event Handler
+
+No Event Handler Defined
+
 ## IP Routing
 
 ### IP Routing Summary

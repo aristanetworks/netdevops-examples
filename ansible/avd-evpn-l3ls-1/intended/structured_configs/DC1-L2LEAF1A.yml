@@ -38,6 +38,9 @@ vlan_internal_order:
 ### Event Monitor ###
 event_monitor:
 
+### Event Handler ###
+event_handlers:
+
 ### Load Interval ###
 load_interval:
 

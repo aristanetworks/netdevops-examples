@@ -45,6 +45,9 @@ vlan_internal_order:
 ### Event Monitor ###
 event_monitor:
 
+### Event Handler ###
+event_handlers:
+
 ### Load Interval ###
 load_interval:
 
@@ -415,9 +418,6 @@ route_maps:
       10:
         type: permit
         match: "ip address prefix-list PL-LOOPBACKS-EVPN-OVERLAY"
-      20:
-        type: permit
-        match: "ip address prefix-list PL-P2P-UNDERLAY"
 ### Routing - BGP ###
 router_bgp:
   as: 65104
@@ -513,6 +513,7 @@ router_bgp:
 ## tech_friday_demo ##
 ## Tenant_A ##
     Tenant_A_OP_Zone:
+      router_id: 192.168.255.10
       rd: "192.168.255.10:10"
       route_targets:
         import:
@@ -527,6 +528,7 @@ router_bgp:
       redistribute_routes:
         - connected
     Tenant_A_WAN_Zone:
+      router_id: 192.168.255.10
       rd: "192.168.255.10:14"
       route_targets:
         import:
@@ -542,6 +544,7 @@ router_bgp:
         - connected
 ## Tenant_B ##
     Tenant_B_WAN_Zone:
+      router_id: 192.168.255.10
       rd: "192.168.255.10:21"
       route_targets:
         import:
@@ -557,6 +560,7 @@ router_bgp:
         - connected
 ## Tenant_C ##
     Tenant_C_WAN_Zone:
+      router_id: 192.168.255.10
       rd: "192.168.255.10:31"
       route_targets:
         import:

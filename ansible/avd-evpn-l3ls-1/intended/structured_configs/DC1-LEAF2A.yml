@@ -45,6 +45,9 @@ vlan_internal_order:
 ### Event Monitor ###
 event_monitor:
 
+### Event Handler ###
+event_handlers:
+
 ### Load Interval ###
 load_interval:
 
@@ -598,9 +601,6 @@ route_maps:
       10:
         type: permit
         match: "ip address prefix-list PL-LOOPBACKS-EVPN-OVERLAY"
-      20:
-        type: permit
-        match: "ip address prefix-list PL-P2P-UNDERLAY"
 ### Routing - BGP ###
 router_bgp:
   as: 65102
@@ -728,6 +728,7 @@ router_bgp:
   vrfs:
 ## Tenant_A ##
     Tenant_A_APP_Zone:
+      router_id: 192.168.255.6
       rd: "192.168.255.6:12"
       route_targets:
         import:
@@ -742,6 +743,7 @@ router_bgp:
       redistribute_routes:
         - connected
     Tenant_A_DB_Zone:
+      router_id: 192.168.255.6
       rd: "192.168.255.6:13"
       route_targets:
         import:
@@ -756,6 +758,7 @@ router_bgp:
       redistribute_routes:
         - connected
     Tenant_A_OP_Zone:
+      router_id: 192.168.255.6
       rd: "192.168.255.6:10"
       route_targets:
         import:
@@ -770,6 +773,7 @@ router_bgp:
       redistribute_routes:
         - connected
     Tenant_A_WEB_Zone:
+      router_id: 192.168.255.6
       rd: "192.168.255.6:11"
       route_targets:
         import:
@@ -785,6 +789,7 @@ router_bgp:
         - connected
 ## Tenant_B ##
     Tenant_B_OP_Zone:
+      router_id: 192.168.255.6
       rd: "192.168.255.6:20"
       route_targets:
         import:
@@ -800,6 +805,7 @@ router_bgp:
         - connected
 ## Tenant_C ##
     Tenant_C_OP_Zone:
+      router_id: 192.168.255.6
       rd: "192.168.255.6:30"
       route_targets:
         import:
