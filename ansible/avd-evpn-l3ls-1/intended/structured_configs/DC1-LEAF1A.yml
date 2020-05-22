@@ -16,6 +16,9 @@ leaf_allowed_svis: [410, 411, 130, 131, 120, 121]
 leaf_allowed_vlans: [410, 411, 130, 131, 120, 121]
 leaf_mlag: False
 
+service_routing_protocols_model: multi-agent
+ip_routing: true
+
 ### Hardware Counters
 hardware_counters:
 

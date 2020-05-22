@@ -21,6 +21,9 @@ leaf_mlag_ip: 17
 leaf_mlag_peer_ip: 16
 leaf_mlag_peer_id: 9
 
+service_routing_protocols_model: multi-agent
+ip_routing: true
+
 ### Hardware Counter
 hardware_counters:
 
