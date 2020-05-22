@@ -437,7 +437,7 @@ router_bgp:
       type: evpn
       remote_as: 65001
       update_source: Loopback0
-      fall_over_bfd: true
+      bfd: true
       ebgp_multihop: 3
       password: "q+VNViP5i4rVjW1cxFv2wA=="
       send_community: true
@@ -471,6 +471,22 @@ router_bgp:
   redistribute_routes:
     connected:
       route_map: RM-CONN-2-BGP
+  address_family_evpn:
+    peer_groups:
+      EVPN-OVERLAY-PEERS:
+        activate: true
+      IPv4-UNDERLAY-PEERS:
+        activate: false
+      MLAG-IPv4-UNDERLAY-PEER:
+        activate: false
+  address_family_ipv4:
+    peer_groups:
+      EVPN-OVERLAY-PEERS:
+        activate: false
+      IPv4-UNDERLAY-PEERS:
+        activate: true
+      MLAG-IPv4-UNDERLAY-PEER:
+        activate: true
   vlan_aware_bundles:
 ## tech_friday_demo ##
 ## Tenant_A ##
@@ -478,7 +494,7 @@ router_bgp:
       rd: "192.168.255.11:10"
       route_targets:
         both:
-          asn: "10:10"
+          - "10:10"
       redistribute_routes:
         - learned
       vlan: 113
@@ -486,7 +502,7 @@ router_bgp:
       rd: "192.168.255.11:14"
       route_targets:
         both:
-          asn: "14:14"
+          - "14:14"
       redistribute_routes:
         - learned
       vlan: 150
@@ -495,7 +511,7 @@ router_bgp:
       rd: "192.168.255.11:21"
       route_targets:
         both:
-          asn: "21:21"
+          - "21:21"
       redistribute_routes:
         - learned
       vlan: 250
@@ -504,7 +520,7 @@ router_bgp:
       rd: "192.168.255.11:31"
       route_targets:
         both:
-          asn: "31:31"
+          - "31:31"
       redistribute_routes:
         - learned
       vlan: 350
@@ -517,11 +533,11 @@ router_bgp:
       rd: "192.168.255.11:10"
       route_targets:
         import:
-          address_family: evpn
-          asn: "10:10"
+          evpn:
+            - "10:10"
         export:
-          address_family: evpn
-          asn: "10:10"
+          evpn:
+            - "10:10"
       neighbors:
         10.255.251.10:
           peer_group: MLAG-IPv4-UNDERLAY-PEER
@@ -532,11 +548,11 @@ router_bgp:
       rd: "192.168.255.11:14"
       route_targets:
         import:
-          address_family: evpn
-          asn: "14:14"
+          evpn:
+            - "14:14"
         export:
-          address_family: evpn
-          asn: "14:14"
+          evpn:
+            - "14:14"
       neighbors:
         10.255.251.10:
           peer_group: MLAG-IPv4-UNDERLAY-PEER
@@ -548,11 +564,11 @@ router_bgp:
       rd: "192.168.255.11:21"
       route_targets:
         import:
-          address_family: evpn
-          asn: "21:21"
+          evpn:
+            - "21:21"
         export:
-          address_family: evpn
-          asn: "21:21"
+          evpn:
+            - "21:21"
       neighbors:
         10.255.251.10:
           peer_group: MLAG-IPv4-UNDERLAY-PEER
@@ -564,11 +580,11 @@ router_bgp:
       rd: "192.168.255.11:31"
       route_targets:
         import:
-          address_family: evpn
-          asn: "31:31"
+          evpn:
+            - "31:31"
         export:
-          address_family: evpn
-          asn: "31:31"
+          evpn:
+            - "31:31"
       neighbors:
         10.255.251.10:
           peer_group: MLAG-IPv4-UNDERLAY-PEER

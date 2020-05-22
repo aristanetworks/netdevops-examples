@@ -4,9 +4,17 @@
 
 ### Management Interfaces Summary
 
+IPv4
+
 | Management Interface | description | VRF | IP Address | Gateway |
 | -------------------- | ----------- | --- | ---------- | ------- |
 | Management1 | oob_management | MGMT | 192.168.200.108/24 | 192.168.200.1 |
+
+IPv6
+
+| Management Interface | description | VRF | IPv6 Address | IPv6 Gateway |
+| -------------------- | ----------- | --- | ------------ | ------------ |
+| Management1 | oob_management | MGMT | ||
 
 ### Management Interfaces Device Configuration
 
@@ -22,6 +30,30 @@ interface Management1
 
 No Hardware Counters defined
 
+## Aliases
+
+alias copp show policy-map copp copp-system-policy
+alias help bash echo -e "sib : show ip bgp\nsibs : show ip bgp summary\nsiib : show ip int brief\nsir : show ip route\nsenz : show interface counter error | nz\nsnz : show interface counter | nz\nsps : show port-channel summary\nspd : show port-channel detail all\nsqnz : show interface counter queue | nz\nsrnz : show interface counter rate | nz\nsmac : show mac address-table dynamic\nsarp : show ip arp\ncopp : show policy-map copp copp-system-policy\ninfo : version, serial and mlag"
+alias sarp show ip arp
+alias senz show interface counter error | nz
+alias sib show ip bgp
+alias sibs show ip bgp summary
+alias siib show ip int brief
+alias sir show ip route
+alias smac show mac address-table dynamic
+alias snz show interface counter | nz
+alias spd show port-channel %1 detail all
+alias sps show port-channel summary
+alias sqnz show interface counter queue | nz
+alias srnz show interface counter rate | nz
+!
+alias info
+   10 bash SERIAL=$(FastCli -p 15 -c 'show version' | grep Serial | tr -s ' ' | cut -d ' ' -f 3 | tr -d '\r');echo -e "SN : $SERIAL"
+   20 bash VERSION=$(FastCli -p 15 -c 'show version' | grep image | tr -s ' ' | cut -d ' ' -f 4 | tr -d '\r');echo -e "EOS VERSION : $VERSION"
+   30 bash DOMAIN=$(FastCli -p 15 -c 'show mlag' | grep domain | tr -s ' ' | cut -d ' ' -f 3 | tr -d '\r');echo -e "MLAG DOMAIN : $DOMAIN"
+   40 bash STATE=$(FastCli -p 15 -c 'show mlag' | grep state | tr -s ' ' | cut -d ' ' -f 3 | tr -d '\r');echo -e "MLAG STATE : $STATE"
+
+!
 ## TerminAttr Daemon
 
 ### TerminAttr Daemon Summary
@@ -54,6 +86,17 @@ vlan internal order ascending range 1006 1199
 !
 ```
 
+## IP IGMP Snooping
+
+
+## Logging
+
+No logging settings defined
+
+## Domain Lookup
+
+DNS domain lookup not defined
+
 ## Name Servers
 
 ### Name Servers Summary
@@ -71,16 +114,22 @@ ip name-server vrf MGMT 8.8.8.8
 !
 ```
 
+## DNS Domain
+
+DNS domain not defined
+
 ## NTP
 
 ### NTP Summary
 
 Local Interface: Management1
+
 VRF: MGMT
+
 
 | Node | Primary |
 | ---- | ------- |
-| 0.north-america.pool.ntp.org | True |
+| 0.north-america.pool.ntp.org | true |
 | 1.north-america.pool.ntp.org | - |
 
 ### NTP Device Configuration
@@ -91,6 +140,14 @@ ntp server vrf MGMT 0.north-america.pool.ntp.org prefer
 ntp server vrf MGMT 1.north-america.pool.ntp.org
 !
 ```
+
+## Router L2 VPN
+
+Router L2 VPN not defined
+
+## SFlow
+
+No sFlow defined
 
 ## Spanning Tree
 
@@ -113,9 +170,26 @@ spanning-tree mst 0 priority 4096
 !
 ```
 
+
+TACACS Servers Not Configured
+
+
+IP TACACS source interfaces not defined
+
+
+AAA server groups not defined
+
 ## AAA Authentication
 
-AAA Not Configured
+AAA authentication not defined
+
+## AAA Authorization
+
+AAA authorization not defined
+
+## AAA Accounting
+
+AAA accounting not defined
 
 ## Local Users
 
@@ -275,31 +349,16 @@ vrf instance Tenant_C_OP_Zone
 !
 ```
 
-## BFD Multihop Interval
-
-### BFD Multihop Summary
-
-| Interval | Minimum RX | Multiplier |
-| -------- | ---------- | ---------- |
-| 1200 | 1200 | 3 |
-
-### BFD Multihop Device Configuration
-
-```eos
-bfd multihop interval 1200 min_rx 1200 multiplier 3
-!
-```
-
 ## Port-Channel Interfaces
 
 ### Port-Channel Interfaces Summary
 
-| Interface | Description | MTU | Type | Mode | Allowed VLANs (trunk) | Trunk Group | MLAG ID | VRF | IP Address |
-| --------- | ----------- | --- | ---- | ---- | --------------------- | ----------- | ------- | --- | ---------- |
-| Port-Channel5 | MLAG_PEER_DC1-SVC3B_Po5 | 1500 | switched | trunk | 2-4094 | LEAF_PEER_L3<br> MLAG | - | - | - |
-| Port-Channel7 | DC1_L2LEAF2_Po1 | 1500 | switched | trunk | 110-111,120-121,130-131,140-141,160-161,210-211,310-311 | - | 7 | - | - |
-| Port-Channel10 | server03_PortChanne1 | 1500 | switched | trunk | 110-111,210-211 | - | 10 | - | - |
-| Port-Channel11 | server04_PortChanne1 | 1500 | switched | trunk | 110-111,210-211 | - | 11 | - | - |
+| Interface | Description | MTU | Type | Mode | Allowed VLANs (trunk) | Trunk Group | MLAG ID | VRF | IP Address | IPv6 Address |
+| --------- | ----------- | --- | ---- | ---- | --------------------- | ----------- | ------- | --- | ---------- | ------------ |
+| Port-Channel5 | MLAG_PEER_DC1-SVC3B_Po5 | 1500 | switched | trunk | 2-4094 | LEAF_PEER_L3<br> MLAG | - | - | - | - |
+| Port-Channel7 | DC1_L2LEAF2_Po1 | 1500 | switched | trunk | 110-111,120-121,130-131,140-141,160-161,210-211,310-311 | - | 7 | - | - | - |
+| Port-Channel10 | server03_PortChanne1 | 1500 | switched | trunk | 110-111,210-211 | - | 10 | - | - | - |
+| Port-Channel11 | server04_PortChanne1 | 1500 | switched | trunk | 110-111,210-211 | - | 11 | - | - | - |
 
 ### Port-Channel Interfaces Device Configuration
 
@@ -403,11 +462,21 @@ interface Ethernet11
 
 ### Loopback Interfaces Summary
 
+IPv4
+
 | Interface | Description | VRF | IP Address |
 | --------- | ----------- | --- | ---------- |
 | Loopback0 | EVPN_Overlay_Peering | Global Routing Table | 192.168.255.8/32 |
 | Loopback1 | VTEP_VXLAN_Tunnel_Source | Global Routing Table | 192.168.254.8/32 |
 | Loopback100 | Tenant_A_OP_Zone_VTEP_DIAGNOSTICS | Tenant_A_OP_Zone | 10.255.1.8/32 |
+
+IPv6
+
+| Interface | Description | VRF | IPv6 Address |
+| --------- | ----------- | --- | ------------ |
+| Loopback0 | EVPN_Overlay_Peering | Global Routing Table | - |
+| Loopback1 | VTEP_VXLAN_Tunnel_Source | Global Routing Table | - |
+| Loopback100 | Tenant_A_OP_Zone_VTEP_DIAGNOSTICS | Tenant_A_OP_Zone | - |
 
 ### Loopback Interfaces Device Configuration
 
@@ -644,6 +713,22 @@ ip address virtual source-nat vrf Tenant_A_OP_Zone address 10.255.1.8
 !
 ```
 
+## IPv6 Extended Access-lists
+
+IPv6 Extended Access-lists not defined
+
+## IPv6 Standard Access-lists
+
+IPv6 Standard Access-lists not defined
+
+## Extended Access-lists
+
+Extended Access-lists not defined
+
+## Standard Access-lists
+
+Standard Access-lists not defined
+
 ## Static Routes
 
 ### Static Routes Summary
@@ -722,6 +807,29 @@ ip prefix-list PL-P2P-UNDERLAY
 !
 ```
 
+## IPv6 Prefix Lists
+
+IPv6 Prefix lists not defined
+
+## IPv6 Routing
+
+### IPv6 Routing Summary
+
+| VRF | IPv6 Routing Enabled |
+| --- | -------------------- |
+| MGMT | False |
+| Tenant_A_APP_Zone | False |
+| Tenant_A_DB_Zone | False |
+| Tenant_A_OP_Zone | False |
+| Tenant_A_WEB_Zone | False |
+| Tenant_B_OP_Zone | False |
+| Tenant_C_OP_Zone | False |
+
+### IPv6 Routing Device Configuration
+
+```eos
+```
+
 ## MLAG
 
 ### MLAG Summary
@@ -729,6 +837,8 @@ ip prefix-list PL-P2P-UNDERLAY
 | domain-id | local-interface | peer-address | peer-link |
 | --------- | --------------- | ------------ | --------- |
 | DC1_SVC3 | Vlan4094 | 10.255.252.7 | Port-Channel5 |
+
+Dual primary detection is enabled. The detection delay is 5 seconds.
 
 ### MLAG Device Configuration
 
@@ -751,9 +861,9 @@ mlag configuration
 
 **RM-CONN-2-BGP:**
 
-| Sequence | Type | Match |
-| -------- | ---- | ----- |
-| 10 | permit | ip address prefix-list PL-LOOPBACKS-EVPN-OVERLAY |
+| Sequence | Type | Match and/or Set |
+| -------- | ---- | ---------------- |
+| 10 | permit | match ip address prefix-list PL-LOOPBACKS-EVPN-OVERLAY |
 
 ### Route Maps Device Configuration
 
@@ -766,6 +876,22 @@ route-map RM-CONN-2-BGP permit 10
 ## Peer Filters
 
 No Peer Filters defined
+
+## Router BFD
+
+### Router BFD Multihop Summary
+
+| Interval | Minimum RX | Multiplier |
+| -------- | ---------- | ---------- |
+| 1200 | 1200 | 3 |
+
+### Router BFD Multihop Device Configuration
+
+```eos
+router bfd
+   multihop interval 1200 min-rx 1200 multiplier 3
+!
+```
 
 ## Router BGP
 
@@ -790,21 +916,10 @@ No Peer Filters defined
 | Address Family | evpn |
 | remote_as | 65001 |
 | source | Loopback0 |
-| bfd | True |
+| bfd | true |
 | ebgp multihop | 3 |
 | send community | true |
 | maximum routes | 0 (no limit) |
-**Neighbors:**
-
-| Neighbor | Remote AS |
-| -------- | ---------
-| 192.168.255.1 | *65001  |
-| 192.168.255.2 | *65001  |
-| 192.168.255.3 | *65001  |
-| 192.168.255.4 | *65001  |
-
-*Inherited from peer group
-
 **IPv4-UNDERLAY-PEERS**:
 
 | Settings | Value |
@@ -813,33 +928,29 @@ No Peer Filters defined
 | remote_as | 65001 |
 | send community | true |
 | maximum routes | 12000 |
-**Neighbors:**
-
-| Neighbor | Remote AS |
-| -------- | ---------
-| 172.31.255.24 | *65001  |
-| 172.31.255.26 | *65001  |
-| 172.31.255.28 | *65001  |
-| 172.31.255.30 | *65001  |
-
-*Inherited from peer group
-
 **MLAG-IPv4-UNDERLAY-PEER**:
 
 | Settings | Value |
 | -------- | ----- |
 | Address Family | ipv4 |
 | remote_as | 65103 |
-| next-hop self | True |
+| next-hop self | true |
 | send community | true |
 | maximum routes | 12000 |
-**Neighbors:**
+
+### BGP Neighbors
 
 | Neighbor | Remote AS |
 | -------- | ---------
-| 10.255.251.7 | *65103  |
-
-*Inherited from peer group
+| 10.255.251.7 | Inherited from peer group MLAG-IPv4-UNDERLAY-PEER |
+| 172.31.255.24 | Inherited from peer group IPv4-UNDERLAY-PEERS |
+| 172.31.255.26 | Inherited from peer group IPv4-UNDERLAY-PEERS |
+| 172.31.255.28 | Inherited from peer group IPv4-UNDERLAY-PEERS |
+| 172.31.255.30 | Inherited from peer group IPv4-UNDERLAY-PEERS |
+| 192.168.255.1 | Inherited from peer group EVPN-OVERLAY-PEERS |
+| 192.168.255.2 | Inherited from peer group EVPN-OVERLAY-PEERS |
+| 192.168.255.3 | Inherited from peer group EVPN-OVERLAY-PEERS |
+| 192.168.255.4 | Inherited from peer group EVPN-OVERLAY-PEERS |
 
 ### Router BGP EVPN Address Family
 
@@ -847,27 +958,28 @@ No Peer Filters defined
 
 **VLAN aware bundles:**
 
-| VLAN Aware Bundle | Route-Distinguisher | Route Target | Redistribute | VLANs |
-| ----------------- | ------------------- | ------------ | ------------ | ----- |
-| Tenant_A_APP_Zone | 192.168.255.8:12 | both 12:12 | learned | 130-131 |
-| Tenant_A_DB_Zone | 192.168.255.8:13 | both 13:13 | learned | 140-141 |
-| Tenant_A_NFS | 192.168.255.8:10161 | both 10161:10161 | learned | 161 |
-| Tenant_A_OP_Zone | 192.168.255.8:10 | both 10:10 | learned | 110-111 |
-| Tenant_A_VMOTION | 192.168.255.8:50160 | both 50160:50160 | learned | 160 |
-| Tenant_A_WEB_Zone | 192.168.255.8:11 | both 11:11 | learned | 120-121 |
-| Tenant_B_OP_Zone | 192.168.255.8:20 | both 20:20 | learned | 210-211 |
-| Tenant_C_OP_Zone | 192.168.255.8:30 | both 30:30 | learned | 310-311 |
+| VLAN Aware Bundle | Route-Distinguisher | Both Route-Target | Import Route Target | Export Route-Target | Redistribute | VLANs |
+| ----------------- | ------------------- | ----------------- | ------------------- | ------------------- | ------------ | ----- |
+| Tenant_A_APP_Zone | 192.168.255.8:12 |  12:12  |  |  | learned | 130-131 |
+| Tenant_A_DB_Zone | 192.168.255.8:13 |  13:13  |  |  | learned | 140-141 |
+| Tenant_A_NFS | 192.168.255.8:10161 |  10161:10161  |  |  | learned | 161 |
+| Tenant_A_OP_Zone | 192.168.255.8:10 |  10:10  |  |  | learned | 110-111 |
+| Tenant_A_VMOTION | 192.168.255.8:50160 |  50160:50160  |  |  | learned | 160 |
+| Tenant_A_WEB_Zone | 192.168.255.8:11 |  11:11  |  |  | learned | 120-121 |
+| Tenant_B_OP_Zone | 192.168.255.8:20 |  20:20  |  |  | learned | 210-211 |
+| Tenant_C_OP_Zone | 192.168.255.8:30 |  30:30  |  |  | learned | 310-311 |
+
 
 #### Router BGP EVPN VRFs
 
-| VRF | Route-Distinguisher | Route Target | Redistribute |
-| --- | ------------------- | ------------ | ------------ |
-| Tenant_A_APP_Zone | 192.168.255.8:12 | import 12:12<br> export 12:12 | connected |
-| Tenant_A_DB_Zone | 192.168.255.8:13 | import 13:13<br> export 13:13 | connected |
-| Tenant_A_OP_Zone | 192.168.255.8:10 | import 10:10<br> export 10:10 | connected |
-| Tenant_A_WEB_Zone | 192.168.255.8:11 | import 11:11<br> export 11:11 | connected |
-| Tenant_B_OP_Zone | 192.168.255.8:20 | import 20:20<br> export 20:20 | connected |
-| Tenant_C_OP_Zone | 192.168.255.8:30 | import 30:30<br> export 30:30 | connected |
+| VRF | Route-Distinguisher | Redistribute |
+| --- | ------------------- | ------------ |
+| Tenant_A_APP_Zone | 192.168.255.8:12 | connected  |
+| Tenant_A_DB_Zone | 192.168.255.8:13 | connected  |
+| Tenant_A_OP_Zone | 192.168.255.8:10 | connected  |
+| Tenant_A_WEB_Zone | 192.168.255.8:11 | connected  |
+| Tenant_B_OP_Zone | 192.168.255.8:20 | connected  |
+| Tenant_C_OP_Zone | 192.168.255.8:30 | connected  |
 
 ### Router BGP Device Configuration
 
@@ -966,51 +1078,71 @@ router bgp 65103
       neighbor MLAG-IPv4-UNDERLAY-PEER activate
    !
    vrf Tenant_A_APP_Zone
-      router-id 192.168.255.8
       rd 192.168.255.8:12
       route-target import evpn 12:12
       route-target export evpn 12:12
+      router-id 192.168.255.8
       neighbor 10.255.251.7 peer group MLAG-IPv4-UNDERLAY-PEER
       redistribute connected
    !
    vrf Tenant_A_DB_Zone
-      router-id 192.168.255.8
       rd 192.168.255.8:13
       route-target import evpn 13:13
       route-target export evpn 13:13
+      router-id 192.168.255.8
       neighbor 10.255.251.7 peer group MLAG-IPv4-UNDERLAY-PEER
       redistribute connected
    !
    vrf Tenant_A_OP_Zone
-      router-id 192.168.255.8
       rd 192.168.255.8:10
       route-target import evpn 10:10
       route-target export evpn 10:10
+      router-id 192.168.255.8
       neighbor 10.255.251.7 peer group MLAG-IPv4-UNDERLAY-PEER
       redistribute connected
    !
    vrf Tenant_A_WEB_Zone
-      router-id 192.168.255.8
       rd 192.168.255.8:11
       route-target import evpn 11:11
       route-target export evpn 11:11
+      router-id 192.168.255.8
       neighbor 10.255.251.7 peer group MLAG-IPv4-UNDERLAY-PEER
       redistribute connected
    !
    vrf Tenant_B_OP_Zone
-      router-id 192.168.255.8
       rd 192.168.255.8:20
       route-target import evpn 20:20
       route-target export evpn 20:20
+      router-id 192.168.255.8
       neighbor 10.255.251.7 peer group MLAG-IPv4-UNDERLAY-PEER
       redistribute connected
    !
    vrf Tenant_C_OP_Zone
-      router-id 192.168.255.8
       rd 192.168.255.8:30
       route-target import evpn 30:30
       route-target export evpn 30:30
+      router-id 192.168.255.8
       neighbor 10.255.251.7 peer group MLAG-IPv4-UNDERLAY-PEER
       redistribute connected
 !
 ```
+
+## Router Multicast
+
+Routing multicast not defined
+
+## Router PIM Sparse Mode
+
+Router PIM sparse mode not defined
+
+## VM Tracer Sessions
+
+No VM tracer session defined
+
+## Management Security
+
+Management Security not defined
+
+## Platform
+
+No Platform parameters defined

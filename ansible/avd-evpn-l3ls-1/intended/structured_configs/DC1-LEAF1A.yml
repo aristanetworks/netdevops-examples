@@ -376,7 +376,7 @@ router_bgp:
       type: evpn
       remote_as: 65001
       update_source: Loopback0
-      fall_over_bfd: true
+      bfd: true
       ebgp_multihop: 3
       password: "q+VNViP5i4rVjW1cxFv2wA=="
       send_community: true
@@ -401,13 +401,25 @@ router_bgp:
   redistribute_routes:
     connected:
       route_map: RM-CONN-2-BGP
+  address_family_evpn:
+    peer_groups:
+      EVPN-OVERLAY-PEERS:
+        activate: true
+      IPv4-UNDERLAY-PEERS:
+        activate: false
+  address_family_ipv4:
+    peer_groups:
+      EVPN-OVERLAY-PEERS:
+        activate: false
+      IPv4-UNDERLAY-PEERS:
+        activate: true
   vlan_aware_bundles:
 ## tech_friday_demo ##
     tf_web_zone:
       rd: "192.168.255.5:40"
       route_targets:
         both:
-          asn: "40:40"
+          - "40:40"
       redistribute_routes:
         - learned
       vlan: 410-411
@@ -416,7 +428,7 @@ router_bgp:
       rd: "192.168.255.5:12"
       route_targets:
         both:
-          asn: "12:12"
+          - "12:12"
       redistribute_routes:
         - learned
       vlan: 130-131
@@ -424,7 +436,7 @@ router_bgp:
       rd: "192.168.255.5:11"
       route_targets:
         both:
-          asn: "11:11"
+          - "11:11"
       redistribute_routes:
         - learned
       vlan: 120-121
@@ -438,11 +450,11 @@ router_bgp:
       rd: "192.168.255.5:40"
       route_targets:
         import:
-          address_family: evpn
-          asn: "40:40"
+          evpn:
+            - "40:40"
         export:
-          address_family: evpn
-          asn: "40:40"
+          evpn:
+            - "40:40"
       redistribute_routes:
         - connected
 ## Tenant_A ##
@@ -451,11 +463,11 @@ router_bgp:
       rd: "192.168.255.5:12"
       route_targets:
         import:
-          address_family: evpn
-          asn: "12:12"
+          evpn:
+            - "12:12"
         export:
-          address_family: evpn
-          asn: "12:12"
+          evpn:
+            - "12:12"
       redistribute_routes:
         - connected
     Tenant_A_WEB_Zone:
@@ -463,11 +475,11 @@ router_bgp:
       rd: "192.168.255.5:11"
       route_targets:
         import:
-          address_family: evpn
-          asn: "11:11"
+          evpn:
+            - "11:11"
         export:
-          address_family: evpn
-          asn: "11:11"
+          evpn:
+            - "11:11"
       redistribute_routes:
         - connected
 ## Tenant_B ##

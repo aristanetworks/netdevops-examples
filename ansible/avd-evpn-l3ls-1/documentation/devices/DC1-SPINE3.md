@@ -4,9 +4,17 @@
 
 ### Management Interfaces Summary
 
+IPv4
+
 | Management Interface | description | VRF | IP Address | Gateway |
 | -------------------- | ----------- | --- | ---------- | ------- |
 | Management1 | oob_management | MGMT | 192.168.200.103/24 | 192.168.200.1 |
+
+IPv6
+
+| Management Interface | description | VRF | IPv6 Address | IPv6 Gateway |
+| -------------------- | ----------- | --- | ------------ | ------------ |
+| Management1 | oob_management | MGMT | ||
 
 ### Management Interfaces Device Configuration
 
@@ -22,6 +30,30 @@ interface Management1
 
 No Hardware Counters defined
 
+## Aliases
+
+alias copp show policy-map copp copp-system-policy
+alias help bash echo -e "sib : show ip bgp\nsibs : show ip bgp summary\nsiib : show ip int brief\nsir : show ip route\nsenz : show interface counter error | nz\nsnz : show interface counter | nz\nsps : show port-channel summary\nspd : show port-channel detail all\nsqnz : show interface counter queue | nz\nsrnz : show interface counter rate | nz\nsmac : show mac address-table dynamic\nsarp : show ip arp\ncopp : show policy-map copp copp-system-policy\ninfo : version, serial and mlag"
+alias sarp show ip arp
+alias senz show interface counter error | nz
+alias sib show ip bgp
+alias sibs show ip bgp summary
+alias siib show ip int brief
+alias sir show ip route
+alias smac show mac address-table dynamic
+alias snz show interface counter | nz
+alias spd show port-channel %1 detail all
+alias sps show port-channel summary
+alias sqnz show interface counter queue | nz
+alias srnz show interface counter rate | nz
+!
+alias info
+   10 bash SERIAL=$(FastCli -p 15 -c 'show version' | grep Serial | tr -s ' ' | cut -d ' ' -f 3 | tr -d '\r');echo -e "SN : $SERIAL"
+   20 bash VERSION=$(FastCli -p 15 -c 'show version' | grep image | tr -s ' ' | cut -d ' ' -f 4 | tr -d '\r');echo -e "EOS VERSION : $VERSION"
+   30 bash DOMAIN=$(FastCli -p 15 -c 'show mlag' | grep domain | tr -s ' ' | cut -d ' ' -f 3 | tr -d '\r');echo -e "MLAG DOMAIN : $DOMAIN"
+   40 bash STATE=$(FastCli -p 15 -c 'show mlag' | grep state | tr -s ' ' | cut -d ' ' -f 3 | tr -d '\r');echo -e "MLAG STATE : $STATE"
+
+!
 ## TerminAttr Daemon
 
 ### TerminAttr Daemon Summary
@@ -54,6 +86,17 @@ vlan internal order ascending range 1006 1199
 !
 ```
 
+## IP IGMP Snooping
+
+
+## Logging
+
+No logging settings defined
+
+## Domain Lookup
+
+DNS domain lookup not defined
+
 ## Name Servers
 
 ### Name Servers Summary
@@ -71,16 +114,22 @@ ip name-server vrf MGMT 8.8.8.8
 !
 ```
 
+## DNS Domain
+
+DNS domain not defined
+
 ## NTP
 
 ### NTP Summary
 
 Local Interface: Management1
+
 VRF: MGMT
+
 
 | Node | Primary |
 | ---- | ------- |
-| 0.north-america.pool.ntp.org | True |
+| 0.north-america.pool.ntp.org | true |
 | 1.north-america.pool.ntp.org | - |
 
 ### NTP Device Configuration
@@ -91,6 +140,14 @@ ntp server vrf MGMT 0.north-america.pool.ntp.org prefer
 ntp server vrf MGMT 1.north-america.pool.ntp.org
 !
 ```
+
+## Router L2 VPN
+
+Router L2 VPN not defined
+
+## SFlow
+
+No sFlow defined
 
 ## Spanning Tree
 
@@ -106,9 +163,26 @@ spanning-tree mode none
 !
 ```
 
+
+TACACS Servers Not Configured
+
+
+IP TACACS source interfaces not defined
+
+
+AAA server groups not defined
+
 ## AAA Authentication
 
-AAA Not Configured
+AAA authentication not defined
+
+## AAA Authorization
+
+AAA authorization not defined
+
+## AAA Accounting
+
+AAA accounting not defined
 
 ## Local Users
 
@@ -143,21 +217,6 @@ No VLANs defined
 
 ```eos
 vrf instance MGMT
-!
-```
-
-## BFD Multihop Interval
-
-### BFD Multihop Summary
-
-| Interval | Minimum RX | Multiplier |
-| -------- | ---------- | ---------- |
-| 1200 | 1200 | 3 |
-
-### BFD Multihop Device Configuration
-
-```eos
-bfd multihop interval 1200 min_rx 1200 multiplier 3
 !
 ```
 
@@ -225,9 +284,17 @@ interface Ethernet7
 
 ### Loopback Interfaces Summary
 
+IPv4
+
 | Interface | Description | VRF | IP Address |
 | --------- | ----------- | --- | ---------- |
 | Loopback0 | EVPN_Overlay_Peering | Global Routing Table | 192.168.255.3/32 |
+
+IPv6
+
+| Interface | Description | VRF | IPv6 Address |
+| --------- | ----------- | --- | ------------ |
+| Loopback0 | EVPN_Overlay_Peering | Global Routing Table | - |
 
 ### Loopback Interfaces Device Configuration
 
@@ -248,6 +315,22 @@ No VXLAN interface defined
 
 ## Virtual Router MAC Address & Virtual Source NAT
 
+
+## IPv6 Extended Access-lists
+
+IPv6 Extended Access-lists not defined
+
+## IPv6 Standard Access-lists
+
+IPv6 Standard Access-lists not defined
+
+## Extended Access-lists
+
+Extended Access-lists not defined
+
+## Standard Access-lists
+
+Standard Access-lists not defined
 
 ## Static Routes
 
@@ -302,6 +385,23 @@ ip prefix-list PL-LOOPBACKS-EVPN-OVERLAY
 !
 ```
 
+## IPv6 Prefix Lists
+
+IPv6 Prefix lists not defined
+
+## IPv6 Routing
+
+### IPv6 Routing Summary
+
+| VRF | IPv6 Routing Enabled |
+| --- | -------------------- |
+| MGMT | False |
+
+### IPv6 Routing Device Configuration
+
+```eos
+```
+
 ## MLAG
 
 MLAG not defined
@@ -312,9 +412,9 @@ MLAG not defined
 
 **RM-CONN-2-BGP:**
 
-| Sequence | Type | Match |
-| -------- | ---- | ----- |
-| 10 | permit | ip address prefix-list PL-LOOPBACKS-EVPN-OVERLAY |
+| Sequence | Type | Match and/or Set |
+| -------- | ---- | ---------------- |
+| 10 | permit | match ip address prefix-list PL-LOOPBACKS-EVPN-OVERLAY |
 
 ### Route Maps Device Configuration
 
@@ -342,6 +442,22 @@ peer-filter LEAF-AS-RANGE
 !
 ```
 
+## Router BFD
+
+### Router BFD Multihop Summary
+
+| Interval | Minimum RX | Multiplier |
+| -------- | ---------- | ---------- |
+| 1200 | 1200 | 3 |
+
+### Router BFD Multihop Device Configuration
+
+```eos
+router bfd
+   multihop interval 1200 min-rx 1200 multiplier 3
+!
+```
+
 ## Router BGP
 
 ### Router BGP Summary
@@ -363,49 +479,42 @@ peer-filter LEAF-AS-RANGE
 | Settings | Value |
 | -------- | ----- |
 | Address Family | evpn |
-| next-hop unchanged | True |
+| next-hop unchanged | true |
 | source | Loopback0 |
-| bfd | True |
+| bfd | true |
 | ebgp multihop | 3 |
 | send community | true |
 | maximum routes | 0 (no limit) |
-**Neighbors:**
-
-| Neighbor | Remote AS |
-| -------- | ---------
-| 192.168.255.5 | 65101  |
-| 192.168.255.6 | 65102  |
-| 192.168.255.7 | 65102  |
-| 192.168.255.8 | 65103  |
-| 192.168.255.9 | 65103  |
-| 192.168.255.10 | 65104  |
-| 192.168.255.11 | 65104  |
-
-*Inherited from peer group
-
 **IPv4-UNDERLAY-PEERS**:
 
 | Settings | Value |
 | -------- | ----- |
 | Address Family | ipv4 |
 | maximum routes | 12000 |
-**Neighbors:**
+
+### BGP Neighbors
 
 | Neighbor | Remote AS |
 | -------- | ---------
-| 172.31.255.5 | 65101  |
-| 172.31.255.13 | 65102  |
-| 172.31.255.21 | 65102  |
-| 172.31.255.29 | 65103  |
-| 172.31.255.37 | 65103  |
-| 172.31.255.45 | 65104  |
-| 172.31.255.53 | 65104  |
-
-*Inherited from peer group
+| 172.31.255.5 | 65101 |
+| 172.31.255.13 | 65102 |
+| 172.31.255.21 | 65102 |
+| 172.31.255.29 | 65103 |
+| 172.31.255.37 | 65103 |
+| 172.31.255.45 | 65104 |
+| 172.31.255.53 | 65104 |
+| 192.168.255.5 | 65101 |
+| 192.168.255.6 | 65102 |
+| 192.168.255.7 | 65102 |
+| 192.168.255.8 | 65103 |
+| 192.168.255.9 | 65103 |
+| 192.168.255.10 | 65104 |
+| 192.168.255.11 | 65104 |
 
 ### Router BGP EVPN Address Family
 
 #### Router BGP EVPN MAC-VRFs
+
 
 
 #### Router BGP EVPN VRFs
@@ -469,3 +578,23 @@ router bgp 65001
       neighbor IPv4-UNDERLAY-PEERS activate
 !
 ```
+
+## Router Multicast
+
+Routing multicast not defined
+
+## Router PIM Sparse Mode
+
+Router PIM sparse mode not defined
+
+## VM Tracer Sessions
+
+No VM tracer session defined
+
+## Management Security
+
+Management Security not defined
+
+## Platform
+
+No Platform parameters defined
