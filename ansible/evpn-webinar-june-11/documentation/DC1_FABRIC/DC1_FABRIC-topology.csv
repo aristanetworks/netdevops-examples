@@ -1,0 +1,17 @@
+Node Type,Node,Node Interface,Peer Type,Peer,Peer Interface
+spine,SPINE1,Ethernet1,l3leaf,LEAF1A,Ethernet1
+spine,SPINE1,Ethernet2,l3leaf,LEAF2A,Ethernet1
+spine,SPINE1,Ethernet3,l3leaf,LEAF2B,Ethernet1
+spine,SPINE2,Ethernet1,l3leaf,LEAF1A,Ethernet2
+spine,SPINE2,Ethernet2,l3leaf,LEAF2A,Ethernet2
+spine,SPINE2,Ethernet3,l3leaf,LEAF2B,Ethernet2
+l3leaf,LEAF1A,Ethernet1,spine,SPINE1,Ethernet1
+l3leaf,LEAF1A,Ethernet2,spine,SPINE2,Ethernet1
+l3leaf,LEAF2A,Ethernet1,spine,SPINE1,Ethernet2
+l3leaf,LEAF2A,Ethernet2,spine,SPINE2,Ethernet2
+l3leaf,LEAF2A,Ethernet47,mlag_peer,LEAF2B,Ethernet47
+l3leaf,LEAF2A,Ethernet48,mlag_peer,LEAF2B,Ethernet48
+l3leaf,LEAF2B,Ethernet1,spine,SPINE1,Ethernet3
+l3leaf,LEAF2B,Ethernet2,spine,SPINE2,Ethernet3
+l3leaf,LEAF2B,Ethernet47,mlag_peer,LEAF2A,Ethernet47
+l3leaf,LEAF2B,Ethernet48,mlag_peer,LEAF2A,Ethernet48

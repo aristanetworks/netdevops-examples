@@ -1,0 +1,35 @@
+# DC1 Tenants Networks
+# Documentation of Tenant specific information - Vlans/VRFs
+
+tenants:
+
+# Tenant A Specific Information - VRFs / VLANs
+  Tenant_A:
+    mac_vrf_vni_base: 10000
+    vrfs:
+      A:
+        vrf_vni: 10
+        vtep_diagnostic:
+          loopback: 100
+          loopback_ip_range: 10.255.1.0/24
+        svis:
+          10:
+            name: Ten-opzone
+            tags: [ opzone ]
+            enabled: true
+            ip_address_virtual: 10.10.10.1/24
+          20:
+            name: Twenty-web
+            tags: [ web ]
+            enabled: true
+            ip_address_virtual: 20.20.20.1/24
+          30:
+            name: Thirty-app
+            tags: [ app ]
+            enabled: true
+            ip_address_virtual: 30.30.30.1/24
+          40:
+            name: Forty-db
+            tags: [ db ]
+            enabled: true
+            ip_address_virtual: 40.40.40.1/24

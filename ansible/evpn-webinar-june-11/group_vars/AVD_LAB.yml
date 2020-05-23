@@ -1,0 +1,42 @@
+# Nashua EVE-NG LAB shared attributes
+
+# local users
+local_users:
+  admin:
+    privilege: 15
+    role: network-admin
+    sha512_password: "$6$tQFnZeopb0IPpmX7$BowHaWzQIUXkcjAZSboAwSzCkBraZjgJugjYYP4.y/A9rMsKfxJ7GKWD7GbtHq20WvFC3TiwOQFzlDNUmnac//"
+
+  arista:
+    privilege: 15
+    role: network-admin
+    sha512_password: "$6$q6ZYUi52LMKh.WEH$uGqc7omuQa.VhtUdSEltWeiBdFEVAxphWXe.UBXRYFx4TwGGmg9.YKXlaZORqxN7CEI18PGDZHzqeGomZJeZg1"
+
+  cvpadmin:
+    privilege: 15
+    role: network-admin
+    sha512_password: "$6$4sLMfiH7WTA58PyX$XoC4AXQPce.yOyjo6Fcg.5CFev6s8cIb94s1uu.wWTYC8pPTe5iODxgpb6x1WUa96QEYfBmD5VaTO7etWfTOu/"
+
+# Cloud Vision server
+cvp_instance_ips:
+  - 192.168.100.240
+
+cvp_ingestauth_key: magickey02122020
+
+
+# OOB Management network default gateway.
+mgmt_gateway: 192.168.200.1
+
+# dns servers.
+name_servers:
+ - 192.168.70.1
+
+# NTP Servers IP or DNS name, first NTP server will be prefered, and sourced from Managment
+ntp_servers:
+  - 216.239.35.4
+
+###  EOS Aliases ###
+aliases: |
+  alias shimet show bgp evpn route-type imet detail | awk '/for imet/ { print "VNI: " $7 ", VTEP: " $8, "RD: " $11 }'
+  alias shmacip show bgp evpn route-type mac-ip detail | awk '/for mac-ip/ { if (NF == 11) { print "RD: " $11, "VNI: " $7, "MAC: " $8 } else { print "RD: " $12, "VNI: " $7, "MAC: " $8, "IP: " $9 } }' | sed -e s/,//g
+  alias shprefix show bgp evpn route-type ip-prefix ipv4 detail | awk '/for ip-prefix/ { print "ip-prefix: " $7, "RD: " $10 }'

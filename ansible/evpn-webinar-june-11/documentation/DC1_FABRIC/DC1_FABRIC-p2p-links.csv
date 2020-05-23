@@ -1,0 +1,7 @@
+type, Leaf Node,Leaf Interface,Leaf IP Address,Port-Channel,Peer Node,Peer Interface,Peer IP Address,Port-Channel
+L3 Leaf,LEAF1A,Ethernet1,10.1.1.41/31,N/A,SPINE1,Ethernet1,10.1.1.40/31,N/A
+L3 Leaf,LEAF1A,Ethernet2,10.1.1.43/31,N/A,SPINE2,Ethernet1,10.1.1.42/31,N/A
+L3 Leaf,LEAF2A,Ethernet1,10.1.1.81/31,N/A,SPINE1,Ethernet2,10.1.1.80/31,N/A
+L3 Leaf,LEAF2A,Ethernet2,10.1.1.83/31,N/A,SPINE2,Ethernet2,10.1.1.82/31,N/A
+L3 Leaf,LEAF2B,Ethernet1,10.1.1.85/31,N/A,SPINE1,Ethernet3,10.1.1.84/31,N/A
+L3 Leaf,LEAF2B,Ethernet2,10.1.1.87/31,N/A,SPINE2,Ethernet3,10.1.1.86/31,N/A

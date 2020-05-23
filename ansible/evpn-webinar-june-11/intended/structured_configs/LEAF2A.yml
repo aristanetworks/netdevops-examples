@@ -1,0 +1,451 @@
+## Ansible Generated ##
+
+### LEAF2A ###
+
+
+### Leaf Info ###
+l3leaf_node_group: DC1_LEAF2
+switch_platform: vEOS-LAB
+leaf_bgp_as: 65003
+leaf_id: 21
+switch_mgmt_ip: 192.168.100.33/24
+leaf_filter_tenants: ['all']
+leaf_filter_tags: ['opzone', 'web', 'app', 'db']
+leaf_allowed_vrfs: ['A']
+leaf_allowed_svis: [10, 20, 30, 40]
+leaf_allowed_vlans: [10, 20, 30, 40]
+leaf_mlag: True
+leaf_mlag_group: DC1_LEAF2
+leaf_mlag_role: primary
+leaf_mlag_peer: LEAF2B
+leaf_mlag_ip: 40
+leaf_mlag_peer_ip: 41
+leaf_mlag_peer_id: 22
+
+service_routing_protocols_model: multi-agent
+ip_routing: true
+
+### Hardware Counters
+hardware_counters:
+
+### Daemon TerminAttr
+daemon_terminattr:
+  ingestgrpcurl:
+    ips:
+      - 192.168.100.240
+    port: 9910
+  ingestauth_key: magickey02122020
+  ingestvrf: MGMT
+  smashexcludes: "ale,flexCounter,hardware,kni,pulse,strata"
+  ingestexclude: "/Sysdb/cell/1/agent,/Sysdb/cell/2/agent"
+
+vlan_internal_order:
+  allocation: ascending
+  range:
+    beginning: 1006
+    ending: 1199
+
+### Event Monitor ###
+event_monitor:
+
+### Event Handler ###
+event_handlers:
+
+### Load Interval ###
+load_interval:
+
+### Queue Monitor Lenght ###
+queue_monitor_length:
+
+### Logging ###
+logging:
+
+### Name Servers ###
+name_server:
+  source:
+    vrf: MGMT
+  nodes:
+    - 192.168.70.1
+
+### NTP Servers ###
+ntp_server:
+  local_interface:
+    vrf: MGMT
+    interface: Management1
+  nodes:
+    - 216.239.35.4
+
+### Redundancy ###
+redundancy:
+
+### Spanning-tree ###
+spanning_tree:
+  mode: mstp
+  priority: 4096
+  no_spanning_tree_vlan: 4094
+
+
+### AAA authorization ###
+aaa_authorization:
+
+### local users ###
+local_users:
+  admin:
+    privilege: 15
+    role: network-admin
+    sha512_password: $6$tQFnZeopb0IPpmX7$BowHaWzQIUXkcjAZSboAwSzCkBraZjgJugjYYP4.y/A9rMsKfxJ7GKWD7GbtHq20WvFC3TiwOQFzlDNUmnac//
+  arista:
+    privilege: 15
+    role: network-admin
+    sha512_password: $6$q6ZYUi52LMKh.WEH$uGqc7omuQa.VhtUdSEltWeiBdFEVAxphWXe.UBXRYFx4TwGGmg9.YKXlaZORqxN7CEI18PGDZHzqeGomZJeZg1
+  cvpadmin:
+    privilege: 15
+    role: network-admin
+    sha512_password: $6$4sLMfiH7WTA58PyX$XoC4AXQPce.yOyjo6Fcg.5CFev6s8cIb94s1uu.wWTYC8pPTe5iODxgpb6x1WUa96QEYfBmD5VaTO7etWfTOu/
+
+### Clock Timezone ###
+clock:
+
+### VLANs ###
+vlans:
+## mlag vlans ##
+  4093:
+    tenant: system
+    name: LEAF_PEER_L3
+    trunk_groups:
+      - LEAF_PEER_L3
+  4094:
+    tenant: system
+    name: MLAG_PEER
+    trunk_groups:
+      - MLAG
+
+## Tenant_A ##
+  10:
+    tenant: Tenant_A
+    name: Ten-opzone
+  20:
+    tenant: Tenant_A
+    name: Twenty-web
+  30:
+    tenant: Tenant_A
+    name: Thirty-app
+  40:
+    tenant: Tenant_A
+    name: Forty-db
+  3009:
+    tenant: Tenant_A
+    name: MLAG_iBGP_A
+    trunk_groups:
+      - LEAF_PEER_L3
+
+### VRFs ###
+vrfs:
+  MGMT:
+    ip_routing: False
+## Tenant_A ##
+  A:
+    tenant: Tenant_A
+    ip_routing: true
+
+### bfd multihop ###
+bfd_multihop:
+  interval: 300
+  min_rx: 300
+  multiplier: 3
+
+### Port-Channel Interfaces ###
+port_channel_interfaces:
+## mlag peer-link ##
+  Port-Channel47:
+    description: MLAG_PEER_LEAF2B_Po47
+    vlans: "2-4094"
+    mode: trunk
+    trunk_groups:
+      - LEAF_PEER_L3
+      - MLAG
+
+### Ethernet Interfaces ###
+ethernet_interfaces:
+  Ethernet1:
+    peer: SPINE1
+    peer_interface: Ethernet2
+    peer_type: spine
+    description: P2P_LINK_TO_SPINE1_Ethernet2
+    mtu: 9216
+    type: routed
+    ip_address: 10.1.1.81/31
+  Ethernet2:
+    peer: SPINE2
+    peer_interface: Ethernet2
+    peer_type: spine
+    description: P2P_LINK_TO_SPINE2_Ethernet2
+    mtu: 9216
+    type: routed
+    ip_address: 10.1.1.83/31
+## mlag interfaces ##
+  Ethernet47:
+    peer: LEAF2B
+    peer_interface: Ethernet47
+    peer_type: mlag_peer
+    description: MLAG_PEER_LEAF2B_Ethernet47
+    channel_group:
+      id: 47
+      mode: active
+  Ethernet48:
+    peer: LEAF2B
+    peer_interface: Ethernet48
+    peer_type: mlag_peer
+    description: MLAG_PEER_LEAF2B_Ethernet48
+    channel_group:
+      id: 47
+      mode: active
+
+
+### Loopback Interfaces ###
+loopback_interfaces:
+  Loopback0:
+    description: EVPN_Overlay_Peering
+    ip_address: 1.1.1.23/32
+
+  Loopback1:
+    description: VTEP_VXLAN_Tunnel_Source
+    ip_address: 2.2.2.23/32
+## Tenant_A ##
+  Loopback100:
+    description: A_VTEP_DIAGNOSTICS
+    vrf: A
+    ip_address: 10.255.1.23/32
+
+### Management Interfaces ###
+management_interfaces:
+  Management1:
+    description: oob_management
+    vrf: MGMT
+    ip_address: 192.168.100.33/24
+    gateway: 192.168.200.1
+
+### VLAN Interfaces ###
+vlan_interfaces:
+  Vlan4093:
+    description: MLAG_PEER_L3_PEERING
+    ip_address: 10.255.251.40/31
+  Vlan4094:
+    description: MLAG_PEER
+    ip_address: 10.255.252.40/31
+    no_autostate: true
+    mtu: 9216
+## Tenant_A ##
+  Vlan10:
+    tenant: Tenant_A
+    tags: ['opzone']
+    description: Ten-opzone
+    vrf: A
+    ip_address_virtual: 10.10.10.1/24
+  Vlan20:
+    tenant: Tenant_A
+    tags: ['web']
+    description: Twenty-web
+    vrf: A
+    ip_address_virtual: 20.20.20.1/24
+  Vlan30:
+    tenant: Tenant_A
+    tags: ['app']
+    description: Thirty-app
+    vrf: A
+    ip_address_virtual: 30.30.30.1/24
+  Vlan40:
+    tenant: Tenant_A
+    tags: ['db']
+    description: Forty-db
+    vrf: A
+    ip_address_virtual: 40.40.40.1/24
+  Vlan3009:
+    tenant: Tenant_A
+    type: underlay_peering
+    description: "MLAG_PEER_L3_iBGP: vrf A"
+    vrf: A
+    ip_address: 10.255.251.40/31
+
+### VxLAN interface ###
+vxlan_tunnel_interface:
+  Vxlan1:
+    description: LEAF2A_VTEP
+    source_interface: Loopback1
+    virtual_router:
+      encapsulation_mac_address: "mlag-system-id"
+    vxlan_udp_port: 4789
+    vxlan_vni_mappings:
+      vlans:
+## Tenant_A ##
+        10:
+          vni: 10010
+        20:
+          vni: 10020
+        30:
+          vni: 10030
+        40:
+          vni: 10040
+      vrfs:
+## Tenant_A ##
+        A:
+          vni: 10
+
+### TCAM Profiles ###
+tcam_profile:
+
+### MAC address table ###
+mac_address_table:
+
+ip_virtual_router_mac_address: 00:dc:00:00:00:0a
+
+virtual_source_nat_vrfs:
+## Tenant_A ##
+  A:
+    ip_address: 10.255.1.23
+
+### static routes ###
+static_routes:
+  - vrf: MGMT
+    destination_address_prefix: 0.0.0.0/0
+    gateway: 192.168.200.1
+
+### prefix-lists ###
+prefix_lists:
+  PL-LOOPBACKS-EVPN-OVERLAY:
+    sequence_numbers:
+      10:
+        action: "permit 1.1.1.0/24 eq 32"
+      20:
+        action: "permit 2.2.2.0/24 eq 32"
+  PL-P2P-UNDERLAY:
+    sequence_numbers:
+      10:
+        action: "permit 10.1.1.0/24 le 31"
+      20:
+        action: "permit 10.255.251.0/24 le 31"
+
+### MLAG Configuration ###
+mlag_configuration:
+  domain_id: DC1_LEAF2
+  local_interface: Vlan4094
+  peer_address: 10.255.252.41
+  peer_address_heartbeat:
+    peer_ip: 192.168.100.34
+    vrf: MGMT
+  dual_primary_detection_delay: 5
+  peer_link: Port-Channel47
+  reload_delay_mlag: 360
+  reload_delay_non_mlag: 300
+
+### route-maps ###
+route_maps:
+  RM-CONN-2-BGP:
+    sequence_numbers:
+      10:
+        type: permit
+        match: "ip address prefix-list PL-LOOPBACKS-EVPN-OVERLAY"
+### Routing - BGP ###
+router_bgp:
+  as: 65003
+  router_id: 1.1.1.23
+  bgp_defaults:
+    - update wait-install
+    - no bgp default ipv4-unicast
+    - distance bgp 20 200 200
+    - graceful-restart restart-time 300
+    - graceful-restart
+    - maximum-paths 2 ecmp 2
+  peer_groups:
+    IPv4-UNDERLAY-PEERS:
+      type: ipv4
+      remote_as: 65001
+      password: "AQQvKeimxJu+uGQ/yYvv9w=="
+      maximum_routes: 12000
+      send_community: true
+    EVPN-OVERLAY-PEERS:
+      type: evpn
+      remote_as: 65001
+      update_source: Loopback0
+      bfd: true
+      ebgp_multihop: 3
+      password: "q+VNViP5i4rVjW1cxFv2wA=="
+      send_community: true
+      maximum_routes: 0
+    MLAG-IPv4-UNDERLAY-PEER:
+      type: ipv4
+      remote_as: 65003
+      next_hop_self: true
+      password: "vnEaG8gMeQf3d3cN6PktXQ=="
+      maximum_routes: 12000
+      send_community: true
+  neighbors:
+    10.1.1.80:
+      peer_group: IPv4-UNDERLAY-PEERS
+    10.1.1.82:
+      peer_group: IPv4-UNDERLAY-PEERS
+    1.1.1.1:
+      peer_group: EVPN-OVERLAY-PEERS
+    1.1.1.2:
+      peer_group: EVPN-OVERLAY-PEERS
+    10.255.251.41:
+      peer_group: MLAG-IPv4-UNDERLAY-PEER
+  redistribute_routes:
+    connected:
+      route_map: RM-CONN-2-BGP
+  address_family_evpn:
+    peer_groups:
+      EVPN-OVERLAY-PEERS:
+        activate: true
+      IPv4-UNDERLAY-PEERS:
+        activate: false
+      MLAG-IPv4-UNDERLAY-PEER:
+        activate: false
+  address_family_ipv4:
+    peer_groups:
+      EVPN-OVERLAY-PEERS:
+        activate: false
+      IPv4-UNDERLAY-PEERS:
+        activate: true
+      MLAG-IPv4-UNDERLAY-PEER:
+        activate: true
+  vlan_aware_bundles:
+## Tenant_A ##
+    A:
+      rd: "1.1.1.23:10"
+      route_targets:
+        both:
+          - "10:10"
+      redistribute_routes:
+        - learned
+      vlan: 10,20,30,40
+  vlans:
+  vrfs:
+## Tenant_A ##
+    A:
+      router_id: 1.1.1.23
+      rd: "1.1.1.23:10"
+      route_targets:
+        import:
+          evpn:
+            - "10:10"
+        export:
+          evpn:
+            - "10:10"
+      neighbors:
+        10.255.251.41:
+          peer_group: MLAG-IPv4-UNDERLAY-PEER
+      redistribute_routes:
+        - connected
+
+### Routing - OSPF ###
+router_ospf:
+
+### Queue Monitor Streaming ###
+queue_monitor_streaming:
+
+### Management API http ###
+management_api_http:
+  enable_https: True
+  enable_vrfs:
+    MGMT:
