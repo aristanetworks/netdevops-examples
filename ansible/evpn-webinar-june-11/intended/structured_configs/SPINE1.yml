@@ -3,7 +3,7 @@
 ### SPINE1 ###
 
 ### Spine Info ###
-switch_platform: vEOS-LAB
+switch_platform: 7280R
 switch_mgmt_ip: 192.168.100.31/24
 
 service_routing_protocols_model: multi-agent
@@ -143,6 +143,7 @@ management_interfaces:
 
 ### TCAM Profiles ###
 tcam_profile:
+  - vxlan-routing
 
 ### MAC address table ###
 mac_address_table:
