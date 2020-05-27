@@ -18,7 +18,7 @@ This repository is a central place where Arista demos and examples around netdev
 - [__Zero Touch Provisioning to EVPN Fabric__](ansible/ztp-avd-cvp): Build a complete EVPN/VXLAN fabric using CloudVision and Zero Touch Provisioning process.
 - [__Ansible AVD & CVP Transfer of Information__](ansible/avd-cvp-toi): Content to build a Transfer of Information on Arista Validated Design and Cloudvision collection.
 - [__Ansible to sync configlets across CV servers__](ansible/ansible-sync-configlets): Content to synchronize configlets from one CV server to another. Complete documenation is available on our [EOS Central Knowledge base](https://eos.arista.com/synchronising-cloudvision-portal-configlets-with-ansible/)
-- [__NSX-T and EVPN in EVE-NG lab__](virtual_lab/nsxt-evpn-eveng-lab/)
+- [__NSX-T and EVPN in EVE-NG lab__](virtual_lab/nsxt-evpn-eveng-lab/): Lab to demonstrate integration of Arista EOS running EVPN with Vmware NSX-T integration.
 
 ### Webinar & Presentation content
 
@@ -26,6 +26,12 @@ This repository is a central place where Arista demos and examples around netdev
 - [__Tech Friday March 2020__](demo/tech-friday-march2020/): Lab used during Tech Friday event.
 - [__Network Automation with Ansible & Cloudvision - EMEA Webinar April 2020__](demo/emea-2020-ansible-cvp-automation): Build an EVPN/VXLAN Fabric using Ansible & Cloudvision with pot deployment validation using WARD
 - [__Network Field Days 22__](demo/ansible-batfish-cv-nfd22/): Ansible & Batfish ([NFD22 webpage](https://techfieldday.com/appearance/arista-networks-presents-at-networking-field-day-22/)).
+
+### Virtual Labs
+
+- [__List of some EVE-NG topologies leveraging vEOS and CV__](https://github.com/aristanetworks/netdevops-examples/tree/master/virtual_lab/EVE-NG): 
+- [__L3 Leaf-Spine w/ BGP Unnumbered & EVPN VXLAN__](https://github.com/aristanetworks/netdevops-examples/tree/master/virtual_lab/EVE-NG/labs/L3LS_Unnumbered_DCI_Type5): full Layer 3 Leaf-Spine fabric in a 2 datacenter setup with VXLAN/EVPN
+- [__NSX-T and EVPN in EVE-NG lab__](virtual_lab/nsxt-evpn-eveng-lab/): Lab to demonstrate integration of Arista EOS running EVPN with Vmware NSX-T integration.
 
 ## License
 
