@@ -13,3 +13,4 @@
 ## Available labs
 
 * [L3 Leaf-Spine w/ BGP Unnumbered & EVPN VXLAN](labs/L3LS_Unnumbered_DCI_Type5)
+* [VMWare NSX-T 3.0 EVPN Type-5 Integration](labs/NSX-T_EVPN_Type-5)
