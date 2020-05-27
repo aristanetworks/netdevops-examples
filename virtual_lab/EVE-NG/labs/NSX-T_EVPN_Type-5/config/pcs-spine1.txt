@@ -1,0 +1,99 @@
+! device: pcs-spine1 (vEOS, EOS-4.23.2F)
+!
+! boot system flash:/vEOS-lab.swi
+!
+transceiver qsfp default-mode 4x10G
+!
+service routing protocols model multi-agent
+!
+hostname pcs-spine1
+!
+spanning-tree mode mstp
+!
+aaa authorization exec default local
+!
+no aaa root
+!
+username arista privilege 15 role network-admin secret sha512 $6$KD3e7LypKtDKoaMd$L/SAAT9VogpGwjfS5BzhKJlvVTfmva9bY./IFbN6OaMQyu3HxicFUFYColo7JomufojordAta7u2HscZ.Uzr//
+!
+interface Ethernet1
+   description Connection to LEAF1
+   mtu 9214
+   no switchport
+   ip address 192.168.50.6/31
+!
+interface Ethernet2
+   description Connection to LEAF2
+   mtu 9214
+   no switchport
+   ip address 192.168.50.2/31
+!
+interface Ethernet3
+!
+interface Ethernet4
+!
+interface Ethernet5
+!
+interface Ethernet6
+!
+interface Ethernet7
+!
+interface Ethernet8
+!
+interface Loopback0
+   description BGP router-Id
+   ip address 192.168.100.1/32
+!
+interface Management1
+   ip address 10.83.30.46/22
+!
+ip routing
+!
+ip route 0.0.0.0/0 10.83.28.1
+!
+router bgp 65001
+   router-id 192.168.100.1
+   bgp convergence time 900
+   bgp convergence slow-peer time 600
+   maximum-paths 32 ecmp 32
+   neighbor LeafPair1 peer group
+   neighbor LeafPair1 remote-as 65101
+   neighbor LeafPair1 bfd
+   neighbor LeafPair1 send-community
+   neighbor LeafPair1 maximum-routes 120000
+   neighbor LeafPair1_EVPN peer group
+   neighbor LeafPair1_EVPN remote-as 65101
+   neighbor LeafPair1_EVPN next-hop-unchanged
+   neighbor LeafPair1_EVPN update-source Loopback0
+   neighbor LeafPair1_EVPN bfd
+   neighbor LeafPair1_EVPN ebgp-multihop 5
+   neighbor LeafPair1_EVPN send-community extended
+   neighbor LeafPair1_EVPN maximum-routes 120000
+   neighbor LeafPair2 peer group
+   neighbor LeafPair2 remote-as 65102
+   neighbor LeafPair2 bfd
+   neighbor LeafPair2 send-community
+   neighbor LeafPair2 maximum-routes 120000
+   neighbor LeafPair2_EVPN peer group
+   neighbor LeafPair2_EVPN remote-as 65102
+   neighbor LeafPair2_EVPN next-hop-unchanged
+   neighbor LeafPair2_EVPN update-source Loopback0
+   neighbor LeafPair2_EVPN bfd
+   neighbor LeafPair2_EVPN ebgp-multihop 5
+   neighbor LeafPair2_EVPN send-community extended
+   neighbor LeafPair2_EVPN maximum-routes 120000
+   neighbor 192.168.50.3 peer group LeafPair1
+   neighbor 192.168.50.7 peer group LeafPair2
+   neighbor 192.168.100.3 peer group LeafPair2_EVPN
+   neighbor 192.168.100.5 peer group LeafPair1_EVPN
+   redistribute connected route-map loopback
+   !
+   address-family evpn
+      neighbor LeafPair1_EVPN activate
+      neighbor LeafPair2_EVPN activate
+   !
+   address-family ipv4
+      no neighbor LeafPair1_EVPN activate
+      no neighbor LeafPair2_EVPN activate
+!
+end

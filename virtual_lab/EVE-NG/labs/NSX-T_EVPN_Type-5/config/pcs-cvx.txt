@@ -1,0 +1,59 @@
+! device: pcs-cvx (vEOS, EOS-4.23.2F)
+!
+! boot system flash:/vEOS-lab.swi
+!
+trace PcsHttpAgent setting Pcs*/*
+!
+cvx
+   no shutdown
+   heartbeat-interval 30
+   heartbeat-timeout 90
+   !
+   service pcs
+      no shutdown
+      controller 10.83.30.42
+      username admin
+      password 7 097A631E181712404A3A293D2A362D6174
+      enforcement-point cvx-default-ep
+      pinned-public-key sha256//hXgpVxrBsmkg3P4eGeBasIZuSozmdPBasdFlo/YVHCk=
+      notification-id 6654c416-be2c-4038-80a9-6770f1071231
+!
+transceiver qsfp default-mode 4x10G
+!
+hostname pcs-cvx
+!
+spanning-tree mode mstp
+!
+aaa authorization exec default local
+!
+no aaa root
+!
+username arista privilege 15 role network-admin secret sha512 $6$zU.qzo.I.MtUSWdk$cCP8sqHFem7oPL4mx2q/u2Q.gkxQIrsioCsGQ9siwcIpYkxRQmL79eMCNSqllQW0rdP.U/fUj6l0gaMIZVjcV.
+!
+interface Ethernet1
+!
+interface Ethernet2
+!
+interface Ethernet3
+!
+interface Ethernet4
+!
+interface Ethernet5
+!
+interface Ethernet6
+!
+interface Ethernet7
+!
+interface Ethernet8
+!
+interface Management1
+   ip address 10.83.30.43/22
+!
+no ip routing
+!
+ip route 0.0.0.0/0 10.83.28.1
+!
+management api http-commands
+   no shutdown
+!
+end
