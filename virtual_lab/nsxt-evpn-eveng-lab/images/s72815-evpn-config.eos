@@ -1,0 +1,340 @@
+show running-config
+! device: s72815 (DCS-7280SR2-48YC6-M, EOS-4.24.0F)
+!
+! boot system flash:/EOS-4.24.0F.swi
+!
+daemon TerminAttr
+   exec /usr/bin/TerminAttr -ingestgrpcurl=10.83.29.224:9910 -taillogs -ingestauth=key,IngestKey -smashexcludes=ale,flexCounter,hardware,kni,pulse,strata -ingestexclude=/Sysdb/cell/1/agent,/Sysdb/cell/2/agent
+   no shutdown
+!
+load-interval default 5
+!
+transceiver qsfp default-mode 4x10G
+!
+service routing protocols model multi-agent
+!
+queue-monitor length
+queue-monitor length notifying
+!
+logging host 10.83.28.52 514
+!
+hostname s72815
+ip name-server vrf default 10.83.28.52
+ip name-server vrf default 10.83.29.222
+dns domain lab.local
+!
+ntp server 10.83.28.52
+!
+snmp-server community private rw
+snmp-server community public ro
+!
+spanning-tree mode none
+!
+aaa authorization exec default local
+!
+no aaa root
+aaa authentication policy local allow-nopassword-remote-login
+!
+username admin privilege 15 role network-admin nopassword
+username cvp-infra privilege 15 secret sha512 $6$.I7/ZR/zlLIUv8fr$vR/JvLTbq5amMt6Y1SE4CKlPDv/AzJYlFYHkUZ17BDovm0Oi4aLdBULe1EmZ0Y9xKjVLMKpxCSKmlrAioDxbQ0
+username switch-infra privilege 15 nopassword
+username telemetry secret 5 $1$7ksxaeUt$.JJMVbNtjZVxakZqvo0dy1
+!
+vlan 100,300
+!
+vrf instance INTERNET
+!
+interface Ethernet1
+   mtu 9000
+   speed forced 10000full
+   no switchport
+   ip address 192.168.150.2/24
+!
+interface Ethernet2
+   shutdown
+   speed forced 10000full
+!
+interface Ethernet3
+   shutdown
+   speed forced 10000full
+!
+interface Ethernet4
+   shutdown
+   speed forced 10000full
+!
+interface Ethernet5
+   shutdown
+!
+interface Ethernet6
+   shutdown
+!
+interface Ethernet7
+   shutdown
+!
+interface Ethernet8
+   shutdown
+!
+interface Ethernet9
+   shutdown
+!
+interface Ethernet10
+   shutdown
+!
+interface Ethernet11
+   shutdown
+!
+interface Ethernet12
+   shutdown
+!
+interface Ethernet13
+   shutdown
+!
+interface Ethernet14
+   shutdown
+!
+interface Ethernet15
+   shutdown
+!
+interface Ethernet16
+   shutdown
+!
+interface Ethernet17
+   shutdown
+!
+interface Ethernet18
+   shutdown
+!
+interface Ethernet19
+   shutdown
+!
+interface Ethernet20
+   shutdown
+!
+interface Ethernet21
+   shutdown
+!
+interface Ethernet22
+   shutdown
+!
+interface Ethernet23
+   shutdown
+!
+interface Ethernet24
+   shutdown
+!
+interface Ethernet25
+   shutdown
+!
+interface Ethernet26
+   shutdown
+!
+interface Ethernet27
+   shutdown
+!
+interface Ethernet28
+   shutdown
+!
+interface Ethernet29
+   shutdown
+!
+interface Ethernet30
+   shutdown
+!
+interface Ethernet31
+   shutdown
+!
+interface Ethernet32
+   shutdown
+!
+interface Ethernet33
+   shutdown
+!
+interface Ethernet34
+   shutdown
+!
+interface Ethernet35
+   shutdown
+!
+interface Ethernet36
+   shutdown
+!
+interface Ethernet37
+   shutdown
+!
+interface Ethernet38
+   shutdown
+!
+interface Ethernet39
+   shutdown
+!
+interface Ethernet40
+   shutdown
+!
+interface Ethernet41
+   shutdown
+!
+interface Ethernet42
+   shutdown
+!
+interface Ethernet43
+   shutdown
+!
+interface Ethernet44
+   shutdown
+!
+interface Ethernet45
+   shutdown
+   speed forced 10000full
+!
+interface Ethernet46
+   shutdown
+   speed forced 10000full
+!
+interface Ethernet47
+   shutdown
+   speed forced 10000full
+!
+interface Ethernet48
+   shutdown
+   speed forced 10000full
+!
+interface Ethernet49/1
+   shutdown
+!
+interface Ethernet49/2
+   shutdown
+!
+interface Ethernet49/3
+   shutdown
+!
+interface Ethernet49/4
+   shutdown
+!
+interface Ethernet50/1
+   shutdown
+!
+interface Ethernet50/2
+   shutdown
+!
+interface Ethernet50/3
+   shutdown
+!
+interface Ethernet50/4
+   shutdown
+!
+interface Ethernet51/1
+   shutdown
+!
+interface Ethernet51/2
+   shutdown
+!
+interface Ethernet51/3
+   shutdown
+!
+interface Ethernet51/4
+   shutdown
+!
+interface Ethernet52/1
+   shutdown
+!
+interface Ethernet52/2
+   shutdown
+!
+interface Ethernet52/3
+   shutdown
+!
+interface Ethernet52/4
+   shutdown
+!
+interface Ethernet53/1
+   shutdown
+!
+interface Ethernet53/2
+   shutdown
+!
+interface Ethernet53/3
+   shutdown
+!
+interface Ethernet53/4
+   shutdown
+!
+interface Ethernet54/1
+   switchport access vlan 300
+!
+interface Ethernet54/2
+   shutdown
+!
+interface Ethernet54/3
+   shutdown
+!
+interface Ethernet54/4
+   shutdown
+!
+interface Loopback0
+   description BGP router-Id
+   ip address 192.168.55.1/32
+!
+interface Loopback1
+   description Vxlan Virtual VTEP
+   ip address 192.168.155.1/32
+!
+interface Loopback300
+   vrf INTERNET
+   ip address 10.10.10.1/32
+!
+interface Management1
+   ip address 10.83.28.209/22
+!
+interface Vlan300
+   vrf INTERNET
+   ip address 192.168.200.1/24
+!
+interface Vxlan1
+   vxlan source-interface Loopback0
+   vxlan udp-port 4789
+   vxlan vrf INTERNET vni 200000
+!
+hardware tcam
+   system profile vxlan-routing
+!
+ip routing
+ip routing vrf INTERNET
+!
+ip prefix-list loopback
+   seq 10 permit 192.168.55.1/32
+   seq 20 permit 192.168.155.1/32
+!
+monitor session test source Ethernet1
+monitor session test destination Cpu
+!
+ip route 0.0.0.0/0 10.83.28.1
+!
+route-map loopback permit 10
+   match ip address prefix-list loopback
+!
+router bgp 65001
+   router-id 192.168.55.1
+   bgp convergence time 900
+   bgp convergence slow-peer time 600
+   maximum-paths 32 ecmp 32
+   neighbor Spine_EVPN peer group
+   neighbor Spine_EVPN remote-as 65000
+   neighbor Spine_EVPN send-community
+   neighbor Spine_EVPN maximum-routes 120000
+   neighbor 192.168.150.1 peer group Spine_EVPN
+   redistribute connected route-map loopback
+   !
+   address-family evpn
+      neighbor Spine_EVPN activate
+   !
+   vrf INTERNET
+      rd 192.168.155.1:50001
+      route-target import evpn 65000:10
+      route-target export evpn 65000:10
+      redistribute connected
+!
+management api http-commands
+   protocol http
+   no shutdown
+!
+end

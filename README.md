@@ -18,6 +18,7 @@ This repository is a central place where Arista demos and examples around netdev
 - [__Zero Touch Provisioning to EVPN Fabric__](ansible/ztp-avd-cvp): Build a complete EVPN/VXLAN fabric using CloudVision and Zero Touch Provisioning process.
 - [__Ansible AVD & CVP Transfer of Information__](ansible/avd-cvp-toi): Content to build a Transfer of Information on Arista Validated Design and Cloudvision collection.
 - [__Ansible to sync configlets across CV servers__](ansible/ansible-sync-configlets): Content to synchronize configlets from one CV server to another. Complete documenation is available on our [EOS Central Knowledge base](https://eos.arista.com/synchronising-cloudvision-portal-configlets-with-ansible/)
+- [__NSX-T and EVPN in EVE-NG lab__](virtual_lab/nsxt-evpn-eveng-lab/)
 
 ### Webinar & Presentation content
 
