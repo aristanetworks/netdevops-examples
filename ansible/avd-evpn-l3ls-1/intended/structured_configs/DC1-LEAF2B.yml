@@ -598,8 +598,8 @@ mlag_configuration:
     vrf: MGMT
   dual_primary_detection_delay: 5
   peer_link: Port-Channel5
-  reload_delay_mlag: 360
-  reload_delay_non_mlag: 300
+  reload_delay_mlag: 300
+  reload_delay_non_mlag: 330
 
 ### route-maps ###
 route_maps:

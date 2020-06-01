@@ -259,8 +259,8 @@ mlag_configuration:
     vrf: MGMT
   dual_primary_detection_delay: 5
   peer_link: Port-Channel3
-  reload_delay_mlag: 360
-  reload_delay_non_mlag: 300
+  reload_delay_mlag: 300
+  reload_delay_non_mlag: 330
 
 ### Queue Monitor Streaming ###
 queue_monitor_streaming:

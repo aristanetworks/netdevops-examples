@@ -392,11 +392,11 @@ mlag configuration
    domain-id DC1_L2LEAF2
    local-interface Vlan4094
    peer-address 10.255.252.17
-   peer-address heartbeat 192.168.200.114 vrf MGMT
+   peer-address heartbeat 192.168.200.114 vrf MGMT 
    peer-link Port-Channel3
    dual-primary detection delay 5 action errdisable all-interfaces
-   reload-delay mlag 360
-   reload-delay non-mlag 300
+   reload-delay mlag 300
+   reload-delay non-mlag 330
 !
 ```
 

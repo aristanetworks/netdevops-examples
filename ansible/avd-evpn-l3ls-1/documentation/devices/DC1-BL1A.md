@@ -526,11 +526,11 @@ mlag configuration
    domain-id DC1_BL1
    local-interface Vlan4094
    peer-address 10.255.252.11
-   peer-address heartbeat 192.168.200.111 vrf MGMT
+   peer-address heartbeat 192.168.200.111 vrf MGMT 
    peer-link Port-Channel5
    dual-primary detection delay 5 action errdisable all-interfaces
-   reload-delay mlag 360
-   reload-delay non-mlag 300
+   reload-delay mlag 300
+   reload-delay non-mlag 330
 !
 ```
 
