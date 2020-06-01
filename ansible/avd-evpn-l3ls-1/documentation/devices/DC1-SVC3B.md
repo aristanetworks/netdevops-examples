@@ -850,8 +850,8 @@ mlag configuration
    peer-address heartbeat 192.168.200.108 vrf MGMT
    peer-link Port-Channel5
    dual-primary detection delay 5 action errdisable all-interfaces
-   reload-delay mlag 360
-   reload-delay non-mlag 300
+   reload-delay mlag 300
+   reload-delay non-mlag 330
 !
 ```
 
