@@ -61,7 +61,7 @@ l3leaf:
     mlag_interfaces: [ Ethernet47, Ethernet48 ]
     spanning_tree_mode: mstp
     spanning_tree_priority: 4096
-    virtual_router_mac_address : 00:dc:00:00:00:0a
+    virtual_router_mac_address : aa:aa:bb:bb:cc:cc
   node_groups:
     DC1_LEAF1:
       bgp_as: 65002

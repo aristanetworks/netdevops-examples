@@ -5,17 +5,17 @@ local_users:
   admin:
     privilege: 15
     role: network-admin
-    sha512_password: "$6$tQFnZeopb0IPpmX7$BowHaWzQIUXkcjAZSboAwSzCkBraZjgJugjYYP4.y/A9rMsKfxJ7GKWD7GbtHq20WvFC3TiwOQFzlDNUmnac//"
+    sha512_password: "$6$xTFjLEjlpX/ZvgNp$3ARB.DYuWuJDHzph652u7BAkyQ6jni/NZqKRUQBDJxUL83QuL6/HBY4tL/UXuKr1n00yjwNHtUBn.UbixdLai0"
 
   arista:
     privilege: 15
     role: network-admin
-    sha512_password: "$6$q6ZYUi52LMKh.WEH$uGqc7omuQa.VhtUdSEltWeiBdFEVAxphWXe.UBXRYFx4TwGGmg9.YKXlaZORqxN7CEI18PGDZHzqeGomZJeZg1"
+    sha512_password: "$6$RO7KPjCB0BtlFgcd$/7Lv7Pjj3/OUOIUmqk0NmB8218tnq3Qcjb20pF4Xb3VaoMEuXShWVpFGU.YTYBuQ5.e3SXOLrIEfXpFegrQDX."
 
   cvpadmin:
     privilege: 15
     role: network-admin
-    sha512_password: "$6$4sLMfiH7WTA58PyX$XoC4AXQPce.yOyjo6Fcg.5CFev6s8cIb94s1uu.wWTYC8pPTe5iODxgpb6x1WUa96QEYfBmD5VaTO7etWfTOu/"
+    sha512_password: "$6$u5wM2GSl324m5EF0$AM98W2MI4ISBciPXm6be8Q3RTykF3dCd2W3btVvhcBBKvKHjfbkeJfesbEWMcrYlbzzZbWdBcxF6U/Pe3xBYF1"
 
 # Cloud Vision server
 cvp_instance_ips:
@@ -25,15 +25,39 @@ cvp_ingestauth_key: magickey02122020
 
 
 # OOB Management network default gateway.
-mgmt_gateway: 192.168.200.1
+mgmt_gateway: 192.168.100.1
 
 # dns servers.
 name_servers:
  - 192.168.70.1
 
+dns_domain: ohvlab.local
+
+ip_domain_lookup:
+  source_interfaces:
+    Management1:
+      vrf: MGMT
+
 # NTP Servers IP or DNS name, first NTP server will be prefered, and sourced from Managment
 ntp_servers:
   - 216.239.35.4
+
+timezone: "America/Detroit"
+
+# AAA Servers
+
+radius_servers:
+  - host: 192.168.100.254
+    vrf: MGMT
+    key: 02090C4D07070D731C1C5958
+
+aaa_server_groups:
+  - name: RADIUS-GROUP
+    type: radius
+    servers:
+      - server: 192.168.100.254
+        vrf: MGMT
+
 
 ###  EOS Aliases ###
 aliases: |

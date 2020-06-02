@@ -86,18 +86,19 @@ local_users:
   admin:
     privilege: 15
     role: network-admin
-    sha512_password: $6$tQFnZeopb0IPpmX7$BowHaWzQIUXkcjAZSboAwSzCkBraZjgJugjYYP4.y/A9rMsKfxJ7GKWD7GbtHq20WvFC3TiwOQFzlDNUmnac//
+    sha512_password: $6$xTFjLEjlpX/ZvgNp$3ARB.DYuWuJDHzph652u7BAkyQ6jni/NZqKRUQBDJxUL83QuL6/HBY4tL/UXuKr1n00yjwNHtUBn.UbixdLai0
   arista:
     privilege: 15
     role: network-admin
-    sha512_password: $6$q6ZYUi52LMKh.WEH$uGqc7omuQa.VhtUdSEltWeiBdFEVAxphWXe.UBXRYFx4TwGGmg9.YKXlaZORqxN7CEI18PGDZHzqeGomZJeZg1
+    sha512_password: $6$RO7KPjCB0BtlFgcd$/7Lv7Pjj3/OUOIUmqk0NmB8218tnq3Qcjb20pF4Xb3VaoMEuXShWVpFGU.YTYBuQ5.e3SXOLrIEfXpFegrQDX.
   cvpadmin:
     privilege: 15
     role: network-admin
-    sha512_password: $6$4sLMfiH7WTA58PyX$XoC4AXQPce.yOyjo6Fcg.5CFev6s8cIb94s1uu.wWTYC8pPTe5iODxgpb6x1WUa96QEYfBmD5VaTO7etWfTOu/
+    sha512_password: $6$u5wM2GSl324m5EF0$AM98W2MI4ISBciPXm6be8Q3RTykF3dCd2W3btVvhcBBKvKHjfbkeJfesbEWMcrYlbzzZbWdBcxF6U/Pe3xBYF1
 
 ### Clock Timezone ###
 clock:
+  timezone: America/Detroit
 
 ### VLANs ###
 vlans:
@@ -152,6 +153,31 @@ ethernet_interfaces:
     mtu: 9216
     type: routed
     ip_address: 10.1.1.43/31
+  Ethernet10:
+    peer: HostA
+    peer_interface: E1
+    peer_type: server
+    description: HostA_E1
+    mode: access
+    vlans: 10
+    spanning_tree_portfast: edge
+    spanning_tree_bpdufilter: True
+  Ethernet11:
+    peer: HostB
+    peer_interface: E1
+    peer_type: server
+    description: HostB_E1
+    mode: access
+    vlans: 20
+    spanning_tree_portfast: edge
+  Ethernet12:
+    peer: HostF
+    peer_interface: E1
+    peer_type: server
+    description: HostF_E1
+    mode: access
+    vlans: 40
+    spanning_tree_portfast: edge
 
 
 ### Loopback Interfaces ###
@@ -175,7 +201,7 @@ management_interfaces:
     description: oob_management
     vrf: MGMT
     ip_address: 192.168.100.32/24
-    gateway: 192.168.200.1
+    gateway: 192.168.100.1
 
 ### VLAN Interfaces ###
 vlan_interfaces:
@@ -225,7 +251,7 @@ vxlan_tunnel_interface:
       vrfs:
 ## Tenant_A ##
         A:
-          vni: 10
+          vni: 50001
 
 ### TCAM Profiles ###
 tcam_profile:
@@ -234,7 +260,7 @@ tcam_profile:
 ### MAC address table ###
 mac_address_table:
 
-ip_virtual_router_mac_address: 00:dc:00:00:00:0a
+ip_virtual_router_mac_address: aa:aa:bb:bb:cc:cc
 
 virtual_source_nat_vrfs:
 ## Tenant_A ##
@@ -245,7 +271,7 @@ virtual_source_nat_vrfs:
 static_routes:
   - vrf: MGMT
     destination_address_prefix: 0.0.0.0/0
-    gateway: 192.168.200.1
+    gateway: 192.168.100.1
 
 ### prefix-lists ###
 prefix_lists:
@@ -322,10 +348,10 @@ router_bgp:
   vlan_aware_bundles:
 ## Tenant_A ##
     A:
-      rd: "1.1.1.13:10"
+      rd: "1.1.1.13:50001"
       route_targets:
         both:
-          - "10:10"
+          - "50001:50001"
       redistribute_routes:
         - learned
       vlan: 10,20,30,40
@@ -334,14 +360,14 @@ router_bgp:
 ## Tenant_A ##
     A:
       router_id: 1.1.1.13
-      rd: "1.1.1.13:10"
+      rd: "1.1.1.13:50001"
       route_targets:
         import:
           evpn:
-            - "10:10"
+            - "50001:50001"
         export:
           evpn:
-            - "10:10"
+            - "50001:50001"
       redistribute_routes:
         - connected
 

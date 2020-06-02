@@ -8,7 +8,7 @@ tenants:
     mac_vrf_vni_base: 10000
     vrfs:
       A:
-        vrf_vni: 10
+        vrf_vni: 50001
         vtep_diagnostic:
           loopback: 100
           loopback_ip_range: 10.255.1.0/24

@@ -8,7 +8,7 @@ IPv4
 
 | Management Interface | description | VRF | IP Address | Gateway |
 | -------------------- | ----------- | --- | ---------- | ------- |
-| Management1 | oob_management | MGMT | 192.168.100.32/24 | 192.168.200.1 |
+| Management1 | oob_management | MGMT | 192.168.100.32/24 | 192.168.100.1 |
 
 IPv6
 
@@ -19,11 +19,11 @@ IPv6
 ### Management Interfaces Device Configuration
 
 ```eos
+!
 interface Management1
    description oob_management
    vrf MGMT
    ip address 192.168.100.32/24
-!
 ```
 
 ## Hardware Counters
@@ -48,10 +48,10 @@ alias shprefix show bgp evpn route-type ip-prefix ipv4 detail | awk '/for ip-pre
 ### TerminAttr Daemon Device Configuration
 
 ```eos
+!
 daemon TerminAttr
    exec /usr/bin/TerminAttr -ingestgrpcurl=192.168.100.240:9910 -cvcompression=gzip -ingestauth=key,magickey02122020 -smashexcludes=ale,flexCounter,hardware,kni,pulse,strata -ingestexclude=/Sysdb/cell/1/agent,/Sysdb/cell/2/agent -ingestvrf=MGMT -taillogs
    no shutdown
-!
 ```
 
 ## Internal VLAN allocation Policy
@@ -65,8 +65,8 @@ daemon TerminAttr
 ### Internal VLAN Allocation Policy Configuration
 
 ```eos
-vlan internal order ascending range 1006 1199
 !
+vlan internal order ascending range 1006 1199
 ```
 
 ## IP IGMP Snooping
@@ -78,7 +78,18 @@ No logging settings defined
 
 ## Domain Lookup
 
-DNS domain lookup not defined
+
+### DNS Domain Lookup Summary
+
+| Source interface | vrf |
+| ---------------- | --- |
+| Management1 | MGMT  |
+
+### DNS Domain Lookup Device Configuration
+
+```eos
+ip domain lookup vrf MGMT source-interface Management1
+```
 
 ## Name Servers
 
@@ -92,12 +103,19 @@ DNS domain lookup not defined
 
 ```eos
 ip name-server vrf MGMT 192.168.70.1
-!
 ```
 
 ## DNS Domain
 
-DNS domain not defined
+
+### DNS domain: ohvlab.local
+
+### DNS Domain Device Configuration
+
+```eos
+dns domain ohvlab.local
+!
+```
 
 ## NTP
 
@@ -115,9 +133,9 @@ VRF: MGMT
 ### NTP Device Configuration
 
 ```eos
+!
 ntp local-interface vrf MGMT Management1
 ntp server vrf MGMT 216.239.35.4 prefer
-!
 ```
 
 ## Router L2 VPN
@@ -143,9 +161,9 @@ Mode: mstp
 ### Spanning Tree Device Configuration
 
 ```eos
+!
 spanning-tree mode mstp
 spanning-tree mst 0 priority 4096
-!
 ```
 
 
@@ -155,7 +173,19 @@ TACACS Servers Not Configured
 IP TACACS source interfaces not defined
 
 
-AAA server groups not defined
+### AAA Server Groups
+
+| Server Group Name | Type  | VRF | IP address |
+| ------------------| ----- | --- | ---------- |
+| RADIUS-GROUP | radius |  MGMT | 192.168.100.254 |
+
+### AAA Server Groups Device Configuration
+
+```eos
+!
+aaa group server radius RADIUS-GROUP
+   server 192.168.100.254 vrf MGMT
+```
 
 ## AAA Authentication
 
@@ -182,10 +212,10 @@ AAA accounting not defined
 ### Local Users Device Configuration
 
 ```eos
-username admin privilege 15 role network-admin secret sha512 $6$tQFnZeopb0IPpmX7$BowHaWzQIUXkcjAZSboAwSzCkBraZjgJugjYYP4.y/A9rMsKfxJ7GKWD7GbtHq20WvFC3TiwOQFzlDNUmnac//
-username arista privilege 15 role network-admin secret sha512 $6$q6ZYUi52LMKh.WEH$uGqc7omuQa.VhtUdSEltWeiBdFEVAxphWXe.UBXRYFx4TwGGmg9.YKXlaZORqxN7CEI18PGDZHzqeGomZJeZg1
-username cvpadmin privilege 15 role network-admin secret sha512 $6$4sLMfiH7WTA58PyX$XoC4AXQPce.yOyjo6Fcg.5CFev6s8cIb94s1uu.wWTYC8pPTe5iODxgpb6x1WUa96QEYfBmD5VaTO7etWfTOu/
 !
+username admin privilege 15 role network-admin secret sha512 $6$xTFjLEjlpX/ZvgNp$3ARB.DYuWuJDHzph652u7BAkyQ6jni/NZqKRUQBDJxUL83QuL6/HBY4tL/UXuKr1n00yjwNHtUBn.UbixdLai0
+username arista privilege 15 role network-admin secret sha512 $6$RO7KPjCB0BtlFgcd$/7Lv7Pjj3/OUOIUmqk0NmB8218tnq3Qcjb20pF4Xb3VaoMEuXShWVpFGU.YTYBuQ5.e3SXOLrIEfXpFegrQDX.
+username cvpadmin privilege 15 role network-admin secret sha512 $6$u5wM2GSl324m5EF0$AM98W2MI4ISBciPXm6be8Q3RTykF3dCd2W3btVvhcBBKvKHjfbkeJfesbEWMcrYlbzzZbWdBcxF6U/Pe3xBYF1
 ```
 
 ## VLANs
@@ -202,6 +232,7 @@ username cvpadmin privilege 15 role network-admin secret sha512 $6$4sLMfiH7WTA58
 ### VLANs Device Configuration
 
 ```eos
+!
 vlan 10
    name Ten-opzone
 !
@@ -213,7 +244,6 @@ vlan 30
 !
 vlan 40
    name Forty-db
-!
 ```
 
 ## VRF Instances
@@ -228,10 +258,10 @@ vlan 40
 ### VRF Instances Device Configuration
 
 ```eos
+!
 vrf instance A
 !
 vrf instance MGMT
-!
 ```
 
 ## Port-Channel Interfaces
@@ -246,12 +276,16 @@ No Port-Channels defined
 | --------- | ----------- | --- | ---- | ---- | --------------------- | ----------- | --- | ---------- | ---------------- | ------------------ |
 | Ethernet1 | P2P_LINK_TO_SPINE1_Ethernet1 | 9216 | routed | access | - | - | - | 10.1.1.41/31 | - | - |
 | Ethernet2 | P2P_LINK_TO_SPINE2_Ethernet1 | 9216 | routed | access | - | - | - | 10.1.1.43/31 | - | - |
+| Ethernet10 | HostA_E1 | 1500 | switched | access | 10 | - | - | - | - | - |
+| Ethernet11 | HostB_E1 | 1500 | switched | access | 20 | - | - | - | - | - |
+| Ethernet12 | HostF_E1 | 1500 | switched | access | 40 | - | - | - | - | - |
 
 *Inherited from Port-Channel Interface
 
 ### Ethernet Interfaces Device Configuration
 
 ```eos
+!
 interface Ethernet1
    description P2P_LINK_TO_SPINE1_Ethernet1
    mtu 9216
@@ -264,6 +298,21 @@ interface Ethernet2
    no switchport
    ip address 10.1.1.43/31
 !
+interface Ethernet10
+   description HostA_E1
+   switchport access vlan 10
+   spanning-tree portfast
+   spanning-tree bpdufilter enable
+!
+interface Ethernet11
+   description HostB_E1
+   switchport access vlan 20
+   spanning-tree portfast
+!
+interface Ethernet12
+   description HostF_E1
+   switchport access vlan 40
+   spanning-tree portfast
 ```
 
 ## Loopback Interfaces
@@ -289,6 +338,7 @@ IPv6
 ### Loopback Interfaces Device Configuration
 
 ```eos
+!
 interface Loopback0
    description EVPN_Overlay_Peering
    ip address 1.1.1.13/32
@@ -301,7 +351,6 @@ interface Loopback100
    description A_VTEP_DIAGNOSTICS
    vrf A
    ip address 10.255.1.13/32
-!
 ```
 
 ## VLAN Interfaces
@@ -318,6 +367,7 @@ interface Loopback100
 ### VLAN Interfaces Device Configuration
 
 ```eos
+!
 interface Vlan10
    description Ten-opzone
    vrf A
@@ -337,7 +387,6 @@ interface Vlan40
    description Forty-db
    vrf A
    ip address virtual 40.40.40.1/24
-!
 ```
 
 ## VXLAN Interface
@@ -360,11 +409,12 @@ interface Vlan40
 
 | VLAN | VNI |
 | ---- | --- |
-| A | 10 |
+| A | 50001 |
 
 ### VXLAN Interface Device Configuration
 
 ```eos
+!
 interface Vxlan1
    vxlan source-interface Loopback1
    vxlan udp-port 4789
@@ -372,15 +422,14 @@ interface Vxlan1
    vxlan vlan 20 vni 10020
    vxlan vlan 30 vni 10030
    vxlan vlan 40 vni 10040
-   vxlan vrf A vni 10
-!
+   vxlan vrf A vni 50001
 ```
 
 ## Virtual Router MAC Address & Virtual Source NAT
 
 ### Virtual Router MAC Address and Virtual Source NAT Summary
 
-**Virtual Router MAC Address:** 00:dc:00:00:00:0a
+**Virtual Router MAC Address:** aa:aa:bb:bb:cc:cc
 ### Virtual Source NAT Summary
 
 | Source NAT VRF | Source NAT IP Address |
@@ -390,9 +439,9 @@ interface Vxlan1
 ### Virtual Router MAC Address Device and Virtual Source NAT Configuration
 
 ```eos
-ip virtual-router mac-address 00:dc:00:00:00:0a
-ip address virtual source-nat vrf A address 10.255.1.13
 !
+ip virtual-router mac-address aa:aa:bb:bb:cc:cc
+ip address virtual source-nat vrf A address 10.255.1.13
 ```
 
 ## IPv6 Extended Access-lists
@@ -417,13 +466,13 @@ Standard Access-lists not defined
 
 | VRF | Destination Prefix | Fowarding Address / Interface |
 | --- | ------------------ | ----------------------------- |
-| MGMT | 0.0.0.0/0 | 192.168.200.1 |
+| MGMT | 0.0.0.0/0 | 192.168.100.1 |
 
 ### Static Routes Device Configuration
 
 ```eos
-ip route vrf MGMT 0.0.0.0/0 192.168.200.1
 !
+ip route vrf MGMT 0.0.0.0/0 192.168.100.1
 ```
 
 ## Event Handler
@@ -442,10 +491,10 @@ No Event Handler Defined
 ### IP Routing Device Configuration
 
 ```eos
+!
 ip routing
 ip routing vrf A
 no ip routing vrf MGMT
-!
 ```
 
 ## Prefix Lists
@@ -468,13 +517,13 @@ no ip routing vrf MGMT
 ### Prefix Lists Device Configuration
 
 ```eos
+!
 ip prefix-list PL-LOOPBACKS-EVPN-OVERLAY
    seq 10 permit 1.1.1.0/24 eq 32
    seq 20 permit 2.2.2.0/24 eq 32
 !
 ip prefix-list PL-P2P-UNDERLAY
    seq 10 permit 10.1.1.0/24 le 31
-!
 ```
 
 ## IPv6 Prefix Lists
@@ -512,9 +561,9 @@ MLAG not defined
 ### Route Maps Device Configuration
 
 ```eos
+!
 route-map RM-CONN-2-BGP permit 10
    match ip address prefix-list PL-LOOPBACKS-EVPN-OVERLAY
-!
 ```
 
 ## Peer Filters
@@ -587,18 +636,19 @@ No Peer Filters defined
 
 | VLAN Aware Bundle | Route-Distinguisher | Both Route-Target | Import Route Target | Export Route-Target | Redistribute | VLANs |
 | ----------------- | ------------------- | ----------------- | ------------------- | ------------------- | ------------ | ----- |
-| A | 1.1.1.13:10 |  10:10  |  |  | learned | 10,20,30,40 |
+| A | 1.1.1.13:50001 |  50001:50001  |  |  | learned | 10,20,30,40 |
 
 
 #### Router BGP EVPN VRFs
 
 | VRF | Route-Distinguisher | Redistribute |
 | --- | ------------------- | ------------ |
-| A | 1.1.1.13:10 | connected  |
+| A | 1.1.1.13:50001 | connected  |
 
 ### Router BGP Device Configuration
 
 ```eos
+!
 router bgp 65002
    router-id 1.1.1.13
    update wait-install
@@ -627,8 +677,8 @@ router bgp 65002
    redistribute connected route-map RM-CONN-2-BGP
    !
    vlan-aware-bundle A
-      rd 1.1.1.13:10
-      route-target both 10:10
+      rd 1.1.1.13:50001
+      route-target both 50001:50001
       redistribute learned
       vlan 10,20,30,40
    !
@@ -641,12 +691,11 @@ router bgp 65002
       neighbor IPv4-UNDERLAY-PEERS activate
    !
    vrf A
-      rd 1.1.1.13:10
-      route-target import evpn 10:10
-      route-target export evpn 10:10
+      rd 1.1.1.13:50001
+      route-target import evpn 50001:50001
+      route-target export evpn 50001:50001
       router-id 1.1.1.13
       redistribute connected
-!
 ```
 
 ## Router Multicast

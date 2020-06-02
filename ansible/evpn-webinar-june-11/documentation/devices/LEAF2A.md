@@ -8,7 +8,7 @@ IPv4
 
 | Management Interface | description | VRF | IP Address | Gateway |
 | -------------------- | ----------- | --- | ---------- | ------- |
-| Management1 | oob_management | MGMT | 192.168.100.33/24 | 192.168.200.1 |
+| Management1 | oob_management | MGMT | 192.168.100.33/24 | 192.168.100.1 |
 
 IPv6
 
@@ -19,11 +19,11 @@ IPv6
 ### Management Interfaces Device Configuration
 
 ```eos
+!
 interface Management1
    description oob_management
    vrf MGMT
    ip address 192.168.100.33/24
-!
 ```
 
 ## Hardware Counters
@@ -48,10 +48,10 @@ alias shprefix show bgp evpn route-type ip-prefix ipv4 detail | awk '/for ip-pre
 ### TerminAttr Daemon Device Configuration
 
 ```eos
+!
 daemon TerminAttr
    exec /usr/bin/TerminAttr -ingestgrpcurl=192.168.100.240:9910 -cvcompression=gzip -ingestauth=key,magickey02122020 -smashexcludes=ale,flexCounter,hardware,kni,pulse,strata -ingestexclude=/Sysdb/cell/1/agent,/Sysdb/cell/2/agent -ingestvrf=MGMT -taillogs
    no shutdown
-!
 ```
 
 ## Internal VLAN allocation Policy
@@ -65,8 +65,8 @@ daemon TerminAttr
 ### Internal VLAN Allocation Policy Configuration
 
 ```eos
-vlan internal order ascending range 1006 1199
 !
+vlan internal order ascending range 1006 1199
 ```
 
 ## IP IGMP Snooping
@@ -78,7 +78,18 @@ No logging settings defined
 
 ## Domain Lookup
 
-DNS domain lookup not defined
+
+### DNS Domain Lookup Summary
+
+| Source interface | vrf |
+| ---------------- | --- |
+| Management1 | MGMT  |
+
+### DNS Domain Lookup Device Configuration
+
+```eos
+ip domain lookup vrf MGMT source-interface Management1
+```
 
 ## Name Servers
 
@@ -92,12 +103,19 @@ DNS domain lookup not defined
 
 ```eos
 ip name-server vrf MGMT 192.168.70.1
-!
 ```
 
 ## DNS Domain
 
-DNS domain not defined
+
+### DNS domain: ohvlab.local
+
+### DNS Domain Device Configuration
+
+```eos
+dns domain ohvlab.local
+!
+```
 
 ## NTP
 
@@ -115,9 +133,9 @@ VRF: MGMT
 ### NTP Device Configuration
 
 ```eos
+!
 ntp local-interface vrf MGMT Management1
 ntp server vrf MGMT 216.239.35.4 prefer
-!
 ```
 
 ## Router L2 VPN
@@ -143,10 +161,10 @@ Mode: mstp
 ### Spanning Tree Device Configuration
 
 ```eos
+!
 spanning-tree mode mstp
 no spanning-tree vlan-id 4094
 spanning-tree mst 0 priority 4096
-!
 ```
 
 
@@ -156,7 +174,19 @@ TACACS Servers Not Configured
 IP TACACS source interfaces not defined
 
 
-AAA server groups not defined
+### AAA Server Groups
+
+| Server Group Name | Type  | VRF | IP address |
+| ------------------| ----- | --- | ---------- |
+| RADIUS-GROUP | radius |  MGMT | 192.168.100.254 |
+
+### AAA Server Groups Device Configuration
+
+```eos
+!
+aaa group server radius RADIUS-GROUP
+   server 192.168.100.254 vrf MGMT
+```
 
 ## AAA Authentication
 
@@ -183,10 +213,10 @@ AAA accounting not defined
 ### Local Users Device Configuration
 
 ```eos
-username admin privilege 15 role network-admin secret sha512 $6$tQFnZeopb0IPpmX7$BowHaWzQIUXkcjAZSboAwSzCkBraZjgJugjYYP4.y/A9rMsKfxJ7GKWD7GbtHq20WvFC3TiwOQFzlDNUmnac//
-username arista privilege 15 role network-admin secret sha512 $6$q6ZYUi52LMKh.WEH$uGqc7omuQa.VhtUdSEltWeiBdFEVAxphWXe.UBXRYFx4TwGGmg9.YKXlaZORqxN7CEI18PGDZHzqeGomZJeZg1
-username cvpadmin privilege 15 role network-admin secret sha512 $6$4sLMfiH7WTA58PyX$XoC4AXQPce.yOyjo6Fcg.5CFev6s8cIb94s1uu.wWTYC8pPTe5iODxgpb6x1WUa96QEYfBmD5VaTO7etWfTOu/
 !
+username admin privilege 15 role network-admin secret sha512 $6$xTFjLEjlpX/ZvgNp$3ARB.DYuWuJDHzph652u7BAkyQ6jni/NZqKRUQBDJxUL83QuL6/HBY4tL/UXuKr1n00yjwNHtUBn.UbixdLai0
+username arista privilege 15 role network-admin secret sha512 $6$RO7KPjCB0BtlFgcd$/7Lv7Pjj3/OUOIUmqk0NmB8218tnq3Qcjb20pF4Xb3VaoMEuXShWVpFGU.YTYBuQ5.e3SXOLrIEfXpFegrQDX.
+username cvpadmin privilege 15 role network-admin secret sha512 $6$u5wM2GSl324m5EF0$AM98W2MI4ISBciPXm6be8Q3RTykF3dCd2W3btVvhcBBKvKHjfbkeJfesbEWMcrYlbzzZbWdBcxF6U/Pe3xBYF1
 ```
 
 ## VLANs
@@ -199,13 +229,14 @@ username cvpadmin privilege 15 role network-admin secret sha512 $6$4sLMfiH7WTA58
 | 20 | Twenty-web | none  |
 | 30 | Thirty-app | none  |
 | 40 | Forty-db | none  |
-| 3009 | MLAG_iBGP_A | LEAF_PEER_L3  |
 | 4093 | LEAF_PEER_L3 | LEAF_PEER_L3  |
 | 4094 | MLAG_PEER | MLAG  |
+| 53000 | MLAG_iBGP_A | LEAF_PEER_L3  |
 
 ### VLANs Device Configuration
 
 ```eos
+!
 vlan 10
    name Ten-opzone
 !
@@ -218,10 +249,6 @@ vlan 30
 vlan 40
    name Forty-db
 !
-vlan 3009
-   name MLAG_iBGP_A
-   trunk group LEAF_PEER_L3
-!
 vlan 4093
    name LEAF_PEER_L3
    trunk group LEAF_PEER_L3
@@ -230,6 +257,9 @@ vlan 4094
    name MLAG_PEER
    trunk group MLAG
 !
+vlan 53000
+   name MLAG_iBGP_A
+   trunk group LEAF_PEER_L3
 ```
 
 ## VRF Instances
@@ -244,10 +274,10 @@ vlan 4094
 ### VRF Instances Device Configuration
 
 ```eos
+!
 vrf instance A
 !
 vrf instance MGMT
-!
 ```
 
 ## Port-Channel Interfaces
@@ -256,18 +286,25 @@ vrf instance MGMT
 
 | Interface | Description | MTU | Type | Mode | Allowed VLANs (trunk) | Trunk Group | MLAG ID | VRF | IP Address | IPv6 Address |
 | --------- | ----------- | --- | ---- | ---- | --------------------- | ----------- | ------- | --- | ---------- | ------------ |
+| Port-Channel10 | HostC_Po1 | 1500 | switched | access | 30 | - | 10 | - | - | - |
 | Port-Channel47 | MLAG_PEER_LEAF2B_Po47 | 1500 | switched | trunk | 2-4094 | LEAF_PEER_L3<br> MLAG | - | - | - | - |
 
 ### Port-Channel Interfaces Device Configuration
 
 ```eos
+!
+interface Port-Channel10
+   description HostC_Po1
+   switchport access vlan 30
+   mlag 10
+   spanning-tree portfast
+!
 interface Port-Channel47
    description MLAG_PEER_LEAF2B_Po47
    switchport trunk allowed vlan 2-4094
    switchport mode trunk
    switchport trunk group LEAF_PEER_L3
    switchport trunk group MLAG
-!
 ```
 
 ## Ethernet Interfaces
@@ -278,6 +315,8 @@ interface Port-Channel47
 | --------- | ----------- | --- | ---- | ---- | --------------------- | ----------- | --- | ---------- | ---------------- | ------------------ |
 | Ethernet1 | P2P_LINK_TO_SPINE1_Ethernet2 | 9216 | routed | access | - | - | - | 10.1.1.81/31 | - | - |
 | Ethernet2 | P2P_LINK_TO_SPINE2_Ethernet2 | 9216 | routed | access | - | - | - | 10.1.1.83/31 | - | - |
+| Ethernet10 | HostC_E1 | *1500 | *switched | *access | *30 | - | - | - | 10 | active |
+| Ethernet11 | HostE_E1 | 1500 | switched | access | 20 | - | - | - | - | - |
 | Ethernet47 | MLAG_PEER_LEAF2B_Ethernet47 | *1500 | *switched | *trunk | *2-4094 | *LEAF_PEER_L3<br> *MLAG | - | - | 47 | active |
 | Ethernet48 | MLAG_PEER_LEAF2B_Ethernet48 | *1500 | *switched | *trunk | *2-4094 | *LEAF_PEER_L3<br> *MLAG | - | - | 47 | active |
 
@@ -286,6 +325,7 @@ interface Port-Channel47
 ### Ethernet Interfaces Device Configuration
 
 ```eos
+!
 interface Ethernet1
    description P2P_LINK_TO_SPINE1_Ethernet2
    mtu 9216
@@ -298,6 +338,15 @@ interface Ethernet2
    no switchport
    ip address 10.1.1.83/31
 !
+interface Ethernet10
+   description HostC_E1
+   channel-group 10 mode active
+!
+interface Ethernet11
+   description HostE_E1
+   switchport access vlan 20
+   spanning-tree portfast
+!
 interface Ethernet47
    description MLAG_PEER_LEAF2B_Ethernet47
    channel-group 47 mode active
@@ -305,7 +354,6 @@ interface Ethernet47
 interface Ethernet48
    description MLAG_PEER_LEAF2B_Ethernet48
    channel-group 47 mode active
-!
 ```
 
 ## Loopback Interfaces
@@ -331,6 +379,7 @@ IPv6
 ### Loopback Interfaces Device Configuration
 
 ```eos
+!
 interface Loopback0
    description EVPN_Overlay_Peering
    ip address 1.1.1.23/32
@@ -343,7 +392,6 @@ interface Loopback100
    description A_VTEP_DIAGNOSTICS
    vrf A
    ip address 10.255.1.23/32
-!
 ```
 
 ## VLAN Interfaces
@@ -356,13 +404,14 @@ interface Loopback100
 | Vlan20 | Twenty-web | A | - | 20.20.20.1/24 | - |
 | Vlan30 | Thirty-app | A | - | 30.30.30.1/24 | - |
 | Vlan40 | Forty-db | A | - | 40.40.40.1/24 | - |
-| Vlan3009 | MLAG_PEER_L3_iBGP: vrf A | A | 10.255.251.40/31 | - | - |
 | Vlan4093 | MLAG_PEER_L3_PEERING | Global Routing Table | 10.255.251.40/31 | - | - |
 | Vlan4094 | MLAG_PEER | Global Routing Table | 10.255.252.40/31 | - | - |
+| Vlan53000 | MLAG_PEER_L3_iBGP: vrf A | A | 10.255.251.40/31 | - | - |
 
 ### VLAN Interfaces Device Configuration
 
 ```eos
+!
 interface Vlan10
    description Ten-opzone
    vrf A
@@ -383,11 +432,6 @@ interface Vlan40
    vrf A
    ip address virtual 40.40.40.1/24
 !
-interface Vlan3009
-   description MLAG_PEER_L3_iBGP: vrf A
-   vrf A
-   ip address 10.255.251.40/31
-!
 interface Vlan4093
    description MLAG_PEER_L3_PEERING
    ip address 10.255.251.40/31
@@ -398,6 +442,10 @@ interface Vlan4094
    no autostate
    ip address 10.255.252.40/31
 !
+interface Vlan53000
+   description MLAG_PEER_L3_iBGP: vrf A
+   vrf A
+   ip address 10.255.251.40/31
 ```
 
 ## VXLAN Interface
@@ -420,11 +468,12 @@ interface Vlan4094
 
 | VLAN | VNI |
 | ---- | --- |
-| A | 10 |
+| A | 50001 |
 
 ### VXLAN Interface Device Configuration
 
 ```eos
+!
 interface Vxlan1
    vxlan source-interface Loopback1
    vxlan virtual-router encapsulation mac-address mlag-system-id
@@ -433,15 +482,14 @@ interface Vxlan1
    vxlan vlan 20 vni 10020
    vxlan vlan 30 vni 10030
    vxlan vlan 40 vni 10040
-   vxlan vrf A vni 10
-!
+   vxlan vrf A vni 50001
 ```
 
 ## Virtual Router MAC Address & Virtual Source NAT
 
 ### Virtual Router MAC Address and Virtual Source NAT Summary
 
-**Virtual Router MAC Address:** 00:dc:00:00:00:0a
+**Virtual Router MAC Address:** aa:aa:bb:bb:cc:cc
 ### Virtual Source NAT Summary
 
 | Source NAT VRF | Source NAT IP Address |
@@ -451,9 +499,9 @@ interface Vxlan1
 ### Virtual Router MAC Address Device and Virtual Source NAT Configuration
 
 ```eos
-ip virtual-router mac-address 00:dc:00:00:00:0a
-ip address virtual source-nat vrf A address 10.255.1.23
 !
+ip virtual-router mac-address aa:aa:bb:bb:cc:cc
+ip address virtual source-nat vrf A address 10.255.1.23
 ```
 
 ## IPv6 Extended Access-lists
@@ -478,13 +526,13 @@ Standard Access-lists not defined
 
 | VRF | Destination Prefix | Fowarding Address / Interface |
 | --- | ------------------ | ----------------------------- |
-| MGMT | 0.0.0.0/0 | 192.168.200.1 |
+| MGMT | 0.0.0.0/0 | 192.168.100.1 |
 
 ### Static Routes Device Configuration
 
 ```eos
-ip route vrf MGMT 0.0.0.0/0 192.168.200.1
 !
+ip route vrf MGMT 0.0.0.0/0 192.168.100.1
 ```
 
 ## Event Handler
@@ -503,10 +551,10 @@ No Event Handler Defined
 ### IP Routing Device Configuration
 
 ```eos
+!
 ip routing
 ip routing vrf A
 no ip routing vrf MGMT
-!
 ```
 
 ## Prefix Lists
@@ -530,6 +578,7 @@ no ip routing vrf MGMT
 ### Prefix Lists Device Configuration
 
 ```eos
+!
 ip prefix-list PL-LOOPBACKS-EVPN-OVERLAY
    seq 10 permit 1.1.1.0/24 eq 32
    seq 20 permit 2.2.2.0/24 eq 32
@@ -537,7 +586,6 @@ ip prefix-list PL-LOOPBACKS-EVPN-OVERLAY
 ip prefix-list PL-P2P-UNDERLAY
    seq 10 permit 10.1.1.0/24 le 31
    seq 20 permit 10.255.251.0/24 le 31
-!
 ```
 
 ## IPv6 Prefix Lists
@@ -571,6 +619,7 @@ Dual primary detection is enabled. The detection delay is 5 seconds.
 ### MLAG Device Configuration
 
 ```eos
+!
 mlag configuration
    domain-id DC1_LEAF2
    local-interface Vlan4094
@@ -578,9 +627,8 @@ mlag configuration
    peer-address heartbeat 192.168.100.34 vrf MGMT
    peer-link Port-Channel47
    dual-primary detection delay 5 action errdisable all-interfaces
-   reload-delay mlag 1020
-   reload-delay non-mlag 780
-!
+   reload-delay mlag 780
+   reload-delay non-mlag 1020
 ```
 
 ## Route Maps
@@ -596,9 +644,9 @@ mlag configuration
 ### Route Maps Device Configuration
 
 ```eos
+!
 route-map RM-CONN-2-BGP permit 10
    match ip address prefix-list PL-LOOPBACKS-EVPN-OVERLAY
-!
 ```
 
 ## Peer Filters
@@ -681,18 +729,19 @@ No Peer Filters defined
 
 | VLAN Aware Bundle | Route-Distinguisher | Both Route-Target | Import Route Target | Export Route-Target | Redistribute | VLANs |
 | ----------------- | ------------------- | ----------------- | ------------------- | ------------------- | ------------ | ----- |
-| A | 1.1.1.23:10 |  10:10  |  |  | learned | 10,20,30,40 |
+| A | 1.1.1.23:50001 |  50001:50001  |  |  | learned | 10,20,30,40 |
 
 
 #### Router BGP EVPN VRFs
 
 | VRF | Route-Distinguisher | Redistribute |
 | --- | ------------------- | ------------ |
-| A | 1.1.1.23:10 | connected  |
+| A | 1.1.1.23:50001 | connected  |
 
 ### Router BGP Device Configuration
 
 ```eos
+!
 router bgp 65003
    router-id 1.1.1.23
    update wait-install
@@ -728,8 +777,8 @@ router bgp 65003
    redistribute connected route-map RM-CONN-2-BGP
    !
    vlan-aware-bundle A
-      rd 1.1.1.23:10
-      route-target both 10:10
+      rd 1.1.1.23:50001
+      route-target both 50001:50001
       redistribute learned
       vlan 10,20,30,40
    !
@@ -744,13 +793,12 @@ router bgp 65003
       neighbor MLAG-IPv4-UNDERLAY-PEER activate
    !
    vrf A
-      rd 1.1.1.23:10
-      route-target import evpn 10:10
-      route-target export evpn 10:10
+      rd 1.1.1.23:50001
+      route-target import evpn 50001:50001
+      route-target export evpn 50001:50001
       router-id 1.1.1.23
       neighbor 10.255.251.41 peer group MLAG-IPv4-UNDERLAY-PEER
       redistribute connected
-!
 ```
 
 ## Router Multicast

@@ -93,18 +93,19 @@ local_users:
   admin:
     privilege: 15
     role: network-admin
-    sha512_password: $6$tQFnZeopb0IPpmX7$BowHaWzQIUXkcjAZSboAwSzCkBraZjgJugjYYP4.y/A9rMsKfxJ7GKWD7GbtHq20WvFC3TiwOQFzlDNUmnac//
+    sha512_password: $6$xTFjLEjlpX/ZvgNp$3ARB.DYuWuJDHzph652u7BAkyQ6jni/NZqKRUQBDJxUL83QuL6/HBY4tL/UXuKr1n00yjwNHtUBn.UbixdLai0
   arista:
     privilege: 15
     role: network-admin
-    sha512_password: $6$q6ZYUi52LMKh.WEH$uGqc7omuQa.VhtUdSEltWeiBdFEVAxphWXe.UBXRYFx4TwGGmg9.YKXlaZORqxN7CEI18PGDZHzqeGomZJeZg1
+    sha512_password: $6$RO7KPjCB0BtlFgcd$/7Lv7Pjj3/OUOIUmqk0NmB8218tnq3Qcjb20pF4Xb3VaoMEuXShWVpFGU.YTYBuQ5.e3SXOLrIEfXpFegrQDX.
   cvpadmin:
     privilege: 15
     role: network-admin
-    sha512_password: $6$4sLMfiH7WTA58PyX$XoC4AXQPce.yOyjo6Fcg.5CFev6s8cIb94s1uu.wWTYC8pPTe5iODxgpb6x1WUa96QEYfBmD5VaTO7etWfTOu/
+    sha512_password: $6$u5wM2GSl324m5EF0$AM98W2MI4ISBciPXm6be8Q3RTykF3dCd2W3btVvhcBBKvKHjfbkeJfesbEWMcrYlbzzZbWdBcxF6U/Pe3xBYF1
 
 ### Clock Timezone ###
 clock:
+  timezone: America/Detroit
 
 ### VLANs ###
 vlans:
@@ -133,7 +134,7 @@ vlans:
   40:
     tenant: Tenant_A
     name: Forty-db
-  3009:
+  53000:
     tenant: Tenant_A
     name: MLAG_iBGP_A
     trunk_groups:
@@ -164,6 +165,12 @@ port_channel_interfaces:
     trunk_groups:
       - LEAF_PEER_L3
       - MLAG
+  Port-Channel10:
+    description: HostC_Po1
+    vlans: 30
+    mode: access
+    mlag: 10
+    spanning_tree_portfast: edge
 
 ### Ethernet Interfaces ###
 ethernet_interfaces:
@@ -200,6 +207,26 @@ ethernet_interfaces:
     channel_group:
       id: 47
       mode: active
+  Ethernet10:
+    peer: HostC
+    peer_interface: E2
+    peer_type: server
+    description: HostC_E2
+    mode: access
+    vlans: 30
+    spanning_tree_portfast: edge
+    channel_group:
+      id: 10
+      mode: "active"
+  Ethernet11:
+    peer: HostD
+    peer_interface: E1
+    peer_type: server
+    description: HostD_E1
+    mode: access
+    vlans: 10
+    spanning_tree_portfast: edge
+    spanning_tree_bpdufilter: True
 
 
 ### Loopback Interfaces ###
@@ -223,7 +250,7 @@ management_interfaces:
     description: oob_management
     vrf: MGMT
     ip_address: 192.168.100.34/24
-    gateway: 192.168.200.1
+    gateway: 192.168.100.1
 
 ### VLAN Interfaces ###
 vlan_interfaces:
@@ -260,7 +287,7 @@ vlan_interfaces:
     description: Forty-db
     vrf: A
     ip_address_virtual: 40.40.40.1/24
-  Vlan3009:
+  Vlan53000:
     tenant: Tenant_A
     type: underlay_peering
     description: "MLAG_PEER_L3_iBGP: vrf A"
@@ -289,7 +316,7 @@ vxlan_tunnel_interface:
       vrfs:
 ## Tenant_A ##
         A:
-          vni: 10
+          vni: 50001
 
 ### TCAM Profiles ###
 tcam_profile:
@@ -298,7 +325,7 @@ tcam_profile:
 ### MAC address table ###
 mac_address_table:
 
-ip_virtual_router_mac_address: 00:dc:00:00:00:0a
+ip_virtual_router_mac_address: aa:aa:bb:bb:cc:cc
 
 virtual_source_nat_vrfs:
 ## Tenant_A ##
@@ -309,7 +336,7 @@ virtual_source_nat_vrfs:
 static_routes:
   - vrf: MGMT
     destination_address_prefix: 0.0.0.0/0
-    gateway: 192.168.200.1
+    gateway: 192.168.100.1
 
 ### prefix-lists ###
 prefix_lists:
@@ -336,8 +363,8 @@ mlag_configuration:
     vrf: MGMT
   dual_primary_detection_delay: 5
   peer_link: Port-Channel47
-  reload_delay_mlag: 1020
-  reload_delay_non_mlag: 780
+  reload_delay_mlag: 780
+  reload_delay_non_mlag: 1020
 
 ### route-maps ###
 route_maps:
@@ -413,10 +440,10 @@ router_bgp:
   vlan_aware_bundles:
 ## Tenant_A ##
     A:
-      rd: "1.1.1.24:10"
+      rd: "1.1.1.24:50001"
       route_targets:
         both:
-          - "10:10"
+          - "50001:50001"
       redistribute_routes:
         - learned
       vlan: 10,20,30,40
@@ -425,14 +452,14 @@ router_bgp:
 ## Tenant_A ##
     A:
       router_id: 1.1.1.24
-      rd: "1.1.1.24:10"
+      rd: "1.1.1.24:50001"
       route_targets:
         import:
           evpn:
-            - "10:10"
+            - "50001:50001"
         export:
           evpn:
-            - "10:10"
+            - "50001:50001"
       neighbors:
         10.255.251.40:
           peer_group: MLAG-IPv4-UNDERLAY-PEER
