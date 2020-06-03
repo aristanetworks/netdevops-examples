@@ -46,12 +46,12 @@
 
 | Leaf Node | Leaf Interface | Leaf IP Address | Spine Node | Spine Interface | Spine IP Address |
 | --------- | -------------- | --------------- | ---------- | --------------- | ---------------- |
-| LEAF1A | Ethernet1 | 10.1.1.41/31 | SPINE1 | Ethernet1 | 10.1.1.40/31 |
-| LEAF1A | Ethernet2 | 10.1.1.43/31 | SPINE2 | Ethernet1 | 10.1.1.42/31 |
-| LEAF2A | Ethernet1 | 10.1.1.81/31 | SPINE1 | Ethernet2 | 10.1.1.80/31 |
-| LEAF2A | Ethernet2 | 10.1.1.83/31 | SPINE2 | Ethernet2 | 10.1.1.82/31 |
-| LEAF2B | Ethernet1 | 10.1.1.85/31 | SPINE1 | Ethernet3 | 10.1.1.84/31 |
-| LEAF2B | Ethernet2 | 10.1.1.87/31 | SPINE2 | Ethernet3 | 10.1.1.86/31 |
+| LEAF1A | Ethernet1 | 10.1.1.33/31 | SPINE1 | Ethernet1 | 10.1.1.32/31 |
+| LEAF1A | Ethernet2 | 10.1.1.35/31 | SPINE2 | Ethernet1 | 10.1.1.34/31 |
+| LEAF2A | Ethernet1 | 10.1.1.73/31 | SPINE1 | Ethernet2 | 10.1.1.72/31 |
+| LEAF2A | Ethernet2 | 10.1.1.75/31 | SPINE2 | Ethernet2 | 10.1.1.74/31 |
+| LEAF2B | Ethernet1 | 10.1.1.77/31 | SPINE1 | Ethernet3 | 10.1.1.76/31 |
+| LEAF2B | Ethernet2 | 10.1.1.79/31 | SPINE2 | Ethernet3 | 10.1.1.78/31 |
 
 ### Overlay Loopback Interfaces (BGP EVPN Peering)
 
@@ -65,9 +65,9 @@
 | ---- | --------- |
 | SPINE1 | 1.1.1.1/32 |
 | SPINE2 | 1.1.1.2/32 |
-| LEAF1A | 1.1.1.13/32 |
-| LEAF2A | 1.1.1.23/32 |
-| LEAF2B | 1.1.1.24/32 |
+| LEAF1A | 1.1.1.11/32 |
+| LEAF2A | 1.1.1.21/32 |
+| LEAF2B | 1.1.1.22/32 |
 
 ### VTEP Loopback VXLAN Tunnel Source Interfaces (Leafs Only)
 
@@ -79,6 +79,6 @@
 
 | Node | Loopback1 |
 | ---- | --------- |
-| LEAF1A | 2.2.2.13/32 |
-| LEAF2A | 2.2.2.23/32 |
-| LEAF2B | 2.2.2.23/32 |
+| LEAF1A | 2.2.2.11/32 |
+| LEAF2A | 2.2.2.21/32 |
+| LEAF2B | 2.2.2.21/32 |

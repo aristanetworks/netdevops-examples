@@ -7,7 +7,7 @@
 l3leaf_node_group: DC1_LEAF1
 switch_platform: 7280R
 leaf_bgp_as: 65002
-leaf_id: 11
+leaf_id: 9
 switch_mgmt_ip: 192.168.100.32/24
 leaf_filter_tenants: ['all']
 leaf_filter_tags: ['opzone', 'web', 'app', 'db']
@@ -41,6 +41,7 @@ vlan_internal_order:
 
 ### Event Monitor ###
 event_monitor:
+  enabled: true
 
 ### Event Handler ###
 event_handlers:
@@ -50,6 +51,7 @@ load_interval:
 
 ### Queue Monitor Lenght ###
 queue_monitor_length:
+  enabled: true
 
 ### Logging ###
 logging:
@@ -89,11 +91,9 @@ local_users:
     sha512_password: $6$xTFjLEjlpX/ZvgNp$3ARB.DYuWuJDHzph652u7BAkyQ6jni/NZqKRUQBDJxUL83QuL6/HBY4tL/UXuKr1n00yjwNHtUBn.UbixdLai0
   arista:
     privilege: 15
-    role: network-admin
     sha512_password: $6$RO7KPjCB0BtlFgcd$/7Lv7Pjj3/OUOIUmqk0NmB8218tnq3Qcjb20pF4Xb3VaoMEuXShWVpFGU.YTYBuQ5.e3SXOLrIEfXpFegrQDX.
   cvpadmin:
     privilege: 15
-    role: network-admin
     sha512_password: $6$u5wM2GSl324m5EF0$AM98W2MI4ISBciPXm6be8Q3RTykF3dCd2W3btVvhcBBKvKHjfbkeJfesbEWMcrYlbzzZbWdBcxF6U/Pe3xBYF1
 
 ### Clock Timezone ###
@@ -144,7 +144,7 @@ ethernet_interfaces:
     description: P2P_LINK_TO_SPINE1_Ethernet1
     mtu: 9216
     type: routed
-    ip_address: 10.1.1.41/31
+    ip_address: 10.1.1.33/31
   Ethernet2:
     peer: SPINE2
     peer_interface: Ethernet1
@@ -152,7 +152,7 @@ ethernet_interfaces:
     description: P2P_LINK_TO_SPINE2_Ethernet1
     mtu: 9216
     type: routed
-    ip_address: 10.1.1.43/31
+    ip_address: 10.1.1.35/31
   Ethernet10:
     peer: HostA
     peer_interface: E1
@@ -184,16 +184,16 @@ ethernet_interfaces:
 loopback_interfaces:
   Loopback0:
     description: EVPN_Overlay_Peering
-    ip_address: 1.1.1.13/32
+    ip_address: 1.1.1.11/32
 
   Loopback1:
     description: VTEP_VXLAN_Tunnel_Source
-    ip_address: 2.2.2.13/32
+    ip_address: 2.2.2.11/32
 ## Tenant_A ##
   Loopback100:
     description: A_VTEP_DIAGNOSTICS
     vrf: A
-    ip_address: 10.255.1.13/32
+    ip_address: 10.255.1.11/32
 
 ### Management Interfaces ###
 management_interfaces:
@@ -251,7 +251,7 @@ vxlan_tunnel_interface:
       vrfs:
 ## Tenant_A ##
         A:
-          vni: 50001
+          vni: 51
 
 ### TCAM Profiles ###
 tcam_profile:
@@ -265,7 +265,7 @@ ip_virtual_router_mac_address: aa:aa:bb:bb:cc:cc
 virtual_source_nat_vrfs:
 ## Tenant_A ##
   A:
-    ip_address: 10.255.1.13
+    ip_address: 10.255.1.11
 
 ### static routes ###
 static_routes:
@@ -297,7 +297,7 @@ route_maps:
 ### Routing - BGP ###
 router_bgp:
   as: 65002
-  router_id: 1.1.1.13
+  router_id: 1.1.1.11
   bgp_defaults:
     - update wait-install
     - no bgp default ipv4-unicast
@@ -322,9 +322,9 @@ router_bgp:
       send_community: true
       maximum_routes: 0
   neighbors:
-    10.1.1.40:
+    10.1.1.32:
       peer_group: IPv4-UNDERLAY-PEERS
-    10.1.1.42:
+    10.1.1.34:
       peer_group: IPv4-UNDERLAY-PEERS
     1.1.1.1:
       peer_group: EVPN-OVERLAY-PEERS
@@ -348,10 +348,10 @@ router_bgp:
   vlan_aware_bundles:
 ## Tenant_A ##
     A:
-      rd: "1.1.1.13:50001"
+      rd: "1.1.1.11:51"
       route_targets:
         both:
-          - "50001:50001"
+          - "51:51"
       redistribute_routes:
         - learned
       vlan: 10,20,30,40
@@ -359,15 +359,15 @@ router_bgp:
   vrfs:
 ## Tenant_A ##
     A:
-      router_id: 1.1.1.13
-      rd: "1.1.1.13:50001"
+      router_id: 1.1.1.11
+      rd: "1.1.1.11:51"
       route_targets:
         import:
           evpn:
-            - "50001:50001"
+            - "51:51"
         export:
           evpn:
-            - "50001:50001"
+            - "51:51"
       redistribute_routes:
         - connected
 
@@ -376,6 +376,8 @@ router_ospf:
 
 ### Queue Monitor Streaming ###
 queue_monitor_streaming:
+  enable: True
+  vrf: MGMT
 
 ### Management API http ###
 management_api_http:

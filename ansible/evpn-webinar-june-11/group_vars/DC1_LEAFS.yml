@@ -1,1 +1,8 @@
 type: l3leaf
+
+# Enable Selective ARP install
+# Enables selective programming of remote ARPs in hardware as received through EVPN Type 2 MAC-IP routes
+# in an EVPN VXLAN/ MPLS Integrated Routing and Bridging (IRB) scenario
+
+router_l2_vpn:
+  arp_selective_install: true

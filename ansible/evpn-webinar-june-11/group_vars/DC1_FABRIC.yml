@@ -70,7 +70,7 @@ l3leaf:
         tags: [ opzone, web, app, db ]
       nodes:
         LEAF1A:
-          id: 11
+          id: 9
           mgmt_ip: 192.168.100.32/24
           spine_interfaces: [ Ethernet1, Ethernet1 ]
     DC1_LEAF2:
@@ -80,10 +80,25 @@ l3leaf:
         tags: [ opzone, web, app, db ]
       nodes:
         LEAF2A:
-          id: 21
+          id: 19
           mgmt_ip: 192.168.100.33/24
           spine_interfaces: [ Ethernet2, Ethernet2 ]
         LEAF2B:
-          id: 22
+          id: 20
           mgmt_ip: 192.168.100.34/24
           spine_interfaces: [ Ethernet3, Ethernet3 ]
+
+
+# Enable queue monitor length
+
+queue_monitor_length: true
+
+# Enable event monitor
+
+event_monitor: true
+
+# Enable queue monitor streaming
+
+queue_monitor_streaming:
+  enable: true
+  vrf: MGMT

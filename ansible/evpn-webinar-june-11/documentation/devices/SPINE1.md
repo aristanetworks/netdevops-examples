@@ -183,7 +183,20 @@ aaa group server radius RADIUS-GROUP
 
 ## AAA Authentication
 
-AAA authentication not defined
+### AAA Authentication Summary
+
+| Type | Sub-type | User Stores |
+| ---- | -------- | ---------- |
+| Login | Default | group RADIUS-GROUP local |
+
+### AAA Authentication Device Configuration
+
+```eos
+!
+aaa authentication login default group RADIUS-GROUP local
+aaa authentication dot1x default group RADIUS-GROUP
+!
+```
 
 ## AAA Authorization
 
@@ -200,16 +213,16 @@ AAA accounting not defined
 | User | Privilege | role |
 | ---- | --------- | ---- |
 | admin | 15 | network-admin |
-| arista | 15 | network-admin |
-| cvpadmin | 15 | network-admin |
+| arista | 15 | N/A |
+| cvpadmin | 15 | N/A |
 
 ### Local Users Device Configuration
 
 ```eos
 !
 username admin privilege 15 role network-admin secret sha512 $6$xTFjLEjlpX/ZvgNp$3ARB.DYuWuJDHzph652u7BAkyQ6jni/NZqKRUQBDJxUL83QuL6/HBY4tL/UXuKr1n00yjwNHtUBn.UbixdLai0
-username arista privilege 15 role network-admin secret sha512 $6$RO7KPjCB0BtlFgcd$/7Lv7Pjj3/OUOIUmqk0NmB8218tnq3Qcjb20pF4Xb3VaoMEuXShWVpFGU.YTYBuQ5.e3SXOLrIEfXpFegrQDX.
-username cvpadmin privilege 15 role network-admin secret sha512 $6$u5wM2GSl324m5EF0$AM98W2MI4ISBciPXm6be8Q3RTykF3dCd2W3btVvhcBBKvKHjfbkeJfesbEWMcrYlbzzZbWdBcxF6U/Pe3xBYF1
+username arista privilege 15 secret sha512 $6$RO7KPjCB0BtlFgcd$/7Lv7Pjj3/OUOIUmqk0NmB8218tnq3Qcjb20pF4Xb3VaoMEuXShWVpFGU.YTYBuQ5.e3SXOLrIEfXpFegrQDX.
+username cvpadmin privilege 15 secret sha512 $6$u5wM2GSl324m5EF0$AM98W2MI4ISBciPXm6be8Q3RTykF3dCd2W3btVvhcBBKvKHjfbkeJfesbEWMcrYlbzzZbWdBcxF6U/Pe3xBYF1
 ```
 
 ## VLANs
@@ -241,9 +254,9 @@ No Port-Channels defined
 
 | Interface | Description | MTU | Type | Mode | Allowed VLANs (Trunk) | Trunk Group | VRF | IP Address | Channel-Group ID | Channel-Group Type |
 | --------- | ----------- | --- | ---- | ---- | --------------------- | ----------- | --- | ---------- | ---------------- | ------------------ |
-| Ethernet1 | P2P_LINK_TO_LEAF1A_Ethernet1 | 9216 | routed | access | - | - | - | 10.1.1.40/31 | - | - |
-| Ethernet2 | P2P_LINK_TO_LEAF2A_Ethernet1 | 9216 | routed | access | - | - | - | 10.1.1.80/31 | - | - |
-| Ethernet3 | P2P_LINK_TO_LEAF2B_Ethernet1 | 9216 | routed | access | - | - | - | 10.1.1.84/31 | - | - |
+| Ethernet1 | P2P_LINK_TO_LEAF1A_Ethernet1 | 9216 | routed | access | - | - | - | 10.1.1.32/31 | - | - |
+| Ethernet2 | P2P_LINK_TO_LEAF2A_Ethernet1 | 9216 | routed | access | - | - | - | 10.1.1.72/31 | - | - |
+| Ethernet3 | P2P_LINK_TO_LEAF2B_Ethernet1 | 9216 | routed | access | - | - | - | 10.1.1.76/31 | - | - |
 
 *Inherited from Port-Channel Interface
 
@@ -255,19 +268,19 @@ interface Ethernet1
    description P2P_LINK_TO_LEAF1A_Ethernet1
    mtu 9216
    no switchport
-   ip address 10.1.1.40/31
+   ip address 10.1.1.32/31
 !
 interface Ethernet2
    description P2P_LINK_TO_LEAF2A_Ethernet1
    mtu 9216
    no switchport
-   ip address 10.1.1.80/31
+   ip address 10.1.1.72/31
 !
 interface Ethernet3
    description P2P_LINK_TO_LEAF2B_Ethernet1
    mtu 9216
    no switchport
-   ip address 10.1.1.84/31
+   ip address 10.1.1.76/31
 ```
 
 ## Loopback Interfaces
@@ -484,12 +497,12 @@ peer-filter LEAF-AS-RANGE
 
 | Neighbor | Remote AS |
 | -------- | ---------
-| 1.1.1.13 | 65002 |
-| 1.1.1.23 | 65003 |
-| 1.1.1.24 | 65003 |
-| 10.1.1.41 | 65002 |
-| 10.1.1.81 | 65003 |
-| 10.1.1.85 | 65003 |
+| 1.1.1.11 | 65002 |
+| 1.1.1.21 | 65003 |
+| 1.1.1.22 | 65003 |
+| 10.1.1.33 | 65002 |
+| 10.1.1.73 | 65003 |
+| 10.1.1.77 | 65003 |
 
 ### Router BGP EVPN Address Family
 
@@ -524,18 +537,18 @@ router bgp 65001
    neighbor IPv4-UNDERLAY-PEERS peer group
    neighbor IPv4-UNDERLAY-PEERS password 7 AQQvKeimxJu+uGQ/yYvv9w==
    neighbor IPv4-UNDERLAY-PEERS maximum-routes 12000
-   neighbor 1.1.1.13 peer group EVPN-OVERLAY-PEERS
-   neighbor 1.1.1.13 remote-as 65002
-   neighbor 1.1.1.23 peer group EVPN-OVERLAY-PEERS
-   neighbor 1.1.1.23 remote-as 65003
-   neighbor 1.1.1.24 peer group EVPN-OVERLAY-PEERS
-   neighbor 1.1.1.24 remote-as 65003
-   neighbor 10.1.1.41 peer group IPv4-UNDERLAY-PEERS
-   neighbor 10.1.1.41 remote-as 65002
-   neighbor 10.1.1.81 peer group IPv4-UNDERLAY-PEERS
-   neighbor 10.1.1.81 remote-as 65003
-   neighbor 10.1.1.85 peer group IPv4-UNDERLAY-PEERS
-   neighbor 10.1.1.85 remote-as 65003
+   neighbor 1.1.1.11 peer group EVPN-OVERLAY-PEERS
+   neighbor 1.1.1.11 remote-as 65002
+   neighbor 1.1.1.21 peer group EVPN-OVERLAY-PEERS
+   neighbor 1.1.1.21 remote-as 65003
+   neighbor 1.1.1.22 peer group EVPN-OVERLAY-PEERS
+   neighbor 1.1.1.22 remote-as 65003
+   neighbor 10.1.1.33 peer group IPv4-UNDERLAY-PEERS
+   neighbor 10.1.1.33 remote-as 65002
+   neighbor 10.1.1.73 peer group IPv4-UNDERLAY-PEERS
+   neighbor 10.1.1.73 remote-as 65003
+   neighbor 10.1.1.77 peer group IPv4-UNDERLAY-PEERS
+   neighbor 10.1.1.77 remote-as 65003
    redistribute connected route-map RM-CONN-2-BGP
    !
    address-family evpn

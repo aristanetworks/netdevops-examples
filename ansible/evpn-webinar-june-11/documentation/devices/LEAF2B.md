@@ -140,7 +140,21 @@ ntp server vrf MGMT 216.239.35.4 prefer
 
 ## Router L2 VPN
 
-Router L2 VPN not defined
+### Router L2 VPN
+
+
+
+   Selective ARP is enabled.
+
+
+
+### Router L2 VPN Device Configuration
+
+```eos
+!
+router l2-vpn
+   arp selective-install
+```
 
 ## SFlow
 
@@ -190,7 +204,20 @@ aaa group server radius RADIUS-GROUP
 
 ## AAA Authentication
 
-AAA authentication not defined
+### AAA Authentication Summary
+
+| Type | Sub-type | User Stores |
+| ---- | -------- | ---------- |
+| Login | Default | group RADIUS-GROUP local |
+
+### AAA Authentication Device Configuration
+
+```eos
+!
+aaa authentication login default group RADIUS-GROUP local
+aaa authentication dot1x default group RADIUS-GROUP
+!
+```
 
 ## AAA Authorization
 
@@ -207,16 +234,16 @@ AAA accounting not defined
 | User | Privilege | role |
 | ---- | --------- | ---- |
 | admin | 15 | network-admin |
-| arista | 15 | network-admin |
-| cvpadmin | 15 | network-admin |
+| arista | 15 | N/A |
+| cvpadmin | 15 | N/A |
 
 ### Local Users Device Configuration
 
 ```eos
 !
 username admin privilege 15 role network-admin secret sha512 $6$xTFjLEjlpX/ZvgNp$3ARB.DYuWuJDHzph652u7BAkyQ6jni/NZqKRUQBDJxUL83QuL6/HBY4tL/UXuKr1n00yjwNHtUBn.UbixdLai0
-username arista privilege 15 role network-admin secret sha512 $6$RO7KPjCB0BtlFgcd$/7Lv7Pjj3/OUOIUmqk0NmB8218tnq3Qcjb20pF4Xb3VaoMEuXShWVpFGU.YTYBuQ5.e3SXOLrIEfXpFegrQDX.
-username cvpadmin privilege 15 role network-admin secret sha512 $6$u5wM2GSl324m5EF0$AM98W2MI4ISBciPXm6be8Q3RTykF3dCd2W3btVvhcBBKvKHjfbkeJfesbEWMcrYlbzzZbWdBcxF6U/Pe3xBYF1
+username arista privilege 15 secret sha512 $6$RO7KPjCB0BtlFgcd$/7Lv7Pjj3/OUOIUmqk0NmB8218tnq3Qcjb20pF4Xb3VaoMEuXShWVpFGU.YTYBuQ5.e3SXOLrIEfXpFegrQDX.
+username cvpadmin privilege 15 secret sha512 $6$u5wM2GSl324m5EF0$AM98W2MI4ISBciPXm6be8Q3RTykF3dCd2W3btVvhcBBKvKHjfbkeJfesbEWMcrYlbzzZbWdBcxF6U/Pe3xBYF1
 ```
 
 ## VLANs
@@ -229,9 +256,9 @@ username cvpadmin privilege 15 role network-admin secret sha512 $6$u5wM2GSl324m5
 | 20 | Twenty-web | none  |
 | 30 | Thirty-app | none  |
 | 40 | Forty-db | none  |
+| 3050 | MLAG_iBGP_A | LEAF_PEER_L3  |
 | 4093 | LEAF_PEER_L3 | LEAF_PEER_L3  |
 | 4094 | MLAG_PEER | MLAG  |
-| 53000 | MLAG_iBGP_A | LEAF_PEER_L3  |
 
 ### VLANs Device Configuration
 
@@ -249,6 +276,10 @@ vlan 30
 vlan 40
    name Forty-db
 !
+vlan 3050
+   name MLAG_iBGP_A
+   trunk group LEAF_PEER_L3
+!
 vlan 4093
    name LEAF_PEER_L3
    trunk group LEAF_PEER_L3
@@ -256,10 +287,6 @@ vlan 4093
 vlan 4094
    name MLAG_PEER
    trunk group MLAG
-!
-vlan 53000
-   name MLAG_iBGP_A
-   trunk group LEAF_PEER_L3
 ```
 
 ## VRF Instances
@@ -313,8 +340,8 @@ interface Port-Channel47
 
 | Interface | Description | MTU | Type | Mode | Allowed VLANs (Trunk) | Trunk Group | VRF | IP Address | Channel-Group ID | Channel-Group Type |
 | --------- | ----------- | --- | ---- | ---- | --------------------- | ----------- | --- | ---------- | ---------------- | ------------------ |
-| Ethernet1 | P2P_LINK_TO_SPINE1_Ethernet3 | 9216 | routed | access | - | - | - | 10.1.1.85/31 | - | - |
-| Ethernet2 | P2P_LINK_TO_SPINE2_Ethernet3 | 9216 | routed | access | - | - | - | 10.1.1.87/31 | - | - |
+| Ethernet1 | P2P_LINK_TO_SPINE1_Ethernet3 | 9216 | routed | access | - | - | - | 10.1.1.77/31 | - | - |
+| Ethernet2 | P2P_LINK_TO_SPINE2_Ethernet3 | 9216 | routed | access | - | - | - | 10.1.1.79/31 | - | - |
 | Ethernet10 | HostC_E2 | *1500 | *switched | *access | *30 | - | - | - | 10 | active |
 | Ethernet11 | HostD_E1 | 1500 | switched | access | 10 | - | - | - | - | - |
 | Ethernet47 | MLAG_PEER_LEAF2A_Ethernet47 | *1500 | *switched | *trunk | *2-4094 | *LEAF_PEER_L3<br> *MLAG | - | - | 47 | active |
@@ -330,13 +357,13 @@ interface Ethernet1
    description P2P_LINK_TO_SPINE1_Ethernet3
    mtu 9216
    no switchport
-   ip address 10.1.1.85/31
+   ip address 10.1.1.77/31
 !
 interface Ethernet2
    description P2P_LINK_TO_SPINE2_Ethernet3
    mtu 9216
    no switchport
-   ip address 10.1.1.87/31
+   ip address 10.1.1.79/31
 !
 interface Ethernet10
    description HostC_E2
@@ -365,9 +392,9 @@ IPv4
 
 | Interface | Description | VRF | IP Address |
 | --------- | ----------- | --- | ---------- |
-| Loopback0 | EVPN_Overlay_Peering | Global Routing Table | 1.1.1.24/32 |
-| Loopback1 | VTEP_VXLAN_Tunnel_Source | Global Routing Table | 2.2.2.23/32 |
-| Loopback100 | A_VTEP_DIAGNOSTICS | A | 10.255.1.24/32 |
+| Loopback0 | EVPN_Overlay_Peering | Global Routing Table | 1.1.1.22/32 |
+| Loopback1 | VTEP_VXLAN_Tunnel_Source | Global Routing Table | 2.2.2.21/32 |
+| Loopback100 | A_VTEP_DIAGNOSTICS | A | 10.255.1.22/32 |
 
 IPv6
 
@@ -383,16 +410,16 @@ IPv6
 !
 interface Loopback0
    description EVPN_Overlay_Peering
-   ip address 1.1.1.24/32
+   ip address 1.1.1.22/32
 !
 interface Loopback1
    description VTEP_VXLAN_Tunnel_Source
-   ip address 2.2.2.23/32
+   ip address 2.2.2.21/32
 !
 interface Loopback100
    description A_VTEP_DIAGNOSTICS
    vrf A
-   ip address 10.255.1.24/32
+   ip address 10.255.1.22/32
 ```
 
 ## VLAN Interfaces
@@ -405,9 +432,9 @@ interface Loopback100
 | Vlan20 | Twenty-web | A | - | 20.20.20.1/24 | - |
 | Vlan30 | Thirty-app | A | - | 30.30.30.1/24 | - |
 | Vlan40 | Forty-db | A | - | 40.40.40.1/24 | - |
-| Vlan4093 | MLAG_PEER_L3_PEERING | Global Routing Table | 10.255.251.41/31 | - | - |
-| Vlan4094 | MLAG_PEER | Global Routing Table | 10.255.252.41/31 | - | - |
-| Vlan53000 | MLAG_PEER_L3_iBGP: vrf A | A | 10.255.251.41/31 | - | - |
+| Vlan3050 | MLAG_PEER_L3_iBGP: vrf A | A | 10.255.251.37/31 | - | - |
+| Vlan4093 | MLAG_PEER_L3_PEERING | Global Routing Table | 10.255.251.37/31 | - | - |
+| Vlan4094 | MLAG_PEER | Global Routing Table | 10.255.252.37/31 | - | - |
 
 ### VLAN Interfaces Device Configuration
 
@@ -433,20 +460,20 @@ interface Vlan40
    vrf A
    ip address virtual 40.40.40.1/24
 !
+interface Vlan3050
+   description MLAG_PEER_L3_iBGP: vrf A
+   vrf A
+   ip address 10.255.251.37/31
+!
 interface Vlan4093
    description MLAG_PEER_L3_PEERING
-   ip address 10.255.251.41/31
+   ip address 10.255.251.37/31
 !
 interface Vlan4094
    description MLAG_PEER
    mtu 9216
    no autostate
-   ip address 10.255.252.41/31
-!
-interface Vlan53000
-   description MLAG_PEER_L3_iBGP: vrf A
-   vrf A
-   ip address 10.255.251.41/31
+   ip address 10.255.252.37/31
 ```
 
 ## VXLAN Interface
@@ -469,7 +496,7 @@ interface Vlan53000
 
 | VLAN | VNI |
 | ---- | --- |
-| A | 50001 |
+| A | 51 |
 
 ### VXLAN Interface Device Configuration
 
@@ -483,7 +510,7 @@ interface Vxlan1
    vxlan vlan 20 vni 10020
    vxlan vlan 30 vni 10030
    vxlan vlan 40 vni 10040
-   vxlan vrf A vni 50001
+   vxlan vrf A vni 51
 ```
 
 ## Virtual Router MAC Address & Virtual Source NAT
@@ -495,14 +522,14 @@ interface Vxlan1
 
 | Source NAT VRF | Source NAT IP Address |
 | -------------- | --------------------- |
-| A | 10.255.1.24 |
+| A | 10.255.1.22 |
 
 ### Virtual Router MAC Address Device and Virtual Source NAT Configuration
 
 ```eos
 !
 ip virtual-router mac-address aa:aa:bb:bb:cc:cc
-ip address virtual source-nat vrf A address 10.255.1.24
+ip address virtual source-nat vrf A address 10.255.1.22
 ```
 
 ## IPv6 Extended Access-lists
@@ -613,7 +640,7 @@ IPv6 Prefix lists not defined
 
 | domain-id | local-interface | peer-address | peer-link |
 | --------- | --------------- | ------------ | --------- |
-| DC1_LEAF2 | Vlan4094 | 10.255.252.40 | Port-Channel47 |
+| DC1_LEAF2 | Vlan4094 | 10.255.252.36 | Port-Channel47 |
 
 Dual primary detection is enabled. The detection delay is 5 seconds.
 
@@ -624,7 +651,7 @@ Dual primary detection is enabled. The detection delay is 5 seconds.
 mlag configuration
    domain-id DC1_LEAF2
    local-interface Vlan4094
-   peer-address 10.255.252.40
+   peer-address 10.255.252.36
    peer-address heartbeat 192.168.100.33 vrf MGMT
    peer-link Port-Channel47
    dual-primary detection delay 5 action errdisable all-interfaces
@@ -670,7 +697,7 @@ No Peer Filters defined
 
 | BGP AS | Router ID |
 | ------ | --------- |
-| 65003|  1.1.1.24 |
+| 65003|  1.1.1.22 |
 
 | BGP Tuning |
 | ---------- |
@@ -718,9 +745,9 @@ No Peer Filters defined
 | -------- | ---------
 | 1.1.1.1 | Inherited from peer group EVPN-OVERLAY-PEERS |
 | 1.1.1.2 | Inherited from peer group EVPN-OVERLAY-PEERS |
-| 10.1.1.84 | Inherited from peer group IPv4-UNDERLAY-PEERS |
-| 10.1.1.86 | Inherited from peer group IPv4-UNDERLAY-PEERS |
-| 10.255.251.40 | Inherited from peer group MLAG-IPv4-UNDERLAY-PEER |
+| 10.1.1.76 | Inherited from peer group IPv4-UNDERLAY-PEERS |
+| 10.1.1.78 | Inherited from peer group IPv4-UNDERLAY-PEERS |
+| 10.255.251.36 | Inherited from peer group MLAG-IPv4-UNDERLAY-PEER |
 
 ### Router BGP EVPN Address Family
 
@@ -730,21 +757,21 @@ No Peer Filters defined
 
 | VLAN Aware Bundle | Route-Distinguisher | Both Route-Target | Import Route Target | Export Route-Target | Redistribute | VLANs |
 | ----------------- | ------------------- | ----------------- | ------------------- | ------------------- | ------------ | ----- |
-| A | 1.1.1.24:50001 |  50001:50001  |  |  | learned | 10,20,30,40 |
+| A | 1.1.1.22:51 |  51:51  |  |  | learned | 10,20,30,40 |
 
 
 #### Router BGP EVPN VRFs
 
 | VRF | Route-Distinguisher | Redistribute |
 | --- | ------------------- | ------------ |
-| A | 1.1.1.24:50001 | connected  |
+| A | 1.1.1.22:51 | connected  |
 
 ### Router BGP Device Configuration
 
 ```eos
 !
 router bgp 65003
-   router-id 1.1.1.24
+   router-id 1.1.1.22
    update wait-install
    no bgp default ipv4-unicast
    distance bgp 20 200 200
@@ -772,14 +799,14 @@ router bgp 65003
    neighbor MLAG-IPv4-UNDERLAY-PEER maximum-routes 12000
    neighbor 1.1.1.1 peer group EVPN-OVERLAY-PEERS
    neighbor 1.1.1.2 peer group EVPN-OVERLAY-PEERS
-   neighbor 10.1.1.84 peer group IPv4-UNDERLAY-PEERS
-   neighbor 10.1.1.86 peer group IPv4-UNDERLAY-PEERS
-   neighbor 10.255.251.40 peer group MLAG-IPv4-UNDERLAY-PEER
+   neighbor 10.1.1.76 peer group IPv4-UNDERLAY-PEERS
+   neighbor 10.1.1.78 peer group IPv4-UNDERLAY-PEERS
+   neighbor 10.255.251.36 peer group MLAG-IPv4-UNDERLAY-PEER
    redistribute connected route-map RM-CONN-2-BGP
    !
    vlan-aware-bundle A
-      rd 1.1.1.24:50001
-      route-target both 50001:50001
+      rd 1.1.1.22:51
+      route-target both 51:51
       redistribute learned
       vlan 10,20,30,40
    !
@@ -794,11 +821,11 @@ router bgp 65003
       neighbor MLAG-IPv4-UNDERLAY-PEER activate
    !
    vrf A
-      rd 1.1.1.24:50001
-      route-target import evpn 50001:50001
-      route-target export evpn 50001:50001
-      router-id 1.1.1.24
-      neighbor 10.255.251.40 peer group MLAG-IPv4-UNDERLAY-PEER
+      rd 1.1.1.22:51
+      route-target import evpn 51:51
+      route-target export evpn 51:51
+      router-id 1.1.1.22
+      neighbor 10.255.251.36 peer group MLAG-IPv4-UNDERLAY-PEER
       redistribute connected
 ```
 

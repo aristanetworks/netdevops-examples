@@ -140,7 +140,21 @@ ntp server vrf MGMT 216.239.35.4 prefer
 
 ## Router L2 VPN
 
-Router L2 VPN not defined
+### Router L2 VPN
+
+
+
+   Selective ARP is enabled.
+
+
+
+### Router L2 VPN Device Configuration
+
+```eos
+!
+router l2-vpn
+   arp selective-install
+```
 
 ## SFlow
 
@@ -189,7 +203,20 @@ aaa group server radius RADIUS-GROUP
 
 ## AAA Authentication
 
-AAA authentication not defined
+### AAA Authentication Summary
+
+| Type | Sub-type | User Stores |
+| ---- | -------- | ---------- |
+| Login | Default | group RADIUS-GROUP local |
+
+### AAA Authentication Device Configuration
+
+```eos
+!
+aaa authentication login default group RADIUS-GROUP local
+aaa authentication dot1x default group RADIUS-GROUP
+!
+```
 
 ## AAA Authorization
 
@@ -206,16 +233,16 @@ AAA accounting not defined
 | User | Privilege | role |
 | ---- | --------- | ---- |
 | admin | 15 | network-admin |
-| arista | 15 | network-admin |
-| cvpadmin | 15 | network-admin |
+| arista | 15 | N/A |
+| cvpadmin | 15 | N/A |
 
 ### Local Users Device Configuration
 
 ```eos
 !
 username admin privilege 15 role network-admin secret sha512 $6$xTFjLEjlpX/ZvgNp$3ARB.DYuWuJDHzph652u7BAkyQ6jni/NZqKRUQBDJxUL83QuL6/HBY4tL/UXuKr1n00yjwNHtUBn.UbixdLai0
-username arista privilege 15 role network-admin secret sha512 $6$RO7KPjCB0BtlFgcd$/7Lv7Pjj3/OUOIUmqk0NmB8218tnq3Qcjb20pF4Xb3VaoMEuXShWVpFGU.YTYBuQ5.e3SXOLrIEfXpFegrQDX.
-username cvpadmin privilege 15 role network-admin secret sha512 $6$u5wM2GSl324m5EF0$AM98W2MI4ISBciPXm6be8Q3RTykF3dCd2W3btVvhcBBKvKHjfbkeJfesbEWMcrYlbzzZbWdBcxF6U/Pe3xBYF1
+username arista privilege 15 secret sha512 $6$RO7KPjCB0BtlFgcd$/7Lv7Pjj3/OUOIUmqk0NmB8218tnq3Qcjb20pF4Xb3VaoMEuXShWVpFGU.YTYBuQ5.e3SXOLrIEfXpFegrQDX.
+username cvpadmin privilege 15 secret sha512 $6$u5wM2GSl324m5EF0$AM98W2MI4ISBciPXm6be8Q3RTykF3dCd2W3btVvhcBBKvKHjfbkeJfesbEWMcrYlbzzZbWdBcxF6U/Pe3xBYF1
 ```
 
 ## VLANs
@@ -274,8 +301,8 @@ No Port-Channels defined
 
 | Interface | Description | MTU | Type | Mode | Allowed VLANs (Trunk) | Trunk Group | VRF | IP Address | Channel-Group ID | Channel-Group Type |
 | --------- | ----------- | --- | ---- | ---- | --------------------- | ----------- | --- | ---------- | ---------------- | ------------------ |
-| Ethernet1 | P2P_LINK_TO_SPINE1_Ethernet1 | 9216 | routed | access | - | - | - | 10.1.1.41/31 | - | - |
-| Ethernet2 | P2P_LINK_TO_SPINE2_Ethernet1 | 9216 | routed | access | - | - | - | 10.1.1.43/31 | - | - |
+| Ethernet1 | P2P_LINK_TO_SPINE1_Ethernet1 | 9216 | routed | access | - | - | - | 10.1.1.33/31 | - | - |
+| Ethernet2 | P2P_LINK_TO_SPINE2_Ethernet1 | 9216 | routed | access | - | - | - | 10.1.1.35/31 | - | - |
 | Ethernet10 | HostA_E1 | 1500 | switched | access | 10 | - | - | - | - | - |
 | Ethernet11 | HostB_E1 | 1500 | switched | access | 20 | - | - | - | - | - |
 | Ethernet12 | HostF_E1 | 1500 | switched | access | 40 | - | - | - | - | - |
@@ -290,13 +317,13 @@ interface Ethernet1
    description P2P_LINK_TO_SPINE1_Ethernet1
    mtu 9216
    no switchport
-   ip address 10.1.1.41/31
+   ip address 10.1.1.33/31
 !
 interface Ethernet2
    description P2P_LINK_TO_SPINE2_Ethernet1
    mtu 9216
    no switchport
-   ip address 10.1.1.43/31
+   ip address 10.1.1.35/31
 !
 interface Ethernet10
    description HostA_E1
@@ -323,9 +350,9 @@ IPv4
 
 | Interface | Description | VRF | IP Address |
 | --------- | ----------- | --- | ---------- |
-| Loopback0 | EVPN_Overlay_Peering | Global Routing Table | 1.1.1.13/32 |
-| Loopback1 | VTEP_VXLAN_Tunnel_Source | Global Routing Table | 2.2.2.13/32 |
-| Loopback100 | A_VTEP_DIAGNOSTICS | A | 10.255.1.13/32 |
+| Loopback0 | EVPN_Overlay_Peering | Global Routing Table | 1.1.1.11/32 |
+| Loopback1 | VTEP_VXLAN_Tunnel_Source | Global Routing Table | 2.2.2.11/32 |
+| Loopback100 | A_VTEP_DIAGNOSTICS | A | 10.255.1.11/32 |
 
 IPv6
 
@@ -341,16 +368,16 @@ IPv6
 !
 interface Loopback0
    description EVPN_Overlay_Peering
-   ip address 1.1.1.13/32
+   ip address 1.1.1.11/32
 !
 interface Loopback1
    description VTEP_VXLAN_Tunnel_Source
-   ip address 2.2.2.13/32
+   ip address 2.2.2.11/32
 !
 interface Loopback100
    description A_VTEP_DIAGNOSTICS
    vrf A
-   ip address 10.255.1.13/32
+   ip address 10.255.1.11/32
 ```
 
 ## VLAN Interfaces
@@ -409,7 +436,7 @@ interface Vlan40
 
 | VLAN | VNI |
 | ---- | --- |
-| A | 50001 |
+| A | 51 |
 
 ### VXLAN Interface Device Configuration
 
@@ -422,7 +449,7 @@ interface Vxlan1
    vxlan vlan 20 vni 10020
    vxlan vlan 30 vni 10030
    vxlan vlan 40 vni 10040
-   vxlan vrf A vni 50001
+   vxlan vrf A vni 51
 ```
 
 ## Virtual Router MAC Address & Virtual Source NAT
@@ -434,14 +461,14 @@ interface Vxlan1
 
 | Source NAT VRF | Source NAT IP Address |
 | -------------- | --------------------- |
-| A | 10.255.1.13 |
+| A | 10.255.1.11 |
 
 ### Virtual Router MAC Address Device and Virtual Source NAT Configuration
 
 ```eos
 !
 ip virtual-router mac-address aa:aa:bb:bb:cc:cc
-ip address virtual source-nat vrf A address 10.255.1.13
+ip address virtual source-nat vrf A address 10.255.1.11
 ```
 
 ## IPv6 Extended Access-lists
@@ -586,7 +613,7 @@ No Peer Filters defined
 
 | BGP AS | Router ID |
 | ------ | --------- |
-| 65002|  1.1.1.13 |
+| 65002|  1.1.1.11 |
 
 | BGP Tuning |
 | ---------- |
@@ -625,8 +652,8 @@ No Peer Filters defined
 | -------- | ---------
 | 1.1.1.1 | Inherited from peer group EVPN-OVERLAY-PEERS |
 | 1.1.1.2 | Inherited from peer group EVPN-OVERLAY-PEERS |
-| 10.1.1.40 | Inherited from peer group IPv4-UNDERLAY-PEERS |
-| 10.1.1.42 | Inherited from peer group IPv4-UNDERLAY-PEERS |
+| 10.1.1.32 | Inherited from peer group IPv4-UNDERLAY-PEERS |
+| 10.1.1.34 | Inherited from peer group IPv4-UNDERLAY-PEERS |
 
 ### Router BGP EVPN Address Family
 
@@ -636,21 +663,21 @@ No Peer Filters defined
 
 | VLAN Aware Bundle | Route-Distinguisher | Both Route-Target | Import Route Target | Export Route-Target | Redistribute | VLANs |
 | ----------------- | ------------------- | ----------------- | ------------------- | ------------------- | ------------ | ----- |
-| A | 1.1.1.13:50001 |  50001:50001  |  |  | learned | 10,20,30,40 |
+| A | 1.1.1.11:51 |  51:51  |  |  | learned | 10,20,30,40 |
 
 
 #### Router BGP EVPN VRFs
 
 | VRF | Route-Distinguisher | Redistribute |
 | --- | ------------------- | ------------ |
-| A | 1.1.1.13:50001 | connected  |
+| A | 1.1.1.11:51 | connected  |
 
 ### Router BGP Device Configuration
 
 ```eos
 !
 router bgp 65002
-   router-id 1.1.1.13
+   router-id 1.1.1.11
    update wait-install
    no bgp default ipv4-unicast
    distance bgp 20 200 200
@@ -672,13 +699,13 @@ router bgp 65002
    neighbor IPv4-UNDERLAY-PEERS maximum-routes 12000
    neighbor 1.1.1.1 peer group EVPN-OVERLAY-PEERS
    neighbor 1.1.1.2 peer group EVPN-OVERLAY-PEERS
-   neighbor 10.1.1.40 peer group IPv4-UNDERLAY-PEERS
-   neighbor 10.1.1.42 peer group IPv4-UNDERLAY-PEERS
+   neighbor 10.1.1.32 peer group IPv4-UNDERLAY-PEERS
+   neighbor 10.1.1.34 peer group IPv4-UNDERLAY-PEERS
    redistribute connected route-map RM-CONN-2-BGP
    !
    vlan-aware-bundle A
-      rd 1.1.1.13:50001
-      route-target both 50001:50001
+      rd 1.1.1.11:51
+      route-target both 51:51
       redistribute learned
       vlan 10,20,30,40
    !
@@ -691,10 +718,10 @@ router bgp 65002
       neighbor IPv4-UNDERLAY-PEERS activate
    !
    vrf A
-      rd 1.1.1.13:50001
-      route-target import evpn 50001:50001
-      route-target export evpn 50001:50001
-      router-id 1.1.1.13
+      rd 1.1.1.11:51
+      route-target import evpn 51:51
+      route-target export evpn 51:51
+      router-id 1.1.1.11
       redistribute connected
 ```
 

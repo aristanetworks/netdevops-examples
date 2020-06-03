@@ -9,12 +9,12 @@ local_users:
 
   arista:
     privilege: 15
-    role: network-admin
+    # role: network-admin
     sha512_password: "$6$RO7KPjCB0BtlFgcd$/7Lv7Pjj3/OUOIUmqk0NmB8218tnq3Qcjb20pF4Xb3VaoMEuXShWVpFGU.YTYBuQ5.e3SXOLrIEfXpFegrQDX."
 
   cvpadmin:
     privilege: 15
-    role: network-admin
+    # role: network-admin
     sha512_password: "$6$u5wM2GSl324m5EF0$AM98W2MI4ISBciPXm6be8Q3RTykF3dCd2W3btVvhcBBKvKHjfbkeJfesbEWMcrYlbzzZbWdBcxF6U/Pe3xBYF1"
 
 # Cloud Vision server
@@ -58,9 +58,24 @@ aaa_server_groups:
       - server: 192.168.100.254
         vrf: MGMT
 
+aaa_authentication:
+  login:
+    default: "group RADIUS-GROUP local"
+  dot1x:
+    default: "group RADIUS-GROUP"
+
+aaa_root:
+  secret:
+    sha512_password: "$6$a24GwqdZwG2QIj4J$UpOY/Sz1zOWGVxCJsmhLbFgN/VMW3LIFvCvMGWzfDWDVRQON4FbGkLKytzIWRK8con4XxZN//jYQ2tji98bnQ0"
 
 ###  EOS Aliases ###
 aliases: |
   alias shimet show bgp evpn route-type imet detail | awk '/for imet/ { print "VNI: " $7 ", VTEP: " $8, "RD: " $11 }'
   alias shmacip show bgp evpn route-type mac-ip detail | awk '/for mac-ip/ { if (NF == 11) { print "RD: " $11, "VNI: " $7, "MAC: " $8 } else { print "RD: " $12, "VNI: " $7, "MAC: " $8, "IP: " $9 } }' | sed -e s/,//g
   alias shprefix show bgp evpn route-type ip-prefix ipv4 detail | awk '/for ip-prefix/ { print "ip-prefix: " $7, "RD: " $10 }'
+
+
+management_ssh:
+  vrfs:
+    MGMT:
+      enable: true
