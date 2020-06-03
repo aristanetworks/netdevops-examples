@@ -1,0 +1,29 @@
+# Arista Netdevops Community
+
+!!! warning
+    Tis page is under construction and will reflect a list of all repositories part of Arista Community Github group.
+
+
+## About
+
+This page is automatically generated with a Py script to list all repositories part of [`arista-netdevops-community`](https://github.com/arista-netdevops-community)
+
+## List of projects
+
+List of all projects available in Arista Netdevops community. Feel free to go through these repositories and find your way.
+
+|  Project's Name  |  Description  | Last Commit |
+|------------------|---------------|-------------|
+{% for project in projects|sort(reverse=true,attribute='last_commit') %}
+|  [{{project['project_name']}}]({{project['homepage']}}) | {% if project['description'] != 'None'  %} {{project['description']}} {% else %} N/A {% endif %} | Last Commit {{project['last_commit']|truncate(10,end='')}} |
+{% endfor %}
+
+
+## List of projects
+
+Or another presentastion
+
+{% for project in projects|sort(reverse=true,attribute='last_commit') %}
+- __[{{project['project_name']}}]({{project['homepage']}})__: {% if project['description'] != 'None' %} {{project['description']}} {% else %} N/A {% endif %} ({{project['last_commit']|truncate(10,end='')}})
+
+{% endfor %}

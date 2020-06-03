@@ -1,0 +1,49 @@
+site_name: Arista Devops Community
+site_author: Arista Ansible Team
+site_description: A List of contribution in devops world
+docs_dir: docs/
+theme:
+  name: 'readthedocs'
+  features:
+    - instant
+  font:
+    text: Ubuntu
+    code: Ubuntu Mono
+extra_css:
+  - stylesheets/extra.css
+copyright: Copyright &copy; 2019 - 2020 Arista Networks
+repo_name: 'Arista Netdevops Community'
+repo_url: https://github.com/aristanetworks/netdevops-examples
+use_directory_urls: true
+nav:
+  - Arista Netdevops Repositories: index.md
+  - Existing Netdevops Examples: github.md
+  - About:
+    - Ansible Galaxy page: https://galaxy.ansible.com/arista/cvp
+    - Arista Validated Design: https://github.com/aristanetworks/ansible-avd
+    - Arista Automation Community: https://github.com/arista-netdevops-community
+
+markdown_extensions:
+  - smarty
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - fontawesome_markdown
+  - admonition
+  - codehilite:
+      guess_lang: true
+  - toc:
+      separator: "-"
+      permalink: "#"
+      baselevel: 1
