@@ -15,7 +15,7 @@ List of all projects available in Arista Netdevops community. Feel free to go th
 |  Project's Name  |  Description  | Last Commit |
 |------------------|---------------|-------------|
 {% for project in projects|sort(reverse=true,attribute='last_commit') %}
-|  [{{project['project_name']}}]({{project['homepage']}}) | {% if project['description'] != 'None'  %} {{project['description']}} {% else %} N/A {% endif %} | Last Commit {{project['last_commit']|truncate(10,end='')}} |
+|  [{{project['project_name']}}]({{project['homepage']}}) | {% if project['description'] != 'None'  %} {{project['description']}} {% else %} N/A {% endif %} | {{project['last_commit']|truncate(10,end='')}} |
 {% endfor %}
 
 
