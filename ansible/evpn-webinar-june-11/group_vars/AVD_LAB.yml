@@ -79,3 +79,14 @@ management_ssh:
   vrfs:
     MGMT:
       enable: true
+
+# Ansible Credential and Authentication Mechanism
+ansible_connection: httpapi
+ansible_network_os: eos
+ansible_user: admin
+# should use vault for passwords - leaving un-encrypted for ease of sharing for labs
+ansible_ssh_pass: admin
+ansible_become: yes
+ansible_become_method: enable
+ansible_httpapi_use_ssl: true
+ansible_httpapi_validate_certs: false

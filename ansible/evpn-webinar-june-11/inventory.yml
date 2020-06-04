@@ -27,16 +27,6 @@ all:
                     LEAF2B:
                       ansible_host: 192.168.100.34
 
-          vars:
-            ansible_connection: httpapi
-            ansible_network_os: eos
-            ansible_user: admin
-            # should use vault for passwords - leaving un-encrypted for ease of sharing for labs
-            ansible_ssh_pass: arista123
-            ansible_become: yes
-            ansible_become_method: enable
-            ansible_httpapi_use_ssl: true
-            ansible_httpapi_validate_certs: false
 
         DC1_TENANTS_NETWORKS:
           children:
