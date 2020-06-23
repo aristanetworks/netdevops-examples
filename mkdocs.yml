@@ -3,7 +3,7 @@ site_author: Arista Ansible Team
 site_description: A List of contribution in devops world
 docs_dir: docs/
 theme:
-  name: 'readthedocs'
+  name: material
   features:
     - instant
   font:
