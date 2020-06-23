@@ -19,7 +19,7 @@ nav:
   - Arista Netdevops Repositories: index.md
   - Existing Netdevops Examples: github.md
   - About:
-    - Ansible Galaxy page: https://galaxy.ansible.com/arista/cvp
+    - Ansible Cloudvision: https://aristanetworks.github.io/ansible-cvp/
     - Arista Validated Design: https://github.com/aristanetworks/ansible-avd
     - Arista Automation Community: https://github.com/arista-netdevops-community
 
