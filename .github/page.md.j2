@@ -1,0 +1,18 @@
+# Arista Netdevops Community
+
+<p align="center">
+    <img src="media/figure-1-arista-automation.png" width="600"/>
+</p>
+
+## About
+
+This page is automatically generated with a Py script to list all repositories part of [`arista-netdevops-community`](https://github.com/arista-netdevops-community)
+
+## List of projects
+
+
+|  Project  |  Description  | Last activity |
+|------------------|---------------|-------------|
+{% for project in projects|sort(reverse=true,attribute='last_commit') %}
+|  [{{project['project_name']}}]({{project['homepage']}}) | {% if project['description'] != 'None'  %} {{project['description']}} {% else %} N/A {% endif %} | {{project['last_commit']|truncate(10,end='')}} |
+{% endfor %}

@@ -1,0 +1,14 @@
+Jinja2==2.10.3
+mistune==0.8.4
+mkdocs==1.1.2
+mkdocs-bootswatch==1.1
+requests==2.22.0
+traitlets==4.3.3
+treelib==1.5.5
+urllib3==1.25.9
+mkdocs-bootswatch==1.1
+mkdocs-material==5.1.1
+mkdocs-material-extensions==1.0b2
+fontawesome-markdown==0.2.6
+pymdown-extensions
+mkdocs-rtd-dropdown
