@@ -1,5 +1,0 @@
----
-CVP_CONFIGLETS:
-  01TRAINING-alias: "alias a{{ 999 | random }} show version"
-  01TRAINING-01: "alias a{{ 999 | random }} show version"
-  file_contents: "{{lookup('file', 'path/to/file.txt')}}"
