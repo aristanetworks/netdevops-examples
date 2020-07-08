@@ -31,29 +31,8 @@ interface Management1
 No Hardware Counters defined
 
 ## Aliases
+Aliases not defined
 
-alias copp show policy-map copp copp-system-policy
-alias help bash echo -e "sib : show ip bgp\nsibs : show ip bgp summary\nsiib : show ip int brief\nsir : show ip route\nsenz : show interface counter error | nz\nsnz : show interface counter | nz\nsps : show port-channel summary\nspd : show port-channel detail all\nsqnz : show interface counter queue | nz\nsrnz : show interface counter rate | nz\nsmac : show mac address-table dynamic\nsarp : show ip arp\ncopp : show policy-map copp copp-system-policy\ninfo : version, serial and mlag"
-alias sarp show ip arp
-alias senz show interface counter error | nz
-alias sib show ip bgp
-alias sibs show ip bgp summary
-alias siib show ip int brief
-alias sir show ip route
-alias smac show mac address-table dynamic
-alias snz show interface counter | nz
-alias spd show port-channel %1 detail all
-alias sps show port-channel summary
-alias sqnz show interface counter queue | nz
-alias srnz show interface counter rate | nz
-!
-alias info
-   10 bash SERIAL=$(FastCli -p 15 -c 'show version' | grep Serial | tr -s ' ' | cut -d ' ' -f 3 | tr -d '\r');echo -e "SN : $SERIAL"
-   20 bash VERSION=$(FastCli -p 15 -c 'show version' | grep image | tr -s ' ' | cut -d ' ' -f 4 | tr -d '\r');echo -e "EOS VERSION : $VERSION"
-   30 bash DOMAIN=$(FastCli -p 15 -c 'show mlag' | grep domain | tr -s ' ' | cut -d ' ' -f 3 | tr -d '\r');echo -e "MLAG DOMAIN : $DOMAIN"
-   40 bash STATE=$(FastCli -p 15 -c 'show mlag' | grep state | tr -s ' ' | cut -d ' ' -f 3 | tr -d '\r');echo -e "MLAG STATE : $STATE"
-
-!
 ## TerminAttr Daemon
 
 ### TerminAttr Daemon Summary
@@ -70,6 +49,10 @@ daemon TerminAttr
    no shutdown
 !
 ```
+
+## IP DHCP Relay
+
+IP DHCP Relay not defined
 
 ## Internal VLAN allocation Policy
 
@@ -391,6 +374,10 @@ IPv6 Prefix lists not defined
 ## MLAG
 
 MLAG not defined
+
+## Community Lists
+
+Community Lists not defined
 
 ## Route Maps
 

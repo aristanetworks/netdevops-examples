@@ -603,7 +603,8 @@ route_maps:
     sequence_numbers:
       10:
         type: permit
-        match: "ip address prefix-list PL-LOOPBACKS-EVPN-OVERLAY"
+        match:
+          - "ip address prefix-list PL-LOOPBACKS-EVPN-OVERLAY"
 ### Routing - BGP ###
 router_bgp:
   as: 65102
