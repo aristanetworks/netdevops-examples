@@ -16,7 +16,9 @@ repo_name: 'Arista Netdevops Community'
 repo_url: https://github.com/aristanetworks/netdevops-examples
 use_directory_urls: true
 nav:
-  - Arista Netdevops Repositories: index.md
+  - Arista Netdevops Community: index.md
+  - Arista Networks: arista.md
+  - Arista EOS+: eosplus.md
   - Existing Netdevops Examples: github.md
   - About:
     - Ansible Cloudvision: https://aristanetworks.github.io/ansible-cvp/

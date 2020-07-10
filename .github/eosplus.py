@@ -24,10 +24,11 @@ import sys
 import requests
 from jinja2 import Environment, FileSystemLoader
 
-GH_API_ENDPOINT = 'https://api.github.com/users/arista-netdevops-community/repos'
+GH_API_ENDPOINT = 'https://api.github.com/users/arista-eosplus/repos'
 JSON_FIELDS = { 'name':'project_name', 'description':'description', 'html_url':'homepage', 'updated_at': 'last_commit'}
 TEMPLATE_MARKDOWN = 'page.md.j2'
-OUTPUT_FILE = '../docs/index.md'
+OUTPUT_FILE = '../docs/eosplus.md'
+PAGE_TITLE= 'Arista EOS+'
 
 def get_gh_api(url):
     """
@@ -82,7 +83,7 @@ if __name__ == '__main__':
     env.lstrip_blocks = True
     env.rstrip_blocks = True
     template = env.get_template(TEMPLATE_MARKDOWN)
-    output = template.render(projects=projects)
+    output = template.render(projects=projects, page_title=PAGE_TITLE)
     filename = os.path.join(root, OUTPUT_FILE)
     with open(filename, 'w') as fh:
         fh.write(output)
