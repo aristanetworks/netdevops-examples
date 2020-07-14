@@ -10,6 +10,18 @@ Note: most of these can be done in Linux/Windows using apt/yum/dnf/choclatey
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 ```
 
+## iTerm2
+
+```bash
+brew cask install iterm2
+```
+
+## tmux
+
+```bash
+brew install tmux
+```
+
 ## Git
 
 `brew install git`
@@ -88,3 +100,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 ### Go
 
 <https://golang.org/doc/install>
+
+### bat - replacement for cat(1)
+
+```bash
+brew install bat
+```
