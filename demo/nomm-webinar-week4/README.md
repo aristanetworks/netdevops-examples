@@ -26,14 +26,14 @@ Use the pyenv method to make versioning Python sane
 
 ```bash
 brew install pyenv pipenv
-$ pyenv install 3.7.3
-$ pyenv global 3.7.3
-$ echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.zshrc
+pyenv install 3.7.3
+pyenv global 3.7.3
+echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.zshrc
 ```
 
 Also have a look at pipenv for project management
 
-Alternate but less sustainable method:
+Alternate but less sustainable method (see above graphic):
 
 ```bash
 brew install python3
@@ -43,39 +43,48 @@ echo "alias pip=/usr/local/bin/pip3" >> ~/.zshrc
 
 ## Ansible (installing globally)
 
+```bash
 sudo pip install ansible
+```
 
 ## vs code
 
-https://code.visualstudio.com/download
+<https://code.visualstudio.com/download>
 
 ## jq
 
+```bash
 brew install jq
+```
 
 ### Example
 
+```bash
 curl https://gist.githubusercontent.com/fredhsu/baa4bb339e660a080f08d185718fa728/raw/f9c4b69c31758d853eac7a40ff8a3aece97abeec/showver.json | jq '.result[0].systemMacAddress'
-
+```
 
 ## Virtualbox
 
-https://www.virtualbox.org/wiki/Downloads
+<https://www.virtualbox.org/wiki/Downloads>
 
 ## Vagrant
 
-https://www.vagrantup.com/downloads
+<https://www.vagrantup.com/downloads>
 
 ## Extra stuff
 
 ### ZSH
 
+```bash
 brew install zsh
+```
 
 ### Oh my zsh
 
+```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
 
 ### Go
 
-https://golang.org/doc/install
+<https://golang.org/doc/install>
