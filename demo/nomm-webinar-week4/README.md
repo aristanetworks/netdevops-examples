@@ -32,7 +32,7 @@ brew install tmux
 
 ## Python 3
 
-![xkcd for Python Dependencyt](https://imgs.xkcd.com/comics/python_environment.png)
+![xkcd for Python Dependency](https://imgs.xkcd.com/comics/python_environment.png)
 
 Use the pyenv method to make versioning Python sane
 
@@ -119,7 +119,7 @@ brew install bat
 ### VS Code extension for EOS
 
 ```bash
-git pull https://github.com/fredhsu/vscode-eos
+git clone https://github.com/fredhsu/vscode-eos
 cd vscode-eos
 code .
 ```
