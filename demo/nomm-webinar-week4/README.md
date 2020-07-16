@@ -101,8 +101,36 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 
 <https://golang.org/doc/install>
 
+Create directories and paths for Go:
+
+```bash
+mkdir -p $HOME/go/src/github.com
+mkdir -p $HOME/go/bin
+```
+
 ### bat - replacement for cat(1)
 
 ```bash
 brew install bat
+```
+
+## Extra-extra stuff
+
+### VS Code extension for EOS
+
+```bash
+git pull https://github.com/fredhsu/vscode-eos
+cd vscode-eos
+code .
+```
+
+Then press F5 to load up environment. There is an example config file `test.eos` in the directory for you to play with
+
+### eoscmd
+
+```bash
+git pull https://github.com/fredhsu/eoscmd
+cd eoscmd
+go build .
+./eoscmd
 ```
