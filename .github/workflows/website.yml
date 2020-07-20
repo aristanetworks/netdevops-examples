@@ -18,7 +18,9 @@ jobs:
       - name: 'Build mkdocs content to site folder'
         run: |
             pip install -r .github/requirements.txt
-            python .github/collector.py
+            python .github/netdevops.py
+            python .github/aristanetworks.py
+            python .github/eosplus.py
             mkdocs build -f mkdocs.yml
       - name: 'Deploy last version to gh-pages'
         uses: peaceiris/actions-gh-pages@v3
