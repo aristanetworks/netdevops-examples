@@ -171,16 +171,16 @@ tenants:
             tags: [ app ]
             enabled: true
             ip_address_virtual: 10.4.11.1/24
-  #     tf_db_zone:
-  #       vrf_vni: 41
-  #       svis:
-  #         420:
-  #           name: tf_demo_db_1
-  #           tags: [ db ]
-  #           enabled: true
-  #           ip_address_virtual: 10.4.20.1/24
-  #         421:
-  #           name: tf_demo_db_2
-  #           tags: [ db ]
-  #           enabled: true
-  #           ip_address_virtual: 10.4.21.1/24
+      # tf_db_zone:
+      #   vrf_vni: 41
+      #   svis:
+      #     420:
+      #       name: tf_demo_db_1
+      #       tags: [ db ]
+      #       enabled: true
+      #       ip_address_virtual: 10.4.20.1/24
+      #     421:
+      #       name: tf_demo_db_2
+      #       tags: [ db ]
+      #       enabled: true
+      #       ip_address_virtual: 10.4.21.1/24
