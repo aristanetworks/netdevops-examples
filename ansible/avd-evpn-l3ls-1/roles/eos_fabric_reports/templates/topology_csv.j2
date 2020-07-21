@@ -1,0 +1,6 @@
+node, port, neighbor device, neighbor port
+{% for node in nodes | arista.avd.natural_sort %}
+{%     for lldpNeighbor in nodes[node]["show lldp neighbors"].lldpNeighbors %}
+{{ node }},{{ lldpNeighbor.port }},{{ lldpNeighbor.neighborDevice }},{{ lldpNeighbor.neighborPort }}
+{%     endfor %}
+{% endfor %}

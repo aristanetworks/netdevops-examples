@@ -1,0 +1,7 @@
+- hosts: DC1_FABRIC
+
+  tasks:
+
+    - name: Generate Fabric reports
+      import_role:
+         name: eos_fabric_reports

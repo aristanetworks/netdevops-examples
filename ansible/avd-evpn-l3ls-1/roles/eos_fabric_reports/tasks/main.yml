@@ -1,0 +1,39 @@
+---
+
+# - name: Gather device state information
+#   eos_command:
+#     commands: "{{ fabric_validation_commands }}"
+#   register: device_state
+#   tags: [reports]
+
+# - name: Generate state_output
+#   template:
+#     src: nodes_state_yaml.j2
+#     dest: ./fabric_reports/state_outputs/nodes_state.yaml
+#   delegate_to: localhost
+#   run_once: true
+#   tags: [reports]
+
+- name: Include duts_state
+  include_vars: './fabric_reports/state_outputs/nodes_state.yaml'
+  delegate_to: localhost
+  run_once: true
+  tags: [reports]
+
+- name: Generate inventory report
+  template:
+    src: inventory_md.j2
+    dest: ./fabric_reports/fabric_inventory.md
+  delegate_to: localhost
+  run_once: true
+  tags: [reports]
+
+- name: Generate fabric topology report
+  template:
+    src: topology_csv.j2
+    dest: ./fabric_reports/fabric_topology.csv
+  delegate_to: localhost
+  run_once: true
+  tags: [reports]
+
+

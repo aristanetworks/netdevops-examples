@@ -1,0 +1,7 @@
+# Device Inventory
+
+| Node | Platform | Software Version |
+| ---- | -------- | ---------------- |
+{% for node in nodes | arista.avd.natural_sort %}
+| {{ node }} | {{ nodes[node]["show version"].modelName }} | {{ nodes[node]["show version"].version }} |
+{% endfor %}
