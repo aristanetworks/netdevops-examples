@@ -10,3 +10,5 @@ fabric_validation_commands:
     output: json
   - command: "show lldp neighbors"
     output: json
+
+eos_desired_version: "4.24.0F"

@@ -10,6 +10,7 @@
   template:
     src: nodes_state_yaml.j2
     dest: ./fabric_reports/state_outputs/nodes_state.yaml
+    mode: 0664
   delegate_to: localhost
   run_once: true
   tags: [reports]

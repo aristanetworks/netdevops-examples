@@ -1,7 +1,7 @@
 # Device Inventory
 
-| Node | Platform | Software Version |
-| ---- | -------- | ---------------- |
+| Node | Platform | Software Version | Software Compliant |
+| ---- | -------- | ---------------- | ------------------ |
 {% for node in nodes | arista.avd.natural_sort %}
-| {{ node }} | {{ nodes[node]["show version"].modelName }} | {{ nodes[node]["show version"].version }} |
+| {{ node }} | {{ nodes[node]["show version"].modelName }} | {{ nodes[node]["show version"].version }} |{% if nodes[node]["show version"].version == eos_desired_version %} YES {% else %} NO {% endif %}|
 {% endfor %}
