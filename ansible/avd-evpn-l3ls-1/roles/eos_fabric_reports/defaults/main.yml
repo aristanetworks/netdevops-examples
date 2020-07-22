@@ -4,8 +4,6 @@
 fabric_validation_commands:
   - command: "show version"
     output: json
-  # - command: "show ip bgp"
-  #   output: json
   - command: "show ip bgp summary"
     output: json
   - command: "show bgp evpn summary"

@@ -1,18 +1,18 @@
 ---
 
-# - name: Gather device state information
-#   eos_command:
-#     commands: "{{ fabric_validation_commands }}"
-#   register: device_state
-#   tags: [reports]
+- name: Gather device state information
+  eos_command:
+    commands: "{{ fabric_validation_commands }}"
+  register: device_state
+  tags: [reports]
 
-# - name: Generate state_output
-#   template:
-#     src: nodes_state_yaml.j2
-#     dest: ./fabric_reports/state_outputs/nodes_state.yaml
-#   delegate_to: localhost
-#   run_once: true
-#   tags: [reports]
+- name: Generate state_output
+  template:
+    src: nodes_state_yaml.j2
+    dest: ./fabric_reports/state_outputs/nodes_state.yaml
+  delegate_to: localhost
+  run_once: true
+  tags: [reports]
 
 - name: Include duts_state
   include_vars: './fabric_reports/state_outputs/nodes_state.yaml'
