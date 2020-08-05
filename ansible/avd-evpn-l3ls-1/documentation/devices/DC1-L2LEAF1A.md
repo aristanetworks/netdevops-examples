@@ -99,7 +99,15 @@ ip name-server vrf MGMT 8.8.8.8
 
 ## DNS Domain
 
-DNS domain not defined
+
+### DNS domain: avd-lab.local
+
+### DNS Domain Device Configuration
+
+```eos
+dns domain avd-lab.local
+!
+```
 
 ## NTP
 

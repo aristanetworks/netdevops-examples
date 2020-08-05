@@ -1,0 +1,8 @@
+- name: validate states on EOS devices
+  hosts: DC1_FABRIC
+
+  tasks:
+
+    - name: validate states on EOS devices
+      import_role:
+         name: arista.avd.eos_validate_state

@@ -9,13 +9,13 @@ nodes:
       internalBuildId: da8d6269-c25f-4a12-930b-c3c42c12c38a
       internalVersion: 4.24.0F-16270098.4240F
       isIntlVersion: false
-      memFree: 2894468
+      memFree: 2894312
       memTotal: 4008604
       mfgName: ''
       modelName: vEOS
       serialNumber: ''
       systemMacAddress: 50:00:00:88:fe:27
-      uptime: 1256370.5
+      uptime: 1272111.17
       version: 4.24.0F
     "show ip bgp summary":
       vrfs:
@@ -25,8 +25,8 @@ nodes:
             10.255.251.11:
               asn: '65104'
               inMsgQueue: 0
-              msgReceived: 3014
-              msgSent: 3016
+              msgReceived: 3323
+              msgSent: 3325
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 14
@@ -37,8 +37,8 @@ nodes:
             172.31.255.40:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 3009
-              msgSent: 3014
+              msgReceived: 3317
+              msgSent: 3322
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 9
@@ -49,8 +49,8 @@ nodes:
             172.31.255.42:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 3015
-              msgSent: 3014
+              msgReceived: 3322
+              msgSent: 3320
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 9
@@ -61,8 +61,8 @@ nodes:
             172.31.255.44:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 3003
-              msgSent: 3019
+              msgReceived: 3309
+              msgSent: 3329
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 9
@@ -73,8 +73,8 @@ nodes:
             172.31.255.46:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 3014
-              msgSent: 3015
+              msgReceived: 3322
+              msgSent: 3321
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 9
@@ -92,8 +92,8 @@ nodes:
             192.168.255.1:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 13499
-              msgSent: 13460
+              msgReceived: 13808
+              msgSent: 13767
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 172
@@ -104,8 +104,8 @@ nodes:
             192.168.255.2:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 13522
-              msgSent: 13456
+              msgReceived: 13830
+              msgSent: 13765
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 172
@@ -116,8 +116,8 @@ nodes:
             192.168.255.3:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 13499
-              msgSent: 13472
+              msgReceived: 13802
+              msgSent: 13782
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 172
@@ -128,8 +128,8 @@ nodes:
             192.168.255.4:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 13481
-              msgSent: 13433
+              msgReceived: 13786
+              msgSent: 13741
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 172
@@ -169,7 +169,7 @@ nodes:
       tablesDeletes: 0
       tablesDrops: 0
       tablesInserts: 6
-      tablesLastChangeTime: 1594169173.1243446
+      tablesLastChangeTime: 1594169173.1243439
   DC1-BL1B:
     "show version":
       architecture: i686
@@ -180,13 +180,13 @@ nodes:
       internalBuildId: da8d6269-c25f-4a12-930b-c3c42c12c38a
       internalVersion: 4.24.0F-16270098.4240F
       isIntlVersion: false
-      memFree: 2886992
+      memFree: 2887068
       memTotal: 4008604
       mfgName: ''
       modelName: vEOS
       serialNumber: ''
       systemMacAddress: 50:00:00:45:ab:df
-      uptime: 1256385.2
+      uptime: 1272102.15
       version: 4.24.0F
     "show ip bgp summary":
       vrfs:
@@ -196,8 +196,8 @@ nodes:
             10.255.251.10:
               asn: '65104'
               inMsgQueue: 0
-              msgReceived: 3016
-              msgSent: 3014
+              msgReceived: 3325
+              msgSent: 3323
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 14
@@ -208,8 +208,8 @@ nodes:
             172.31.255.48:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 3018
-              msgSent: 3011
+              msgReceived: 3324
+              msgSent: 3321
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 9
@@ -220,8 +220,8 @@ nodes:
             172.31.255.50:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 3017
-              msgSent: 3024
+              msgReceived: 3327
+              msgSent: 3331
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 9
@@ -232,8 +232,8 @@ nodes:
             172.31.255.52:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 3012
-              msgSent: 3012
+              msgReceived: 3318
+              msgSent: 3316
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 9
@@ -244,8 +244,8 @@ nodes:
             172.31.255.54:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 3021
-              msgSent: 3019
+              msgReceived: 3329
+              msgSent: 3328
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 9
@@ -263,8 +263,8 @@ nodes:
             192.168.255.1:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 13475
-              msgSent: 13492
+              msgReceived: 13785
+              msgSent: 13797
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 172
@@ -275,8 +275,8 @@ nodes:
             192.168.255.2:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 13503
-              msgSent: 13422
+              msgReceived: 13812
+              msgSent: 13731
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 172
@@ -287,8 +287,8 @@ nodes:
             192.168.255.3:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 13503
-              msgSent: 13516
+              msgReceived: 13810
+              msgSent: 13823
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 172
@@ -299,8 +299,8 @@ nodes:
             192.168.255.4:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 13476
-              msgSent: 13468
+              msgReceived: 13784
+              msgSent: 13777
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 172
@@ -340,7 +340,7 @@ nodes:
       tablesDeletes: 0
       tablesDrops: 0
       tablesInserts: 6
-      tablesLastChangeTime: 1594169173.132529
+      tablesLastChangeTime: 1594169173.132531
   DC1-L2LEAF1A:
     "show version":
       architecture: i686
@@ -351,13 +351,13 @@ nodes:
       internalBuildId: da8d6269-c25f-4a12-930b-c3c42c12c38a
       internalVersion: 4.24.0F-16270098.4240F
       isIntlVersion: false
-      memFree: 3008648
+      memFree: 3008384
       memTotal: 4008604
       mfgName: ''
       modelName: vEOS
       serialNumber: ''
       systemMacAddress: 50:00:00:ae:f7:03
-      uptime: 1256373.57
+      uptime: 1272095.19
       version: 4.24.0F
     "show ip bgp summary":
       vrfs: {}
@@ -377,7 +377,7 @@ nodes:
       tablesDeletes: 0
       tablesDrops: 0
       tablesInserts: 2
-      tablesLastChangeTime: 1594169192.2856674
+      tablesLastChangeTime: 1594169192.285666
   DC1-L2LEAF2A:
     "show version":
       architecture: i686
@@ -388,13 +388,13 @@ nodes:
       internalBuildId: da8d6269-c25f-4a12-930b-c3c42c12c38a
       internalVersion: 4.24.0F-16270098.4240F
       isIntlVersion: false
-      memFree: 2977304
+      memFree: 2976940
       memTotal: 4008604
       mfgName: ''
       modelName: vEOS
       serialNumber: ''
       systemMacAddress: 50:00:00:2f:d8:fe
-      uptime: 1256371.99
+      uptime: 1272133.56
       version: 4.24.0F
     "show ip bgp summary":
       vrfs: {}
@@ -422,7 +422,7 @@ nodes:
       tablesDeletes: 0
       tablesDrops: 0
       tablesInserts: 4
-      tablesLastChangeTime: 1594169183.3111906
+      tablesLastChangeTime: 1594169183.311188
   DC1-L2LEAF2B:
     "show version":
       architecture: i686
@@ -433,13 +433,13 @@ nodes:
       internalBuildId: da8d6269-c25f-4a12-930b-c3c42c12c38a
       internalVersion: 4.24.0F-16270098.4240F
       isIntlVersion: false
-      memFree: 2972744
+      memFree: 2972492
       memTotal: 4008604
       mfgName: ''
       modelName: vEOS
       serialNumber: ''
       systemMacAddress: 50:00:00:ba:c6:f8
-      uptime: 1256374.94
+      uptime: 1272101.49
       version: 4.24.0F
     "show ip bgp summary":
       vrfs: {}
@@ -478,13 +478,13 @@ nodes:
       internalBuildId: da8d6269-c25f-4a12-930b-c3c42c12c38a
       internalVersion: 4.24.0F-16270098.4240F
       isIntlVersion: false
-      memFree: 2930560
+      memFree: 2930276
       memTotal: 4008604
       mfgName: ''
       modelName: vEOS
       serialNumber: ''
       systemMacAddress: 50:00:00:72:8b:31
-      uptime: 1256360.0
+      uptime: 1272096.61
       version: 4.24.0F
     "show ip bgp summary":
       vrfs:
@@ -494,8 +494,8 @@ nodes:
             172.31.255.0:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 3012
-              msgSent: 3017
+              msgReceived: 3320
+              msgSent: 3325
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 10
@@ -506,8 +506,8 @@ nodes:
             172.31.255.2:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 3009
-              msgSent: 3003
+              msgReceived: 3317
+              msgSent: 3311
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 10
@@ -518,8 +518,8 @@ nodes:
             172.31.255.4:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 3006
-              msgSent: 3010
+              msgReceived: 3314
+              msgSent: 3319
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 10
@@ -530,8 +530,8 @@ nodes:
             172.31.255.6:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 3011
-              msgSent: 3006
+              msgReceived: 3321
+              msgSent: 3315
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 10
@@ -549,8 +549,8 @@ nodes:
             192.168.255.1:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 13446
-              msgSent: 13452
+              msgReceived: 13750
+              msgSent: 13759
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 188
@@ -561,8 +561,8 @@ nodes:
             192.168.255.2:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 13490
-              msgSent: 13415
+              msgReceived: 13797
+              msgSent: 13721
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 188
@@ -573,8 +573,8 @@ nodes:
             192.168.255.3:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 13498
-              msgSent: 13447
+              msgReceived: 13805
+              msgSent: 13754
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 188
@@ -585,8 +585,8 @@ nodes:
             192.168.255.4:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 13445
-              msgSent: 13401
+              msgReceived: 13752
+              msgSent: 13710
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 188
@@ -618,7 +618,7 @@ nodes:
       tablesDeletes: 0
       tablesDrops: 0
       tablesInserts: 4
-      tablesLastChangeTime: 1594169173.1255789
+      tablesLastChangeTime: 1594169173.125578
   DC1-LEAF2A:
     "show version":
       architecture: i686
@@ -629,13 +629,13 @@ nodes:
       internalBuildId: da8d6269-c25f-4a12-930b-c3c42c12c38a
       internalVersion: 4.24.0F-16270098.4240F
       isIntlVersion: false
-      memFree: 2840280
+      memFree: 2840140
       memTotal: 4008604
       mfgName: ''
       modelName: vEOS
       serialNumber: ''
       systemMacAddress: 50:00:00:f6:ad:37
-      uptime: 1256357.66
+      uptime: 1272082.25
       version: 4.24.0F
     "show ip bgp summary":
       vrfs:
@@ -645,8 +645,8 @@ nodes:
             10.255.251.3:
               asn: '65102'
               inMsgQueue: 0
-              msgReceived: 3004
-              msgSent: 3010
+              msgReceived: 3311
+              msgSent: 3317
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 14
@@ -657,8 +657,8 @@ nodes:
             172.31.255.10:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 3007
-              msgSent: 3004
+              msgReceived: 3316
+              msgSent: 3314
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 9
@@ -669,8 +669,8 @@ nodes:
             172.31.255.12:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 2998
-              msgSent: 3004
+              msgReceived: 3308
+              msgSent: 3312
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 9
@@ -681,8 +681,8 @@ nodes:
             172.31.255.14:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 3008
-              msgSent: 3017
+              msgReceived: 3314
+              msgSent: 3324
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 9
@@ -693,8 +693,8 @@ nodes:
             172.31.255.8:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 3004
-              msgSent: 3006
+              msgReceived: 3311
+              msgSent: 3313
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 9
@@ -712,8 +712,8 @@ nodes:
             192.168.255.1:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 13371
-              msgSent: 13372
+              msgReceived: 13677
+              msgSent: 13677
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 108
@@ -724,8 +724,8 @@ nodes:
             192.168.255.2:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 13377
-              msgSent: 13363
+              msgReceived: 13683
+              msgSent: 13668
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 108
@@ -736,8 +736,8 @@ nodes:
             192.168.255.3:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 13380
-              msgSent: 13372
+              msgReceived: 13685
+              msgSent: 13678
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 108
@@ -748,8 +748,8 @@ nodes:
             192.168.255.4:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 13380
-              msgSent: 13375
+              msgReceived: 13687
+              msgSent: 13680
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 108
@@ -793,7 +793,7 @@ nodes:
       tablesDeletes: 0
       tablesDrops: 0
       tablesInserts: 7
-      tablesLastChangeTime: 1594169193.0352287
+      tablesLastChangeTime: 1594169193.0352316
   DC1-LEAF2B:
     "show version":
       architecture: i686
@@ -804,13 +804,13 @@ nodes:
       internalBuildId: da8d6269-c25f-4a12-930b-c3c42c12c38a
       internalVersion: 4.24.0F-16270098.4240F
       isIntlVersion: false
-      memFree: 2845800
+      memFree: 2845820
       memTotal: 4008604
       mfgName: ''
       modelName: vEOS
       serialNumber: ''
       systemMacAddress: 50:00:00:1b:5e:8d
-      uptime: 1256361.35
+      uptime: 1272097.06
       version: 4.24.0F
     "show ip bgp summary":
       vrfs:
@@ -820,8 +820,8 @@ nodes:
             10.255.251.2:
               asn: '65102'
               inMsgQueue: 0
-              msgReceived: 3010
-              msgSent: 3004
+              msgReceived: 3317
+              msgSent: 3311
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 14
@@ -832,8 +832,8 @@ nodes:
             172.31.255.16:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 3010
-              msgSent: 3008
+              msgReceived: 3318
+              msgSent: 3316
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 9
@@ -844,8 +844,8 @@ nodes:
             172.31.255.18:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 3011
-              msgSent: 2996
+              msgReceived: 3317
+              msgSent: 3307
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 9
@@ -856,8 +856,8 @@ nodes:
             172.31.255.20:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 3002
-              msgSent: 3013
+              msgReceived: 3307
+              msgSent: 3321
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 9
@@ -868,8 +868,8 @@ nodes:
             172.31.255.22:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 3004
-              msgSent: 3014
+              msgReceived: 3314
+              msgSent: 3321
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 9
@@ -887,8 +887,8 @@ nodes:
             192.168.255.1:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 13379
-              msgSent: 13409
+              msgReceived: 13687
+              msgSent: 13718
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 108
@@ -899,8 +899,8 @@ nodes:
             192.168.255.2:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 13351
-              msgSent: 13372
+              msgReceived: 13659
+              msgSent: 13680
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 108
@@ -911,8 +911,8 @@ nodes:
             192.168.255.3:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 13369
-              msgSent: 13371
+              msgReceived: 13676
+              msgSent: 13677
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 108
@@ -923,8 +923,8 @@ nodes:
             192.168.255.4:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 13351
-              msgSent: 13339
+              msgReceived: 13657
+              msgSent: 13646
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 108
@@ -968,7 +968,7 @@ nodes:
       tablesDeletes: 0
       tablesDrops: 0
       tablesInserts: 7
-      tablesLastChangeTime: 1594169192.9461882
+      tablesLastChangeTime: 1594169192.9461863
   DC1-SPINE1:
     "show version":
       architecture: i686
@@ -979,13 +979,13 @@ nodes:
       internalBuildId: da8d6269-c25f-4a12-930b-c3c42c12c38a
       internalVersion: 4.24.0F-16270098.4240F
       isIntlVersion: false
-      memFree: 2989824
+      memFree: 2989804
       memTotal: 4008604
       mfgName: ''
       modelName: vEOS
       serialNumber: ''
       systemMacAddress: 50:00:00:cb:38:c2
-      uptime: 1256351.55
+      uptime: 1272073.54
       version: 4.24.0F
     "show ip bgp summary":
       vrfs:
@@ -995,8 +995,8 @@ nodes:
             172.31.255.1:
               asn: '65101'
               inMsgQueue: 0
-              msgReceived: 3017
-              msgSent: 3012
+              msgReceived: 3325
+              msgSent: 3320
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 2
@@ -1007,8 +1007,8 @@ nodes:
             172.31.255.17:
               asn: '65102'
               inMsgQueue: 0
-              msgReceived: 3008
-              msgSent: 3009
+              msgReceived: 3315
+              msgSent: 3318
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 3
@@ -1019,8 +1019,8 @@ nodes:
             172.31.255.25:
               asn: '65103'
               inMsgQueue: 0
-              msgReceived: 3010
-              msgSent: 3014
+              msgReceived: 3320
+              msgSent: 3320
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 3
@@ -1031,8 +1031,8 @@ nodes:
             172.31.255.33:
               asn: '65103'
               inMsgQueue: 0
-              msgReceived: 3003
-              msgSent: 3007
+              msgReceived: 3309
+              msgSent: 3315
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 3
@@ -1043,8 +1043,8 @@ nodes:
             172.31.255.41:
               asn: '65104'
               inMsgQueue: 0
-              msgReceived: 3014
-              msgSent: 3009
+              msgReceived: 3322
+              msgSent: 3316
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 3
@@ -1055,8 +1055,8 @@ nodes:
             172.31.255.49:
               asn: '65104'
               inMsgQueue: 0
-              msgReceived: 3011
-              msgSent: 3018
+              msgReceived: 3321
+              msgSent: 3324
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 3
@@ -1067,8 +1067,8 @@ nodes:
             172.31.255.9:
               asn: '65102'
               inMsgQueue: 0
-              msgReceived: 3006
-              msgSent: 3004
+              msgReceived: 3313
+              msgSent: 3311
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 3
@@ -1086,8 +1086,8 @@ nodes:
             192.168.255.10:
               asn: '65104'
               inMsgQueue: 0
-              msgReceived: 13437
-              msgSent: 13505
+              msgReceived: 13743
+              msgSent: 13813
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 14
@@ -1098,8 +1098,8 @@ nodes:
             192.168.255.11:
               asn: '65104'
               inMsgQueue: 0
-              msgReceived: 13457
-              msgSent: 13482
+              msgReceived: 13762
+              msgSent: 13792
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 14
@@ -1110,8 +1110,8 @@ nodes:
             192.168.255.5:
               asn: '65101'
               inMsgQueue: 0
-              msgReceived: 13445
-              msgSent: 13453
+              msgReceived: 13752
+              msgSent: 13757
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 12
@@ -1122,8 +1122,8 @@ nodes:
             192.168.255.6:
               asn: '65102'
               inMsgQueue: 0
-              msgReceived: 13334
-              msgSent: 13378
+              msgReceived: 13639
+              msgSent: 13684
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 46
@@ -1134,8 +1134,8 @@ nodes:
             192.168.255.7:
               asn: '65102'
               inMsgQueue: 0
-              msgReceived: 13397
-              msgSent: 13385
+              msgReceived: 13705
+              msgSent: 13693
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 46
@@ -1146,8 +1146,8 @@ nodes:
             192.168.255.8:
               asn: '65103'
               inMsgQueue: 0
-              msgReceived: 13433
-              msgSent: 13448
+              msgReceived: 13740
+              msgSent: 13756
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 34
@@ -1158,8 +1158,8 @@ nodes:
             192.168.255.9:
               asn: '65103'
               inMsgQueue: 0
-              msgReceived: 13414
-              msgSent: 13459
+              msgReceived: 13723
+              msgSent: 13767
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 34
@@ -1203,7 +1203,7 @@ nodes:
       tablesDeletes: 0
       tablesDrops: 0
       tablesInserts: 7
-      tablesLastChangeTime: 1594169188.5316799
+      tablesLastChangeTime: 1594169188.5316792
   DC1-SPINE2:
     "show version":
       architecture: i686
@@ -1214,13 +1214,13 @@ nodes:
       internalBuildId: da8d6269-c25f-4a12-930b-c3c42c12c38a
       internalVersion: 4.24.0F-16270098.4240F
       isIntlVersion: false
-      memFree: 2993668
+      memFree: 2993564
       memTotal: 4008604
       mfgName: ''
       modelName: vEOS
       serialNumber: ''
       systemMacAddress: 50:00:00:d5:5d:c0
-      uptime: 1256352.28
+      uptime: 1272077.47
       version: 4.24.0F
     "show ip bgp summary":
       vrfs:
@@ -1230,8 +1230,8 @@ nodes:
             172.31.255.11:
               asn: '65102'
               inMsgQueue: 0
-              msgReceived: 3004
-              msgSent: 3007
+              msgReceived: 3314
+              msgSent: 3316
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 3
@@ -1242,8 +1242,8 @@ nodes:
             172.31.255.19:
               asn: '65102'
               inMsgQueue: 0
-              msgReceived: 2996
-              msgSent: 3011
+              msgReceived: 3307
+              msgSent: 3317
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 3
@@ -1254,8 +1254,8 @@ nodes:
             172.31.255.27:
               asn: '65103'
               inMsgQueue: 0
-              msgReceived: 3016
-              msgSent: 3013
+              msgReceived: 3325
+              msgSent: 3321
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 3
@@ -1266,8 +1266,8 @@ nodes:
             172.31.255.3:
               asn: '65101'
               inMsgQueue: 0
-              msgReceived: 3003
-              msgSent: 3009
+              msgReceived: 3311
+              msgSent: 3316
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 2
@@ -1278,8 +1278,8 @@ nodes:
             172.31.255.35:
               asn: '65103'
               inMsgQueue: 0
-              msgReceived: 2998
-              msgSent: 3007
+              msgReceived: 3310
+              msgSent: 3315
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 3
@@ -1290,8 +1290,8 @@ nodes:
             172.31.255.43:
               asn: '65104'
               inMsgQueue: 0
-              msgReceived: 3014
-              msgSent: 3015
+              msgReceived: 3320
+              msgSent: 3321
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 3
@@ -1302,8 +1302,8 @@ nodes:
             172.31.255.51:
               asn: '65104'
               inMsgQueue: 0
-              msgReceived: 3023
-              msgSent: 3017
+              msgReceived: 3331
+              msgSent: 3327
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 3
@@ -1321,8 +1321,8 @@ nodes:
             192.168.255.10:
               asn: '65104'
               inMsgQueue: 0
-              msgReceived: 13404
-              msgSent: 13528
+              msgReceived: 13712
+              msgSent: 13836
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 14
@@ -1333,8 +1333,8 @@ nodes:
             192.168.255.11:
               asn: '65104'
               inMsgQueue: 0
-              msgReceived: 13369
-              msgSent: 13510
+              msgReceived: 13678
+              msgSent: 13819
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 14
@@ -1345,8 +1345,8 @@ nodes:
             192.168.255.5:
               asn: '65101'
               inMsgQueue: 0
-              msgReceived: 13405
-              msgSent: 13498
+              msgReceived: 13711
+              msgSent: 13805
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 12
@@ -1357,8 +1357,8 @@ nodes:
             192.168.255.6:
               asn: '65102'
               inMsgQueue: 0
-              msgReceived: 13354
-              msgSent: 13385
+              msgReceived: 13659
+              msgSent: 13691
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 46
@@ -1369,8 +1369,8 @@ nodes:
             192.168.255.7:
               asn: '65102'
               inMsgQueue: 0
-              msgReceived: 13361
-              msgSent: 13358
+              msgReceived: 13669
+              msgSent: 13666
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 46
@@ -1381,8 +1381,8 @@ nodes:
             192.168.255.8:
               asn: '65103'
               inMsgQueue: 0
-              msgReceived: 13382
-              msgSent: 13472
+              msgReceived: 13689
+              msgSent: 13778
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 34
@@ -1393,8 +1393,8 @@ nodes:
             192.168.255.9:
               asn: '65103'
               inMsgQueue: 0
-              msgReceived: 13340
-              msgSent: 13435
+              msgReceived: 13649
+              msgSent: 13742
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 34
@@ -1438,7 +1438,7 @@ nodes:
       tablesDeletes: 0
       tablesDrops: 0
       tablesInserts: 7
-      tablesLastChangeTime: 1594169188.5015185
+      tablesLastChangeTime: 1594169188.5015175
   DC1-SPINE3:
     "show version":
       architecture: i686
@@ -1449,13 +1449,13 @@ nodes:
       internalBuildId: da8d6269-c25f-4a12-930b-c3c42c12c38a
       internalVersion: 4.24.0F-16270098.4240F
       isIntlVersion: false
-      memFree: 2995476
+      memFree: 2995288
       memTotal: 4008604
       mfgName: ''
       modelName: vEOS
       serialNumber: ''
       systemMacAddress: 50:00:00:03:37:66
-      uptime: 1256363.16
+      uptime: 1272083.22
       version: 4.24.0F
     "show ip bgp summary":
       vrfs:
@@ -1465,8 +1465,8 @@ nodes:
             172.31.255.13:
               asn: '65102'
               inMsgQueue: 0
-              msgReceived: 3004
-              msgSent: 2998
+              msgReceived: 3312
+              msgSent: 3309
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 3
@@ -1477,8 +1477,8 @@ nodes:
             172.31.255.21:
               asn: '65102'
               inMsgQueue: 0
-              msgReceived: 3013
-              msgSent: 3002
+              msgReceived: 3321
+              msgSent: 3307
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 3
@@ -1489,8 +1489,8 @@ nodes:
             172.31.255.29:
               asn: '65103'
               inMsgQueue: 0
-              msgReceived: 3011
-              msgSent: 2996
+              msgReceived: 3317
+              msgSent: 3303
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 3
@@ -1501,8 +1501,8 @@ nodes:
             172.31.255.37:
               asn: '65103'
               inMsgQueue: 0
-              msgReceived: 3018
-              msgSent: 3002
+              msgReceived: 3325
+              msgSent: 3310
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 3
@@ -1513,8 +1513,8 @@ nodes:
             172.31.255.45:
               asn: '65104'
               inMsgQueue: 0
-              msgReceived: 3019
-              msgSent: 3003
+              msgReceived: 3328
+              msgSent: 3309
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 3
@@ -1525,8 +1525,8 @@ nodes:
             172.31.255.5:
               asn: '65101'
               inMsgQueue: 0
-              msgReceived: 3010
-              msgSent: 3006
+              msgReceived: 3319
+              msgSent: 3314
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 2
@@ -1537,8 +1537,8 @@ nodes:
             172.31.255.53:
               asn: '65104'
               inMsgQueue: 0
-              msgReceived: 3012
-              msgSent: 3012
+              msgReceived: 3316
+              msgSent: 3318
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 3
@@ -1556,8 +1556,8 @@ nodes:
             192.168.255.10:
               asn: '65104'
               inMsgQueue: 0
-              msgReceived: 13460
-              msgSent: 13506
+              msgReceived: 13769
+              msgSent: 13809
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 14
@@ -1568,8 +1568,8 @@ nodes:
             192.168.255.11:
               asn: '65104'
               inMsgQueue: 0
-              msgReceived: 13499
-              msgSent: 13511
+              msgReceived: 13806
+              msgSent: 13818
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 14
@@ -1580,8 +1580,8 @@ nodes:
             192.168.255.5:
               asn: '65101'
               inMsgQueue: 0
-              msgReceived: 13442
-              msgSent: 13504
+              msgReceived: 13749
+              msgSent: 13811
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 12
@@ -1592,8 +1592,8 @@ nodes:
             192.168.255.6:
               asn: '65102'
               inMsgQueue: 0
-              msgReceived: 13361
-              msgSent: 13388
+              msgReceived: 13667
+              msgSent: 13693
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 46
@@ -1604,8 +1604,8 @@ nodes:
             192.168.255.7:
               asn: '65102'
               inMsgQueue: 0
-              msgReceived: 13353
-              msgSent: 13376
+              msgReceived: 13658
+              msgSent: 13682
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 46
@@ -1616,8 +1616,8 @@ nodes:
             192.168.255.8:
               asn: '65103'
               inMsgQueue: 0
-              msgReceived: 13441
-              msgSent: 13441
+              msgReceived: 13749
+              msgSent: 13748
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 34
@@ -1628,8 +1628,8 @@ nodes:
             192.168.255.9:
               asn: '65103'
               inMsgQueue: 0
-              msgReceived: 13440
-              msgSent: 13433
+              msgReceived: 13749
+              msgSent: 13741
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 34
@@ -1673,7 +1673,7 @@ nodes:
       tablesDeletes: 0
       tablesDrops: 0
       tablesInserts: 7
-      tablesLastChangeTime: 1594169188.5289462
+      tablesLastChangeTime: 1594169188.5289452
   DC1-SPINE4:
     "show version":
       architecture: i686
@@ -1684,13 +1684,13 @@ nodes:
       internalBuildId: da8d6269-c25f-4a12-930b-c3c42c12c38a
       internalVersion: 4.24.0F-16270098.4240F
       isIntlVersion: false
-      memFree: 2996728
+      memFree: 2997220
       memTotal: 4008604
       mfgName: ''
       modelName: vEOS
       serialNumber: ''
       systemMacAddress: 50:00:00:15:f4:e8
-      uptime: 1256361.26
+      uptime: 1272081.23
       version: 4.24.0F
     "show ip bgp summary":
       vrfs:
@@ -1700,8 +1700,8 @@ nodes:
             172.31.255.15:
               asn: '65102'
               inMsgQueue: 0
-              msgReceived: 3017
-              msgSent: 3008
+              msgReceived: 3324
+              msgSent: 3314
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 3
@@ -1712,8 +1712,8 @@ nodes:
             172.31.255.23:
               asn: '65102'
               inMsgQueue: 0
-              msgReceived: 3014
-              msgSent: 3004
+              msgReceived: 3320
+              msgSent: 3314
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 3
@@ -1724,8 +1724,8 @@ nodes:
             172.31.255.31:
               asn: '65103'
               inMsgQueue: 0
-              msgReceived: 3017
-              msgSent: 3013
+              msgReceived: 3325
+              msgSent: 3322
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 3
@@ -1736,8 +1736,8 @@ nodes:
             172.31.255.39:
               asn: '65103'
               inMsgQueue: 0
-              msgReceived: 3014
-              msgSent: 3011
+              msgReceived: 3325
+              msgSent: 3319
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 3
@@ -1748,8 +1748,8 @@ nodes:
             172.31.255.47:
               asn: '65104'
               inMsgQueue: 0
-              msgReceived: 3015
-              msgSent: 3014
+              msgReceived: 3321
+              msgSent: 3322
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 3
@@ -1760,8 +1760,8 @@ nodes:
             172.31.255.55:
               asn: '65104'
               inMsgQueue: 0
-              msgReceived: 3019
-              msgSent: 3021
+              msgReceived: 3328
+              msgSent: 3329
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 3
@@ -1772,8 +1772,8 @@ nodes:
             172.31.255.7:
               asn: '65101'
               inMsgQueue: 0
-              msgReceived: 3006
-              msgSent: 3011
+              msgReceived: 3314
+              msgSent: 3321
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 2
@@ -1791,8 +1791,8 @@ nodes:
             192.168.255.10:
               asn: '65104'
               inMsgQueue: 0
-              msgReceived: 13411
-              msgSent: 13489
+              msgReceived: 13719
+              msgSent: 13793
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 14
@@ -1803,8 +1803,8 @@ nodes:
             192.168.255.11:
               asn: '65104'
               inMsgQueue: 0
-              msgReceived: 13431
-              msgSent: 13484
+              msgReceived: 13741
+              msgSent: 13792
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 14
@@ -1815,8 +1815,8 @@ nodes:
             192.168.255.5:
               asn: '65101'
               inMsgQueue: 0
-              msgReceived: 13396
-              msgSent: 13452
+              msgReceived: 13705
+              msgSent: 13758
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 12
@@ -1827,8 +1827,8 @@ nodes:
             192.168.255.6:
               asn: '65102'
               inMsgQueue: 0
-              msgReceived: 13355
-              msgSent: 13389
+              msgReceived: 13660
+              msgSent: 13696
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 46
@@ -1839,8 +1839,8 @@ nodes:
             192.168.255.7:
               asn: '65102'
               inMsgQueue: 0
-              msgReceived: 13327
-              msgSent: 13360
+              msgReceived: 13634
+              msgSent: 13666
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 46
@@ -1851,8 +1851,8 @@ nodes:
             192.168.255.8:
               asn: '65103'
               inMsgQueue: 0
-              msgReceived: 13438
-              msgSent: 13457
+              msgReceived: 13746
+              msgSent: 13765
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 34
@@ -1863,8 +1863,8 @@ nodes:
             192.168.255.9:
               asn: '65103'
               inMsgQueue: 0
-              msgReceived: 13411
-              msgSent: 13466
+              msgReceived: 13720
+              msgSent: 13773
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 34
@@ -1908,7 +1908,7 @@ nodes:
       tablesDeletes: 0
       tablesDrops: 0
       tablesInserts: 7
-      tablesLastChangeTime: 1594169188.5263221
+      tablesLastChangeTime: 1594169188.5263224
   DC1-SVC3A:
     "show version":
       architecture: i686
@@ -1919,13 +1919,13 @@ nodes:
       internalBuildId: da8d6269-c25f-4a12-930b-c3c42c12c38a
       internalVersion: 4.24.0F-16270098.4240F
       isIntlVersion: false
-      memFree: 2865352
+      memFree: 2865180
       memTotal: 4008604
       mfgName: ''
       modelName: vEOS
       serialNumber: ''
       systemMacAddress: 50:00:00:6b:2e:70
-      uptime: 1256363.38
+      uptime: 1272084.91
       version: 4.24.0F
     "show ip bgp summary":
       vrfs:
@@ -1935,8 +1935,8 @@ nodes:
             10.255.251.7:
               asn: '65103'
               inMsgQueue: 0
-              msgReceived: 3013
-              msgSent: 3012
+              msgReceived: 3320
+              msgSent: 3317
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 14
@@ -1947,8 +1947,8 @@ nodes:
             172.31.255.24:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 3014
-              msgSent: 3010
+              msgReceived: 3320
+              msgSent: 3320
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 9
@@ -1959,8 +1959,8 @@ nodes:
             172.31.255.26:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 3013
-              msgSent: 3016
+              msgReceived: 3321
+              msgSent: 3325
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 9
@@ -1971,8 +1971,8 @@ nodes:
             172.31.255.28:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 2996
-              msgSent: 3011
+              msgReceived: 3303
+              msgSent: 3317
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 9
@@ -1983,8 +1983,8 @@ nodes:
             172.31.255.30:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 3013
-              msgSent: 3017
+              msgReceived: 3322
+              msgSent: 3325
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 9
@@ -2002,8 +2002,8 @@ nodes:
             192.168.255.1:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 13442
-              msgSent: 13464
+              msgReceived: 13750
+              msgSent: 13771
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 132
@@ -2014,8 +2014,8 @@ nodes:
             192.168.255.2:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 13465
-              msgSent: 13419
+              msgReceived: 13770
+              msgSent: 13726
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 132
@@ -2026,8 +2026,8 @@ nodes:
             192.168.255.3:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 13434
-              msgSent: 13458
+              msgReceived: 13741
+              msgSent: 13766
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 132
@@ -2038,8 +2038,8 @@ nodes:
             192.168.255.4:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 13449
-              msgSent: 13466
+              msgReceived: 13757
+              msgSent: 13774
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 132
@@ -2087,7 +2087,7 @@ nodes:
       tablesDeletes: 0
       tablesDrops: 0
       tablesInserts: 8
-      tablesLastChangeTime: 1594169180.9303691
+      tablesLastChangeTime: 1594169180.930367
   DC1-SVC3B:
     "show version":
       architecture: i686
@@ -2098,13 +2098,13 @@ nodes:
       internalBuildId: da8d6269-c25f-4a12-930b-c3c42c12c38a
       internalVersion: 4.24.0F-16270098.4240F
       isIntlVersion: false
-      memFree: 2862948
+      memFree: 2862756
       memTotal: 4008604
       mfgName: ''
       modelName: vEOS
       serialNumber: ''
       systemMacAddress: 50:00:00:af:d3:f6
-      uptime: 1256363.19
+      uptime: 1272086.97
       version: 4.24.0F
     "show ip bgp summary":
       vrfs:
@@ -2114,8 +2114,8 @@ nodes:
             10.255.251.6:
               asn: '65103'
               inMsgQueue: 0
-              msgReceived: 3012
-              msgSent: 3013
+              msgReceived: 3317
+              msgSent: 3320
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 14
@@ -2126,8 +2126,8 @@ nodes:
             172.31.255.32:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 3007
-              msgSent: 3003
+              msgReceived: 3315
+              msgSent: 3309
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 9
@@ -2138,8 +2138,8 @@ nodes:
             172.31.255.34:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 3007
-              msgSent: 2998
+              msgReceived: 3315
+              msgSent: 3310
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 9
@@ -2150,8 +2150,8 @@ nodes:
             172.31.255.36:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 3002
-              msgSent: 3018
+              msgReceived: 3310
+              msgSent: 3325
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 9
@@ -2162,8 +2162,8 @@ nodes:
             172.31.255.38:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 3011
-              msgSent: 3013
+              msgReceived: 3319
+              msgSent: 3325
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 9
@@ -2181,8 +2181,8 @@ nodes:
             192.168.255.1:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 13453
-              msgSent: 13443
+              msgReceived: 13761
+              msgSent: 13752
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 132
@@ -2193,8 +2193,8 @@ nodes:
             192.168.255.2:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 13428
-              msgSent: 13382
+              msgReceived: 13735
+              msgSent: 13690
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 132
@@ -2205,8 +2205,8 @@ nodes:
             192.168.255.3:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 13427
-              msgSent: 13456
+              msgReceived: 13735
+              msgSent: 13765
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 132
@@ -2217,8 +2217,8 @@ nodes:
             192.168.255.4:
               asn: '65001'
               inMsgQueue: 0
-              msgReceived: 13458
-              msgSent: 13430
+              msgReceived: 13765
+              msgSent: 13739
               outMsgQueue: 0
               peerState: Established
               prefixAccepted: 132
@@ -2266,4 +2266,4 @@ nodes:
       tablesDeletes: 0
       tablesDrops: 0
       tablesInserts: 8
-      tablesLastChangeTime: 1594169183.590867
+      tablesLastChangeTime: 1594169183.5908675

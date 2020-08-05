@@ -64,6 +64,7 @@ all:
             ansible_become_method: enable
             ansible_httpapi_use_ssl: true
             ansible_httpapi_validate_certs: false
+            validation_mode_loose: true
 
         DC1_TENANTS_NETWORKS:
           children:
