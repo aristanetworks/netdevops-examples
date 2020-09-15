@@ -6,9 +6,11 @@ theme:
   name: material
   features:
     - instant
-  font:
-    text: Ubuntu
-    code: Ubuntu Mono
+  highlightjs: true
+  hljs_languages:
+        - yaml
+        - python
+        - shell
 extra_css:
   - stylesheets/extra.css
 copyright: Copyright &copy; 2019 - 2020 Arista Networks
@@ -21,8 +23,8 @@ nav:
   - Arista EOS+: eosplus.md
   - Existing Netdevops Examples: github.md
   - About:
-    - Ansible Cloudvision: https://aristanetworks.github.io/ansible-cvp/
-    - Arista Validated Design: https://github.com/aristanetworks/ansible-avd
+    - Ansible Cloudvision: https://cvp.avd.sh
+    - Arista Validated Design: https://www.avd.sh
     - Arista Automation Community: https://github.com/arista-netdevops-community
 
 markdown_extensions:
