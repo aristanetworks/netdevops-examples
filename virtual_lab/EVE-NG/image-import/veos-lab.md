@@ -1,5 +1,25 @@
 # Arista vEOS-LAB Image Import
 
+## vEOS-lab 4.23.4.2M deployment
+
+1. Open browser to arista.com software download site: <https://www.arista.com/en/support/software-download> (credentials required)
+2. browse to image EOS\Active Releases\4.22\EOS-4.23.4.2M\vEOS-lab\vEOS-lab\vEOS-lab-4.23.4.2M.vmdk
+3. Copy file to eve server using winSCP to \arista (create folder if it doesn't exist)
+4. ssh to eve server and execute the following commands:
+
+    ```shell
+    cd /arista/
+    /opt/qemu/bin/qemu-img convert -f vmdk -O qcow2 vEOS-lab-4.23.4.2M.vmdk hda.qcow2
+    mkdir -p /opt/unetlab/addons/qemu/veos-4.23.4.2M-lab
+    mv hda.qcow2 /opt/unetlab/addons/qemu/veos-4.23.4.2M-lab
+    /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+    ```
+
+5. Note: when adding node in EVE-NG topology, for best performance, change the following settings:
+   1. CPU: 2
+   2. Memory: 4096
+
+
 ## vEOS-lab 4.22.4M deployment
 
 1. Open browser to arista.com software download site: <https://www.arista.com/en/support/software-download> (credentials required)
