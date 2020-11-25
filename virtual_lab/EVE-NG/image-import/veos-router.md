@@ -3,15 +3,15 @@
 ## vEOS-Router 4.23.0FX deployment
 
 1. Open browser to arista.com software download site: <https://www.arista.com/en/support/software-download> (credentials required)
-2. browse to image EOS\vEOS-Router\vEOS-Router64-4.23.0FX\vEOS-Router64-4.23.0FX.qcow2
+2. browse to image EOS\vEOS-Router\CloudEOS-4.24.3M\CloudEOS-4.24.3M.qcow2
 3. Copy file to eve server using winSCP to \arista (create folder if it doesn't exist)
 4. ssh to eve server and execute the following commands:
 
     ```shell
     cd /arista/
-    mv vEOS-Router64-4.23.0FX.qcow2 hda.qcow2
-    mkdir -p /opt/unetlab/addons/qemu/veos-Router64-4.23.0FX
-    mv hda.qcow2 /opt/unetlab/addons/qemu/veos-Router64-4.23.0FX
+    mv CloudEOS-4.24.3M.qcow2 hda.qcow2
+    mkdir -p /opt/unetlab/addons/qemu/veos-CloudEOS-4.24.3M
+    mv hda.qcow2 /opt/unetlab/addons/qemu/veos-CloudEOS-4.24.3M
     /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
     ```
 
