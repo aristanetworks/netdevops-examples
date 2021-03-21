@@ -1,4 +1,4 @@
-Jinja2==2.10.3
+Jinja2==2.11.3
 mistune==0.8.4
 mkdocs==1.1.2
 mkdocs-bootswatch==1.1
