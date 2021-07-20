@@ -24,7 +24,7 @@ import sys
 import requests
 from jinja2 import Environment, FileSystemLoader
 
-GH_API_ENDPOINT = 'https://api.github.com/users/arista-netdevops-community/repos'
+GH_API_ENDPOINT = 'https://api.github.com/users/arista-netdevops-community/repos?per_page=100'
 JSON_FIELDS = { 'name':'project_name', 'description':'description', 'html_url':'homepage', 'updated_at': 'last_commit'}
 TEMPLATE_MARKDOWN = 'page.md.j2'
 OUTPUT_FILE = '../docs/index.md'
