@@ -30,7 +30,7 @@ TEMPLATE_MARKDOWN = 'page.md.j2'
 OUTPUT_FILE = '../docs/eosplus.md'
 PAGE_TITLE= 'Arista EOS+'
 ORGANISATION_NAME = 'arista-eosplus'
-ORGANISATION_URL = 'https://github.com/arista-eosplus/'
+ORGANISATION_URL = 'https://github.com/' + ORGANISATION_NAME
 
 def get_gh_api(url):
     """

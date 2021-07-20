@@ -30,7 +30,7 @@ TEMPLATE_MARKDOWN = 'page.md.j2'
 OUTPUT_FILE = '../docs/index.md'
 PAGE_TITLE= 'Arista Netdevops Community'
 ORGANISATION_NAME = 'arista-netdevops-community'
-ORGANISATION_URL = 'https://github.com/arista-netdevops-community'
+ORGANISATION_URL = 'https://github.com/' + ORGANISATION_NAME
 
 def get_gh_api(url):
     """
