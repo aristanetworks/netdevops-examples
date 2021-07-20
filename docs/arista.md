@@ -2,7 +2,7 @@
 
 ## About
 
-This page is automatically generated with a Py script to list all repositories part of [aristanetworks](https://github.com/aristanetworks/)
+This page is automatically generated with a Py script to list all repositories part of [`aristanetworks`](https://github.com/aristanetworks/)
 
 ## List of projects
 

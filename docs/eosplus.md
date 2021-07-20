@@ -2,7 +2,7 @@
 
 ## About
 
-This page is automatically generated with a Py script to list all repositories part of [arista-eosplus](https://github.com/arista-eosplus/)
+This page is automatically generated with a Py script to list all repositories part of [`arista-eosplus`](https://github.com/arista-eosplus/)
 
 ## List of projects
 
