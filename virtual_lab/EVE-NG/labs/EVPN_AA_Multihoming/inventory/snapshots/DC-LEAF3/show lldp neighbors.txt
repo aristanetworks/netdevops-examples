@@ -1,0 +1,15 @@
+Last table change time   : 0:27:31 ago
+Number of table inserts  : 8
+Number of table deletes  : 1
+Number of table drops    : 0
+Number of table age-outs : 0
+
+Port          Neighbor Device ID         Neighbor Port ID    TTL 
+---------- -------------------------- ---------------------- --- 
+Et1           DC-SPINE1.homelab.io       Ethernet3           120 
+Et2           DC-SPINE2.homelab.io       Ethernet3           120 
+Et5           server05                   Ethernet1           120 
+Et6           server06                   Ethernet1           120 
+Et7           server03                   Ethernet3           120 
+Et8           server04                   Ethernet2           120 
+Ma1           mgmt-sw                    Ethernet11          120

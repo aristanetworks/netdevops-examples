@@ -1,0 +1,24 @@
+Interface                      Status         Protocol           Description
+Et1                            up             up                 P2P_LINK_TO_DC-SPINE1_Ethernet4
+Et2                            up             up                 P2P_LINK_TO_DC-SPINE2_Ethernet4
+Et3                            up             up                 
+Et4                            up             up                 
+Et5                            up             up                 server05_E2
+Et6                            up             up                 server06_E2
+Et7                            up             up                 
+Et8                            up             up                 
+Et9                            up             up                 
+Et10                           up             up                 
+Et11                           up             up                 
+Lo0                            up             up                 EVPN_Overlay_Peering
+Lo1                            up             up                 VTEP_VXLAN_Tunnel_Source
+Lo100                          up             up                 Tenant_blue_vrf_VTEP_DIAGNOSTICS
+Ma1                            up             up                 oob_management
+Po5                            up             up                 server05_PortChannel
+Po6                            up             up                 server06_PortChannel
+Vl40                           up             up                 Tenant_red_storage
+Vl50                           up             up                 Tenant_blue_storage
+Vl1197                         up             up                 
+Vl1198                         up             up                 
+Vl1199                         up             up                 
+Vx1                            up             up

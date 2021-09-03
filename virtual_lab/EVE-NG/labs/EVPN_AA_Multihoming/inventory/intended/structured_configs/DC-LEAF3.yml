@@ -1,0 +1,413 @@
+router_bgp:
+  as: 65103
+  router_id: 192.168.100.5
+  bgp_defaults:
+  - no bgp default ipv4-unicast
+  - distance bgp 20 200 200
+  - graceful-restart restart-time 300
+  - graceful-restart
+  - maximum-paths 4 ecmp 4
+  peer_groups:
+    IPv4-UNDERLAY-PEERS:
+      type: ipv4
+      remote_as: 65100
+      password: AQQvKeimxJu+uGQ/yYvv9w==
+      maximum_routes: 12000
+      send_community: all
+    EVPN-OVERLAY-PEERS:
+      type: evpn
+      update_source: Loopback0
+      bfd: true
+      ebgp_multihop: '3'
+      password: q+VNViP5i4rVjW1cxFv2wA==
+      send_community: all
+      maximum_routes: 0
+  address_family_ipv4:
+    peer_groups:
+      IPv4-UNDERLAY-PEERS:
+        activate: true
+      EVPN-OVERLAY-PEERS:
+        activate: false
+  redistribute_routes:
+    connected:
+      route_map: RM-CONN-2-BGP
+  neighbors:
+    10.10.100.8:
+      peer_group: IPv4-UNDERLAY-PEERS
+      description: DC-SPINE1_Ethernet3
+    10.10.100.10:
+      peer_group: IPv4-UNDERLAY-PEERS
+      description: DC-SPINE2_Ethernet3
+    192.168.100.1:
+      peer_group: EVPN-OVERLAY-PEERS
+      description: DC-SPINE1
+      remote_as: 65100
+    192.168.100.2:
+      peer_group: EVPN-OVERLAY-PEERS
+      description: DC-SPINE2
+      remote_as: 65100
+  address_family_evpn:
+    peer_groups:
+      EVPN-OVERLAY-PEERS:
+        activate: true
+  vrfs:
+    Tenant_blue_vrf:
+      router_id: 192.168.100.5
+      rd: 192.168.100.5:100
+      route_targets:
+        import:
+          evpn:
+          - 100:100
+        export:
+          evpn:
+          - 100:100
+      redistribute_routes:
+      - connected
+    Tenant_green_vrf:
+      router_id: 192.168.100.5
+      rd: 192.168.100.5:200
+      route_targets:
+        import:
+          evpn:
+          - 200:200
+        export:
+          evpn:
+          - 200:200
+      redistribute_routes:
+      - connected
+    Tenant_red_vrf:
+      router_id: 192.168.100.5
+      rd: 192.168.100.5:300
+      route_targets:
+        import:
+          evpn:
+          - 300:300
+        export:
+          evpn:
+          - 300:300
+      redistribute_routes:
+      - connected
+  vlans:
+    10:
+      tenant: Tenant_blue
+      rd: 192.168.100.5:10010
+      route_targets:
+        both:
+        - 10010:10010
+      redistribute_routes:
+      - learned
+    50:
+      tenant: Tenant_blue
+      rd: 192.168.100.5:10050
+      route_targets:
+        both:
+        - 10050:10050
+      redistribute_routes:
+      - learned
+    30:
+      tenant: Tenant_green
+      rd: 192.168.100.5:20030
+      route_targets:
+        both:
+        - 20030:20030
+      redistribute_routes:
+      - learned
+    40:
+      tenant: Tenant_red
+      rd: 192.168.100.5:30040
+      route_targets:
+        both:
+        - 30040:30040
+      redistribute_routes:
+      - learned
+static_routes:
+- vrf: mgmt
+  destination_address_prefix: 0.0.0.0/0
+  gateway: 172.30.30.1
+service_routing_protocols_model: multi-agent
+ip_routing: true
+daemon_terminattr:
+  ingestgrpcurl:
+    ips:
+    - 172.30.30.252
+    port: 9910
+  ingestauth_key: arista
+  ingestvrf: mgmt
+  smashexcludes: ale,flexCounter,hardware,kni,pulse,strata
+  ingestexclude: /Sysdb/cell/1/agent,/Sysdb/cell/2/agent
+  disable_aaa: false
+vlan_internal_order:
+  allocation: ascending
+  range:
+    beginning: 1006
+    ending: 1199
+name_server:
+  source:
+    vrf: mgmt
+  nodes:
+  - 172.30.30.6
+  - 1.1.1.1
+ntp_server:
+  local_interface:
+    vrf: mgmt
+    interface: Management1
+  nodes:
+  - time.google.com iburst
+spanning_tree:
+  mode: mstp
+  mst_instances:
+    '0':
+      priority: 4096
+local_users:
+  admin:
+    privilege: 15
+    role: network-admin
+    sha512_password: $6$LJcUms0WZ9UyskIF$b6jUZMJmruk95uA0GPood4z4Tgb2aHKqnRhm7HyHl3kjsgE6mA5.V3W/vwl16WeICFvWWz1vkU1zQET0CbILG0
+  cvpadmin:
+    privilege: 15
+    role: network-admin
+    sha512_password: $6$pWE0vYbIJTmV0ZWc$nIrbLNYS3pIgpFj9vuzkchwyA19betlJZjWR.KE95GHwOALliiUUAu92JUWg9jQ12Yd3.aTQmWf.gRe2VNo2Y.
+clock:
+  timezone: America/Toronto
+vrfs:
+  mgmt:
+    ip_routing: false
+  Tenant_blue_vrf:
+    tenant: Tenant_blue
+    ip_routing: true
+  Tenant_green_vrf:
+    tenant: Tenant_green
+    ip_routing: true
+  Tenant_red_vrf:
+    tenant: Tenant_red
+    ip_routing: true
+management_interfaces:
+  Management1:
+    description: oob_management
+    shutdown: false
+    vrf: mgmt
+    ip_address: 172.30.30.215/24
+    gateway: 172.30.30.1
+    type: oob
+management_api_http:
+  enable_vrfs:
+    mgmt: {}
+  enable_https: true
+loopback_interfaces:
+  Loopback0:
+    description: EVPN_Overlay_Peering
+    shutdown: false
+    ip_address: 192.168.100.5/32
+  Loopback1:
+    description: VTEP_VXLAN_Tunnel_Source
+    shutdown: false
+    ip_address: 192.168.101.5/32
+  Loopback100:
+    description: Tenant_blue_vrf_VTEP_DIAGNOSTICS
+    shutdown: false
+    vrf: Tenant_blue_vrf
+    ip_address: 10.255.1.5/32
+  Loopback200:
+    description: Tenant_green_vrf_VTEP_DIAGNOSTICS
+    shutdown: false
+    vrf: Tenant_green_vrf
+    ip_address: 10.255.2.5/32
+ethernet_interfaces:
+  Ethernet1:
+    peer: DC-SPINE1
+    peer_interface: Ethernet3
+    peer_type: spine
+    description: P2P_LINK_TO_DC-SPINE1_Ethernet3
+    mtu: 1500
+    type: routed
+    shutdown: false
+    ip_address: 10.10.100.9/31
+  Ethernet2:
+    peer: DC-SPINE2
+    peer_interface: Ethernet3
+    peer_type: spine
+    description: P2P_LINK_TO_DC-SPINE2_Ethernet3
+    mtu: 1500
+    type: routed
+    shutdown: false
+    ip_address: 10.10.100.11/31
+  Ethernet7:
+    peer: server03
+    peer_interface: E3
+    peer_type: server
+    description: server03_E3
+    type: switched
+    shutdown: false
+    mode: trunk
+    vlans: 30
+    channel_group:
+      id: 7
+      mode: active
+  Ethernet8:
+    peer: server04
+    peer_interface: E2
+    peer_type: server
+    description: server04_E2
+    type: switched
+    shutdown: false
+    mode: trunk
+    vlans: 10
+    channel_group:
+      id: 8
+      mode: active
+  Ethernet5:
+    peer: server05
+    peer_interface: E1
+    peer_type: server
+    description: server05_E1
+    type: switched
+    shutdown: false
+    mode: trunk
+    vlans: 40
+    channel_group:
+      id: 5
+      mode: active
+  Ethernet6:
+    peer: server06
+    peer_interface: E1
+    peer_type: server
+    description: server06_E1
+    type: switched
+    shutdown: false
+    mode: trunk
+    vlans: 50
+    channel_group:
+      id: 6
+      mode: active
+prefix_lists:
+  PL-LOOPBACKS-EVPN-OVERLAY:
+    sequence_numbers:
+      10:
+        action: permit 192.168.100.0/24 eq 32
+      20:
+        action: permit 192.168.101.0/24 eq 32
+route_maps:
+  RM-CONN-2-BGP:
+    sequence_numbers:
+      10:
+        type: permit
+        match:
+        - ip address prefix-list PL-LOOPBACKS-EVPN-OVERLAY
+router_bfd:
+  multihop:
+    interval: 1200
+    min_rx: 1200
+    multiplier: 3
+ip_igmp_snooping:
+  globally_enabled: true
+vlans:
+  10:
+    tenant: Tenant_blue
+    name: Tenant_blue_compute
+  50:
+    tenant: Tenant_blue
+    name: Tenant_blue_storage
+  30:
+    tenant: Tenant_green
+    name: Tenant_green_storage
+  40:
+    tenant: Tenant_red
+    name: Tenant_red_storage
+vxlan_tunnel_interface:
+  Vxlan1:
+    description: DC-LEAF3_VTEP
+    source_interface: Loopback1
+    vxlan_udp_port: 4789
+    vxlan_vni_mappings:
+      vlans:
+        10:
+          vni: 10010
+        50:
+          vni: 10050
+        30:
+          vni: 20030
+        40:
+          vni: 30040
+      vrfs:
+        Tenant_blue_vrf:
+          vni: 100
+        Tenant_green_vrf:
+          vni: 200
+        Tenant_red_vrf:
+          vni: 300
+vlan_interfaces:
+  Vlan10:
+    tenant: Tenant_blue
+    tags:
+    - blue_compute
+    description: Tenant_blue_compute
+    shutdown: false
+    vrf: Tenant_blue_vrf
+    ip_address_virtual: 10.10.10.1/24
+  Vlan50:
+    tenant: Tenant_blue
+    tags:
+    - blue_storage
+    description: Tenant_blue_storage
+    shutdown: false
+    vrf: Tenant_blue_vrf
+    ip_address_virtual: 10.10.50.1/24
+  Vlan30:
+    tenant: Tenant_green
+    tags:
+    - green_storage
+    description: Tenant_green_storage
+    shutdown: false
+    vrf: Tenant_green_vrf
+    ip_address_virtual: 10.10.30.1/24
+  Vlan40:
+    tenant: Tenant_red
+    tags:
+    - red_storage
+    description: Tenant_red_storage
+    shutdown: false
+    vrf: Tenant_red_vrf
+    ip_address_virtual: 10.10.40.1/24
+virtual_source_nat_vrfs:
+  Tenant_blue_vrf:
+    ip_address: 10.255.1.5
+  Tenant_green_vrf:
+    ip_address: 10.255.2.5
+ip_virtual_router_mac_address: 00:1c:73:00:dc:01
+port_channel_interfaces:
+  Port-Channel7:
+    description: server03_PortChannel
+    type: switched
+    shutdown: false
+    mode: trunk
+    vlans: 30
+    esi: 0000:0000:0003:3030:3030
+    rt: 00:03:30:30:30:30
+    lacp_id: 0003.3030.3030
+  Port-Channel8:
+    description: server04_PortChannel
+    type: switched
+    shutdown: false
+    mode: trunk
+    vlans: 10
+    esi: 0000:0000:0001:1111:1111
+    rt: 00:01:11:11:11:11
+    lacp_id: 0001.1111.1111
+  Port-Channel5:
+    description: server05_PortChannel
+    type: switched
+    shutdown: false
+    mode: trunk
+    vlans: 40
+    esi: 0000:0000:0004:4040:4040
+    rt: 00:04:40:40:40:40
+    lacp_id: 0004.4040.4040
+  Port-Channel6:
+    description: server06_PortChannel
+    type: switched
+    shutdown: false
+    mode: trunk
+    vlans: 50
+    esi: 0000:0000:0005:5050:5050
+    rt: 00:05:50:50:50:50
+    lacp_id: 0005.5050.5050
