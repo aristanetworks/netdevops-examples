@@ -23,6 +23,7 @@ This repository is a central place where Arista demos and examples around netdev
 - [__List of some EVE-NG topologies leveraging vEOS and CV__](virtual_lab/EVE-NG):
 - [__L3 Leaf-Spine w/ BGP Unnumbered & EVPN VXLAN__](virtual_lab/EVE-NG/labs/L3LS_Unnumbered_DCI_Type5): full Layer 3 Leaf-Spine fabric in a 2 datacenter setup with BGP Unnumbered and VXLAN/EVPN
 - [__NSX-T and EVPN in EVE-NG lab__](virtual_lab/EVE-NG/labs/NSX-T_EVPN_Type-5): Lab to demonstrate integration of Arista EOS running EVPN with Vmware NSX-T integration.
+- [__EVPN/VXLAN A-A Multihoming__](virtual_lab/EVE-NG/labs/EVPN_AA_Multihoming): Lab to demonstrate EVPN/VXLAN A-A Multihoming deployment with CloudVision and Ansible AVD collection
 
 ### Webinar & Presentation content
 

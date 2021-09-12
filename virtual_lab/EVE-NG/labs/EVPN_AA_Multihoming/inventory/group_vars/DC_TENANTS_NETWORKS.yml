@@ -1,0 +1,58 @@
+---
+# DC Tenants Networks
+# Documentation of Tenant specific information - Vlans/VRFs
+tenants:
+  # Tenant Blue Specific Information - VRFs / VLANs
+  Tenant_blue:
+    mac_vrf_vni_base: 10000
+    vrfs:
+      Tenant_blue_vrf:
+        vrf_vni: 100
+        vtep_diagnostic:
+          loopback: 100
+          loopback_ip_range: 10.255.1.0/24
+        svis:
+          10:
+            name: Tenant_blue_compute
+            tags: [blue_compute]
+            enabled: true
+            ip_address_virtual: 10.10.10.1/24
+          50:
+            name: Tenant_blue_storage
+            tags: [blue_storage]
+            enabled: true
+            ip_address_virtual: 10.10.50.1/24
+
+  # Tenant Green Specific Information - VRFs / VLANs
+  Tenant_green:
+    mac_vrf_vni_base: 20000
+    vrfs:
+      Tenant_green_vrf:
+        vrf_vni: 200
+        vtep_diagnostic:
+          loopback: 200
+          loopback_ip_range: 10.255.2.0/24
+        svis:
+          20:
+            name: Tenant_green_compute
+            tags: [green_compute]
+            enabled: true
+            ip_address_virtual: 10.10.20.1/24
+          30:
+            name: Tenant_green_storage
+            tags: [green_storage]
+            enabled: true
+            ip_address_virtual: 10.10.30.1/24
+
+  # Tenant Red Specific Information - VRFs / VLANs
+  Tenant_red:
+    mac_vrf_vni_base: 30000
+    vrfs:
+      Tenant_red_vrf:
+        vrf_vni: 300
+        svis:
+          40:
+            name: Tenant_red_storage
+            tags: [red_storage]
+            enabled: true
+            ip_address_virtual: 10.10.40.1/24

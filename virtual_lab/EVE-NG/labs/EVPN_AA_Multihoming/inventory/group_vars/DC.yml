@@ -1,0 +1,38 @@
+---
+# Clock timezone | Optional
+timezone: "America/Toronto"
+# local users
+local_users:
+  admin:
+    privilege: 15
+    role: network-admin
+    sha512_password: "$6$LJcUms0WZ9UyskIF$b6jUZMJmruk95uA0GPood4z4Tgb2aHKqnRhm7HyHl3kjsgE6mA5.V3W/vwl16WeICFvWWz1vkU1zQET0CbILG0"
+  cvpadmin:
+    privilege: 15
+    role: network-admin
+    sha512_password: "$6$pWE0vYbIJTmV0ZWc$nIrbLNYS3pIgpFj9vuzkchwyA19betlJZjWR.KE95GHwOALliiUUAu92JUWg9jQ12Yd3.aTQmWf.gRe2VNo2Y."
+
+# Cloud Vision server information
+cvp_instance_ip: 172.30.30.252
+cvp_ingestauth_key: arista
+
+# OOB Management network default gateway
+mgmt_gateway: 172.30.30.1
+mgmt_vrf_routing: false
+mgmt_interface: Management1
+mgmt_interface_vrf: mgmt
+# OOB mgmt interface destination networks
+mgmt_destination_networks:
+  - 0.0.0.0/0
+
+### DNS Domain ###
+dns_domain: homelab.io
+
+# DNS servers
+name_servers:
+  - 172.30.30.6
+  - 1.1.1.1
+
+# NTP Servers IP or DNS name, first NTP server will be prefered, and sourced from Management VRF
+ntp_servers:
+  - time.google.com iburst
