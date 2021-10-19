@@ -1,5 +1,11 @@
 This is an example of using Batfish to validate datacenter atd-avd intended configs.
 
+Development Environment:
+Docker Engine 20.10.7
+MacPro MacOS BigSur 11.6
+Python v3.8.5 Anaconda
+Jupyter Notebook 6.1.4
+
 Instructions on how to setup Batfish on your own laptop is located here https://batfish.readthedocs.io/en/latest/getting_started.html and copied below for your convenience.
 
 Setup
