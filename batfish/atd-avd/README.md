@@ -9,8 +9,9 @@ MacPro MacOS BigSur 11.6
 Python v3.8.5 Anaconda
 
 Jupyter Notebook 6.1.4
+    - Install Jupyter extensions i.e. Table of Contents which is helpful in navigating through the codes in Notebook.  Instructions on how to install the extensions are found here https://towardsdatascience.com/12-jupyter-notebook-extensions-that-will-make-your-life-easier-e0aae0bd181.
 
-Instructions on how to setup Batfish on your own laptop is located here https://batfish.readthedocs.io/en/latest/getting_started.html and copied below for your convenience.
+Instructions on how to setup Batfish on your own laptop is located here <https://batfish.readthedocs.io/en/latest/getting_started.html> and copied below for your convenience.
 
 Setup
 
