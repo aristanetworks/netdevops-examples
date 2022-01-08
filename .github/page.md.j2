@@ -1,14 +1,18 @@
 # {{page_title}}
 
+## {{topic}}
+
+You will find all repositories related to {{ topic }} on this page.
+
 ## About
 
-This page is automatically generated with a Py script to list all repositories part of [`{{organisation_name}}`]({{organisation_url}})
+*This page is automatically generated, with a Python script executed to parse all repositories of* [`{{organisation_name}}`]({{organisation_url}}), *and removing all that don't contain the topic of* {{topic}}
 
 ## List of projects
 
 
 |  Project  |  Description  | Last activity |
 |------------------|---------------|-------------|
-{% for project in projects|sort(reverse=true,attribute='last_commit') %}
+{% for project in projects|sort(reverse=false,attribute='project_name') %}
 |  [{{project['project_name']}}]({{project['homepage']}}) | {% if project['description'] != 'None'  %} {{project['description']}} {% else %} N/A {% endif %} | {{project['last_commit']|truncate(10,end='')}} |
 {% endfor %}
