@@ -1,6 +1,6 @@
-site_name: Arista Devops Community
-site_author: Arista Ansible Team
-site_description: A List of contribution in devops world
+site_name: Juniper Automation Examples
+site_author: cdot65
+site_description: A collection of DevOps examples for Juniper Networks platforms
 docs_dir: docs/
 theme:
   name: material
@@ -12,20 +12,26 @@ theme:
         - python
         - shell
 extra_css:
-  - stylesheets/extra.css
-copyright: Copyright &copy; 2019 - 2020 Arista Networks
-repo_name: 'Arista Netdevops Community'
-repo_url: https://github.com/aristanetworks/netdevops-examples
+  - stylesheets/juniper.css
+copyright: Copyright &copy; 2022 cdot65
+repo_name: 'Juniper Automation Examples'
+repo_url: https://github.com/cdot65/juniper-netdevops-examples
 use_directory_urls: true
 nav:
-  - Arista Netdevops Community: index.md
-  - Arista Networks: arista.md
-  - Arista EOS+: eosplus.md
-  - Existing Netdevops Examples: github.md
-  - About:
-    - Ansible Cloudvision: https://cvp.avd.sh
-    - Arista Validated Design: https://www.avd.sh
-    - Arista Automation Community: https://github.com/arista-netdevops-community
+  - Homepage: index.md
+  - Ansible:
+    - Ansible Core: ansible.md
+    - Ansible AWX: awx.md
+  - Python:
+    - Nornir: nornir.md
+    - PyEZ: python.md
+    - Scrapli: scrapli.md
+  - Network Technology:
+    - 128T SD-WAN: 128t.md
+    - Apstra: apstra.md
+    - Data Center: datacenter.md
+    - Mist: mist.md
+    - Network Security: netsec.md
 
 markdown_extensions:
   - smarty

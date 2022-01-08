@@ -1,0 +1,27 @@
+# {{page_title}}
+
+![juniper-platforms](https://github.com/cdot65/juniper-netdevops-examples/blob/main/docs/media/junos_automation.jpg?raw=true)
+
+## Welcome
+
+First off, hello and welcome to the landing page of my personal Juniper automation projects. My name is Calvin and I work in a sales capacity at Juniper Networks, and I am hoping that you find this collection helpful.
+
+There are quite a lot of things that I work on, so this list may be a little overwhelming; feel free to limit the scope by selection one of the topics on the left-hand navigation menu.
+
+The inspiration for this repository was to take the ideas put forth in Arista's [https://github.com/aristanetworks/netdevops-examples](netdevops-examples), but with a few strong modifications:
+
+1. replace all Arista repositories with those of my own
+2. remove all presentation material
+3. change the scope to exclusively generate and host [https://cdot65.github.io/juniper-netdevops-examples/](cdot65.github.io/juniper-netdevops-examples/)
+4. remove all demo content and virtual labs
+5. give the project a more decidely favorable feel towards Juniper Networks platforms
+
+*This page is automatically generated using a Python script executed to parse all repositories part of* [`{{organisation_name}}`]({{organisation_url}})
+
+## List of projects
+
+|  Project  |  Description  | Last activity |
+|------------------|---------------|-------------|
+{% for project in projects|sort(reverse=false,attribute='project_name') %}
+|  [{{project['project_name']}}]({{project['homepage']}}) | {% if project['description'] != 'None'  %} {{project['description']}} {% else %} N/A {% endif %} | {{project['last_commit']|truncate(10,end='')}}
+{% endfor %}

@@ -1,5 +1,0 @@
----
-CVP_CONFIGLET:
-{% for configlet in shared_configlets %}
-  {{configlet}}: "{{shared_configlets[configlet]['config'] | replace('\n', '\\n')}}"
-{% endfor %}

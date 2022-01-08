@@ -1,13 +1,13 @@
 name: Mkdocs
 on:
-  # Rebuild every day at 00:00
+  # each day at 0200 hours
   schedule:
     - cron:  '0 0 * * *'
-  # Or on every push as it can change output
+  # each push
   push:
 jobs:
   'doc':
-    name: 'Update Public documentation'
+    name: 'Build mkdocs'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -18,9 +18,17 @@ jobs:
       - name: 'Build mkdocs content to site folder'
         run: |
             pip install -r .github/requirements.txt
-            python .github/netdevops.py
-            python .github/aristanetworks.py
-            python .github/eosplus.py
+            python .github/index.py
+            python .github/128t.py
+            python .github/ansible.py
+            python .github/apstra.py
+            python .github/awx.py
+            python .github/datacenter.py
+            python .github/mist.py
+            python .github/nornir.py
+            python .github/netsec.py
+            python .github/python.py
+            python .github/scrapli.py
             mkdocs build -f mkdocs.yml
       - name: 'Deploy last version to gh-pages'
         uses: peaceiris/actions-gh-pages@v3
