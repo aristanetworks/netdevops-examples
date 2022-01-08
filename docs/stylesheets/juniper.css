@@ -45,6 +45,9 @@
 }
 
 @media only screen {
+  img[alt=platforms] {
+    width: 200px;
+  }
   .md-footer-nav {
       background-color: var(--md-default-bg-color--light);
       color: var(--md-accent-fg-color--transparent)
