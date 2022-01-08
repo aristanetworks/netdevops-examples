@@ -1,9 +1,0 @@
-type, Node,Node Interface,Leaf IP Address,Peer Node,Peer Interface,Peer IP Address
-l3leaf,DC-LEAF1,Ethernet1,10.10.100.1/31,spine,DC-SPINE1,Ethernet1,10.10.100.0/31
-l3leaf,DC-LEAF1,Ethernet2,10.10.100.3/31,spine,DC-SPINE2,Ethernet1,10.10.100.2/31
-l3leaf,DC-LEAF2,Ethernet1,10.10.100.5/31,spine,DC-SPINE1,Ethernet2,10.10.100.4/31
-l3leaf,DC-LEAF2,Ethernet2,10.10.100.7/31,spine,DC-SPINE2,Ethernet2,10.10.100.6/31
-l3leaf,DC-LEAF3,Ethernet1,10.10.100.9/31,spine,DC-SPINE1,Ethernet3,10.10.100.8/31
-l3leaf,DC-LEAF3,Ethernet2,10.10.100.11/31,spine,DC-SPINE2,Ethernet3,10.10.100.10/31
-l3leaf,DC-LEAF4,Ethernet1,10.10.100.13/31,spine,DC-SPINE1,Ethernet4,10.10.100.12/31
-l3leaf,DC-LEAF4,Ethernet2,10.10.100.15/31,spine,DC-SPINE2,Ethernet4,10.10.100.14/31

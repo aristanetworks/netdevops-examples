@@ -1,6 +1,0 @@
-[local]
-localhost
-
-[local:vars]
-ansible_connection=local
-ansible_python_interpreter=$(which python)

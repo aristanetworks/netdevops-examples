@@ -1,3 +1,0 @@
-ansible>=4.2.0
-pynetbox==5.3.1
-netaddr==0.8.0

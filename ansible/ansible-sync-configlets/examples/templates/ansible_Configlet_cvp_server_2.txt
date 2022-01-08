@@ -1,1 +1,0 @@
-! This is a dynamic test configlet for cvpserver-2
