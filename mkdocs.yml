@@ -2,18 +2,8 @@ site_name: Arista Devops Community
 site_author: Arista Ansible Team
 site_description: A List of contribution in devops world
 docs_dir: docs/
-theme:
-  name: material
-  features:
-    - instant
-  highlightjs: true
-  hljs_languages:
-        - yaml
-        - python
-        - shell
-extra_css:
-  - stylesheets/extra.css
-copyright: Copyright &copy; 2019 - 2020 Arista Networks
+
+copyright: Copyright &copy; 2019 - 2022 Arista Networks
 repo_name: 'Arista Netdevops Community'
 repo_url: https://github.com/aristanetworks/netdevops-examples
 use_directory_urls: true
@@ -27,7 +17,61 @@ nav:
     - Arista Validated Design: https://www.avd.sh
     - Arista Automation Community: https://github.com/arista-netdevops-community
 
+
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.top
+  highlightjs: true
+  hljs_languages:
+    - yaml
+    - python
+    - shell
+  icon:
+    repo: fontawesome/brands/github
+    logo: fontawesome/solid/book
+  favicon: docs/_media/favicon.ico
+  font:
+    code: Fira Mono
+  language: en
+  include_search_page: false
+  search_index_only: true
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+
+extra_css:
+  - docs/stylesheets/extra.material.css
+  - stylesheets/extra.css
+
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js
+  - stylesheets/tables.js
+  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js
+  - stylesheets/highlight.js
+
+plugins:
+  - search:
+      lang: en
+  - git-revision-date-localized:
+      type: date
+  # Deactivated due to https://github.com/tikitu/jsmin/issues/33
+  # Issue in progress: https://github.com/byrnereese/mkdocs-minify-plugin/issues/15
+  # - minify:
+  #     minify_html: true
+  #     minify_js: true
+
 markdown_extensions:
+  - mdx_truly_sane_lists
   - smarty
   - pymdownx.arithmatex
   - pymdownx.betterem:
@@ -49,5 +93,10 @@ markdown_extensions:
       guess_lang: true
   - toc:
       separator: "-"
-      permalink: "#"
-      baselevel: 1
+      # permalink: "#"
+      permalink: true
+      baselevel: 3
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.snippets:
+      base_path: 'ansible_collections/arista/cvp/'
