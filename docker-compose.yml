@@ -1,0 +1,11 @@
+version: "3"
+services:
+  webdoc:
+    image: titom73/mkdocs:latest
+    container_name: webdoc
+    volumes:
+      - ${PWD}/:/docs
+    ports:
+      - 8002:8000
+    entrypoint: ""
+    command: ["sh", "-c", "pip install -r .github/requirements.txt && mkdocs serve --dev-addr=0.0.0.0:8000 -f mkdocs.yml"]
