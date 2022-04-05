@@ -1,0 +1,34 @@
+all:
+  children:
+    CVP:
+      hosts:
+        CVOnPrem:
+          ansible_host: 10.90.226.175
+          ansible_user: cvpadmin
+          ansible_ssh_pass: arista123!
+          ansible_connection: httpapi
+          ansible_network_os: eos
+          # Optional Ansible become configuration.
+          ansible_become: True
+          ansible_become_method: enable
+          # HTTPAPI plugin configuration
+          ansible_httpapi_port: 443
+          ansible_httpapi_host: 10.90.226.175
+          ansible_httpapi_use_ssl: True
+          ansible_httpapi_validate_certs: False
+        CloudVision:
+          ansible_host: www.cv-staging.corp.arista.io
+          ansible_user: cvaas
+          ansible_ssh_pass: eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJkaWQiOjE2NzQ4LCJkc24iOiJmcmVkLXNhIiwiZHN0IjoiYWNjb3VudCIsInNpZCI6ImJkNjkyNGUyNjY0MjVkMTE2ODUyOTY4ZWRiMTYzMDI4M2Y1YTg0MDkxMjFiZGQ5ZmNiYWY4MWYxNjYzNDljNjctUWdfRTVleEd5WUsybkwwSzRjOWkzWXpaZGJEeGVleVNXUXpjX3BUciJ9.M_vd7sAbkzfI0jGDSCktE4o8BvOeb1Nj4QIyGsagq-b-DiMiBmwuImG47CYBJ5YfBCXdJnT85dhnmhnmtcPDow
+          ansible_connection: httpapi
+          ansible_network_os: eos
+          # Optional Ansible become configuration.
+          ansible_become: True
+          ansible_become_method: enable
+          # HTTPAPI plugin configuration
+          ansible_httpapi_port: 443
+          ansible_httpapi_host: www.cv-staging.corp.arista.io
+          ansible_httpapi_use_ssl: True
+          ansible_httpapi_validate_certs: False
+          
+

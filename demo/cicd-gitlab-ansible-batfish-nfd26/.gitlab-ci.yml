@@ -1,0 +1,157 @@
+variables:
+  OPA_INPUT_FILE: input.json
+  OPA_POLICY_FILE: policy.rego
+  PERSONAL_ACCESS_TOKEN: G9d4wFzzAgycUya-sKtA
+
+
+stages:
+  - build
+  - validate
+  # - commit
+  - deploy
+  - destroy
+
+cache:
+  key: demo
+  untracked: true
+  policy: pull-push
+
+buildavd:
+  variables:
+    ANSIBLE_CONFIG: /builds/network/cloudvision/avd-demo/ansible.cfg
+  image: fredhsu/avd
+  stage: build
+  script:
+    - cd /
+    - git clone http://dmz-gitlab.sjc.aristanetworks.com/network/renderedavd.git
+    - cd /builds/network
+    # - git clone http://dmz-gitlab.sjc.aristanetworks.com/network/renderedavd.git
+    - cd /builds/network/cloudvision/avd-demo
+    - ansible-playbook -i inventory/inventory.yml playbooks/dc1-fabric-deploy-cvp.yml
+    # - zip -r demoavd.zip /renderedavd/intended/configs 
+    - cd /renderedavd
+    - git config user.email fredlhsu@arista.com
+    - git config user.name fredlhsu
+    - git add . 
+    - git commit -m "updated" --allow-empty
+    - git push http://avd-commit:${PERSONAL_ACCESS_TOKEN}@dmz-gitlab.sjc.aristanetworks.com/network/renderedavd.git
+    - zip -r demoavd.zip intended/configs 
+    - mv demoavd.zip /builds/network/cloudvision/avd-demo
+    # - git add .
+    # - git commit -m "[skip ci]"
+    # - git push -o ci.skip
+  artifacts:
+    paths:
+      # - /builds/network/cloudvision/avd-demo/inventory/intended/configs/
+      # - /renderedavd/
+      - /builds/network/cloudvision/avd-demo/demoavd.zip
+      # - /renderedavd/demoavd.zip
+  tags:
+    - docker
+  
+# Add build phase to zip up 
+buildconfigs:
+  stage: build
+  script: 
+    - zip -r demo.zip networks
+  artifacts:
+    paths:
+      - demo.zip
+  tags:
+    - zip
+
+# testvar:
+#   image: fredhsu/pybatfish:latest
+#   stage: build
+#   script:
+#     - echo $CI_COMMIT_BRANCH
+#     - echo $ADDRESS
+#     - echo $NAME
+#   tags:
+#     - zip
+    
+# testpolicy:
+#   stage: validate
+#   script:
+#     - ./getpolicy.sh
+#     - eosopa -input ./configlet.txt 1> ${OPA_INPUT_FILE}
+#     - opa eval --fail-defined -i ${OPA_INPUT_FILE} -d ${OPA_POLICY_FILE} "data.policy.violation[x]"
+#   artifacts:
+#     untracked: true
+#     when: always
+#   allow_failure: false
+#   tags:
+#     - opa
+
+testnetwork:
+  stage: validate
+  image: fredhsu/pybatfish:latest
+  script:
+    - python /batfish/src/batfish.py
+  artifacts:
+    untracked: true
+    when: always
+  allow_failure: false
+  tags:
+    - docker
+
+testavd:
+  stage: validate
+  image: fredhsu/batfishavd:latest
+  # variables:
+  #   CI_COMMIT_BRANCH: acl-avd
+  script:
+    - python /batfish/src/batfish.py
+  artifacts:
+    untracked: true
+    when: always
+  allow_failure: false
+  tags:
+    - docker
+
+deploy:
+  stage: deploy
+  script:
+    - git clone http://dmz-gitlab.sjc.aristanetworks.com/network/renderedavd.git
+    - ls
+    - ansible-galaxy collection install arista.cvp
+    - ansible-playbook playbook.configlet.yml -i inventory.yaml
+  tags:
+    - ansible
+  artifacts:
+    untracked: true
+    when: always
+  dependencies:
+    - testavd
+    #- testnetwork
+  when: manual
+
+deploy-studio:
+  stage: deploy
+  image: fredhsu/studioshack
+  variables:
+    BD_CVP: "10.90.226.175"
+    BD_CVP_TOKEN: "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJkaWQiOjY5ODQ0OTU5MDQzMTcyNDM2MTQsImRzbiI6ImRhbi1zYSIsImRzdCI6ImFjY291bnQiLCJzaWQiOiJhZmJhN2IwNjU2YjVhMTM0MzhkNTQxOGY4ZTU3ODZlMjA4OThkOGRhMzEyMzY2ZmM2NmZhY2NkM2QzNWEyZjg1LS1MUFpWS2NTZEQtQzh1ZEtkdkJXUmNDWmxRMEt0YjRmem02dlMxdlYifQ.VJ8cxjrOd3CfIDLE6y0754eySGNehnmdXSFXU9FCJXGM0oOJm5ojtsriEgGy3Wsw45Fo326Yiz006bqQRW9chjj99hWQkt9J4oSzHkTePYPfT7VHsLvsgcJ2Gt9nanZy50gVkCW3PcEyqedmUtafzzJubZUWeydvA52QLAODSuEygfQaKJuoCZpMLnaC698VGB-Xllf52NQdzlvqn469zdvirFr0qYeFaPKm1KHbKtvn33duedw4wEE2CDlEW9XzwsBp6s7XBIUL3CqZ5gZW_ZXCdM3lW_t02TyEKwV35yKQLYF6adeqyQSMFf2-oBPRGmbCa_ecu6Psy1EbsU1PP617bDD3yKUdAibK-v_rAnVyBmO6lRsJh7JuC15FaBZys-pxhYpnd7_eaXc3ve0sGKEFPIXrvVQx6bwLrixhs1hNjB5wkIG1n5ZO8tPRheGkZv_-UCqjRbplNHvyWvfiKsG1WX9KBfOrHUXey27tqeNLLEG1xKe152XWAS4awxIupDmccLo1ekpygHSZjVMN-hAjqr58wbhZ-PDnjaSfan_hSC12O0rkglHatuhxJIgL-qxNv5Xp6z-tOfDnUIBLly7G1epG02TVfKu80EZp6D5shrubHRtBQgsygMzvHMG9qIoVzUYfpjjDTfNHXwD522k6EfcTGE_EoiIKpbeqonA"
+  script:
+    - python /studios.py
+  tags:
+    - docker
+  artifacts:
+    untracked: true
+    when: always
+  dependencies:
+    - testavd
+    #- testnetwork
+  when: manual
+
+cleanup:
+  stage: destroy
+  tags:
+    - ansible
+  script:
+    - git clone http://dmz-gitlab.sjc.aristanetworks.com/network/renderedavd.git
+    - ansible-galaxy collection install arista.cvp
+    - ansible-playbook destroy-configlet.yml -i inventory.yaml
+  dependencies:
+    - deploy
+  when: manual

@@ -1,0 +1,17 @@
+---
+type: l3leaf
+access_lists:
+  demo:
+    sequence_numbers:
+      # 5:
+      #   action: "deny ip any 172.22.22.0/24"
+      10:
+        action: "permit ip any host 1.1.1.3"
+      20:
+        action: "permit ip any host 8.8.8.4"
+      30:
+        action: "permit ip any host 8.8.8.8"
+      40:
+        action: "permit ip any 172.22.22.10/24"
+      50:
+        action: "permit ip any 172.22.22.40/24"

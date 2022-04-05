@@ -1,0 +1,35 @@
+{
+   "switches": [
+     {
+       "id": "",
+       "management": {
+         "api": {
+           "TypeID": "api",
+           "shutdown": false
+         },
+         "telnet": {
+           "idleTimeout": 0,
+           "ip": "",
+           "ipv6": "",
+           "sessionLimit": 0,
+           "vrf": "",
+           "typeId": "telnet",
+           "shutdown": false
+         }
+       },
+       "ipNameServers": {
+         "Vrf": "",
+         "Addresses": null
+       },
+       "logging": {
+         "Host": {
+           "hostname": ""
+         },
+         "On": false,
+         "Level": "",
+         "SourceInterface": "",
+         "Vrf": ""
+       }
+     }
+   ]
+ }

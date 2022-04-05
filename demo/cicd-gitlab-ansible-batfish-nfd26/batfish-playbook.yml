@@ -1,0 +1,39 @@
+---
+- name: Extract network device facts using Batfish and Ansible
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  roles:
+    - batfish.base
+
+  tasks:
+  - name: Setup connection to Batfish service
+    bf_session:
+      host: 10.90.226.72
+      name: local_batfish
+
+  - name: Initialize the example network
+    bf_init_snapshot:
+      network: demo
+      snapshot: demo
+      snapshot_data: ./acls.eos
+      overwrite: true
+
+  - name: Retrieve Batfish Facts
+    bf_extract_facts:
+      output_directory: data/bf_facts
+    register: bf_facts
+
+  - name: Assert server can be reached
+    bf_assert:
+      assertions:
+        - type: assert_filter_permits
+
+  - name: confirm can access web server
+    parameters:
+      filters: demo #'cs-lf12["demo"]'
+      headers:
+        dstIps: '158.174.122.199'
+  # delegate_to: localhost
+  # run_once: true
+  

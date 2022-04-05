@@ -1,0 +1,11 @@
+---
+port_profiles:
+  TENANT_A_B:
+    mode: trunk
+    vlans: "110-111,210-211"
+  TENANT_A:
+    mode: access
+    vlans: "110"
+  TENANT_B:
+    mode: trunk
+    vlans: "210-211"

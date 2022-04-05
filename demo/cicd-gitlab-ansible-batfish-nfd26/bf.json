@@ -1,0 +1,1 @@
+{"permit":[{"name":"","dstIps":"8.8.8.4/32","ipProtocols":["tcp"],"dstPorts":[]},{"name":"","dstIps":"8.8.8.8/32","ipProtocols":["tcp"],"dstPorts":[]},{"name":"","dstIps":"172.22.22.10/24","ipProtocols":["tcp"],"dstPorts":[]},{"name":"","dstIps":"172.22.22.40/24","ipProtocols":["tcp"],"dstPorts":[]}]}
