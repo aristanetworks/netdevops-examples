@@ -1,0 +1,9 @@
+---
+tenants:
+  # Tenant A Specific Information - Pure L2 tenant
+  Tenant_A:
+    mac_vrf_vni_base: 10000
+    l2vlans:
+      10:
+        name: 'A-ELAN-10'
+        tags: [DC1]
