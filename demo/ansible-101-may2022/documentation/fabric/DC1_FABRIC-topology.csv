@@ -1,0 +1,7 @@
+Node Type,Node,Node Interface,Peer Type,Peer Node,Peer Interface
+l3leaf,leaf-101,Ethernet1,spine,spine-11,Ethernet1
+l3leaf,leaf-101,Ethernet3,server,host1,eth1
+l3leaf,leaf-102,Ethernet1,spine,spine-11,Ethernet2
+l3leaf,leaf-102,Ethernet3,server,host2,eth1
+spine,spine-11,Ethernet1,l3leaf,leaf-101,Ethernet1
+spine,spine-11,Ethernet2,l3leaf,leaf-102,Ethernet1

@@ -1,0 +1,49 @@
+name: demo
+prefix: ""
+
+mgmt:
+  network: statics
+  ipv4_subnet: 192.168.100.0/24
+
+topology:
+  kinds:
+    ceos:
+      image: ceos:4.28.0F
+    linux:
+      image: wbitt/network-multitool:alpine-extra
+
+  nodes:
+    leaf-101:
+      kind: ceos
+      mgmt_ipv4: 192.168.100.11
+      group: 2
+      startup-config: startup/leaf-101.cfg
+    leaf-102:
+      kind: ceos
+      image: ceos:4.27.4M
+      mgmt_ipv4: 192.168.100.12
+      group: 2
+      startup-config: startup/leaf-102.cfg
+    spine-11:
+      kind: ceos
+      mgmt_ipv4: 192.168.100.21
+      group: 3
+      startup-config: startup/spine-11.cfg
+    host1:
+      kind: linux
+      mgmt_ipv4: 192.168.100.31
+      group: 1
+      exec:
+        - ip a add 192.168.10.101/24 dev eth1
+    host2:
+      kind: linux
+      mgmt_ipv4: 192.168.100.32
+      group: 1
+      exec:
+        - ip a add 192.168.10.102/24 dev eth1
+
+  links:
+    - endpoints: ["leaf-101:eth1", "spine-11:eth1"]
+    - endpoints: ["leaf-102:eth1", "spine-11:eth2"]
+    - endpoints: ["leaf-101:eth3", "host1:eth1"]
+    - endpoints: ["leaf-102:eth3", "host2:eth1"]

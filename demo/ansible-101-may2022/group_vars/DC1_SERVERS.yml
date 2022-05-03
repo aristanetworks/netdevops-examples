@@ -1,0 +1,23 @@
+---
+port_profiles:
+  TENANT_A:
+    mode: access
+    vlans: "10"
+
+servers:
+  host1:
+    rack: POD01
+    adapters:
+      - type: nic
+        endpoint_ports: [eth1]
+        switch_ports: [Ethernet3]
+        switches: [leaf-101]
+        profile: TENANT_A
+  host2:
+    rack: POD02
+    adapters:
+      - type: nic
+        endpoint_ports: [eth1]
+        switch_ports: [Ethernet3]
+        switches: [leaf-102]
+        profile: TENANT_A
