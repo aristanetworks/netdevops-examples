@@ -17,7 +17,7 @@
 
 ## Lab Environement
 
-The lab included in this repository was deployed using Containerlab and cEOS nodes running on a simple Ubuntu 20.04 server. If you would like to use cEOS with containerlab, please follow instructions below. If you would like to use another platform like EVE-NG or GNS3, those would work great as well. If management addresses or login credentials (admin/admin) are different, those changes would have to be updated in the respective files (inventory file/group_vars).
+The lab included in this repository was deployed using Containerlab and cEOS nodes running on a simple Ubuntu 20.04 server. If you would like to use cEOS with Containerlab, please follow instructions below. If you would like to use another platform like EVE-NG or GNS3, those would work great as well. If management addresses or login credentials (admin/admin) are different, those changes would have to be updated in the respective files (inventory file/group_vars).
 
 - Install Docker
 
@@ -54,7 +54,8 @@ The lab included in this repository was deployed using Containerlab and cEOS nod
   ```
 
 - Deploy Lab
-  - If local cEOS verions are not the same as those described in `pyn.yml`, please update versions to reflect local lab
+
+  - If local cEOS versions are not the same as those described in `pyn.yml`, please update versions to reflect local lab
     ```yml
     # Example
     topology:
