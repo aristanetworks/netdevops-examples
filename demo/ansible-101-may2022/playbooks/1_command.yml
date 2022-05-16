@@ -5,7 +5,7 @@
   tasks:
 
    # Alternate from the command line ansible leaf-101 -m arista.eos.eos_command -a "commands='show version | include image'"
-    - name: Get Version
+    - name: Get version
       arista.eos.eos_command:
         commands: show version | include image
       register: switch_version
