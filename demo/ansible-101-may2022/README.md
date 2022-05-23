@@ -1,4 +1,6 @@
-# Anisble 101 Program Your Network
+# Ansible 101 Automate Your Network
+
+![Simple Topology](images/topo.png)
 
 ## Requirements
 
@@ -15,7 +17,7 @@
   ansible-galaxy collection install arista.eos
   ```
 
-## Lab Environement
+## Lab Environment
 
 The lab included in this repository was deployed using Containerlab and cEOS nodes running on a simple Ubuntu 20.04 server. If you would like to use cEOS with Containerlab, please follow instructions below. If you would like to use another platform like EVE-NG or GNS3, those would work great as well. If management addresses or login credentials (admin/admin) are different, those changes would have to be updated in the respective files (inventory file/group_vars).
 
