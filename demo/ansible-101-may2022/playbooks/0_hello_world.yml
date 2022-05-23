@@ -1,0 +1,28 @@
+---
+- name: This is a hello world example
+  hosts: DC1
+  gather_facts: false
+  tasks:
+
+    # Alternate from command line "ansible DC1 -m ping"
+    - name: Check connectivity on DC1
+      ansible.builtin.ping:
+      register: ping_response
+
+    - name: View response
+      ansible.builtin.debug:
+        msg: "{{ ping_response }}"
+
+- name: This is a hello world example 2
+  hosts: leaf-101
+  gather_facts: false
+  tasks:
+
+    # Alternate from command line "ansible leaf-101 -m ping"
+    - name: Check connectivity on leaf-101
+      ansible.builtin.ping:
+      register: ping_response
+
+    - name: View response
+      ansible.builtin.debug:
+        msg: "{{ ping_response }}"

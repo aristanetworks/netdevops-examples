@@ -1,0 +1,12 @@
+# DC1 Software Compliance Report
+
+{% for h in groups['all'] %}     
+## {{ h }}
+
+- Version: {{ hostvars[h].version_check.msg }}
+{% if hostvars[h].version_check.failed %}
+- In Compliance: NO
+{% else %}
+- In Compliance: YES
+{% endif %}
+{% endfor %}

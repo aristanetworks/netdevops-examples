@@ -1,0 +1,132 @@
+router_bgp:
+  as: '65099'
+  router_id: 192.168.0.11
+  bgp_defaults:
+  - no bgp default ipv4-unicast
+  - distance bgp 20 200 200
+  - graceful-restart restart-time 300
+  - graceful-restart
+  - maximum-paths 4 ecmp 4
+  peer_groups:
+    IPv4-UNDERLAY-PEERS:
+      type: ipv4
+      maximum_routes: 12000
+      send_community: all
+    EVPN-OVERLAY-PEERS:
+      type: evpn
+      update_source: Loopback0
+      bfd: true
+      ebgp_multihop: '3'
+      send_community: all
+      maximum_routes: 0
+      next_hop_unchanged: true
+  address_family_ipv4:
+    peer_groups:
+      IPv4-UNDERLAY-PEERS:
+        activate: true
+      EVPN-OVERLAY-PEERS:
+        activate: false
+  redistribute_routes:
+    connected:
+      route_map: RM-CONN-2-BGP
+  neighbors:
+    172.31.255.201:
+      peer_group: IPv4-UNDERLAY-PEERS
+      remote_as: '65000'
+      description: leaf-101_Ethernet1
+    172.31.255.203:
+      peer_group: IPv4-UNDERLAY-PEERS
+      remote_as: '65001'
+      description: leaf-102_Ethernet1
+    192.168.0.102:
+      peer_group: EVPN-OVERLAY-PEERS
+      description: leaf-101
+      remote_as: '65000'
+    192.168.0.103:
+      peer_group: EVPN-OVERLAY-PEERS
+      description: leaf-102
+      remote_as: '65001'
+  address_family_evpn:
+    peer_groups:
+      EVPN-OVERLAY-PEERS:
+        activate: true
+static_routes:
+- vrf: MGMT
+  destination_address_prefix: 0.0.0.0/0
+  gateway: 192.168.100.1
+service_routing_protocols_model: multi-agent
+ip_routing: true
+vlan_internal_order:
+  allocation: ascending
+  range:
+    beginning: 1006
+    ending: 1199
+name_server:
+  source:
+    vrf: MGMT
+  nodes:
+  - 1.1.1.1
+  - 8.8.8.8
+spanning_tree:
+  mode: none
+local_users:
+  admin:
+    privilege: 15
+    role: network-admin
+    sha512_password: $6$ICfMofvulgyrSy.I$YNucN.yK.YDdxz4dtGR2o88CxtrhQM11W5O7SkzUlQoW8PqAKZCurrK1nQ2O8j0cEPQ.aS1oMOPuPHCt2LW5r/
+vrfs:
+  MGMT:
+    ip_routing: false
+management_interfaces:
+  Management0:
+    description: oob_management
+    shutdown: false
+    vrf: MGMT
+    ip_address: 192.168.100.21/24
+    gateway: 192.168.100.1
+    type: oob
+management_api_http:
+  enable_vrfs:
+    MGMT: {}
+  enable_https: true
+ethernet_interfaces:
+  Ethernet1:
+    peer: leaf-101
+    peer_interface: Ethernet1
+    peer_type: l3leaf
+    description: P2P_LINK_TO_LEAF-101_Ethernet1
+    mtu: 9000
+    type: routed
+    shutdown: false
+    ip_address: 172.31.255.200/31
+  Ethernet2:
+    peer: leaf-102
+    peer_interface: Ethernet1
+    peer_type: l3leaf
+    description: P2P_LINK_TO_LEAF-102_Ethernet1
+    mtu: 9000
+    type: routed
+    shutdown: false
+    ip_address: 172.31.255.202/31
+loopback_interfaces:
+  Loopback0:
+    description: EVPN_Overlay_Peering
+    shutdown: false
+    ip_address: 192.168.0.11/32
+prefix_lists:
+  PL-LOOPBACKS-EVPN-OVERLAY:
+    sequence_numbers:
+      10:
+        action: permit 192.168.0.0/24 eq 32
+route_maps:
+  RM-CONN-2-BGP:
+    sequence_numbers:
+      10:
+        type: permit
+        match:
+        - ip address prefix-list PL-LOOPBACKS-EVPN-OVERLAY
+router_bfd:
+  multihop:
+    interval: 300
+    min_rx: 300
+    multiplier: 3
