@@ -18,3 +18,13 @@
       tags: [build]
       import_role:
         name: arista.avd.eos_cli_config_gen
+
+    - name: deploy configuration to device
+      tags: [deploy]
+      import_role:
+         name: arista.avd.eos_config_deploy_eapi
+
+    - name: validate states on EOS devices
+      tags: [validate]
+      import_role:
+         name: arista.avd.eos_validate_state

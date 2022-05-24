@@ -1,0 +1,101 @@
+
+# Validate State Report
+
+**Table of Contents:**
+
+- [Validate State Report](validate-state-report)
+  - [Test Results Summary](#test-results-summary)
+  - [Failed Test Results Summary](#failed-test-results-summary)
+  - [All Test Results](#all-test-results)
+
+## Test Results Summary
+
+### Summary Totals
+
+| Total Tests | Total Tests Passed | Total Tests Failed |
+| ----------- | ------------------ | ------------------ |
+| 51 | 48 | 3 |
+
+### Summary Totals Devices Under Tests
+
+| DUT | Total Tests | Tests Passed | Tests Failed | Categories Failed |
+| --- | ----------- | ------------ | ------------ | ----------------- |
+| leaf-101 |  19 | 18 | 1 | NTP |
+| leaf-102 |  19 | 18 | 1 | NTP |
+| spine-11 |  13 | 12 | 1 | NTP |
+
+### Summary Totals Per Category
+
+| Test Category | Total Tests | Tests Passed | Tests Failed |
+| ------------- | ----------- | ------------ | ------------ |
+| NTP |  3 | 0 | 3 |
+| Interface State |  13 | 13 | 0 |
+| LLDP Topology |  4 | 4 | 0 |
+| IP Reachability |  4 | 4 | 0 |
+| BGP |  11 | 11 | 0 |
+| Routing Table |  10 | 10 | 0 |
+| Loopback0 Reachability |  6 | 6 | 0 |
+
+## Failed Test Results Summary
+
+| Test ID | Node | Test Category | Test Description | Test | Test Result | Failure Reason |
+| ------- | ---- | ------------- | ---------------- | ---- | ----------- | -------------- |
+| 1 | leaf-101 | NTP | Synchronised with NTP server | NTP | FAIL | Not synchronised to NTP server |
+| 2 | leaf-102 | NTP | Synchronised with NTP server | NTP | FAIL | Not synchronised to NTP server |
+| 3 | spine-11 | NTP | Synchronised with NTP server | NTP | FAIL | Not synchronised to NTP server |
+
+## All Test Results
+
+| Test ID | Node | Test Category | Test Description | Test | Test Result | Failure Reason |
+| ------- | ---- | ------------- | ---------------- | ---- | ----------- | -------------- |
+| 1 | leaf-101 | NTP | Synchronised with NTP server | NTP | FAIL | Not synchronised to NTP server |
+| 2 | leaf-102 | NTP | Synchronised with NTP server | NTP | FAIL | Not synchronised to NTP server |
+| 3 | spine-11 | NTP | Synchronised with NTP server | NTP | FAIL | Not synchronised to NTP server |
+| 4 | leaf-101 | Interface State | Ethernet Interface & Line Protocol == "up" | Ethernet1 - P2P_LINK_TO_SPINE-11_Ethernet1 | PASS | - |
+| 5 | leaf-101 | Interface State | Ethernet Interface & Line Protocol == "up" | Ethernet3 - host1_eth1 | PASS | - |
+| 6 | leaf-102 | Interface State | Ethernet Interface & Line Protocol == "up" | Ethernet1 - P2P_LINK_TO_SPINE-11_Ethernet2 | PASS | - |
+| 7 | leaf-102 | Interface State | Ethernet Interface & Line Protocol == "up" | Ethernet3 - host2_eth1 | PASS | - |
+| 8 | spine-11 | Interface State | Ethernet Interface & Line Protocol == "up" | Ethernet1 - P2P_LINK_TO_LEAF-101_Ethernet1 | PASS | - |
+| 9 | spine-11 | Interface State | Ethernet Interface & Line Protocol == "up" | Ethernet2 - P2P_LINK_TO_LEAF-102_Ethernet1 | PASS | - |
+| 10 | leaf-101 | Interface State | Vxlan Interface Status & Line Protocol == "up" | Vxlan1 | PASS | - |
+| 11 | leaf-102 | Interface State | Vxlan Interface Status & Line Protocol == "up" | Vxlan1 | PASS | - |
+| 12 | leaf-101 | Interface State | Loopback Interface Status & Line Protocol == "up" | Loopback0 - EVPN_Overlay_Peering | PASS | - |
+| 13 | leaf-101 | Interface State | Loopback Interface Status & Line Protocol == "up" | Loopback1 - VTEP_VXLAN_Tunnel_Source | PASS | - |
+| 14 | leaf-102 | Interface State | Loopback Interface Status & Line Protocol == "up" | Loopback0 - EVPN_Overlay_Peering | PASS | - |
+| 15 | leaf-102 | Interface State | Loopback Interface Status & Line Protocol == "up" | Loopback1 - VTEP_VXLAN_Tunnel_Source | PASS | - |
+| 16 | spine-11 | Interface State | Loopback Interface Status & Line Protocol == "up" | Loopback0 - EVPN_Overlay_Peering | PASS | - |
+| 17 | leaf-101 | LLDP Topology | LLDP topology - validate peer and interface | local: Ethernet1 - remote: spine-11_Ethernet1 | PASS | - |
+| 18 | leaf-102 | LLDP Topology | LLDP topology - validate peer and interface | local: Ethernet1 - remote: spine-11_Ethernet2 | PASS | - |
+| 19 | spine-11 | LLDP Topology | LLDP topology - validate peer and interface | local: Ethernet1 - remote: leaf-101_Ethernet1 | PASS | - |
+| 20 | spine-11 | LLDP Topology | LLDP topology - validate peer and interface | local: Ethernet2 - remote: leaf-102_Ethernet1 | PASS | - |
+| 21 | leaf-101 | IP Reachability | ip reachability test p2p links | Source: leaf-101_Ethernet1 - Destination: spine-11_Ethernet1 | PASS | - |
+| 22 | leaf-102 | IP Reachability | ip reachability test p2p links | Source: leaf-102_Ethernet1 - Destination: spine-11_Ethernet2 | PASS | - |
+| 23 | spine-11 | IP Reachability | ip reachability test p2p links | Source: spine-11_Ethernet1 - Destination: leaf-101_Ethernet1 | PASS | - |
+| 24 | spine-11 | IP Reachability | ip reachability test p2p links | Source: spine-11_Ethernet2 - Destination: leaf-102_Ethernet1 | PASS | - |
+| 25 | leaf-101 | BGP | ArBGP is configured and operating | ArBGP | PASS | - |
+| 26 | leaf-102 | BGP | ArBGP is configured and operating | ArBGP | PASS | - |
+| 27 | spine-11 | BGP | ArBGP is configured and operating | ArBGP | PASS | - |
+| 28 | leaf-101 | BGP | ip bgp peer state established (ipv4) | bgp_neighbor: 172.31.255.200 | PASS | - |
+| 29 | leaf-102 | BGP | ip bgp peer state established (ipv4) | bgp_neighbor: 172.31.255.202 | PASS | - |
+| 30 | spine-11 | BGP | ip bgp peer state established (ipv4) | bgp_neighbor: 172.31.255.201 | PASS | - |
+| 31 | spine-11 | BGP | ip bgp peer state established (ipv4) | bgp_neighbor: 172.31.255.203 | PASS | - |
+| 32 | leaf-101 | BGP | bgp evpn peer state established (evpn) | bgp_neighbor: 192.168.0.11 | PASS | - |
+| 33 | leaf-102 | BGP | bgp evpn peer state established (evpn) | bgp_neighbor: 192.168.0.11 | PASS | - |
+| 34 | spine-11 | BGP | bgp evpn peer state established (evpn) | bgp_neighbor: 192.168.0.102 | PASS | - |
+| 35 | spine-11 | BGP | bgp evpn peer state established (evpn) | bgp_neighbor: 192.168.0.103 | PASS | - |
+| 36 | leaf-101 | Routing Table | Remote VTEP address | 192.168.50.102 | PASS | - |
+| 37 | leaf-101 | Routing Table | Remote VTEP address | 192.168.50.103 | PASS | - |
+| 38 | leaf-102 | Routing Table | Remote VTEP address | 192.168.50.102 | PASS | - |
+| 39 | leaf-102 | Routing Table | Remote VTEP address | 192.168.50.103 | PASS | - |
+| 40 | leaf-101 | Routing Table | Remote Lo0 address | 192.168.0.102 | PASS | - |
+| 41 | leaf-101 | Routing Table | Remote Lo0 address | 192.168.0.103 | PASS | - |
+| 42 | leaf-101 | Routing Table | Remote Lo0 address | 192.168.0.11 | PASS | - |
+| 43 | leaf-102 | Routing Table | Remote Lo0 address | 192.168.0.102 | PASS | - |
+| 44 | leaf-102 | Routing Table | Remote Lo0 address | 192.168.0.103 | PASS | - |
+| 45 | leaf-102 | Routing Table | Remote Lo0 address | 192.168.0.11 | PASS | - |
+| 46 | leaf-101 | Loopback0 Reachability | Loopback0 Reachability | Source: leaf-101 - 192.168.0.102 Destination: 192.168.0.102 | PASS | - |
+| 47 | leaf-101 | Loopback0 Reachability | Loopback0 Reachability | Source: leaf-101 - 192.168.0.102 Destination: 192.168.0.103 | PASS | - |
+| 48 | leaf-101 | Loopback0 Reachability | Loopback0 Reachability | Source: leaf-101 - 192.168.0.102 Destination: 192.168.0.11 | PASS | - |
+| 49 | leaf-102 | Loopback0 Reachability | Loopback0 Reachability | Source: leaf-102 - 192.168.0.103 Destination: 192.168.0.102 | PASS | - |
+| 50 | leaf-102 | Loopback0 Reachability | Loopback0 Reachability | Source: leaf-102 - 192.168.0.103 Destination: 192.168.0.103 | PASS | - |
+| 51 | leaf-102 | Loopback0 Reachability | Loopback0 Reachability | Source: leaf-102 - 192.168.0.103 Destination: 192.168.0.11 | PASS | - |
